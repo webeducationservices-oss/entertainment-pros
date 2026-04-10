@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audio-Visual Sales and Installation | Pinellas County</title>
+<meta name="description" content="Residential entertainment planning and installation services in Pinellas County. Audio video, home theater, lighting control, home automation, and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.entertainment-pros.com/services-audio-visual-planning-and-installation/">
+<meta property="og:title" content="Audio-Visual Sales and Installation | Pinellas County">
+<meta property="og:description" content="Residential entertainment planning and installation services in Pinellas County. Audio video, home theater, lighting control, home automation, and more.">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<script src="/components.js" defer></script>
+<style>
+/* ===== PAGE-SPECIFIC: SERVICES OVERVIEW ===== */
+
+/* Intro */
+.services-intro{padding:var(--section-pad);background:var(--white)}
+.services-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.services-intro-content .section-title{margin-top:8px}
+.services-intro-content p{color:var(--gray);margin-bottom:20px;font-size:1.05rem;line-height:1.8}
+.services-intro-img{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg)}
+.services-intro-img img{width:100%;height:100%;object-fit:cover}
+
+/* Service cards grid */
+.all-services{padding:var(--section-pad);background:var(--gray-bg)}
+.all-services-header{text-align:center;margin-bottom:60px}
+.all-services-header .section-subtitle{margin:0 auto}
+.all-services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+
+.svc-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);display:flex;flex-direction:column}
+.svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.svc-card-img{height:180px;overflow:hidden;position:relative}
+.svc-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.svc-card:hover .svc-card-img img{transform:scale(1.06)}
+.svc-card-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.svc-card-icon svg{width:28px;height:28px;color:#fff}
+.svc-card-body{padding:32px 28px;flex:1;display:flex;flex-direction:column}
+.svc-card-body h3{font-size:1.15rem;margin-bottom:10px;color:var(--black)}
+.svc-card-body p{font-size:.9rem;color:var(--gray);line-height:1.7;margin-bottom:20px;flex:1}
+.svc-card-link{font-family:var(--font-heading);font-size:.8rem;font-weight:600;color:var(--orange);display:inline-flex;align-items:center;gap:6px;transition:var(--transition)}
+.svc-card-link:hover{gap:10px;color:var(--orange-dark)}
+.svc-card-link svg{width:14px;height:14px}
+
+/* Why choose */
+.why-section{padding:var(--section-pad);background:var(--white)}
+.why-header{text-align:center;margin-bottom:60px}
+.why-header .section-subtitle{margin:0 auto}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.why-card{text-align:center;padding:40px 28px;border-radius:var(--radius);background:var(--gray-bg);transition:var(--transition)}
+.why-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.why-card-icon{width:64px;height:64px;background:rgba(243,137,41,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.why-card-icon svg{width:28px;height:28px;color:var(--orange)}
+.why-card h3{font-size:1.05rem;margin-bottom:10px;color:var(--black)}
+.why-card p{font-size:.9rem;color:var(--gray);line-height:1.7}
+
+/* Coverage */
+.coverage{padding:80px 0;background:var(--black);color:#fff;text-align:center}
+.coverage h2{color:#fff;margin-bottom:16px}
+.coverage p{color:rgba(255,255,255,.6);max-width:640px;margin:0 auto 32px;font-size:1.05rem}
+.coverage-areas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:800px;margin:0 auto}
+.coverage-tag{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);padding:8px 20px;border-radius:100px;font-family:var(--font-heading);font-size:.8rem;font-weight:500;letter-spacing:.5px;color:rgba(255,255,255,.7);transition:var(--transition)}
+.coverage-tag:hover{background:rgba(243,137,41,.15);border-color:rgba(243,137,41,.3);color:var(--orange)}
+
+/* Responsive */
+@media(max-width:1024px){
+  .services-intro-grid{grid-template-columns:1fr;gap:48px}
+  .all-services-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .all-services-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header header-solid" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/images/Transparent Logo.png" alt="Entertainment Pros logo" width="180" height="48">
+    </a>
+    <div class="header-right">
+      <div class="header-info">
+        <a href="tel:727-804-2277">
+          <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          727-804-2277
+        </a>
+        <span class="divider"></span>
+        <span>License ES12001376</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="mega">
+            <a href="/services-audio-visual-planning-and-installation/" class="active">Services <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="mega-menu">
+              <div class="mega-inner">
+                <div class="mega-col">
+                  <h5>Audio &amp; Sound</h5>
+                  <a href="/audio-video-planning-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Audio-Video Planning</a>
+                  <a href="/home-theater-design-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Home Theater Design</a>
+                  <a href="/living-room-surround-sound/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Surround Sound Systems</a>
+                  <a href="/condo-tv-and-sound-solutions/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="16" y2="6"/></svg> Condo TV &amp; Sound</a>
+                </div>
+                <div class="mega-col">
+                  <h5>TV &amp; Installations</h5>
+                  <a href="/hanging-tvs-mounting-services/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> TV Hanging &amp; Mounting</a>
+                  <a href="/installations-residential/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Residential Installations</a>
+                  <a href="/commercial-audio-video/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Commercial Audio-Video</a>
+                  <a href="/sales/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Equipment Sales</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Lighting</h5>
+                  <a href="/lighting-control/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg> Lighting Control</a>
+                  <a href="/led-accent-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> LED Accent Lighting</a>
+                  <a href="/exterior-illumination/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Exterior Illumination</a>
+                  <a href="/exterior-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> Landscape Lighting</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Smart Home</h5>
+                  <a href="/home-automation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg> Home Automation</a>
+                  <a href="/automated-shades/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg> Automated Shades</a>
+                </div>
+                <div class="mega-cta">
+                  <p>Not sure what you need? We'll help you figure it out.</p>
+                  <a href="/contact/" class="btn btn-primary">Request Free Consultation</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/portfolio/">Portfolio <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/portfolio/">Gallery</a></li>
+              <li><a href="/brands/">Brands</a></li>
+            </ul>
+          </li>
+          <li><a href="/about-us/">About Us</a></li>
+          <li class="dropdown">
+            <a href="/blog/">AV Hub <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/tv-size/">TV Size Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="/contact/" class="btn btn-primary header-cta">Request Consultation</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="/">Home</a>
+  <a href="/services-audio-visual-planning-and-installation/">Services</a>
+  <div class="mobile-nav-sub">
+    <a href="/audio-video-planning-and-installation/">Audio-Video Planning</a>
+    <a href="/home-theater-design-and-installation/">Home Theater</a>
+    <a href="/hanging-tvs-mounting-services/">TV Mounting</a>
+    <a href="/lighting-control/">Lighting Control</a>
+    <a href="/exterior-illumination/">Exterior Lighting</a>
+    <a href="/home-automation/">Home Automation</a>
+  </div>
+  <a href="/portfolio/">Portfolio</a>
+  <a href="/about-us/">About Us</a>
+  <a href="/blog/">AV Hub</a>
+  <a href="/contact/">Contact</a>
+  <a href="tel:727-804-2277" class="mobile-phone">727-804-2277</a>
+</div>
+
+<main>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <span class="current">Services</span>
+    </div>
+    <h1>Residential Entertainment Planning &amp; Installation Services</h1>
+    <p>Home entertainment used to be about your TV and stereo. Now it is so much more! From home automation to exterior illumination, we have your planning and installation covered.</p>
+  </div>
+</section>
+
+<!-- ===== INTRO ===== -->
+<section class="services-intro">
+  <div class="container">
+    <div class="services-intro-grid">
+      <div class="services-intro-content">
+        <span class="section-label">All-in-One Provider</span>
+        <h2 class="section-title">Every Service You Need, In One Place</h2>
+        <p>Each house is unique, each person is unique, each project is unique. Let our expertise plan, execute, and install your home entertainment project.</p>
+        <p>We are a residential audio/video, automation, control, and lighting integration company based in Palm Harbor, FL. We service all of Pinellas County, and areas of West Hillsborough and West Pasco. We are focused on just one thing &mdash; customer service.</p>
+        <a href="/contact/" class="btn btn-primary" style="margin-top:12px">Request Onsite Consultation</a>
+      </div>
+      <div class="services-intro-img">
+        <img src="/images/service-luxury.jpeg" alt="Luxury home entertainment installation by Entertainment Pros" width="600" height="400" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ALL SERVICES ===== -->
+<section class="all-services">
+  <div class="container">
+    <div class="all-services-header">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">From single-room surround sound to whole-house automation, we deliver quality craftsmanship with meticulous attention to detail.</p>
+    </div>
+    <div class="all-services-grid">
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/service-av.jpeg" alt="Audio-video planning and installation" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
+          <h3>Audio-Video Planning &amp; Installation</h3>
+          <p>Make staying home fun with a single room surround sound or a whole house audio video system easily controlled with one remote control.</p>
+          <a href="/audio-video-planning-and-installation/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/MacLeod.jpg" alt="Home theater design and installation" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h3>Home Theater Design &amp; Installation</h3>
+          <p>Almost any room can be transformed into a state of the art home theater. We create systems using stunning 4K video, powerful audio, and custom lighting to fit your style, vision, and budget.</p>
+          <a href="/home-theater-design-and-installation/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/gallery-3.jpeg" alt="Professional TV hanging and mounting" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+          <h3>TV Hanging &amp; Mounting</h3>
+          <p>TVs get hung right the first time. Professional TV mounting with hidden wiring for homes, condos, and commercial spaces across Pinellas County.</p>
+          <a href="/hanging-tvs-mounting-services/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/Corp Audio Video (1).jpg" alt="Commercial audio-video installation" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <h3>Commercial Audio-Video</h3>
+          <p>Sport bars, waiting rooms, boardrooms, conference rooms and call centers &mdash; we provide A/V and white noise solutions to increase productivity.</p>
+          <a href="/commercial-audio-video/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/gallery-1.jpeg" alt="Residential AV installation" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <h3>Residential Installations</h3>
+          <p>We install 4K TVs, audio video systems, stereo systems, lighting control, home theaters, home automation, automated shades, and security systems.</p>
+          <a href="/installations-residential/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/Lighting Control.png" alt="Lighting control and automation system" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg></div>
+          <h3>Lighting Control &amp; Automation</h3>
+          <p>Lighting control lets you conveniently set your lighting for the scene you want for "The Big Night" or every night!</p>
+          <a href="/lighting-control/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/20240320_205836.jpg" alt="LED accent lighting installation" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h3>LED Accent Lighting</h3>
+          <p>Take your home to the next level with custom LED accent lighting. No exposed strips, just the glow &mdash; professional results every time.</p>
+          <a href="/led-accent-lighting/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/Exterior Illumination.png" alt="Exterior illumination and LED lighting" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
+          <h3>Exterior Illumination</h3>
+          <p>LED lights are a money-saving upgrade. Custom, high-quality fixtures and color-changing LEDs add security and personalize your home.</p>
+          <a href="/exterior-illumination/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/service-exterior.jpg" alt="Landscape and exterior lighting" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
+          <h3>Exterior Lighting</h3>
+          <p>Custom landscape and exterior lighting creates a dramatic first impression. High-quality fixtures with LED technology for lasting beauty and security.</p>
+          <a href="/exterior-lighting/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/service-automation.jpeg" alt="Home automation control system" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+          <h3>Home Automation</h3>
+          <p>Automated control solutions for home or business add convenience, security, and energy savings. Go beyond Alexa and Nest.</p>
+          <a href="/home-automation/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/Corp Automated shades.jpg" alt="Automated motorized shades installation" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg></div>
+          <h3>Automated Shades</h3>
+          <p>Motorized shades and screens offer protection from the sun, provide security, prevent uncomfortable glare, and reduce the load on HVAC systems.</p>
+          <a href="/automated-shades/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/service-luxury.jpeg" alt="Premium AV equipment for sale" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+          <h3>Equipment Sales</h3>
+          <p>We design, install, and sell! Wholesale pricing on receivers, amplifiers, 4K TVs, lighting automation, and all your equipment needs.</p>
+          <a href="/sales/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/Surround Systems (1).jpg" alt="Living room surround sound system" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
+          <h3>Living Room Surround Sound</h3>
+          <p>A high-quality surround sound system creates an immersive experience for movies, music, and gaming. Options for every preference and budget.</p>
+          <a href="/living-room-surround-sound/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="/images/Custom TV.jpg" alt="Custom condo TV and sound solution" width="400" height="180" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="16" y2="6"/></svg></div>
+          <h3>Condo TV &amp; Sound Solutions</h3>
+          <p>Framed TVs, sound systems, and a theater experience tailored for condominiums. Custom solutions that complement your interior design.</p>
+          <a href="/condo-tv-and-sound-solutions/" class="svc-card-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="why-section">
+  <div class="container">
+    <div class="why-header">
+      <span class="section-label">Why Entertainment Pros</span>
+      <h2 class="section-title">Why Trust a Professional?</h2>
+      <p class="section-subtitle">Beyond experience and a proven process, we simply love our job.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Licensed &amp; Insured</h3>
+        <p>Florida Low Voltage License ES12001376. Full insurance coverage for every project we take on.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3>Proven Track Record</h3>
+        <p>Serving Pinellas County since 2006 with 5-star Google reviews and over 1,000 installations completed.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Customer-First Approach</h3>
+        <p>We are focused on just one thing &mdash; customer service. Each project is treated like it is our own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COVERAGE ===== -->
+<section class="coverage">
+  <div class="container">
+    <span class="section-label">Service Area</span>
+    <h2>Proudly Serving Pinellas County &amp; Beyond</h2>
+    <p>Entertainment Pros services all of Pinellas, and areas of Hillsborough and Pasco counties.</p>
+    <div class="coverage-areas">
+      <span class="coverage-tag">Clearwater</span>
+      <span class="coverage-tag">St. Petersburg</span>
+      <span class="coverage-tag">Palm Harbor</span>
+      <span class="coverage-tag">Dunedin</span>
+      <span class="coverage-tag">Largo</span>
+      <span class="coverage-tag">Seminole</span>
+      <span class="coverage-tag">Safety Harbor</span>
+      <span class="coverage-tag">Oldsmar</span>
+      <span class="coverage-tag">Tarpon Springs</span>
+      <span class="coverage-tag">West Hillsborough</span>
+      <span class="coverage-tag">West Pasco</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Get Started?</h2>
+    <p>Contact us for more information or to schedule a free onsite consultation.</p>
+    <div class="cta-buttons">
+      <a href="tel:727-804-2277" class="btn btn-dark">Call 727-804-2277</a>
+      <a href="/contact/" class="btn" style="background:#fff;color:var(--orange-dark);font-weight:700">Request Consultation</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/images/Transparent Logo.png" alt="Entertainment Pros" width="160" height="42">
+        <p>Licensed and insured Audio/Video Sales and Installation company serving Pinellas County since 2006. Residential and commercial AV projects.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/audio-video-planning-and-installation/">Audio-Video</a></li>
+          <li><a href="/home-theater-design-and-installation/">Home Theater</a></li>
+          <li><a href="/hanging-tvs-mounting-services/">TV Mounting</a></li>
+          <li><a href="/lighting-control/">Lighting Control</a></li>
+          <li><a href="/exterior-illumination/">Exterior Illumination</a></li>
+          <li><a href="/home-automation/">Home Automation</a></li>
+          <li><a href="/automated-shades/">Automated Shades</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about-us/">About Us</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/brands/">Brands</a></li>
+          <li><a href="/leave-a-review/">Leave a Review</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:727-804-2277">727-804-2277</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Pinellas County, FL</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>License ES12001376</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2006&ndash;2026 Entertainment Pros. All rights reserved.</span>
+      <span>Serving Clearwater, St. Pete, Palm Harbor, Dunedin &amp; all of Pinellas</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

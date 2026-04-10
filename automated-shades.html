@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automated Shades | Design, Installation &amp; Training</title>
+<meta name="description" content="Motorized and automated shade installation in Pinellas County. Protect from sun glare, reduce HVAC costs, and integrate with your smart home system.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.entertainment-pros.com/automated-shades/">
+<meta property="og:title" content="Automated Shades | Design, Installation &amp; Training">
+<meta property="og:description" content="Motorized and automated shade installation in Pinellas County. Protect from sun glare, reduce HVAC costs, and integrate with your smart home system.">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<script src="/components.js" defer></script>
+<style>
+/* ===== PAGE-SPECIFIC: AUTOMATED SHADES ===== */
+
+/* Intro */
+.shades-intro{padding:var(--section-pad);background:var(--white)}
+.shades-intro .container{max-width:900px}
+.shades-intro .section-title{margin-top:8px}
+.shades-intro p{color:var(--gray);margin-bottom:20px;font-size:1.05rem;line-height:1.8}
+
+/* Benefits grid */
+.shades-benefits{padding:var(--section-pad);background:var(--gray-bg)}
+.shades-benefits-header{text-align:center;margin-bottom:60px}
+.shades-benefits-header .section-subtitle{margin:0 auto}
+.shades-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.shade-card{background:#fff;border-radius:var(--radius);padding:36px 28px;text-align:center;box-shadow:var(--shadow);transition:var(--transition)}
+.shade-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.shade-card-icon{width:64px;height:64px;background:rgba(243,137,41,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.shade-card-icon svg{width:28px;height:28px;color:var(--orange)}
+.shade-card h3{font-size:1.05rem;margin-bottom:10px;color:var(--black)}
+.shade-card p{font-size:.9rem;color:var(--gray);line-height:1.7}
+
+/* Smart integration */
+.shades-smart{padding:var(--section-pad);background:var(--white)}
+.shades-smart-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.shades-smart-content .section-title{margin-top:8px}
+.shades-smart-content p{color:var(--gray);margin-bottom:20px;font-size:1.05rem;line-height:1.8}
+.smart-features{list-style:none;padding:0;margin:20px 0 0}
+.smart-features li{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;font-size:.95rem;color:var(--gray);line-height:1.6}
+.smart-features li svg{flex-shrink:0;width:20px;height:20px;color:var(--orange);margin-top:2px}
+
+/* Auto-adjust section */
+.shades-auto{padding:var(--section-pad);background:var(--gray-bg)}
+.shades-auto-header{text-align:center;margin-bottom:48px}
+.shades-auto-header .section-subtitle{margin:0 auto}
+.auto-features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:960px;margin:0 auto}
+.auto-feature{text-align:center;padding:40px 28px;border-radius:var(--radius);background:#fff;transition:var(--transition)}
+.auto-feature:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.auto-feature-icon{width:64px;height:64px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.auto-feature-icon svg{width:28px;height:28px;color:#fff}
+.auto-feature h3{font-size:1.05rem;margin-bottom:10px;color:var(--black)}
+.auto-feature p{font-size:.9rem;color:var(--gray);line-height:1.7}
+
+/* Hero feature image */
+.shades-hero-img{position:relative;width:100%;max-height:480px;overflow:hidden}
+.shades-hero-img img{width:100%;height:480px;object-fit:cover;display:block}
+.shades-hero-img .img-caption{position:absolute;bottom:0;left:0;right:0;padding:16px 24px;background:linear-gradient(transparent,rgba(0,0,0,.6));color:#fff;font-size:.85rem}
+
+/* Our Work gallery */
+.shades-gallery{padding:var(--section-pad);background:var(--white)}
+.shades-gallery-header{text-align:center;margin-bottom:48px}
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin:0 auto}
+.gallery-item{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.gallery-item img{width:100%;height:320px;object-fit:cover;display:block;transition:transform .3s}
+.gallery-item:hover img{transform:scale(1.03)}
+.gallery-item figcaption{padding:16px 20px;background:var(--gray-bg);font-size:.9rem;color:var(--gray)}
+
+/* Responsive */
+@media(max-width:1024px){
+  .shades-grid{grid-template-columns:repeat(2,1fr)}
+  .shades-smart-grid{grid-template-columns:1fr;gap:48px}
+  .auto-features-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .shades-grid{grid-template-columns:1fr}
+  .auto-features-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header header-solid" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/images/Transparent Logo.png" alt="Entertainment Pros logo" width="180" height="48">
+    </a>
+    <div class="header-right">
+      <div class="header-info">
+        <a href="tel:727-804-2277">
+          <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          727-804-2277
+        </a>
+        <span class="divider"></span>
+        <span>License ES12001376</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="mega">
+            <a href="/services-audio-visual-planning-and-installation/" class="active">Services <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="mega-menu">
+              <div class="mega-inner">
+                <div class="mega-col">
+                  <h5>Audio &amp; Sound</h5>
+                  <a href="/audio-video-planning-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Audio-Video Planning</a>
+                  <a href="/home-theater-design-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Home Theater Design</a>
+                  <a href="/living-room-surround-sound/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Surround Sound Systems</a>
+                  <a href="/condo-tv-and-sound-solutions/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="16" y2="6"/></svg> Condo TV &amp; Sound</a>
+                </div>
+                <div class="mega-col">
+                  <h5>TV &amp; Installations</h5>
+                  <a href="/hanging-tvs-mounting-services/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> TV Hanging &amp; Mounting</a>
+                  <a href="/installations-residential/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Residential Installations</a>
+                  <a href="/commercial-audio-video/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Commercial Audio-Video</a>
+                  <a href="/sales/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Equipment Sales</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Lighting</h5>
+                  <a href="/lighting-control/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg> Lighting Control</a>
+                  <a href="/led-accent-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> LED Accent Lighting</a>
+                  <a href="/exterior-illumination/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Exterior Illumination</a>
+                  <a href="/exterior-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> Landscape Lighting</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Smart Home</h5>
+                  <a href="/home-automation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg> Home Automation</a>
+                  <a href="/automated-shades/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg> Automated Shades</a>
+                </div>
+                <div class="mega-cta">
+                  <p>Not sure what you need? We'll help you figure it out.</p>
+                  <a href="/contact/" class="btn btn-primary">Request Free Consultation</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/portfolio/">Portfolio <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/portfolio/">Gallery</a></li>
+              <li><a href="/brands/">Brands</a></li>
+            </ul>
+          </li>
+          <li><a href="/about-us/">About Us</a></li>
+          <li class="dropdown">
+            <a href="/blog/">AV Hub <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/tv-size/">TV Size Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="/contact/" class="btn btn-primary header-cta">Request Consultation</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="/">Home</a>
+  <a href="/services-audio-visual-planning-and-installation/">Services</a>
+  <div class="mobile-nav-sub">
+    <a href="/audio-video-planning-and-installation/">Audio-Video Planning</a>
+    <a href="/home-theater-design-and-installation/">Home Theater</a>
+    <a href="/hanging-tvs-mounting-services/">TV Mounting</a>
+    <a href="/lighting-control/">Lighting Control</a>
+    <a href="/exterior-illumination/">Exterior Lighting</a>
+    <a href="/home-automation/">Home Automation</a>
+  </div>
+  <a href="/portfolio/">Portfolio</a>
+  <a href="/about-us/">About Us</a>
+  <a href="/blog/">AV Hub</a>
+  <a href="/contact/">Contact</a>
+  <a href="tel:727-804-2277" class="mobile-phone">727-804-2277</a>
+</div>
+
+<main>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/services-audio-visual-planning-and-installation/">Services</a>
+      <span class="sep">/</span>
+      <span class="current">Automated Shades</span>
+    </div>
+    <h1>Automated Shades</h1>
+    <p>Motorized shade design, installation, and smart home integration for homes across Pinellas County.</p>
+  </div>
+</section>
+
+<!-- ===== HERO IMAGE ===== -->
+<div class="shades-hero-img">
+  <img src="/images/Corp Automated shades.jpg" alt="Executive office with automated window shades installed by Entertainment Pros" width="1600" height="480" fetchpriority="high">
+</div>
+
+<!-- ===== INTRO ===== -->
+<section class="shades-intro">
+  <div class="container">
+    <span class="section-label">Motorized Window Treatments</span>
+    <h2 class="section-title">Automated Shades | Design, Installation, and Training</h2>
+    <p>Motorized shades and screens offer protection from the sun, provide an added layer of security, prevent uncomfortable glare on screens and furniture, and significantly reduce the load on your HVAC system. In Florida&rsquo;s intense sun, automated shades are not a luxury &mdash; they&rsquo;re a smart investment in comfort and energy savings.</p>
+    <p>Automated shades adjust themselves throughout the day for perfect lighting at any time. Set schedules so your shades lower during the hottest afternoon hours and raise in the evening to enjoy your view. With one tap on your phone or a simple voice command, you can control every shade in your home &mdash; individually or all at once.</p>
+    <p>Entertainment Pros designs, installs, and programs motorized shade systems that integrate seamlessly with your existing smart home setup. Whether you&rsquo;re starting from scratch or adding shades to an existing <a href="/home-automation/" style="color:var(--orange)">home automation system</a>, we&rsquo;ll make sure everything works together perfectly.</p>
+  </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section class="shades-benefits" aria-label="Benefits of automated shades">
+  <div class="container">
+    <div class="shades-benefits-header">
+      <span class="section-label">Key Benefits</span>
+      <h2 class="section-title">Why Choose Motorized Shades?</h2>
+      <p class="section-subtitle">Automated shades deliver comfort, convenience, and real energy savings every day.</p>
+    </div>
+    <div class="shades-grid">
+      <div class="shade-card">
+        <div class="shade-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+        </div>
+        <h3>Sun Protection</h3>
+        <p>Block harsh Florida sun to protect furniture, flooring, and artwork from UV damage and fading.</p>
+      </div>
+      <div class="shade-card">
+        <div class="shade-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Privacy &amp; Security</h3>
+        <p>Automated shades close on schedule even when you&rsquo;re away, giving the appearance that someone is home.</p>
+      </div>
+      <div class="shade-card">
+        <div class="shade-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Glare Reduction</h3>
+        <p>Eliminate screen glare on TVs, monitors, and tablets. Perfect for home theaters and media rooms.</p>
+      </div>
+      <div class="shade-card">
+        <div class="shade-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>HVAC Savings</h3>
+        <p>Reduce the load on your air conditioning by blocking solar heat gain. Lower energy bills, especially in summer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SMART INTEGRATION ===== -->
+<section class="shades-smart" aria-label="Smart home integration">
+  <div class="container">
+    <div class="shades-smart-grid">
+      <div class="shades-smart-content">
+        <span class="section-label">Smart Integration</span>
+        <h2 class="section-title">Seamless Smart Home Integration</h2>
+        <p>Your automated shades don&rsquo;t just work on their own &mdash; they become part of a connected home ecosystem. Pair them with smart lighting, temperature control, and automated lighting for a home that thinks for you.</p>
+        <ul class="smart-features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Automatically close shades when you leave the house
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Adjust shades based on sun position to keep your home comfortable
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Coordinate with <a href="/lighting-control/" style="color:var(--orange)">smart lighting</a> for the perfect ambiance
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Integrate with climate control to reduce energy consumption
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Control via voice, app, remote, or wall switch
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="auto-features-grid" style="grid-template-columns:1fr">
+          <div class="auto-feature">
+            <div class="auto-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+            </div>
+            <h3>Works With Your System</h3>
+            <p>Compatible with Lutron, Control4, Savant, and other major <a href="/home-automation/" style="color:var(--orange)">home automation platforms</a>.</p>
+          </div>
+          <div class="auto-feature">
+            <div class="auto-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <h3>One-Touch Scenes</h3>
+            <p>Create &ldquo;Movie Night&rdquo; or &ldquo;Good Morning&rdquo; scenes that adjust shades, lights, and temperature together.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AUTO-ADJUST ===== -->
+<section class="shades-auto" aria-label="Automatic adjustment features">
+  <div class="container">
+    <div class="shades-auto-header">
+      <span class="section-label">Set It &amp; Forget It</span>
+      <h2 class="section-title">Shades That Adjust Themselves</h2>
+      <p class="section-subtitle">Program your shades once and enjoy perfect lighting every day without lifting a finger.</p>
+    </div>
+    <div class="auto-features-grid">
+      <div class="auto-feature">
+        <div class="auto-feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Time-Based Scheduling</h3>
+        <p>Set daily, weekly, or seasonal schedules. Shades adjust automatically based on your routine.</p>
+      </div>
+      <div class="auto-feature">
+        <div class="auto-feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+        </div>
+        <h3>Sun Tracking</h3>
+        <p>Intelligent sensors track the sun&rsquo;s position and adjust shades to block direct sunlight while preserving natural light.</p>
+      </div>
+      <div class="auto-feature">
+        <div class="auto-feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </div>
+        <h3>Sunrise &amp; Sunset</h3>
+        <p>Wake up to natural light as shades rise with the sun. Close automatically at sunset for privacy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR WORK ===== -->
+<section class="shades-gallery">
+  <div class="container">
+    <div class="shades-gallery-header">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title">Automated Shade Projects</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="gallery-item">
+        <img src="/images/Corp Automated shades.jpg" alt="Executive office with automated window shades providing sun protection" width="480" height="320" loading="lazy">
+        <figcaption>Corporate boardroom with automated shades for glare reduction and privacy</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="/images/For Sliding pictures    Lighting & Shades Control     save energy, add convenience, create ambiance..jpg" alt="Lighting and shades control system for energy savings and ambiance" width="480" height="320" loading="lazy">
+        <figcaption>Integrated lighting and shade control for energy savings, convenience, and ambiance</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Get Started?</h2>
+    <p>Contact us today and tell us about your project. We&rsquo;ll design the perfect automated shade solution for your home.</p>
+    <div class="cta-buttons">
+      <a href="tel:727-804-2277" class="btn btn-dark">Call 727-804-2277</a>
+      <a href="/contact/" class="btn" style="background:#fff;color:var(--orange-dark);font-weight:700">Request Consultation</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/images/Transparent Logo.png" alt="Entertainment Pros" width="160" height="42">
+        <p>Licensed and insured Audio/Video Sales and Installation company serving Pinellas County since 2006. Residential and commercial AV projects.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/audio-video-planning-and-installation/">Audio-Video</a></li>
+          <li><a href="/home-theater-design-and-installation/">Home Theater</a></li>
+          <li><a href="/hanging-tvs-mounting-services/">TV Mounting</a></li>
+          <li><a href="/lighting-control/">Lighting Control</a></li>
+          <li><a href="/exterior-illumination/">Exterior Illumination</a></li>
+          <li><a href="/home-automation/">Home Automation</a></li>
+          <li><a href="/automated-shades/">Automated Shades</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about-us/">About Us</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/brands/">Brands</a></li>
+          <li><a href="/leave-a-review/">Leave a Review</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:727-804-2277">727-804-2277</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Pinellas County, FL</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>License ES12001376</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2006&ndash;2026 Entertainment Pros. All rights reserved.</span>
+      <span>Serving Clearwater, St. Pete, Palm Harbor, Dunedin &amp; all of Pinellas</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Living Room Surround Sound | Pinellas County</title>
+<meta name="description" content="Professional living room surround sound installation in Pinellas County. Bookshelf, ceiling, and invisible speaker configurations. Budget-friendly to high-end 5.1 and 5.2 systems by Entertainment Pros.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.entertainment-pros.com/living-room-surround-sound/">
+<meta property="og:title" content="Living Room Surround Sound | Pinellas County">
+<meta property="og:description" content="Professional living room surround sound installation in Pinellas County. Bookshelf, ceiling, and invisible speaker configurations for every budget.">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<script src="/components.js" defer></script>
+<style>
+/* ===== PAGE-SPECIFIC: LIVING ROOM SURROUND SOUND ===== */
+
+/* Content sections */
+.ss-section{padding:var(--section-pad)}
+.ss-section.alt{background:var(--gray-bg)}
+.ss-section-header{text-align:center;margin-bottom:60px}
+.ss-section-header .section-subtitle{margin:0 auto}
+.ss-content{max-width:860px;margin:0 auto}
+.ss-content p{color:var(--gray);font-size:1.05rem;line-height:1.8;margin-bottom:20px}
+.ss-content h3{color:var(--black);margin-bottom:12px;margin-top:32px;font-size:1.2rem}
+.ss-content ul,.ss-content ol{color:var(--gray);font-size:1.05rem;line-height:1.8;margin-bottom:20px;padding-left:24px}
+.ss-content li{margin-bottom:8px}
+
+/* Config cards */
+.config-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:40px}
+.config-card{background:#fff;border-radius:var(--radius);padding:32px 28px;box-shadow:var(--shadow);transition:var(--transition)}
+.config-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.config-card-icon{width:56px;height:56px;background:rgba(243,137,41,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.config-card-icon svg{width:26px;height:26px;color:var(--orange)}
+.config-card h3{font-size:1.1rem;margin-bottom:10px;color:var(--black)}
+.config-card p{font-size:.9rem;color:var(--gray);line-height:1.7}
+
+/* Budget tiers */
+.budget-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+.budget-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.budget-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.budget-card-header{padding:20px 28px;color:#fff;font-family:var(--font-heading);font-weight:700;font-size:1rem;text-align:center}
+.budget-card-header.budget-low{background:var(--gray-dark)}
+.budget-card-header.budget-mid{background:var(--dark)}
+.budget-card-header.budget-high{background:linear-gradient(135deg,var(--orange),var(--orange-dark))}
+.budget-card-body{padding:28px}
+.budget-card-body p{font-size:.9rem;color:var(--gray);line-height:1.7;margin-bottom:12px}
+.budget-card-body ul{font-size:.9rem;color:var(--gray);line-height:1.7;padding-left:20px}
+.budget-card-body li{margin-bottom:6px}
+
+/* FAQ Accordion */
+.faq-list{max-width:860px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(0,0,0,.08);overflow:hidden}
+.faq-question{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;font-family:var(--font-heading);font-size:1rem;font-weight:600;color:var(--black);background:none;border:none;width:100%;text-align:left;transition:var(--transition)}
+.faq-question:hover{color:var(--orange)}
+.faq-question svg{width:20px;height:20px;flex-shrink:0;transition:transform .3s ease;color:var(--orange)}
+.faq-question.active svg{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-answer-inner{padding:0 0 20px;font-size:.95rem;color:var(--gray);line-height:1.8}
+
+/* Comparison table */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:32px}
+.compare-card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.compare-card h3{font-size:1.05rem;color:var(--black);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.compare-card h3 svg{width:22px;height:22px;color:var(--orange)}
+.compare-card p{font-size:.9rem;color:var(--gray);line-height:1.7;margin-bottom:8px}
+.compare-card ul{font-size:.9rem;color:var(--gray);line-height:1.7;padding-left:20px}
+.compare-card li{margin-bottom:4px}
+
+/* Feature list with icons */
+.feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:32px}
+.feature-item{display:flex;gap:16px;align-items:flex-start}
+.feature-item-icon{width:44px;height:44px;min-width:44px;background:rgba(243,137,41,.1);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.feature-item-icon svg{width:20px;height:20px;color:var(--orange)}
+.feature-item h4{font-size:.95rem;color:var(--black);margin-bottom:4px}
+.feature-item p{font-size:.85rem;color:var(--gray);line-height:1.6}
+
+/* Steps */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.step-card{text-align:center;padding:32px 24px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow)}
+.step-num{width:44px;height:44px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));border-radius:50%;color:#fff;font-family:var(--font-heading);font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.step-card h4{font-size:.95rem;color:var(--black);margin-bottom:8px}
+.step-card p{font-size:.85rem;color:var(--gray);line-height:1.6}
+
+/* Responsive */
+@media(max-width:1024px){
+  .config-grid{grid-template-columns:1fr 1fr}
+  .budget-grid{grid-template-columns:1fr}
+  .feature-list{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .config-grid{grid-template-columns:1fr}
+  .compare-grid{grid-template-columns:1fr}
+  .budget-grid{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr}
+}
+
+/* Hero feature image */
+.ss-hero-img{width:100%;max-height:500px;object-fit:cover;border-radius:var(--radius);margin-top:40px}
+
+/* Project gallery */
+.ss-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.ss-gallery-item{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.ss-gallery-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.ss-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:768px){
+  .ss-gallery{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header header-solid" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/images/Transparent Logo.png" alt="Entertainment Pros logo" width="180" height="48">
+    </a>
+    <div class="header-right">
+      <div class="header-info">
+        <a href="tel:727-804-2277">
+          <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          727-804-2277
+        </a>
+        <span class="divider"></span>
+        <span>License ES12001376</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="mega">
+            <a href="/services-audio-visual-planning-and-installation/" class="active">Services <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="mega-menu">
+              <div class="mega-inner">
+                <div class="mega-col">
+                  <h5>Audio &amp; Sound</h5>
+                  <a href="/audio-video-planning-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Audio-Video Planning</a>
+                  <a href="/home-theater-design-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Home Theater Design</a>
+                  <a href="/living-room-surround-sound/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Surround Sound Systems</a>
+                  <a href="/condo-tv-and-sound-solutions/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="16" y2="6"/></svg> Condo TV &amp; Sound</a>
+                </div>
+                <div class="mega-col">
+                  <h5>TV &amp; Installations</h5>
+                  <a href="/hanging-tvs-mounting-services/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> TV Hanging &amp; Mounting</a>
+                  <a href="/installations-residential/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Residential Installations</a>
+                  <a href="/commercial-audio-video/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Commercial Audio-Video</a>
+                  <a href="/sales/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Equipment Sales</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Lighting</h5>
+                  <a href="/lighting-control/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg> Lighting Control</a>
+                  <a href="/led-accent-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> LED Accent Lighting</a>
+                  <a href="/exterior-illumination/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Exterior Illumination</a>
+                  <a href="/exterior-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> Landscape Lighting</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Smart Home</h5>
+                  <a href="/home-automation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg> Home Automation</a>
+                  <a href="/automated-shades/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg> Automated Shades</a>
+                </div>
+                <div class="mega-cta">
+                  <p>Not sure what you need? We'll help you figure it out.</p>
+                  <a href="/contact/" class="btn btn-primary">Request Free Consultation</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/portfolio/">Portfolio <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/portfolio/">Gallery</a></li>
+              <li><a href="/brands/">Brands</a></li>
+            </ul>
+          </li>
+          <li><a href="/about-us/">About Us</a></li>
+          <li class="dropdown">
+            <a href="/blog/">AV Hub <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/tv-size/">TV Size Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="/contact/" class="btn btn-primary header-cta">Request Consultation</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="/">Home</a>
+  <a href="/services-audio-visual-planning-and-installation/">Services</a>
+  <div class="mobile-nav-sub">
+    <a href="/audio-video-planning-and-installation/">Audio-Video Planning</a>
+    <a href="/home-theater-design-and-installation/">Home Theater</a>
+    <a href="/hanging-tvs-mounting-services/">TV Mounting</a>
+    <a href="/lighting-control/">Lighting Control</a>
+    <a href="/exterior-illumination/">Exterior Lighting</a>
+    <a href="/home-automation/">Home Automation</a>
+  </div>
+  <a href="/portfolio/">Portfolio</a>
+  <a href="/about-us/">About Us</a>
+  <a href="/blog/">AV Hub</a>
+  <a href="/contact/">Contact</a>
+  <a href="tel:727-804-2277" class="mobile-phone">727-804-2277</a>
+</div>
+
+<main>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/services-audio-visual-planning-and-installation/">Services</a>
+      <span class="sep">/</span>
+      <span class="current">Living Room Surround Sound</span>
+    </div>
+    <h1>Living Room Surround Sound Systems</h1>
+    <p>Your Home. Our Expertise. Perfect Sound.</p>
+    <img src="/images/Surround Systems (1).jpg" alt="Living room surround sound speaker system installed by Entertainment Pros" class="ss-hero-img" width="1200" height="500">
+  </div>
+</section>
+
+<!-- ===== INTRO ===== -->
+<section class="ss-section" aria-label="Introduction to surround sound">
+  <div class="container">
+    <div class="ss-content">
+      <span class="section-label">Immersive Audio</span>
+      <h2 class="section-title">Transform Your Living Room Into an Audio Experience</h2>
+      <p>A high-quality surround sound system creates an immersive experience that transforms how you enjoy movies, music, and gaming in your home. Whether you are watching the latest blockbuster, streaming your favorite playlist, or battling through an intense gaming session, surround sound places you right in the middle of the action.</p>
+      <p>Modern surround sound systems have come a long way from the days of bulky receivers and tangled wires. Today's options range from sleek soundbars to invisible in-wall speakers, giving you theater-quality audio without sacrificing your living room's aesthetics. At Entertainment Pros, we specialize in designing and installing surround sound systems tailored to your room, your lifestyle, and your budget.</p>
+      <p>Serving Pinellas County from our base in Palm Harbor, we have installed hundreds of surround sound systems in homes across Clearwater, St. Petersburg, Dunedin, Largo, and beyond. Every room is different, and every homeowner has unique preferences &mdash; that is why we offer a consultative approach to find the perfect solution for you.</p>
+      <img src="/images/Surround Systems.jpg" alt="Professional surround sound system installation in a Pinellas County home" loading="lazy" width="860" height="500" style="width:100%;border-radius:var(--radius);margin-top:32px">
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONFIGURATION EXAMPLES ===== -->
+<section class="ss-section alt" aria-label="Speaker configurations">
+  <div class="container">
+    <div class="ss-section-header">
+      <span class="section-label">Configuration Options</span>
+      <h2 class="section-title">Speaker Configurations for Every Style</h2>
+      <p class="section-subtitle">From visible bookshelf setups to completely invisible installations, we have a configuration that fits your home and aesthetic preferences.</p>
+    </div>
+    <div class="config-grid">
+
+      <div class="config-card">
+        <div class="config-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+        </div>
+        <h3>Bookshelf Configuration</h3>
+        <p>Perfect for homeowners who appreciate visible, high-quality speakers. This setup features Monitor Audio Radius bookshelf speakers paired with a SpeakerCraft subwoofer for rich, room-filling bass. The bookshelf design allows flexible placement on shelves, stands, or wall brackets while delivering exceptional audio clarity and warmth.</p>
+      </div>
+
+      <div class="config-card">
+        <div class="config-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Discrete Aesthetics</h3>
+        <p>For those who want incredible sound without seeing a single speaker. Stealth Acoustics invisible speakers mount behind drywall and are completely hidden from view. Monitor Audio ceiling-mounted surrounds handle directional sound, while dual SpeakerCraft subwoofers deliver deep, balanced bass throughout the room. The result is a clean, modern aesthetic with no compromise on audio quality.</p>
+      </div>
+
+      <div class="config-card">
+        <div class="config-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="16"/><line x1="18" y1="8" x2="18" y2="16"/></svg>
+        </div>
+        <h3>Concealed Configuration</h3>
+        <p>A creative solution that hides traditional speakers inside custom cabinetry. Monitor Audio Silver series speakers are placed inside a vented custom cabinet, allowing sound to project freely while keeping the speakers out of sight. This approach works beautifully in homes with built-in entertainment centers or media walls where aesthetics are paramount.</p>
+      </div>
+
+      <div class="config-card">
+        <div class="config-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg>
+        </div>
+        <h3>Ceiling Configuration</h3>
+        <p>Ideal for open floor plans and rooms where wall space is limited. Monitor Audio Controlled Performance in-ceiling speakers are flush-mounted into the ceiling, providing 360-degree sound coverage with a minimal visual footprint. These speakers feature angled drivers that can be aimed toward the listening area for precise audio delivery.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHOOSING THE BEST SYSTEM ===== -->
+<section class="ss-section" aria-label="Benefits of surround sound">
+  <div class="container">
+    <div class="ss-section-header">
+      <span class="section-label">Why Upgrade</span>
+      <h2 class="section-title">Why Invest in a Surround Sound System?</h2>
+      <p class="section-subtitle">A professionally installed surround sound system delivers benefits that go far beyond better audio.</p>
+    </div>
+    <div class="feature-list">
+      <div class="feature-item">
+        <div class="feature-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <div>
+          <h4>Enhanced Audio Quality</h4>
+          <p>Multi-channel surround sound reproduces audio the way directors and artists intended, with distinct channels for dialogue, effects, and music that your TV speakers simply cannot match.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <h4>Immersive Experience</h4>
+          <p>Feel the rumble of an explosion from behind you, hear rain falling all around, or experience a live concert from the best seat in the house. Surround sound puts you inside the content.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <h4>Increased Home Value</h4>
+          <p>A professionally installed audio system is a desirable home feature that appeals to buyers. Integrated systems with clean wiring and quality components add real value to your property.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h4>Long-Term Enjoyment</h4>
+          <p>Unlike a TV that you might replace every five to seven years, quality speakers and amplifiers can last decades. A well-chosen system is an investment in years of entertainment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TOP RECOMMENDATIONS BY BUDGET ===== -->
+<section class="ss-section alt" aria-label="Surround sound by budget">
+  <div class="container">
+    <div class="ss-section-header">
+      <span class="section-label">Recommendations</span>
+      <h2 class="section-title">Surround Sound Systems by Budget</h2>
+      <p class="section-subtitle">Whether you are looking for an affordable upgrade or a no-compromise audiophile system, we have options at every price point.</p>
+    </div>
+    <div class="budget-grid">
+
+      <div class="budget-card">
+        <div class="budget-card-header budget-low">Budget-Friendly</div>
+        <div class="budget-card-body">
+          <p>Great sound does not have to break the bank. A quality soundbar and subwoofer combo delivers a significant upgrade over built-in TV speakers at an accessible price.</p>
+          <ul>
+            <li>Soundbar with wireless subwoofer</li>
+            <li>Sonos Beam or Sonos Ray options</li>
+            <li>Virtual surround processing</li>
+            <li>Easy self-setup or professional install</li>
+            <li>Expandable with rear speakers later</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="budget-card">
+        <div class="budget-card-header budget-mid">Mid-Range</div>
+        <div class="budget-card-body">
+          <p>The sweet spot for most homeowners. A dedicated receiver with separate speakers delivers true surround sound with excellent clarity and power.</p>
+          <ul>
+            <li>Yamaha AV receiver with room calibration</li>
+            <li>Bookshelf speakers for front channels</li>
+            <li>Dedicated center channel speaker</li>
+            <li>Basic subwoofer for low-frequency effects</li>
+            <li>Programmed universal remote control</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="budget-card">
+        <div class="budget-card-header budget-high">High-End</div>
+        <div class="budget-card-body">
+          <p>For the discerning audiophile who demands the best. Premium components with professional calibration deliver reference-quality sound.</p>
+          <ul>
+            <li>Yamaha Aventage receiver</li>
+            <li>Dual subwoofers for even bass distribution</li>
+            <li>Monitor Audio speakers with C-Cam gold dome tweeters</li>
+            <li>URC or Elan whole-house control system</li>
+            <li>Professional acoustic calibration</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSTALLATION & CHOOSING AN INSTALLER ===== -->
+<section class="ss-section" aria-label="Professional installation">
+  <div class="container">
+    <div class="ss-section-header">
+      <span class="section-label">Professional Installation</span>
+      <h2 class="section-title">Installation &amp; Choosing a Local Installer</h2>
+      <p class="section-subtitle">A surround sound system is only as good as its installation. Professional setup ensures optimal performance and a clean, finished look.</p>
+    </div>
+    <div class="feature-list">
+      <div class="feature-item">
+        <div class="feature-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div>
+          <h4>Optimal Equipment Selection</h4>
+          <p>A professional installer evaluates your room size, layout, and usage to recommend the right equipment. No guessing, no over-spending, no under-performing components.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div>
+          <h4>System Compatibility</h4>
+          <p>Receivers, speakers, subwoofers, and control systems all need to work together seamlessly. We ensure every component is matched for impedance, power handling, and connectivity.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div>
+          <h4>Professional Installation</h4>
+          <p>Clean wire runs, secure mounting, hidden cables, and proper speaker placement. Our installations look as good as they sound, with no exposed wiring or makeshift solutions.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div>
+          <h4>Post-Installation Support</h4>
+          <p>After installation, we calibrate your system, walk you through operation, and provide ongoing support. If something needs adjustment, we are a phone call away.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW TO CHOOSE AN INSTALLER (FAQ) ===== -->
+<section class="ss-section alt" aria-label="How to choose an installer">
+  <div class="container">
+    <div class="ss-section-header">
+      <span class="section-label">Hiring Guide</span>
+      <h2 class="section-title">How to Choose the Right Installer</h2>
+      <p class="section-subtitle">Not all installers are created equal. Here is what to look for when selecting a surround sound professional in Pinellas County.</p>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Research Reviews &amp; Reputation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Check Google reviews, Yelp, and the Better Business Bureau. Look for consistent positive feedback, especially regarding professionalism, quality of work, and follow-up support. A company with dozens of five-star reviews and detailed customer testimonials is far more reliable than one with no online presence. Ask friends and neighbors for personal recommendations as well.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Verify Experience &amp; Expertise
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Ask how long the company has been installing surround sound systems and what brands they work with. A qualified installer should be familiar with major brands like Yamaha, Monitor Audio, Sonos, SpeakerCraft, and Stealth Acoustics. Look for a Florida Low Voltage License, which is required for running wire in walls. Entertainment Pros has been serving Pinellas County since 2006 and holds License ES12001376.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Request an In-Home Consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            A reputable installer will offer a free or low-cost in-home consultation. During this visit, they should assess your room layout, discuss your listening habits, review your budget, and provide recommendations. Be wary of companies that quote a price without ever seeing your space &mdash; every room has unique acoustic characteristics that affect system design and speaker placement.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Ask for References &amp; Past Work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Ask the installer to share photos of past installations or connect you with previous clients. A quality installer will be proud to show their work. Look at the details &mdash; are wires hidden? Are speakers mounted level and secure? Is the equipment rack organized? These details separate a professional from someone who is just getting by. Check our <a href="/portfolio/" style="color:var(--orange)">portfolio</a> to see examples of our installations.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPEAKER PLACEMENT TIPS ===== -->
+<section class="ss-section" aria-label="Speaker placement">
+  <div class="container">
+    <div class="ss-content">
+      <span class="section-label">Placement Guide</span>
+      <h2 class="section-title">Speaker Placement for Optimal Sound</h2>
+      <p>Proper speaker placement is one of the most important factors in surround sound performance. Even the best speakers will underperform if they are positioned incorrectly. Here are the fundamentals our installers follow for every project:</p>
+
+      <h3>Front Left &amp; Right Speakers</h3>
+      <p>Position front speakers at ear level when seated, approximately 45 degrees apart from the center listening position. These speakers handle the majority of your music and movie soundtracks, so placement here matters most. Avoid placing them too close to walls, which can cause bass buildup and muddy the sound.</p>
+
+      <h3>Center Channel Speaker</h3>
+      <p>The center channel handles dialogue and is the most important speaker for movies and TV shows. Place it directly above or below your TV screen, angled toward ear level. If placed below the TV, tilt it slightly upward. Clear, intelligible dialogue depends on getting this speaker right.</p>
+
+      <h3>Surround Speakers</h3>
+      <p>Surround speakers should be positioned behind and slightly above the listening area. For a 5.1 system, place them at roughly 110 to 120 degrees from the center. They should be about two to three feet above ear level to create an enveloping sound field without being distractingly directional.</p>
+
+      <h3>Subwoofer Placement</h3>
+      <p>Subwoofer placement is less critical than other speakers because low frequencies are non-directional, but it still matters. Placing a subwoofer in a corner amplifies bass output, which can be desirable in larger rooms but overwhelming in smaller spaces. Experiment with placement along the front wall, one-third of the way from the corner, for balanced bass response. In a dual-subwoofer setup, placing subs at opposite walls evens out bass response across the room.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROOM ACOUSTICS ===== -->
+<section class="ss-section alt" aria-label="Room acoustics">
+  <div class="container">
+    <div class="ss-content">
+      <span class="section-label">Acoustics</span>
+      <h2 class="section-title">Room Acoustics &amp; How They Affect Sound</h2>
+      <p>Your room's surfaces, furnishings, and dimensions all play a role in how your surround sound system performs. Understanding basic acoustics helps you get the most from your investment.</p>
+
+      <h3>Hard Surfaces Reflect Sound</h3>
+      <p>Tile floors, glass windows, bare walls, and hardwood surfaces reflect sound waves, creating echoes and reverberation. In rooms dominated by hard surfaces, sound can become harsh and fatiguing. This is common in Florida homes with tile floors and large sliding glass doors. Solutions include area rugs, curtains, and acoustic panels that reduce reflections without changing your decor.</p>
+
+      <h3>Soft Surfaces Absorb Sound</h3>
+      <p>Carpet, upholstered furniture, curtains, and bookshelves absorb sound energy, reducing reflections and taming the room. A room that is too absorptive can sound dead and flat, while one that is too reflective will sound echoey and harsh. The goal is a balance &mdash; enough soft surfaces to control reflections while retaining liveliness. Our installers assess your room's acoustics during consultation and can recommend treatments if needed.</p>
+
+      <p>Florida's open floor plans present unique acoustic challenges. Large, open living areas connected to kitchens and dining rooms allow sound to disperse, reducing the impact of your surround system. Strategic speaker placement and calibration help compensate, and in some cases, adding a second subwoofer provides more even bass coverage in open spaces.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SETUP STEPS (ACCORDION) ===== -->
+<section class="ss-section" aria-label="Setup steps">
+  <div class="container">
+    <div class="ss-section-header">
+      <span class="section-label">Setup Process</span>
+      <h2 class="section-title">Surround Sound Setup Steps</h2>
+      <p class="section-subtitle">Here is what goes into a professional surround sound installation, from unboxing to final calibration.</p>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Step 1: Unbox &amp; Inspect All Components
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Before installation begins, we carefully unbox and inspect every component &mdash; receiver, speakers, subwoofer, wiring, brackets, and remote controls. We verify serial numbers, check for shipping damage, and confirm that all accessories and mounting hardware are included. This step prevents delays during the actual installation.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Step 2: Position Speakers According to Room Layout
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Using the room assessment from your consultation, we place each speaker in its optimal position. Front speakers are set at ear level and angled toward the listening position. Surround speakers are mounted behind and above the seating area. The subwoofer is positioned for the smoothest bass response. For in-wall or in-ceiling speakers, we mark locations, cut openings, and run speaker wire through the walls.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Step 3: Connect All Components
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Speaker wire is run to each speaker, terminated properly, and connected to the receiver. HDMI cables connect your TV, streaming devices, and gaming consoles. All wiring is concealed in walls, run through cable raceways, or neatly bundled and hidden behind furniture. We use quality speaker wire and connectors &mdash; the right gauge for the run length and speaker impedance.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Step 4: Calibrate the System
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Modern receivers include room calibration microphones that analyze your room's acoustics and automatically adjust EQ, speaker levels, and delay times. We run this calibration from your primary listening position for the best results. On higher-end systems, we fine-tune the automatic settings manually, adjusting crossover frequencies and individual channel levels by ear.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Step 5: Test Sound &amp; Fine-Tune
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            We test the system with a variety of content &mdash; movies with dynamic soundtracks, music across multiple genres, and dialogue-heavy TV shows. This ensures every channel is working, bass is smooth and even, dialogue is clear, and surround effects are immersive. We also verify that the remote control or smart home app operates all functions correctly.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Sound Quality Tips for Your Listening Environment
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            After installation, small adjustments to your room can further improve sound quality. Add an area rug if you have tile or hardwood floors. Close curtains or blinds during movie watching to reduce glass reflections. Arrange furniture so your primary seating faces the front speakers directly. Avoid placing objects directly in front of speakers. Keep the subwoofer away from tight enclosures that can distort bass response.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== WIRELESS SOUND SYSTEMS ===== -->
+<section class="ss-section alt" aria-label="Wireless sound systems">
+  <div class="container">
+    <div class="ss-section-header">
+      <span class="section-label">Wireless Options</span>
+      <h2 class="section-title">Wireless Sound Systems: Bluetooth vs WiFi</h2>
+      <p class="section-subtitle">Wireless speakers offer convenience, but not all wireless technologies are equal. Here is how the two main options compare.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 6.5l11 11"/><path d="M21 12a9 9 0 0 0-9-9"/><path d="M18 12a6 6 0 0 0-6-6"/><path d="M15 12a3 3 0 0 0-3-3"/></svg>
+          Bluetooth
+        </h3>
+        <p>Bluetooth is universal, simple, and works with virtually every phone and tablet. However, it has limitations for serious audio applications.</p>
+        <ul>
+          <li>Range: typically 30 feet</li>
+          <li>Compressed audio signal (lossy)</li>
+          <li>Single-room only</li>
+          <li>Simple pairing, no network needed</li>
+          <li>Higher latency (noticeable on video)</li>
+          <li>Best for casual, portable use</li>
+        </ul>
+      </div>
+      <div class="compare-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          WiFi
+        </h3>
+        <p>WiFi-based systems like Sonos, Apple AirPlay, and Yamaha MusicCast deliver higher-quality audio with whole-house capabilities.</p>
+        <ul>
+          <li>Range: entire home network</li>
+          <li>Lossless, full-resolution audio</li>
+          <li>Multi-room synchronized playback</li>
+          <li>Requires home WiFi network</li>
+          <li>Low latency, suitable for video</li>
+          <li>Best for installed, whole-home systems</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ss-content" style="margin-top:40px">
+      <p>For living room surround sound, we generally recommend WiFi-based systems over Bluetooth. The higher audio quality, lower latency, and multi-room capabilities make WiFi the better foundation for a serious home audio system. Bluetooth works well as a secondary input for quick phone pairing, but should not be the primary connection for a surround sound setup.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SONOS & SOUNDBARS ===== -->
+<section class="ss-section" aria-label="Sonos and soundbars">
+  <div class="container">
+    <div class="ss-content">
+      <span class="section-label">Soundbar Solutions</span>
+      <h2 class="section-title">Sonos Soundbars &amp; Speaker Separation</h2>
+
+      <p>Sonos has become one of the most popular soundbar brands, and for good reason. The Sonos Arc and Sonos Beam deliver impressive sound quality from a single bar, with Dolby Atmos support on the Arc for overhead effects. They integrate seamlessly with the Sonos ecosystem, support AirPlay 2, and are controlled through an intuitive app.</p>
+
+      <h3>Sonos Soundbar Pros</h3>
+      <ul>
+        <li>Excellent sound quality for their size</li>
+        <li>Clean, single-unit aesthetic &mdash; no receiver or visible speakers</li>
+        <li>Easy setup with the Sonos app and TruePlay room calibration</li>
+        <li>Expandable: add a Sonos Sub and rear surrounds for a full 5.1 system</li>
+        <li>Multi-room music when paired with other Sonos speakers</li>
+        <li>Voice assistant support (Alexa, Google Assistant)</li>
+      </ul>
+
+      <h3>Sonos Soundbar Cons</h3>
+      <ul>
+        <li>Limited to the Sonos ecosystem for surround expansion</li>
+        <li>No HDMI passthrough &mdash; relies on HDMI eARC from the TV</li>
+        <li>Cannot match the staging and separation of discrete component speakers</li>
+        <li>Higher cost per channel compared to traditional AVR-based systems</li>
+      </ul>
+
+      <h3>Soundbar vs Separate Speakers</h3>
+      <p>Soundbars combine multiple speaker drivers into a single enclosure, which is convenient but physically limits how wide the sound stage can be. Separate speakers, placed correctly around the room, create genuine surround separation that a soundbar simulates but cannot fully replicate. For casual TV watching and music, a soundbar is often sufficient. For movies, gaming, and serious music listening, separate speakers with a dedicated receiver deliver a noticeably better experience.</p>
+
+      <p>Many of our clients start with a Sonos soundbar for simplicity and later upgrade to a full component system when they want to take their audio to the next level. We install both types and can help you choose the right path based on your priorities.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5.1 vs 5.2 ===== -->
+<section class="ss-section alt" aria-label="5.1 vs 5.2 surround sound">
+  <div class="container">
+    <div class="ss-content">
+      <span class="section-label">System Configurations</span>
+      <h2 class="section-title">5.1 vs 5.2 Surround Sound</h2>
+      <p>If you have researched surround sound systems, you have likely encountered numbers like 5.1, 5.2, 7.1, and even 7.2.4. Here is what they mean and how to choose.</p>
+
+      <h3>What the Numbers Mean</h3>
+      <p>The first number represents the main speaker channels (front left, center, front right, surround left, surround right). The second number is the subwoofer count. So a 5.1 system has five speakers and one subwoofer, while a 5.2 system has five speakers and two subwoofers.</p>
+
+      <h3>5.1 Surround Sound</h3>
+      <p>The 5.1 configuration is the most common home surround sound setup and has been the standard for decades. Five speakers provide full directional audio, and a single subwoofer handles low-frequency effects. For most living rooms under 400 square feet, a 5.1 system provides excellent performance. This is the configuration included on most Blu-ray discs and streaming content.</p>
+
+      <h3>5.2 Surround Sound</h3>
+      <p>Adding a second subwoofer solves a common problem: uneven bass response. Low frequencies create standing waves in a room, meaning bass can be booming in one spot and nearly absent in another. Two subwoofers placed strategically smooth out these inconsistencies, delivering consistent bass across the entire seating area. We recommend 5.2 for larger living rooms, open floor plans, and rooms where multiple seating positions need good bass coverage.</p>
+
+      <p>Both configurations use the same five speakers &mdash; the difference is purely in bass performance and consistency. If your room is large or open, or if you have multiple seating areas, the investment in a second subwoofer is well worth it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FRONT-FIRING VS CEILING ===== -->
+<section class="ss-section" aria-label="Speaker types comparison">
+  <div class="container">
+    <div class="ss-section-header">
+      <span class="section-label">Speaker Types</span>
+      <h2 class="section-title">Front-Firing vs Ceiling-Mounted Speakers</h2>
+      <p class="section-subtitle">Each speaker type has distinct advantages depending on your room and priorities.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+          Front-Firing Speakers
+        </h3>
+        <p>Traditional speakers that project sound directly toward the listener from a fixed position on walls, stands, or shelves.</p>
+        <ul>
+          <li>Best imaging and sound staging</li>
+          <li>Most accurate tonal reproduction</li>
+          <li>Easier to aim at listening position</li>
+          <li>Visible in the room (part of the aesthetic)</li>
+          <li>Require stands, shelves, or wall brackets</li>
+          <li>Best for dedicated listening rooms</li>
+        </ul>
+      </div>
+      <div class="compare-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg>
+          Ceiling-Mounted Speakers
+        </h3>
+        <p>Flush-mounted into the ceiling for a completely invisible audio solution that keeps walls and floors clear.</p>
+        <ul>
+          <li>Invisible &mdash; no visual impact on the room</li>
+          <li>360-degree coverage for background music</li>
+          <li>Ideal for open floor plans and multi-use rooms</li>
+          <li>Some models have aimable tweeters</li>
+          <li>Require ceiling access for installation</li>
+          <li>Best for aesthetics-first installations</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ss-content" style="margin-top:40px">
+      <p>In practice, many of our installations combine both types. Front-firing speakers handle the critical front channels where imaging matters most, while ceiling speakers serve as surrounds where their overhead position actually enhances the immersive effect. This hybrid approach gives you the best sound quality where it counts and the cleanest look where it is visible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROOM LAYOUT OPTIMIZATION ===== -->
+<section class="ss-section alt" aria-label="Room layout optimization">
+  <div class="container">
+    <div class="ss-section-header">
+      <span class="section-label">Room Optimization</span>
+      <h2 class="section-title">Optimizing Surround Sound for Your Room Layout</h2>
+      <p class="section-subtitle">Different room types require different approaches. Here is how we handle the most common layouts in Pinellas County homes.</p>
+    </div>
+
+    <div class="config-grid">
+
+      <div class="config-card">
+        <div class="config-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+        </div>
+        <h3>Open Floor Plans</h3>
+        <p>Florida homes frequently feature open layouts where the living room flows into the kitchen and dining area. These spaces require higher-powered speakers and dual subwoofers to fill the larger volume. Ceiling speakers work well for surrounds since wall placement options are limited. We use the receiver's room calibration to compensate for the open-plan acoustics.</p>
+      </div>
+
+      <div class="config-card">
+        <div class="config-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
+        </div>
+        <h3>Small Rooms</h3>
+        <p>Smaller living rooms and dens benefit from compact speakers and a single, well-placed subwoofer. In tight spaces, bookshelf speakers on stands or wall-mounted compact speakers deliver excellent sound without overwhelming the room. We often recommend a Sonos system or compact AVR setup for rooms under 200 square feet.</p>
+      </div>
+
+      <div class="config-card">
+        <div class="config-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+        </div>
+        <h3>Multi-Purpose Spaces</h3>
+        <p>Rooms that serve as both a living room and a home office, playroom, or guest room need flexible audio solutions. In-ceiling speakers provide ambient sound without taking up floor space, and systems with zone control let you adjust volume independently. Smart home integration allows you to switch between TV surround mode and background music with a single button press.</p>
+      </div>
+
+      <div class="config-card">
+        <div class="config-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>New Construction &amp; Renovations</h3>
+        <p>If you are building a new home or renovating, this is the ideal time to install surround sound. We can run speaker wire through walls and ceilings before drywall goes up, install in-wall speaker boxes, and pre-wire for future expansion. Pre-wiring during construction is significantly less expensive than retrofitting and results in the cleanest possible installation.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR WORK ===== -->
+<section class="ss-section alt" aria-label="Our work">
+  <div class="container">
+    <div class="ss-section-header">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title">Surround Sound Installations</h2>
+      <p class="section-subtitle">See examples of surround sound systems we have designed and installed in homes across Pinellas County.</p>
+    </div>
+    <div class="ss-gallery">
+      <div class="ss-gallery-item">
+        <img src="/images/Surround Systems (2).jpg" alt="Surround sound speaker installation in a residential living room" loading="lazy" width="572" height="438">
+      </div>
+      <div class="ss-gallery-item">
+        <img src="/images/Surround Systems (3).jpg" alt="Professional surround sound system with mounted speakers and subwoofer" loading="lazy" width="572" height="438">
+      </div>
+      <div class="ss-gallery-item">
+        <img src="/images/Surround Systems (4).jpg" alt="Complete living room surround sound setup with receiver and speakers" loading="lazy" width="572" height="438">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Upgrade Your Living Room Sound?</h2>
+    <p>Schedule a free in-home consultation and let us design the perfect surround sound system for your space.</p>
+    <div class="cta-buttons">
+      <a href="tel:727-804-2277" class="btn btn-dark">Call 727-804-2277</a>
+      <a href="/contact/" class="btn" style="background:#fff;color:var(--orange-dark);font-weight:700">Schedule Consultation</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/images/Transparent Logo.png" alt="Entertainment Pros" width="160" height="42">
+        <p>Licensed and insured Audio/Video Sales and Installation company serving Pinellas County since 2006. Residential and commercial AV projects.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/audio-video-planning-and-installation/">Audio-Video</a></li>
+          <li><a href="/home-theater-design-and-installation/">Home Theater</a></li>
+          <li><a href="/hanging-tvs-mounting-services/">TV Mounting</a></li>
+          <li><a href="/lighting-control/">Lighting Control</a></li>
+          <li><a href="/exterior-illumination/">Exterior Illumination</a></li>
+          <li><a href="/home-automation/">Home Automation</a></li>
+          <li><a href="/automated-shades/">Automated Shades</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about-us/">About Us</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/brands/">Brands</a></li>
+          <li><a href="/leave-a-review/">Leave a Review</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:727-804-2277">727-804-2277</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Pinellas County, FL</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>License ES12001376</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2006&ndash;2026 Entertainment Pros. All rights reserved.</span>
+      <span>Serving Clearwater, St. Pete, Palm Harbor, Dunedin &amp; all of Pinellas</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var open=this.classList.contains('active');
+    document.querySelectorAll('.faq-question.active').forEach(function(b){
+      b.classList.remove('active');
+      b.setAttribute('aria-expanded','false');
+      b.nextElementSibling.style.maxHeight=null;
+    });
+    if(!open){
+      this.classList.add('active');
+      this.setAttribute('aria-expanded','true');
+      this.nextElementSibling.style.maxHeight=this.nextElementSibling.scrollHeight+'px';
+    }
+  });
+});
+</script>
+
+</body>
+</html>

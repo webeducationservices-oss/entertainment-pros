@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hanging TVs: Residential & Commercial TV Mounting</title>
+<meta name="description" content="Professional TV hanging and mounting services in Palm Harbor and Pinellas County. Secure wall mounting, cable management, and clean finishes for homes and businesses.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.entertainment-pros.com/hanging-tvs-mounting-services/">
+<meta property="og:title" content="Hanging TVs: Residential &amp; Commercial TV Mounting">
+<meta property="og:description" content="Professional TV hanging and mounting services in Palm Harbor and Pinellas County. Secure wall mounting, cable management, and clean finishes for homes and businesses.">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<script src="/components.js" defer></script>
+<style>
+/* ===== PAGE-SPECIFIC: TV HANGING & MOUNTING ===== */
+
+/* Content sections */
+.tv-section{padding:var(--section-pad)}
+.tv-section.gray-bg{background:var(--gray-bg)}
+
+/* Intro */
+.tv-intro{max-width:800px;margin:0 auto;text-align:center}
+.tv-intro p{color:var(--gray);font-size:1.05rem;line-height:1.8;margin-bottom:20px}
+
+/* What's included grid */
+.tv-included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.tv-included-card{text-align:center;padding:36px 24px;border-radius:var(--radius);background:#fff;box-shadow:var(--shadow);transition:var(--transition)}
+.tv-included-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.tv-included-icon{width:56px;height:56px;background:rgba(243,137,41,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.tv-included-icon svg{width:24px;height:24px;color:var(--orange)}
+.tv-included-card h3{font-size:1rem;margin-bottom:8px;color:var(--black)}
+.tv-included-card p{font-size:.88rem;color:var(--gray);line-height:1.7}
+
+/* Mount types */
+.tv-mounts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.tv-mount-card{background:#fff;border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow);transition:var(--transition);text-align:center;border-top:3px solid var(--orange)}
+.tv-mount-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.tv-mount-card h3{font-size:1rem;margin-bottom:8px;color:var(--black)}
+.tv-mount-card p{font-size:.85rem;color:var(--gray);line-height:1.7}
+
+/* Rooms / Commercial lists */
+.tv-rooms{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.tv-rooms-list h3{font-size:1.15rem;color:var(--black);margin-bottom:16px}
+.tv-rooms-list ul{list-style:none;padding:0}
+.tv-rooms-list li{padding:10px 0;border-bottom:1px solid #e0e0e0;color:var(--gray);font-size:.95rem;display:flex;align-items:center;gap:12px}
+.tv-rooms-list li:last-child{border-bottom:none}
+.tv-rooms-list li svg{width:18px;height:18px;color:var(--orange);flex-shrink:0}
+
+/* Why choose us */
+.tv-why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:48px}
+.tv-why-card{text-align:center;padding:36px 20px;border-radius:var(--radius);background:var(--gray-bg);transition:var(--transition)}
+.tv-why-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.tv-why-icon{width:56px;height:56px;background:rgba(243,137,41,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.tv-why-icon svg{width:24px;height:24px;color:var(--orange)}
+.tv-why-card h3{font-size:1rem;margin-bottom:8px;color:var(--black)}
+.tv-why-card p{font-size:.85rem;color:var(--gray);line-height:1.7}
+
+/* FAQ */
+.tv-faq{max-width:800px;margin:0 auto}
+.faq-item{border-bottom:1px solid #e0e0e0;overflow:hidden}
+.faq-item:first-child{border-top:1px solid #e0e0e0}
+.faq-question{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;gap:16px;font-family:var(--font-heading);font-size:1.05rem;font-weight:600;color:var(--black);transition:color .2s;background:none;border:none;width:100%;text-align:left}
+.faq-question:hover{color:var(--orange)}
+.faq-question svg{width:20px;height:20px;color:var(--gray);flex-shrink:0;transition:transform .3s}
+.faq-item.active .faq-question svg{transform:rotate(180deg);color:var(--orange)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-item.active .faq-answer{max-height:300px}
+.faq-answer p{padding:0 0 20px;color:var(--gray);font-size:.95rem;line-height:1.8}
+
+/* Hero feature image */
+.tv-hero-img{width:100%;max-height:480px;object-fit:cover;border-radius:var(--radius);margin-top:32px;box-shadow:var(--shadow-lg)}
+
+/* Our Work gallery */
+.tv-gallery{padding:var(--section-pad);background:var(--white)}
+.tv-gallery-header{text-align:center;margin-bottom:48px}
+.tv-gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1000px;margin:0 auto}
+.tv-gallery-item{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.tv-gallery-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.tv-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Responsive */
+@media(max-width:1024px){
+  .tv-included-grid{grid-template-columns:repeat(2,1fr)}
+  .tv-mounts-grid{grid-template-columns:repeat(2,1fr)}
+  .tv-rooms{grid-template-columns:1fr}
+  .tv-why-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .tv-included-grid{grid-template-columns:1fr}
+  .tv-mounts-grid{grid-template-columns:1fr}
+  .tv-why-grid{grid-template-columns:1fr}
+  .tv-gallery-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header header-solid" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/images/Transparent Logo.png" alt="Entertainment Pros logo" width="180" height="48">
+    </a>
+    <div class="header-right">
+      <div class="header-info">
+        <a href="tel:727-804-2277">
+          <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          727-804-2277
+        </a>
+        <span class="divider"></span>
+        <span>License ES12001376</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="mega">
+            <a href="/services-audio-visual-planning-and-installation/" class="active">Services <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="mega-menu">
+              <div class="mega-inner">
+                <div class="mega-col">
+                  <h5>Audio &amp; Sound</h5>
+                  <a href="/audio-video-planning-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Audio-Video Planning</a>
+                  <a href="/home-theater-design-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Home Theater Design</a>
+                  <a href="/living-room-surround-sound/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Surround Sound Systems</a>
+                  <a href="/condo-tv-and-sound-solutions/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="16" y2="6"/></svg> Condo TV &amp; Sound</a>
+                </div>
+                <div class="mega-col">
+                  <h5>TV &amp; Installations</h5>
+                  <a href="/hanging-tvs-mounting-services/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> TV Hanging &amp; Mounting</a>
+                  <a href="/installations-residential/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Residential Installations</a>
+                  <a href="/commercial-audio-video/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Commercial Audio-Video</a>
+                  <a href="/sales/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Equipment Sales</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Lighting</h5>
+                  <a href="/lighting-control/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg> Lighting Control</a>
+                  <a href="/led-accent-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> LED Accent Lighting</a>
+                  <a href="/exterior-illumination/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Exterior Illumination</a>
+                  <a href="/exterior-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> Landscape Lighting</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Smart Home</h5>
+                  <a href="/home-automation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg> Home Automation</a>
+                  <a href="/automated-shades/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg> Automated Shades</a>
+                </div>
+                <div class="mega-cta">
+                  <p>Not sure what you need? We'll help you figure it out.</p>
+                  <a href="/contact/" class="btn btn-primary">Request Free Consultation</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/portfolio/">Portfolio <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/portfolio/">Gallery</a></li>
+              <li><a href="/brands/">Brands</a></li>
+            </ul>
+          </li>
+          <li><a href="/about-us/">About Us</a></li>
+          <li class="dropdown">
+            <a href="/blog/">AV Hub <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/tv-size/">TV Size Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="/contact/" class="btn btn-primary header-cta">Request Consultation</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="/">Home</a>
+  <a href="/services-audio-visual-planning-and-installation/">Services</a>
+  <div class="mobile-nav-sub">
+    <a href="/audio-video-planning-and-installation/">Audio-Video Planning</a>
+    <a href="/home-theater-design-and-installation/">Home Theater</a>
+    <a href="/hanging-tvs-mounting-services/">TV Mounting</a>
+    <a href="/lighting-control/">Lighting Control</a>
+    <a href="/exterior-illumination/">Exterior Lighting</a>
+    <a href="/home-automation/">Home Automation</a>
+  </div>
+  <a href="/portfolio/">Portfolio</a>
+  <a href="/about-us/">About Us</a>
+  <a href="/blog/">AV Hub</a>
+  <a href="/contact/">Contact</a>
+  <a href="tel:727-804-2277" class="mobile-phone">727-804-2277</a>
+</div>
+
+<main>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/services-audio-visual-planning-and-installation/">Services</a>
+      <span class="sep">/</span>
+      <span class="current">TV Hanging &amp; Mounting</span>
+    </div>
+    <h1>Professional TV Hanging &amp; Mounting Services</h1>
+    <p>TVs get hung right the first time. Expert mounting with hidden wiring for homes and businesses across Pinellas County.</p>
+    <img src="/images/gallery-3.jpeg" alt="Outdoor covered patio with wall-mounted TV showing baseball game" class="tv-hero-img" width="1200" height="480" fetchpriority="high">
+  </div>
+</section>
+
+<!-- ===== INTRO ===== -->
+<section class="tv-section" aria-label="Introduction">
+  <div class="container">
+    <div class="tv-intro">
+      <span class="section-label">TV Mounting Experts</span>
+      <h2 class="section-title">Specializing in Professional TV Hanging</h2>
+      <p>Entertainment Pros specializes in hanging TVs throughout Palm Harbor, Pinellas County, and surrounding areas. Whether you need a single TV mounted in your living room or multiple screens installed in a commercial space, we deliver clean, secure, professional results every time.</p>
+      <p>We handle everything &mdash; from choosing the right mount for your wall type to concealing cables for a clean, finished look. No exposed wires, no crooked screens, no damage to your walls.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT'S INCLUDED ===== -->
+<section class="tv-section gray-bg" aria-label="What is included">
+  <div class="container">
+    <div class="tv-intro" style="margin-bottom:0">
+      <span class="section-label">Full Service</span>
+      <h2 class="section-title">What's Included</h2>
+      <p class="section-subtitle mx-auto">Every TV mounting service includes everything you need for a professional, finished result.</p>
+    </div>
+    <div class="tv-included-grid">
+      <div class="tv-included-card">
+        <div class="tv-included-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Placement Guidance</h3>
+        <p>We help you choose the optimal height, angle, and location for the best viewing experience in your room.</p>
+      </div>
+      <div class="tv-included-card">
+        <div class="tv-included-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Secure Mounting</h3>
+        <p>Professional-grade mounts anchored properly into studs or masonry. Your TV is safe and secure, guaranteed.</p>
+      </div>
+      <div class="tv-included-card">
+        <div class="tv-included-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg></div>
+        <h3>Cable Management</h3>
+        <p>Cables are routed through the wall or concealed with raceways for a clean, wire-free appearance.</p>
+      </div>
+      <div class="tv-included-card">
+        <div class="tv-included-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Connection Support</h3>
+        <p>We connect your cable box, streaming devices, soundbar, gaming console, and any other components.</p>
+      </div>
+      <div class="tv-included-card">
+        <div class="tv-included-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Clean Finish</h3>
+        <p>No visible wires, no wall damage, no mess. We leave your space cleaner than we found it.</p>
+      </div>
+      <div class="tv-included-card">
+        <div class="tv-included-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></div>
+        <h3>Customer Satisfaction</h3>
+        <p>We do not leave until you are completely happy with the placement, picture, and overall result.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TYPES OF MOUNTS ===== -->
+<section class="tv-section" aria-label="Types of TV mounts">
+  <div class="container">
+    <div class="tv-intro" style="margin-bottom:0">
+      <span class="section-label">Mount Options</span>
+      <h2 class="section-title">Types of TV Mounts</h2>
+      <p class="section-subtitle mx-auto">We install every type of TV mount to suit your room layout and viewing preferences.</p>
+    </div>
+    <div class="tv-mounts-grid">
+      <div class="tv-mount-card">
+        <h3>Fixed Wall Mount</h3>
+        <p>The slimmest option. Your TV sits flush against the wall with a low profile. Best for dedicated viewing positions where the angle does not need to change.</p>
+      </div>
+      <div class="tv-mount-card">
+        <h3>Tilting Bracket</h3>
+        <p>Allows vertical tilt adjustment. Ideal for TVs mounted higher on the wall, such as above a fireplace, where you need to angle the screen downward.</p>
+      </div>
+      <div class="tv-mount-card">
+        <h3>Articulating Arm</h3>
+        <p>Full motion mounting that swivels, tilts, and extends from the wall. Perfect for corner installations or rooms where you watch from multiple seating areas.</p>
+      </div>
+      <div class="tv-mount-card">
+        <h3>Ceiling Mount</h3>
+        <p>Suspends the TV from the ceiling. Used in commercial spaces, outdoor patios, and rooms where wall mounting is not possible or practical.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESIDENTIAL & COMMERCIAL ===== -->
+<section class="tv-section gray-bg" aria-label="Where we install">
+  <div class="container">
+    <div class="tv-intro" style="margin-bottom:48px">
+      <span class="section-label">Where We Install</span>
+      <h2 class="section-title">Residential &amp; Commercial Spaces</h2>
+    </div>
+    <div class="tv-rooms">
+      <div class="tv-rooms-list">
+        <h3>Residential Rooms</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Living rooms and family rooms</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Master bedrooms and guest rooms</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Outdoor patios and lanais</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Game rooms and man caves</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Kitchens and dining areas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Home offices and studies</li>
+        </ul>
+      </div>
+      <div class="tv-rooms-list">
+        <h3>Commercial Spaces</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Conference rooms and boardrooms</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Restaurants and sports bars</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Retail stores and showrooms</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Gyms and fitness centers</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Medical and dental waiting rooms</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Senior living and assisted care facilities</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="tv-section" aria-label="Why choose us">
+  <div class="container">
+    <div class="tv-intro" style="margin-bottom:0">
+      <span class="section-label">Why Entertainment Pros</span>
+      <h2 class="section-title">Why Choose Us</h2>
+    </div>
+    <div class="tv-why-grid">
+      <div class="tv-why-card">
+        <div class="tv-why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Local Professionals</h3>
+        <p>We are based in Palm Harbor and serve all of Pinellas County. We are your neighbors, not an anonymous national chain.</p>
+      </div>
+      <div class="tv-why-card">
+        <div class="tv-why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Honest Pricing</h3>
+        <p>Upfront quotes with no hidden fees. You know exactly what you are paying before we start. No surprises.</p>
+      </div>
+      <div class="tv-why-card">
+        <div class="tv-why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Respect for Your Home</h3>
+        <p>We treat your home like our own. Drop cloths, clean workspaces, and a thorough cleanup when we are done.</p>
+      </div>
+      <div class="tv-why-card">
+        <div class="tv-why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <h3>Quality Work</h3>
+        <p>Licensed, insured, and experienced. Every mount is installed to the highest standards with professional-grade hardware.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="tv-section gray-bg" aria-label="Frequently asked questions">
+  <div class="container">
+    <div class="tv-intro" style="margin-bottom:48px">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="tv-faq">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How much does it cost to have a TV mounted?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>The cost depends on the type of mount, your wall construction, and whether cable concealment is needed. We provide upfront quotes with no hidden fees. Contact us for a free estimate based on your specific setup.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do I need to provide the mount, or do you supply it?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We can supply a professional-grade mount that is matched to your TV's size and weight, or we can install a mount you have already purchased. We recommend letting us select the mount to ensure proper compatibility and safety.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can you mount a TV above a fireplace?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, we regularly mount TVs above fireplaces. We use tilting mounts to angle the screen downward for comfortable viewing and can install a heat shield if your fireplace produces significant heat. We will assess your specific fireplace during the consultation.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can you hide the cables inside the wall?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>In most cases, yes. We can route HDMI, power, and other cables through the wall for a completely clean look. For situations where in-wall routing is not possible (concrete walls, for example), we use paintable cable raceways that blend with your wall color.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can you connect a soundbar when you mount the TV?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. We can mount your soundbar below the TV and connect it during the same visit. We also offer full <a href="/audio-video-planning-and-installation/" style="color:var(--orange)">audio-video planning and installation</a> if you want to explore surround sound options.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What areas do you service?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We service all of Pinellas County including Palm Harbor, Clearwater, St. Petersburg, Dunedin, Largo, Seminole, Safety Harbor, Oldsmar, and Tarpon Springs. We also cover areas of West Hillsborough and West Pasco counties.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR WORK GALLERY ===== -->
+<section class="tv-gallery" aria-label="Our TV mounting work">
+  <div class="container">
+    <div class="tv-gallery-header">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title">TV Mounting Projects</h2>
+    </div>
+    <div class="tv-gallery-grid">
+      <div class="tv-gallery-item">
+        <img src="/images/20220421_110408.jpg" alt="Entertainment Pros installer on ladder during professional TV wall mounting" width="600" height="450" loading="lazy">
+      </div>
+      <div class="tv-gallery-item">
+        <img src="/images/It-s more than hanging a TV.jpg" alt="Professional TV installation showcasing clean cable management and finished result" width="600" height="450" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Hang Your TV?</h2>
+    <p>Contact us for a free quote on professional TV mounting in Pinellas County.</p>
+    <div class="cta-buttons">
+      <a href="tel:727-804-2277" class="btn btn-dark">Call 727-804-2277</a>
+      <a href="/contact/" class="btn" style="background:#fff;color:var(--orange-dark);font-weight:700">Request Consultation</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/images/Transparent Logo.png" alt="Entertainment Pros" width="160" height="42">
+        <p>Licensed and insured Audio/Video Sales and Installation company serving Pinellas County since 2006. Residential and commercial AV projects.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/audio-video-planning-and-installation/">Audio-Video</a></li>
+          <li><a href="/home-theater-design-and-installation/">Home Theater</a></li>
+          <li><a href="/hanging-tvs-mounting-services/">TV Mounting</a></li>
+          <li><a href="/lighting-control/">Lighting Control</a></li>
+          <li><a href="/exterior-illumination/">Exterior Illumination</a></li>
+          <li><a href="/home-automation/">Home Automation</a></li>
+          <li><a href="/automated-shades/">Automated Shades</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about-us/">About Us</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/brands/">Brands</a></li>
+          <li><a href="/leave-a-review/">Leave a Review</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:727-804-2277">727-804-2277</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Pinellas County, FL</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>License ES12001376</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2006&ndash;2026 Entertainment Pros. All rights reserved.</span>
+      <span>Serving Clearwater, St. Pete, Palm Harbor, Dunedin &amp; all of Pinellas</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isActive = item.classList.contains('active');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    // Open clicked if it was closed
+    if (!isActive) {
+      item.classList.add('active');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+</script>
+
+</body>
+</html>

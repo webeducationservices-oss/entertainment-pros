@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audio Video Planning and Installation | Palm Harbor</title>
+<meta name="description" content="Professional residential audio-video planning and installation in Palm Harbor and Pinellas County. Surround sound, whole-house audio, and custom AV systems without the oversell.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.entertainment-pros.com/audio-video-planning-and-installation/">
+<meta property="og:title" content="Audio Video Planning and Installation | Palm Harbor">
+<meta property="og:description" content="Professional residential audio-video planning and installation in Palm Harbor and Pinellas County. Surround sound, whole-house audio, and custom AV systems without the oversell.">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<script src="/components.js" defer></script>
+<style>
+/* ===== PAGE-SPECIFIC: AUDIO-VIDEO PLANNING ===== */
+
+/* Content sections */
+.av-section{padding:var(--section-pad)}
+.av-section.gray-bg{background:var(--gray-bg)}
+.av-section .container{max-width:var(--max-w)}
+.av-section-header{text-align:center;margin-bottom:60px}
+.av-section-header .section-subtitle{margin:0 auto}
+
+.av-content{max-width:800px;margin:0 auto}
+.av-content p{color:var(--gray);font-size:1.05rem;line-height:1.8;margin-bottom:20px}
+.av-content h3{font-size:1.3rem;color:var(--black);margin-bottom:12px;margin-top:32px}
+
+/* Why choose grid */
+.av-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.av-why-card{text-align:center;padding:40px 28px;border-radius:var(--radius);background:var(--gray-bg);transition:var(--transition)}
+.av-why-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.av-why-card-icon{width:64px;height:64px;background:rgba(243,137,41,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.av-why-card-icon svg{width:28px;height:28px;color:var(--orange)}
+.av-why-card h3{font-size:1.05rem;margin-bottom:10px;color:var(--black);margin-top:0}
+.av-why-card p{font-size:.9rem;color:var(--gray);line-height:1.7}
+
+/* Audio options cards */
+.av-options-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+.av-option-card{background:#fff;border-radius:var(--radius);padding:32px 28px;box-shadow:var(--shadow);transition:var(--transition);text-align:center}
+.av-option-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.av-option-card-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.av-option-card-icon svg{width:26px;height:26px;color:#fff}
+.av-option-card h3{font-size:1.1rem;margin-bottom:10px;color:var(--black);margin-top:0}
+.av-option-card p{font-size:.9rem;color:var(--gray);line-height:1.7}
+
+/* Process steps */
+.av-process{counter-reset:step}
+.av-process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:48px}
+.av-step{text-align:center;padding:32px 16px;position:relative}
+.av-step::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:var(--orange);color:#fff;font-family:var(--font-heading);font-weight:700;font-size:1.2rem;border-radius:50%;margin:0 auto 20px}
+.av-step h3{font-size:1rem;margin-bottom:8px;color:var(--black);margin-top:0}
+.av-step p{font-size:.85rem;color:var(--gray);line-height:1.6}
+
+/* Oversold section */
+.av-honest{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.av-honest-content p{color:var(--gray);font-size:1.05rem;line-height:1.8;margin-bottom:20px}
+.av-honest-content h3{margin-top:0}
+.av-honest-highlight{background:var(--gray-bg);border-left:4px solid var(--orange);padding:32px;border-radius:0 var(--radius) var(--radius) 0}
+.av-honest-highlight p{color:var(--gray);font-size:1rem;line-height:1.8;margin-bottom:0}
+.av-honest-highlight strong{color:var(--black)}
+
+/* Responsive */
+@media(max-width:1024px){
+  .av-why-grid{grid-template-columns:repeat(2,1fr)}
+  .av-options-grid{grid-template-columns:repeat(2,1fr)}
+  .av-process-grid{grid-template-columns:repeat(3,1fr)}
+  .av-honest{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .av-why-grid{grid-template-columns:1fr}
+  .av-options-grid{grid-template-columns:1fr}
+  .av-process-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .av-process-grid{grid-template-columns:1fr}
+}
+
+/* Hero feature image */
+.av-hero-img{width:100%;max-height:500px;object-fit:cover;border-radius:var(--radius);margin-top:40px}
+
+/* Project gallery */
+.av-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.av-gallery-item{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.av-gallery-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.av-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:768px){
+  .av-gallery{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header header-solid" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/images/Transparent Logo.png" alt="Entertainment Pros logo" width="180" height="48">
+    </a>
+    <div class="header-right">
+      <div class="header-info">
+        <a href="tel:727-804-2277">
+          <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          727-804-2277
+        </a>
+        <span class="divider"></span>
+        <span>License ES12001376</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="mega">
+            <a href="/services-audio-visual-planning-and-installation/" class="active">Services <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="mega-menu">
+              <div class="mega-inner">
+                <div class="mega-col">
+                  <h5>Audio &amp; Sound</h5>
+                  <a href="/audio-video-planning-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Audio-Video Planning</a>
+                  <a href="/home-theater-design-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Home Theater Design</a>
+                  <a href="/living-room-surround-sound/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Surround Sound Systems</a>
+                  <a href="/condo-tv-and-sound-solutions/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="16" y2="6"/></svg> Condo TV &amp; Sound</a>
+                </div>
+                <div class="mega-col">
+                  <h5>TV &amp; Installations</h5>
+                  <a href="/hanging-tvs-mounting-services/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> TV Hanging &amp; Mounting</a>
+                  <a href="/installations-residential/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Residential Installations</a>
+                  <a href="/commercial-audio-video/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Commercial Audio-Video</a>
+                  <a href="/sales/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Equipment Sales</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Lighting</h5>
+                  <a href="/lighting-control/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg> Lighting Control</a>
+                  <a href="/led-accent-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> LED Accent Lighting</a>
+                  <a href="/exterior-illumination/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Exterior Illumination</a>
+                  <a href="/exterior-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> Landscape Lighting</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Smart Home</h5>
+                  <a href="/home-automation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg> Home Automation</a>
+                  <a href="/automated-shades/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg> Automated Shades</a>
+                </div>
+                <div class="mega-cta">
+                  <p>Not sure what you need? We'll help you figure it out.</p>
+                  <a href="/contact/" class="btn btn-primary">Request Free Consultation</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/portfolio/">Portfolio <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/portfolio/">Gallery</a></li>
+              <li><a href="/brands/">Brands</a></li>
+            </ul>
+          </li>
+          <li><a href="/about-us/">About Us</a></li>
+          <li class="dropdown">
+            <a href="/blog/">AV Hub <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/tv-size/">TV Size Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="/contact/" class="btn btn-primary header-cta">Request Consultation</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="/">Home</a>
+  <a href="/services-audio-visual-planning-and-installation/">Services</a>
+  <div class="mobile-nav-sub">
+    <a href="/audio-video-planning-and-installation/">Audio-Video Planning</a>
+    <a href="/home-theater-design-and-installation/">Home Theater</a>
+    <a href="/hanging-tvs-mounting-services/">TV Mounting</a>
+    <a href="/lighting-control/">Lighting Control</a>
+    <a href="/exterior-illumination/">Exterior Lighting</a>
+    <a href="/home-automation/">Home Automation</a>
+  </div>
+  <a href="/portfolio/">Portfolio</a>
+  <a href="/about-us/">About Us</a>
+  <a href="/blog/">AV Hub</a>
+  <a href="/contact/">Contact</a>
+  <a href="tel:727-804-2277" class="mobile-phone">727-804-2277</a>
+</div>
+
+<main>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/services-audio-visual-planning-and-installation/">Services</a>
+      <span class="sep">/</span>
+      <span class="current">Audio-Video Planning</span>
+    </div>
+    <h1>Residential Audio-Video Planning and Installation</h1>
+    <p>Make staying home fun with a single room surround sound or a whole house audio video system, easily controlled with one remote.</p>
+    <img src="/images/service-av.jpeg" alt="Living room with wall-mounted TV and speaker system installed by Entertainment Pros" class="av-hero-img" width="1200" height="500">
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="av-section" aria-label="Why choose Entertainment Pros">
+  <div class="container">
+    <div class="av-section-header">
+      <span class="section-label">Why Entertainment Pros</span>
+      <h2 class="section-title">Why Choose Us for Your AV Needs</h2>
+      <p class="section-subtitle">We are a residential audio/video, automation, control, and lighting integration company based in Palm Harbor, FL. Customer service is our focus.</p>
+    </div>
+    <div class="av-why-grid">
+      <div class="av-why-card">
+        <div class="av-why-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Licensed &amp; Insured</h3>
+        <p>Florida Low Voltage License ES12001376 with full insurance. Your home and investment are protected on every project.</p>
+      </div>
+      <div class="av-why-card">
+        <div class="av-why-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3>Honest Recommendations</h3>
+        <p>We never oversell. Every recommendation is based on your space, your listening habits, and your budget &mdash; not our bottom line.</p>
+      </div>
+      <div class="av-why-card">
+        <div class="av-why-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Customer-First Approach</h3>
+        <p>Each house is unique, each person is unique. We treat every project like it is our own, focusing on your satisfaction above all else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GETTING STARTED ===== -->
+<section class="av-section gray-bg" aria-label="Getting started">
+  <div class="container">
+    <div class="av-section-header">
+      <span class="section-label">Getting Started</span>
+      <h2 class="section-title">Starting Your AV Project</h2>
+      <p class="section-subtitle">Whether you are building a new home, renovating, or upgrading your current setup, we make the process simple and stress-free.</p>
+    </div>
+    <div class="av-content">
+      <p>The first step is a phone conversation. We want to understand your vision, your space, and how you use your home entertainment. There is no pressure and no obligation &mdash; just a friendly conversation about what is possible.</p>
+      <p>Once we understand your goals, we will schedule an onsite visit to assess your space, discuss placement options, and identify any wiring or structural considerations. From there, we develop a plan and budget that fits your needs.</p>
+      <p>We service all of Pinellas County and areas of West Hillsborough and West Pasco. Whether you are in Palm Harbor, Clearwater, St. Petersburg, or Dunedin, we are just a phone call away.</p>
+      <a href="/contact/" class="btn btn-primary" style="margin-top:12px">Request a Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AUDIO OPTIONS ===== -->
+<section class="av-section" aria-label="Audio-video options">
+  <div class="container">
+    <div class="av-section-header">
+      <span class="section-label">Your Options</span>
+      <h2 class="section-title">Enhancing Your Home Audio-Video System</h2>
+      <p class="section-subtitle">There are several levels of audio enhancement. The right choice depends on your room, your expectations, and how you like to enjoy your entertainment.</p>
+    </div>
+    <div class="av-options-grid">
+      <div class="av-option-card">
+        <div class="av-option-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>TV Audio Only</h3>
+        <p>Built-in TV speakers have improved significantly. For casual viewers who primarily watch the news and basic programming, your TV speakers may be sufficient. No additional equipment needed.</p>
+      </div>
+      <div class="av-option-card">
+        <div class="av-option-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
+        <h3>Soundbar System</h3>
+        <p>A quality soundbar is a major step up from TV speakers. Perfect for smaller rooms or those who want better dialogue clarity and fuller sound without the complexity of a full surround system.</p>
+      </div>
+      <div class="av-option-card">
+        <div class="av-option-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
+        <h3>Surround Sound</h3>
+        <p>A true surround sound system with dedicated speakers, a receiver, and a subwoofer delivers an immersive experience. Sound comes from all around you &mdash; the way movies and music are meant to be heard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DON'T GET OVERSOLD ===== -->
+<section class="av-section gray-bg" aria-label="Honest service">
+  <div class="container">
+    <div class="av-honest">
+      <div class="av-honest-content">
+        <span class="section-label">Honest Service</span>
+        <h2 class="section-title">Don't Get Oversold by Other Installers</h2>
+        <p>Many AV companies push expensive equipment that you do not need. A system that costs twice as much does not always sound twice as good. The key is matching the right equipment to your room and your listening preferences.</p>
+        <p>We take the time to understand how you actually use your entertainment system. Do you watch movies with the family? Stream music throughout the house? Host game day parties? The answers determine what you need &mdash; and just as importantly, what you do not.</p>
+        <p>Our goal is to deliver a system that exceeds your expectations without exceeding your budget. We want you as a customer for life, and that starts with trust.</p>
+      </div>
+      <div>
+        <img src="/images/572x438_laprade.jpg" alt="Clean white speaker setup with wall-mounted TV by Entertainment Pros" loading="lazy" width="572" height="438" style="width:100%;border-radius:var(--radius);margin-bottom:24px">
+        <div class="av-honest-highlight">
+          <p><strong>Our promise:</strong> We will never recommend equipment you do not need. Every dollar you spend goes toward making your system sound better in your specific space. We design systems for real people, not showroom demos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="av-section" aria-label="Our process">
+  <div class="container">
+    <div class="av-section-header">
+      <span class="section-label">Our Process</span>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">From your first phone call to enjoying your new system, here is what to expect.</p>
+    </div>
+    <div class="av-process">
+      <div class="av-process-grid">
+        <div class="av-step">
+          <h3>Phone Conversation</h3>
+          <p>We discuss your goals, your space, and answer any questions. No pressure, no obligation.</p>
+        </div>
+        <div class="av-step">
+          <h3>Budget Discussion</h3>
+          <p>We help you understand the investment range and find the best options for your budget.</p>
+        </div>
+        <div class="av-step">
+          <h3>Onsite Planning</h3>
+          <p>We visit your home to assess the space, discuss placement, and finalize the system design.</p>
+        </div>
+        <div class="av-step">
+          <h3>Professional Installation</h3>
+          <p>Our licensed team installs everything with clean wiring, proper calibration, and attention to detail.</p>
+        </div>
+        <div class="av-step">
+          <h3>Personal Instruction</h3>
+          <p>We walk you through your new system so you are comfortable using every feature from day one.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR WORK ===== -->
+<section class="av-section gray-bg" aria-label="Our work">
+  <div class="container">
+    <div class="av-section-header">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title">Recent Audio-Video Projects</h2>
+      <p class="section-subtitle">See examples of our residential audio-video installations throughout Pinellas County.</p>
+    </div>
+    <div class="av-gallery">
+      <div class="av-gallery-item">
+        <img src="/images/service-av.jpeg" alt="Living room audio-video installation with wall-mounted TV and speakers" loading="lazy" width="572" height="438">
+      </div>
+      <div class="av-gallery-item">
+        <img src="/images/572x438_laprade.jpg" alt="Clean white speaker setup with wall-mounted TV installation" loading="lazy" width="572" height="438">
+      </div>
+      <div class="av-gallery-item">
+        <img src="/images/Invisible speakers.JPG" alt="Invisible speaker installation in a modern living room" loading="lazy" width="572" height="438">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Request an Onsite Consultation</h2>
+    <p>Tell us about your project and we will help you design the perfect audio-video system for your home.</p>
+    <div class="cta-buttons">
+      <a href="tel:727-804-2277" class="btn btn-dark">Call 727-804-2277</a>
+      <a href="/contact/" class="btn" style="background:#fff;color:var(--orange-dark);font-weight:700">Request Consultation</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/images/Transparent Logo.png" alt="Entertainment Pros" width="160" height="42">
+        <p>Licensed and insured Audio/Video Sales and Installation company serving Pinellas County since 2006. Residential and commercial AV projects.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/audio-video-planning-and-installation/">Audio-Video</a></li>
+          <li><a href="/home-theater-design-and-installation/">Home Theater</a></li>
+          <li><a href="/hanging-tvs-mounting-services/">TV Mounting</a></li>
+          <li><a href="/lighting-control/">Lighting Control</a></li>
+          <li><a href="/exterior-illumination/">Exterior Illumination</a></li>
+          <li><a href="/home-automation/">Home Automation</a></li>
+          <li><a href="/automated-shades/">Automated Shades</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about-us/">About Us</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/brands/">Brands</a></li>
+          <li><a href="/leave-a-review/">Leave a Review</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:727-804-2277">727-804-2277</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Pinellas County, FL</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>License ES12001376</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2006&ndash;2026 Entertainment Pros. All rights reserved.</span>
+      <span>Serving Clearwater, St. Pete, Palm Harbor, Dunedin &amp; all of Pinellas</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

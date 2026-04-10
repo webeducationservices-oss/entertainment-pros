@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entertainment Pros | Pinellas Audio-Visual Installation</title>
+<meta name="description" content="Founded in 2006, Entertainment Pros is a licensed & insured Audio-Visual Sales and Installation company serving Pinellas. Home surround sound.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.entertainment-pros.com/">
+<meta property="og:title" content="Entertainment Pros | Pinellas Audio-Visual Installation">
+<meta property="og:description" content="Founded in 2006, Entertainment Pros is a licensed & insured Audio-Visual Sales and Installation company serving Pinellas. Home surround sound.">
+<meta property="og:image" content="https://www.entertainment-pros.com/Resources/images/WhatsApp%20Image%202024-07-26%20at%2010.38.53%20AM-1920w.jpeg">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
+<link rel="preload" as="image" href="/images/hero-luxury-av-hires.png" fetchpriority="high">
+<link rel="stylesheet" href="/styles.css">
+<script src="/components.js" defer></script>
+<style>
+/* ===== PAGE-SPECIFIC: HOME ===== */
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.4) 50%,rgba(0,0,0,.2) 100%)}
+.hero-content{position:relative;z-index:2;max-width:700px;padding:0 24px;margin-left:max(24px,calc((100vw - 1200px)/2))}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(243,137,41,.15);border:1px solid rgba(243,137,41,.4);color:var(--orange-light);padding:8px 20px;border-radius:100px;font-family:var(--font-heading);font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;backdrop-filter:blur(8px)}
+.hero-badge svg{width:14px;height:14px;fill:var(--orange-light)}
+.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;font-weight:800;line-height:1.1;margin-bottom:20px;min-height:120px}
+.hero h1 span{color:var(--orange)}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:36px;max-width:560px;font-weight:300;min-height:72px}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+.hero-stats{position:absolute;bottom:60px;right:max(40px,calc((100vw - 1200px)/2));z-index:2;display:flex;gap:40px}
+.hero-stat{text-align:center;color:#fff}
+.hero-stat .number{font-family:var(--font-heading);font-size:2.4rem;font-weight:800;color:var(--orange)}
+.hero-stat .label{font-size:.8rem;letter-spacing:1px;text-transform:uppercase;opacity:.7;margin-top:4px}
+.scroll-indicator{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.5);font-size:.7rem;letter-spacing:2px;text-transform:uppercase}
+.scroll-indicator .line{width:1px;height:40px;background:linear-gradient(180deg,rgba(255,255,255,.5),transparent)}
+
+/* Trust bar */
+.trust-bar{background:var(--black);padding:24px 0}
+.trust-bar .container{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.7);font-size:.85rem;font-weight:400}
+.trust-item svg{width:20px;height:20px;color:var(--orange);flex-shrink:0}
+.trust-item strong{color:#fff;font-weight:600}
+
+/* About */
+.about{padding:var(--section-pad);background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-images{position:relative}
+.about-img-main{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg)}
+.about-img-accent{position:absolute;bottom:-30px;right:-30px;width:200px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);border:4px solid #fff}
+.about-content .section-title{margin-top:8px}
+.about-content p{color:var(--gray);margin-bottom:20px;font-size:1.05rem}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.about-feature{display:flex;align-items:flex-start;gap:12px;padding:16px;border-radius:8px;background:var(--gray-bg)}
+.about-feature svg{width:22px;height:22px;color:var(--orange);flex-shrink:0;margin-top:2px}
+.about-feature h4{font-size:.9rem;margin-bottom:2px}
+.about-feature p{font-size:.82rem;color:var(--gray-light);margin:0}
+
+/* Services */
+.services{padding:var(--section-pad);background:var(--gray-bg)}
+.services-header{text-align:center;margin-bottom:60px}
+.services-header .section-subtitle{margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);position:relative}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.service-card-img{height:220px;overflow:hidden;position:relative}
+.service-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.service-card:hover .service-card-img img{transform:scale(1.06)}
+.service-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.4) 100%)}
+.service-icon{position:absolute;top:16px;right:16px;width:44px;height:44px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:1}
+.service-icon svg{width:20px;height:20px;color:#fff}
+.service-card-body{padding:28px 24px}
+.service-card-body h3{font-size:1.15rem;margin-bottom:8px;color:var(--black)}
+.service-card-body p{font-size:.9rem;color:var(--gray);line-height:1.7;margin-bottom:16px}
+.service-link{font-family:var(--font-heading);font-size:.8rem;font-weight:600;color:var(--orange);display:inline-flex;align-items:center;gap:6px;transition:var(--transition)}
+.service-link:hover{gap:10px;color:var(--orange-dark)}
+.service-link svg{width:14px;height:14px}
+
+/* Gallery */
+.gallery{padding:var(--section-pad);background:var(--white)}
+.gallery-header{text-align:center;margin-bottom:60px}
+.gallery-header .section-subtitle{margin:0 auto}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:280px 280px;gap:16px}
+.gallery-item{border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0);transition:var(--transition)}
+.gallery-item:hover::after{background:rgba(243,137,41,.15)}
+.gallery-item:first-child{grid-row:span 2}
+.gallery-item:first-child img{height:100%}
+
+/* Reviews */
+.reviews{padding:var(--section-pad);background:var(--black);color:#fff}
+.reviews-header{text-align:center;margin-bottom:60px}
+.reviews-header .section-title{color:#fff}
+.reviews-header .section-subtitle{color:rgba(255,255,255,.6);margin:0 auto}
+.reviews-rating{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:32px}
+.reviews-stars{display:flex;gap:4px}
+.reviews-stars svg{width:28px;height:28px;fill:var(--orange)}
+.reviews-score{font-family:var(--font-heading);font-size:2.4rem;font-weight:800}
+.reviews-count{font-size:.9rem;color:rgba(255,255,255,.5)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+.review-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:32px;transition:var(--transition)}
+.review-card:hover{background:rgba(255,255,255,.1);border-color:rgba(243,137,41,.2)}
+.review-stars{display:flex;gap:2px;margin-bottom:16px}
+.review-stars svg{width:16px;height:16px;fill:var(--orange)}
+.review-card p{font-size:.95rem;line-height:1.8;color:rgba(255,255,255,.75);margin-bottom:20px;font-style:italic}
+.review-author{font-family:var(--font-heading);font-weight:600;font-size:.85rem}
+.review-source{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:4px}
+.reviews-cta{text-align:center}
+
+/* FAQ */
+.faq{padding:var(--section-pad);background:var(--gray-bg)}
+.faq-header{text-align:center;margin-bottom:60px}
+.faq-header .section-subtitle{margin:0 auto}
+.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06)}
+.faq-question{width:100%;padding:22px 28px;background:none;border:none;font-family:var(--font-heading);font-size:.95rem;font-weight:600;color:var(--black);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;transition:var(--transition)}
+.faq-question:hover{color:var(--orange)}
+.faq-question svg{width:20px;height:20px;color:var(--gray-light);flex-shrink:0;transition:transform .3s ease}
+.faq-item.open .faq-question svg{transform:rotate(45deg);color:var(--orange)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-answer-inner{padding:0 28px 22px;color:var(--gray);font-size:.92rem;line-height:1.8}
+
+/* Blog */
+.blog{padding:var(--section-pad);background:var(--white)}
+.blog-header{text-align:center;margin-bottom:60px}
+.blog-header .section-subtitle{margin:0 auto}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+.blog-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);border:1px solid rgba(0,0,0,.06)}
+.blog-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.blog-card-body{padding:24px}
+.blog-meta{font-size:.78rem;color:var(--gray-light);font-family:var(--font-heading);font-weight:500;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.blog-card-body h3{font-size:1.05rem;margin-bottom:10px;color:var(--black);line-height:1.4}
+.blog-card-body p{font-size:.88rem;color:var(--gray);line-height:1.7;margin-bottom:16px}
+.blog-link{font-family:var(--font-heading);font-size:.8rem;font-weight:600;color:var(--orange);display:inline-flex;align-items:center;gap:6px}
+.blog-link:hover{gap:10px;color:var(--orange-dark)}
+.blog-cta{text-align:center}
+
+/* Brands Ticker */
+.brands-section{padding:var(--section-pad);background:var(--white)}
+.brands-section .section-subtitle{max-width:600px;margin:0 auto 48px;text-align:center}
+.brands-ticker-wrap{overflow:hidden;position:relative;padding:20px 0}
+.brands-ticker-wrap::before,.brands-ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.brands-ticker-wrap::before{left:0;background:linear-gradient(90deg,var(--white),transparent)}
+.brands-ticker-wrap::after{right:0;background:linear-gradient(270deg,var(--white),transparent)}
+.brands-ticker{display:flex;gap:56px;animation:ticker 40s linear infinite;width:max-content}
+.brands-ticker:hover{animation-play-state:paused}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.brand-item{flex-shrink:0;display:flex;align-items:center;justify-content:center;height:48px;opacity:.55;filter:grayscale(100%);transition:all .3s ease}
+.brand-item:hover{opacity:1;filter:grayscale(0)}
+.brand-item img{max-height:40px;max-width:120px;object-fit:contain}
+.brand-item span{font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--gray);letter-spacing:.5px;white-space:nowrap}
+.brands-independent{text-align:center;margin-top:32px;font-size:.95rem;color:var(--gray);font-style:italic}
+.brands-independent strong{color:var(--dark)}
+
+/* Home responsive overrides */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .about-img-accent{right:0}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
+  .gallery-item:first-child{grid-row:auto}
+  .reviews-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-stats{display:none}
+}
+@media(max-width:768px){
+  .hero{min-height:85vh}
+  .hero-content{margin-left:0;padding:0 24px}
+  .hero h1{font-size:2.2rem;min-height:auto}
+  .hero-sub{min-height:auto}
+  .services-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .reviews-grid{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr}
+  .about-features{grid-template-columns:1fr}
+  .hero-buttons{flex-direction:column;align-items:flex-start}
+  .trust-bar .container{gap:24px;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:0 24px}
+  .trust-item{white-space:nowrap;flex-shrink:0}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/images/Transparent Logo.png" alt="Entertainment Pros logo" width="180" height="48">
+    </a>
+    <div class="header-right">
+      <div class="header-info">
+        <a href="tel:727-804-2277">
+          <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          727-804-2277
+        </a>
+        <span class="divider"></span>
+        <span>License ES12001376</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li class="mega">
+            <a href="/services-audio-visual-planning-and-installation/">Services <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="mega-menu">
+              <div class="mega-inner">
+                <div class="mega-col">
+                  <h5>Audio &amp; Sound</h5>
+                  <a href="/audio-video-planning-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Audio-Video Planning</a>
+                  <a href="/home-theater-design-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Home Theater Design</a>
+                  <a href="/living-room-surround-sound/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Surround Sound Systems</a>
+                  <a href="/condo-tv-and-sound-solutions/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="16" y2="6"/></svg> Condo TV &amp; Sound</a>
+                </div>
+                <div class="mega-col">
+                  <h5>TV &amp; Installations</h5>
+                  <a href="/hanging-tvs-mounting-services/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> TV Hanging &amp; Mounting</a>
+                  <a href="/installations-residential/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Residential Installations</a>
+                  <a href="/commercial-audio-video/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Commercial Audio-Video</a>
+                  <a href="/sales/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Equipment Sales</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Lighting</h5>
+                  <a href="/lighting-control/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg> Lighting Control</a>
+                  <a href="/led-accent-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> LED Accent Lighting</a>
+                  <a href="/exterior-illumination/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Exterior Illumination</a>
+                  <a href="/exterior-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> Landscape Lighting</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Smart Home</h5>
+                  <a href="/home-automation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg> Home Automation</a>
+                  <a href="/automated-shades/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg> Automated Shades</a>
+                </div>
+                <div class="mega-cta">
+                  <p>Not sure what you need? We'll help you figure it out.</p>
+                  <a href="/contact/" class="btn btn-primary">Request Free Consultation</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/portfolio/">Portfolio <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/portfolio/">Gallery</a></li>
+              <li><a href="/brands/">Brands</a></li>
+            </ul>
+          </li>
+          <li><a href="/about-us/">About Us</a></li>
+          <li class="dropdown">
+            <a href="/blog/">AV Hub <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/tv-size/">TV Size Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="/contact/" class="btn btn-primary header-cta">Request Consultation</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="/">Home</a>
+  <a href="/services-audio-visual-planning-and-installation/">Services</a>
+  <div class="mobile-nav-sub">
+    <a href="/audio-video-planning-and-installation/">Audio-Video Planning</a>
+    <a href="/home-theater-design-and-installation/">Home Theater</a>
+    <a href="/hanging-tvs-mounting-services/">TV Mounting</a>
+    <a href="/lighting-control/">Lighting Control</a>
+    <a href="/exterior-illumination/">Exterior Lighting</a>
+    <a href="/home-automation/">Home Automation</a>
+  </div>
+  <a href="/portfolio/">Portfolio</a>
+  <a href="/about-us/">About Us</a>
+  <a href="/blog/">AV Hub</a>
+  <a href="/contact/">Contact</a>
+  <a href="tel:727-804-2277" class="mobile-phone">727-804-2277</a>
+</div>
+
+<main>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="/images/hero-luxury-av-hires.png" alt="Luxury condo AV installation with custom entertainment wall by Entertainment Pros" width="1920" height="1080" fetchpriority="high">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Serving Pinellas Since 2006
+    </div>
+    <h1>Exceptional <span>Audio &amp; Video</span> for Your Space</h1>
+    <p class="hero-sub">Licensed and insured AV sales and installation serving Clearwater, St. Pete, and all of Pinellas County. Home theaters, surround sound, lighting control, and smart home automation.</p>
+    <div class="hero-buttons">
+      <a href="/contact/" class="btn btn-primary">Request Onsite Consultation</a>
+      <a href="#services" class="btn btn-outline">Explore Our Services</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="number">18+</div>
+      <div class="label">Years Experience</div>
+    </div>
+    <div class="hero-stat">
+      <div class="number">5.0</div>
+      <div class="label">Google Rating</div>
+    </div>
+    <div class="hero-stat">
+      <div class="number">1000+</div>
+      <div class="label">Installations</div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span><strong>Licensed &amp; Insured</strong></span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <span><strong>5-Star</strong> Google Reviews</span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      <span><strong>Residential &amp; Commercial</strong></span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span><strong>New Construction &amp; Retrofit</strong></span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images">
+        <div class="about-img-main">
+          <img src="/images/service-luxury.jpeg" alt="Luxury AV installation with multiple displays" width="600" height="400" loading="lazy">
+        </div>
+        <div class="about-img-accent">
+          <img src="/images/service-exterior.jpg" alt="Exterior landscape lighting installation" width="200" height="140" loading="lazy">
+        </div>
+      </div>
+      <div class="about-content">
+        <span class="section-label">About Entertainment Pros</span>
+        <h2 class="section-title">AV Installation, Home Theaters, Lighting &amp; More</h2>
+        <p>Founded in 2006, Entertainment Pros is a licensed and insured Audio/Video Sales and Installation company serving all of Pinellas county, and areas of Hillsborough and Pasco.</p>
+        <p>We specialize in new construction and retrofit residential AV projects as well as small commercial AV projects.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <div><h4>Audio &amp; Video</h4><p>Surround sound &amp; whole-house AV</p></div>
+          </div>
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <div><h4>Home Theater</h4><p>Custom design &amp; installation</p></div>
+          </div>
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <div><h4>Lighting Control</h4><p>Scene-based lighting systems</p></div>
+          </div>
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <div><h4>Home Automation</h4><p>Smart control for your home</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">From single-room surround sound to whole-house audio video systems, we deliver quality craftsmanship with meticulous attention to detail.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="/images/service-av.jpeg" alt="Living room surround sound installation" width="400" height="260" loading="lazy">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
+        </div>
+        <div class="service-card-body">
+          <h3>Audio-Video</h3>
+          <p>Make staying home fun with a single room surround or a whole house audio video system easily controlled with one remote.</p>
+          <a href="/audio-video-planning-and-installation/" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="/images/service-theater.jpeg" alt="Custom home theater with built-in entertainment center" width="400" height="260" loading="lazy">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        </div>
+        <div class="service-card-body">
+          <h3>Home Theater</h3>
+          <p>Almost any room can be transformed into a state of the art home theater with stunning 4K video, powerful audio, and custom lighting.</p>
+          <a href="/home-theater-design-and-installation/" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="/images/gallery-3.jpeg" alt="Outdoor patio TV installation by Entertainment Pros" width="400" height="260" loading="lazy">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+        </div>
+        <div class="service-card-body">
+          <h3>TV Hanging &amp; Mounting</h3>
+          <p>Licensed TV mounting with hidden wiring for homes and condos across Pinellas since 2006. Meticulous attention to detail.</p>
+          <a href="/hanging-tvs-mounting-services/" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="/images/service-exterior.jpg" alt="Landscape lighting installation by Entertainment Pros" width="400" height="260" loading="lazy">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg></div>
+        </div>
+        <div class="service-card-body">
+          <h3>Lighting Control</h3>
+          <p>Set your lighting for any scene you want. Hear a noise? Turn all your lights on with one button press!</p>
+          <a href="/lighting-control/" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="/images/service-automation.jpeg" alt="Smart home automation system by Entertainment Pros" width="400" height="260" loading="lazy">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
+        </div>
+        <div class="service-card-body">
+          <h3>Exterior Illumination</h3>
+          <p>Color-changing LED landscape lighting makes your home stand out. Solid brass fixtures with integrated LEDs and a 10-year warranty.</p>
+          <a href="/exterior-illumination/" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="/images/service-luxury.jpeg" alt="Luxury smart home with integrated AV control" width="400" height="260" loading="lazy">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        </div>
+        <div class="service-card-body">
+          <h3>Home Automation</h3>
+          <p>Go beyond Alexa and Nest. Automated control solutions for home or business add convenience, security, and energy savings.</p>
+          <a href="/home-automation/" class="service-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-header">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title">Installation Inspiration Gallery</h2>
+      <p class="section-subtitle">Browse some of our recent residential and commercial AV projects across Pinellas County.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="/images/gallery-1.jpeg" alt="Elegant living room with Samsung Frame TV and chandelier" width="600" height="560" loading="lazy"></div>
+      <div class="gallery-item"><img src="/images/gallery-2.jpeg" alt="Recessed TV installation in marble wall" width="400" height="280" loading="lazy"></div>
+      <div class="gallery-item"><img src="/images/gallery-3.jpeg" alt="Outdoor TV installation on covered patio" width="400" height="280" loading="lazy"></div>
+      <div class="gallery-item"><img src="/images/gallery-4.jpeg" alt="Home theater with surround sound speakers" width="400" height="280" loading="lazy"></div>
+      <div class="gallery-item"><img src="/images/gallery-5.jpeg" alt="Two-story luxury living room with large TV" width="400" height="280" loading="lazy"></div>
+      <div class="gallery-item"><img src="/images/gallery-6.jpeg" alt="Professional AV equipment installation" width="400" height="280" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-header">
+      <span class="section-label">Testimonials</span>
+      <div class="reviews-rating">
+        <span class="reviews-score">5.0</span>
+        <div>
+          <div class="reviews-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="reviews-count">Google Reviews</span>
+        </div>
+      </div>
+      <h2 class="section-title">What Our Clients Say</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p>"Chip and his team are the best. They have done several projects for us including surround sound, TV installations, and outdoor lighting. Always professional and the quality of work is outstanding."</p>
+        <div class="review-author">Michael R.</div>
+        <div class="review-source">Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p>"Entertainment Pros installed our home theater system and it exceeded all expectations. The attention to detail with the wiring was incredible, everything is completely hidden. Highly recommend."</p>
+        <div class="review-author">Sarah T.</div>
+        <div class="review-source">Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p>"We've used Entertainment Pros for our condo building multiple times. They handle HOA requirements perfectly, keep common areas clean, and the installations are flawless every single time."</p>
+        <div class="review-author">David L.</div>
+        <div class="review-source">Google Review</div>
+      </div>
+    </div>
+    <div class="reviews-cta">
+      <a href="/leave-a-review/" class="btn btn-outline">Leave Us a Review</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-header">
+      <span class="section-label">Common Questions</span>
+      <h2 class="section-title">AV Sales and Installation FAQs</h2>
+      <p class="section-subtitle">When our clients ask, we answer.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-question">Where can you mount a TV?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Almost anywhere that can safely support the load. We mount to wood studs, metal studs, concrete block, brick, stucco, tile, stone, ceilings, cabinetry, and floor stands. We confirm structure, choose the right anchors or backing plates, plan cable paths, and follow code so the TV is secure and level.</div></div></div>
+      <div class="faq-item"><button class="faq-question">Can you hide all the wires?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Yes. We conceal HDMI, power, and network lines in-wall where allowed. If in-wall isn't possible, we use paintable raceways that look clean.</div></div></div>
+      <div class="faq-item"><button class="faq-question">What if I don't have a power outlet behind the TV?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">We add a code-compliant recessed outlet or route power to a safe location using one of our certified electrical partners. We can also work with your electrician.</div></div></div>
+      <div class="faq-item"><button class="faq-question">How long does a typical TV mount take?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Most living room installs take 2 to 3 hours. Complex materials, over-fireplace routing, or equipment shelves can add time.</div></div></div>
+      <div class="faq-item"><button class="faq-question">Do you set up soundbars or surround sound with the TV?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Yes. We mount soundbars, connect ARC/eARC, balance levels, and can add in-ceiling speakers if you want a real surround upgrade.</div></div></div>
+      <div class="faq-item"><button class="faq-question">Is a TV safe outside?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Yes, when you use a TV that is purpose built for outdoor use. Outdoor TVs are sealed against moisture and dust, brighter for sun and glare, and rated for Florida heat and humidity. We recommend GFCI power, protected cabling, and the correct model for shade or full sun. Indoor TVs should not be used outdoors.</div></div></div>
+      <div class="faq-item"><button class="faq-question">What areas do you serve?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Clearwater, St. Petersburg, Palm Harbor, Dunedin, Largo, Seminole, Safety Harbor, Oldsmar, Tarpon Springs, and nearby communities.</div></div></div>
+      <div class="faq-item"><button class="faq-question">Are you licensed and insured?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Yes. We are licensed and insured for low-voltage and AV work. License number ES12001376 is listed on the site and your invoice.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLOG ===== -->
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="blog-header">
+      <span class="section-label">From the Blog</span>
+      <h2 class="section-title">Clearwater AV Projects &amp; Advice</h2>
+      <p class="section-subtitle">Home theaters, TV mounts, and speaker installs&mdash;tips and inspiration from our team.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card"><div class="blog-card-body"><div class="blog-meta">March 14, 2026</div><h3>Articulating TV Wall Mount Reinstallation: Fixing a DIY Disaster</h3><p>Is your wall-mounted TV crooked, loose, or riddled with unnecessary holes? Learn how we fix terrible TV mount installations.</p><a href="/articulating-tv-wall-mount-reinstallation/" class="blog-link">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+      <div class="blog-card"><div class="blog-card-body"><div class="blog-meta">February 28, 2026</div><h3>Entertainment System Design: Sound and Style Without Compromise</h3><p>Discover sleek entertainment system designs that deliver incredible sound and a clean aesthetic with hidden speakers.</p><a href="/entertainment-system-design-sound-and-style-without-compromise/" class="blog-link">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+      <div class="blog-card"><div class="blog-card-body"><div class="blog-meta">February 5, 2026</div><h3>Surround Sound and the Art of Setup: Where Tech Meets Configuration</h3><p>Learn how our surround sound setup works, why angles matter, and how we design room-based audio systems.</p><a href="/surround-sound-and-setup/" class="blog-link">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+    </div>
+    <div class="blog-cta"><a href="/blog/" class="btn btn-dark">View All Posts</a></div>
+  </div>
+</section>
+
+<!-- ===== OUR RECOMMENDED BRANDS ===== -->
+<section class="brands-section">
+  <div class="container">
+    <span class="section-label">Trusted Equipment</span>
+    <h2 class="section-title">Our Recommended Brands</h2>
+    <p class="section-subtitle">As an independent AV company, we source the best equipment for every project. We aren't locked into any single manufacturer — we will always find the best solution for you.</p>
+    <div class="brands-ticker-wrap">
+      <div class="brands-ticker">
+        <div class="brand-item"><img src="/images/samsung.gif" alt="Samsung" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/sony.gif" alt="Sony" width="120" height="40"></div>
+        <div class="brand-item"><span>LG</span></div>
+        <div class="brand-item"><img src="/images/yamaha.gif" alt="Yamaha" width="120" height="40"></div>
+        <div class="brand-item"><span>Crown Audio</span></div>
+        <div class="brand-item"><span>BDI Furniture</span></div>
+        <div class="brand-item"><span>Salamander Designs</span></div>
+        <div class="brand-item"><span>Draper</span></div>
+        <div class="brand-item"><span>Severtson</span></div>
+        <div class="brand-item"><img src="/images/epson.gif" alt="Epson" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/sonos.gif" alt="Sonos" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/monitor_audio.gif" alt="Monitor Audio" width="120" height="40"></div>
+        <div class="brand-item"><span>SpeakerCraft</span></div>
+        <div class="brand-item"><span>James Loudspeakers</span></div>
+        <div class="brand-item"><img src="/images/stealth_acoustics.gif" alt="Stealth Acoustics" width="120" height="40"></div>
+        <div class="brand-item"><span>SVS Subwoofers</span></div>
+        <div class="brand-item"><img src="/images/lutron.gif" alt="Lutron" width="120" height="40"></div>
+        <div class="brand-item"><span>FX Luminaire/Luxor</span></div>
+        <div class="brand-item"><span>Elan</span></div>
+        <div class="brand-item"><img src="/images/urc.gif" alt="Universal Remote Control" width="120" height="40"></div>
+        <div class="brand-item"><span>Vanco</span></div>
+        <div class="brand-item"><span>Cool Components</span></div>
+        <div class="brand-item"><img src="/images/peerless.gif" alt="Peerless" width="120" height="40"></div>
+        <div class="brand-item"><span>Sanus</span></div>
+        <div class="brand-item"><span>Ethereal</span></div>
+        <div class="brand-item"><span>SurgeX</span></div>
+        <div class="brand-item"><span>Panamax</span></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="brand-item"><img src="/images/samsung.gif" alt="Samsung" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/sony.gif" alt="Sony" width="120" height="40"></div>
+        <div class="brand-item"><span>LG</span></div>
+        <div class="brand-item"><img src="/images/yamaha.gif" alt="Yamaha" width="120" height="40"></div>
+        <div class="brand-item"><span>Crown Audio</span></div>
+        <div class="brand-item"><span>BDI Furniture</span></div>
+        <div class="brand-item"><span>Salamander Designs</span></div>
+        <div class="brand-item"><span>Draper</span></div>
+        <div class="brand-item"><span>Severtson</span></div>
+        <div class="brand-item"><img src="/images/epson.gif" alt="Epson" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/sonos.gif" alt="Sonos" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/monitor_audio.gif" alt="Monitor Audio" width="120" height="40"></div>
+        <div class="brand-item"><span>SpeakerCraft</span></div>
+        <div class="brand-item"><span>James Loudspeakers</span></div>
+        <div class="brand-item"><img src="/images/stealth_acoustics.gif" alt="Stealth Acoustics" width="120" height="40"></div>
+        <div class="brand-item"><span>SVS Subwoofers</span></div>
+        <div class="brand-item"><img src="/images/lutron.gif" alt="Lutron" width="120" height="40"></div>
+        <div class="brand-item"><span>FX Luminaire/Luxor</span></div>
+        <div class="brand-item"><span>Elan</span></div>
+        <div class="brand-item"><img src="/images/urc.gif" alt="Universal Remote Control" width="120" height="40"></div>
+        <div class="brand-item"><span>Vanco</span></div>
+        <div class="brand-item"><span>Cool Components</span></div>
+        <div class="brand-item"><img src="/images/peerless.gif" alt="Peerless" width="120" height="40"></div>
+        <div class="brand-item"><span>Sanus</span></div>
+        <div class="brand-item"><span>Ethereal</span></div>
+        <div class="brand-item"><span>SurgeX</span></div>
+        <div class="brand-item"><span>Panamax</span></div>
+      </div>
+    </div>
+    <p class="brands-independent"><strong>Independent & Unbiased.</strong> We source from any manufacturer to find the best fit for your project and budget.</p>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner" id="contact">
+  <div class="container">
+    <h2>Ready to Transform Your Space?</h2>
+    <p>Schedule a free onsite consultation and let us design the perfect audio-visual experience for your home or business.</p>
+    <div class="cta-buttons">
+      <a href="tel:727-804-2277" class="btn btn-dark">Call 727-804-2277</a>
+      <a href="/contact/" class="btn" style="background:#fff;color:var(--orange-dark);font-weight:700">Request Consultation</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/images/Transparent Logo.png" alt="Entertainment Pros" width="160" height="42">
+        <p>Licensed and insured Audio/Video Sales and Installation company serving Pinellas County since 2006. Residential and commercial AV projects.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/audio-video-planning-and-installation/">Audio-Video</a></li>
+          <li><a href="/home-theater-design-and-installation/">Home Theater</a></li>
+          <li><a href="/hanging-tvs-mounting-services/">TV Mounting</a></li>
+          <li><a href="/lighting-control/">Lighting Control</a></li>
+          <li><a href="/exterior-illumination/">Exterior Illumination</a></li>
+          <li><a href="/home-automation/">Home Automation</a></li>
+          <li><a href="/automated-shades/">Automated Shades</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about-us/">About Us</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/brands/">Brands</a></li>
+          <li><a href="/leave-a-review/">Leave a Review</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:727-804-2277">727-804-2277</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Pinellas County, FL</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>License ES12001376</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2006&ndash;2026 Entertainment Pros. All rights reserved.</span>
+      <span>Serving Clearwater, St. Pete, Palm Harbor, Dunedin &amp; all of Pinellas</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

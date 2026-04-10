@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Condo TV &amp; Sound Solutions | Pinellas County</title>
+<meta name="description" content="Condo TV and sound solutions in Pinellas County. Samsung The Frame, invisible speakers, ceiling speakers, outdoor patio TVs, and professional installation for condominiums by Entertainment Pros.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.entertainment-pros.com/condo-tv-and-sound-solutions/">
+<meta property="og:title" content="Condo TV &amp; Sound Solutions | Pinellas County">
+<meta property="og:description" content="Framed TVs, invisible speakers, and complete entertainment solutions designed specifically for condos in Pinellas County.">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<script src="/components.js" defer></script>
+<style>
+/* ===== PAGE-SPECIFIC: CONDO TV & SOUND ===== */
+
+/* Content sections */
+.condo-section{padding:var(--section-pad)}
+.condo-section.alt{background:var(--gray-bg)}
+.condo-section-header{text-align:center;margin-bottom:60px}
+.condo-section-header .section-subtitle{margin:0 auto}
+.condo-content{max-width:860px;margin:0 auto}
+.condo-content p{color:var(--gray);font-size:1.05rem;line-height:1.8;margin-bottom:20px}
+.condo-content h3{color:var(--black);margin-bottom:12px;margin-top:32px;font-size:1.2rem}
+.condo-content ul{color:var(--gray);font-size:1.05rem;line-height:1.8;margin-bottom:20px;padding-left:24px}
+.condo-content li{margin-bottom:8px}
+
+/* Option cards (TV + Sound) */
+.option-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+.option-card{background:#fff;border-radius:var(--radius);padding:32px 28px;box-shadow:var(--shadow);transition:var(--transition);display:flex;flex-direction:column}
+.option-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.option-card-icon{width:56px;height:56px;background:rgba(243,137,41,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.option-card-icon svg{width:26px;height:26px;color:var(--orange)}
+.option-card h3{font-size:1.1rem;margin-bottom:10px;color:var(--black)}
+.option-card p{font-size:.9rem;color:var(--gray);line-height:1.7;flex:1}
+
+/* Feature list with icons */
+.feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:32px}
+.feature-item{display:flex;gap:16px;align-items:flex-start}
+.feature-item-icon{width:44px;height:44px;min-width:44px;background:rgba(243,137,41,.1);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.feature-item-icon svg{width:20px;height:20px;color:var(--orange)}
+.feature-item h4{font-size:.95rem;color:var(--black);margin-bottom:4px}
+.feature-item p{font-size:.85rem;color:var(--gray);line-height:1.6}
+
+/* Brands strip */
+.brands-strip{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:40px}
+.brand-tag{background:#fff;border:1px solid rgba(0,0,0,.08);padding:16px 32px;border-radius:var(--radius);font-family:var(--font-heading);font-size:.95rem;font-weight:600;color:var(--black);box-shadow:var(--shadow);transition:var(--transition)}
+.brand-tag:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--orange)}
+
+/* Process steps */
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+.process-card{text-align:center;padding:36px 24px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);transition:var(--transition)}
+.process-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.process-num{width:48px;height:48px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));border-radius:50%;color:#fff;font-family:var(--font-heading);font-weight:700;font-size:1.2rem;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.process-card h3{font-size:1.05rem;color:var(--black);margin-bottom:10px}
+.process-card p{font-size:.9rem;color:var(--gray);line-height:1.7}
+
+/* FAQ Accordion */
+.faq-list{max-width:860px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(0,0,0,.08);overflow:hidden}
+.faq-question{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;font-family:var(--font-heading);font-size:1rem;font-weight:600;color:var(--black);background:none;border:none;width:100%;text-align:left;transition:var(--transition)}
+.faq-question:hover{color:var(--orange)}
+.faq-question svg{width:20px;height:20px;flex-shrink:0;transition:transform .3s ease;color:var(--orange)}
+.faq-question.active svg{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-answer-inner{padding:0 0 20px;font-size:.95rem;color:var(--gray);line-height:1.8}
+
+/* Responsive */
+@media(max-width:1024px){
+  .option-grid{grid-template-columns:1fr 1fr}
+  .feature-list{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .option-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
+}
+
+/* Hero feature image */
+.condo-hero-img{width:100%;max-height:500px;object-fit:cover;border-radius:var(--radius);margin-top:40px}
+
+/* Project gallery */
+.condo-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.condo-gallery-item{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.condo-gallery-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.condo-gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:768px){
+  .condo-gallery{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header header-solid" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/images/Transparent Logo.png" alt="Entertainment Pros logo" width="180" height="48">
+    </a>
+    <div class="header-right">
+      <div class="header-info">
+        <a href="tel:727-804-2277">
+          <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          727-804-2277
+        </a>
+        <span class="divider"></span>
+        <span>License ES12001376</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="mega">
+            <a href="/services-audio-visual-planning-and-installation/" class="active">Services <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="mega-menu">
+              <div class="mega-inner">
+                <div class="mega-col">
+                  <h5>Audio &amp; Sound</h5>
+                  <a href="/audio-video-planning-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Audio-Video Planning</a>
+                  <a href="/home-theater-design-and-installation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Home Theater Design</a>
+                  <a href="/living-room-surround-sound/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Surround Sound Systems</a>
+                  <a href="/condo-tv-and-sound-solutions/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="16" y2="6"/></svg> Condo TV &amp; Sound</a>
+                </div>
+                <div class="mega-col">
+                  <h5>TV &amp; Installations</h5>
+                  <a href="/hanging-tvs-mounting-services/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> TV Hanging &amp; Mounting</a>
+                  <a href="/installations-residential/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Residential Installations</a>
+                  <a href="/commercial-audio-video/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Commercial Audio-Video</a>
+                  <a href="/sales/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Equipment Sales</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Lighting</h5>
+                  <a href="/lighting-control/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg> Lighting Control</a>
+                  <a href="/led-accent-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> LED Accent Lighting</a>
+                  <a href="/exterior-illumination/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Exterior Illumination</a>
+                  <a href="/exterior-lighting/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> Landscape Lighting</a>
+                </div>
+                <div class="mega-col">
+                  <h5>Smart Home</h5>
+                  <a href="/home-automation/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg> Home Automation</a>
+                  <a href="/automated-shades/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg> Automated Shades</a>
+                </div>
+                <div class="mega-cta">
+                  <p>Not sure what you need? We'll help you figure it out.</p>
+                  <a href="/contact/" class="btn btn-primary">Request Free Consultation</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/portfolio/">Portfolio <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/portfolio/">Gallery</a></li>
+              <li><a href="/brands/">Brands</a></li>
+            </ul>
+          </li>
+          <li><a href="/about-us/">About Us</a></li>
+          <li class="dropdown">
+            <a href="/blog/">AV Hub <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/tv-size/">TV Size Guide</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="/contact/" class="btn btn-primary header-cta">Request Consultation</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="/">Home</a>
+  <a href="/services-audio-visual-planning-and-installation/">Services</a>
+  <div class="mobile-nav-sub">
+    <a href="/audio-video-planning-and-installation/">Audio-Video Planning</a>
+    <a href="/home-theater-design-and-installation/">Home Theater</a>
+    <a href="/hanging-tvs-mounting-services/">TV Mounting</a>
+    <a href="/lighting-control/">Lighting Control</a>
+    <a href="/exterior-illumination/">Exterior Lighting</a>
+    <a href="/home-automation/">Home Automation</a>
+  </div>
+  <a href="/portfolio/">Portfolio</a>
+  <a href="/about-us/">About Us</a>
+  <a href="/blog/">AV Hub</a>
+  <a href="/contact/">Contact</a>
+  <a href="tel:727-804-2277" class="mobile-phone">727-804-2277</a>
+</div>
+
+<main>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/services-audio-visual-planning-and-installation/">Services</a>
+      <span class="sep">/</span>
+      <span class="current">Condo TV &amp; Sound</span>
+    </div>
+    <h1>Condo TV &amp; Sound Solutions</h1>
+    <p>Framed TVs, Sound Systems &amp; a Theater Experience</p>
+    <img src="/images/Custom TV.jpg" alt="Luxury condo TV installation on wood and marble accent wall" class="condo-hero-img" width="1200" height="500">
+  </div>
+</section>
+
+<!-- ===== INTRO ===== -->
+<section class="condo-section" aria-label="Condo entertainment introduction">
+  <div class="container">
+    <div class="condo-content">
+      <span class="section-label">Condo Living</span>
+      <h2 class="section-title">Creating the Perfect Condo Retreat</h2>
+      <p>Your condo is more than a place to sleep &mdash; it is your personal retreat. Whether you are watching the sunset from your balcony, hosting friends for game night, or unwinding after a long day, the right entertainment setup transforms your condo into a space that looks and sounds incredible.</p>
+      <p>Condominiums present unique challenges and opportunities for audio-video installations. Shared walls, HOA regulations, limited space, and the premium placed on aesthetics all require a thoughtful approach. At Entertainment Pros, we have extensive experience working in condos throughout Pinellas County &mdash; from luxury high-rises on Clearwater Beach to cozy units in Dunedin and Largo.</p>
+      <p>We specialize in solutions that deliver outstanding entertainment without compromising the clean, curated look that makes your condo feel like home. Every product we recommend and every installation we complete is designed to complement your interior, not compete with it.</p>
+      <img src="/images/Condo TV (1).jpg" alt="Condo bedroom with motorized TV installation by Entertainment Pros" loading="lazy" width="860" height="500" style="width:100%;border-radius:var(--radius);margin-top:32px">
+    </div>
+  </div>
+</section>
+
+<!-- ===== TV OPTIONS ===== -->
+<section class="condo-section alt" aria-label="TV options for condos">
+  <div class="container">
+    <div class="condo-section-header">
+      <span class="section-label">TV Options</span>
+      <h2 class="section-title">Television Solutions for Condos</h2>
+      <p class="section-subtitle">From art-inspired frames to weather-resistant outdoor models, we offer TV options designed for the way you live in your condo.</p>
+    </div>
+    <div class="option-grid">
+
+      <div class="option-card">
+        <div class="option-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="9"/></svg>
+        </div>
+        <h3>Framed TVs That Double as Art</h3>
+        <p>The Samsung The Frame is the ultimate condo TV. When it is on, you have a stunning 4K QLED display. When it is off, it transforms into a curated piece of artwork with a customizable bezel that matches your decor. Choose from hundreds of paintings, photographs, and digital art pieces from the Samsung Art Store. Guests genuinely cannot tell it is a television until you turn it on. We install The Frame flush to the wall with hidden wiring for a seamless gallery look.</p>
+      </div>
+
+      <div class="option-card">
+        <div class="option-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+        </div>
+        <h3>Outdoor Patio TVs</h3>
+        <p>Many Pinellas County condos feature covered patios and balconies &mdash; perfect for outdoor entertainment. Weather-resistant outdoor TVs are built to handle Florida's heat, humidity, rain, and intense sunlight. These displays feature anti-glare screens that stay bright even in direct sun, sealed enclosures that protect against moisture and insects, and operating temperature ranges designed for our subtropical climate. Enjoy the game, a movie night under the stars, or morning news with your coffee on the lanai.</p>
+      </div>
+
+      <div class="option-card">
+        <div class="option-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Sleek, Discreet TVs</h3>
+        <p>For condo owners who want the biggest screen with the smallest footprint, ultra-thin TVs mounted flush to the wall create a streamlined, modern look. Motorized mounts can tilt, swivel, or even retract the TV into a cabinet or ceiling when not in use. Recessed installations set the TV into the wall itself, creating a flush, built-in appearance. These solutions maximize your living space while delivering the cinematic experience you want.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOUND OPTIONS ===== -->
+<section class="condo-section" aria-label="Sound options for condos">
+  <div class="container">
+    <div class="condo-section-header">
+      <span class="section-label">Sound Options</span>
+      <h2 class="section-title">Sound Solutions Designed for Condos</h2>
+      <p class="section-subtitle">Great sound does not require visible speakers. Our condo sound solutions deliver rich audio while respecting your space and your neighbors.</p>
+    </div>
+    <div class="option-grid">
+
+      <div class="option-card">
+        <div class="option-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Invisible Speakers</h3>
+        <p>Invisible speakers are built directly into your walls or ceilings and covered with drywall and paint. Once finished, they disappear completely &mdash; there is no grille, no visible hardware, nothing to indicate a speaker is there. The sound seems to come from everywhere and nowhere at the same time. This is the ultimate solution for design-conscious condo owners who refuse to compromise on aesthetics. We use Stealth Acoustics and similar brands that deliver audiophile-grade sound from a completely hidden source.</p>
+      </div>
+
+      <div class="option-card">
+        <div class="option-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg>
+        </div>
+        <h3>Ceiling Speakers</h3>
+        <p>In-ceiling speakers offer a flexible, elegant audio solution for condos. Flush-mounted with paintable grilles that match your ceiling, they fill the room with rich, even sound without taking up any wall or floor space. Ceiling speakers are excellent for background music throughout the condo, and when configured as surround channels, they create an immersive listening experience. We install Monitor Audio and SpeakerCraft in-ceiling models that deliver clear highs and solid midrange without visual clutter.</p>
+      </div>
+
+      <div class="option-card">
+        <div class="option-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+        </div>
+        <h3>Sound Bars</h3>
+        <p>For condos where simplicity is key, a quality soundbar delivers a dramatic improvement over built-in TV speakers in a compact, attractive package. Modern soundbars from Sonos and Samsung pack multiple speaker drivers, Dolby Atmos processing, and wireless subwoofers into a single unit that sits beneath your TV or mounts cleanly on the wall. They are ideal for smaller living rooms, bedrooms, and spaces where a full speaker system is not practical. Many soundbars also support multi-room audio, so you can extend music to other rooms.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUSTED BRANDS ===== -->
+<section class="condo-section alt" aria-label="Trusted brands">
+  <div class="container">
+    <div class="condo-section-header">
+      <span class="section-label">Trusted Partners</span>
+      <h2 class="section-title">Brands We Trust for Condo Installations</h2>
+      <p class="section-subtitle">We work with industry-leading manufacturers whose products are proven in the demanding condo environment.</p>
+    </div>
+
+    <div class="condo-content" style="margin-bottom:40px">
+      <h3>Samsung The Frame</h3>
+      <p>Samsung's The Frame is our top recommendation for condo living rooms and bedrooms. Its Art Mode transforms the TV into a piece of art when not in use, and the customizable bezels let you match any decor style. The slim, flush-mount design sits nearly flat against the wall, and Samsung's One Connect box keeps all your cables in a separate, hidden location. Available in sizes from 32 to 85 inches.</p>
+
+      <h3>Sonos</h3>
+      <p>Sonos is the gold standard for wireless multi-room audio. The Sonos Arc soundbar delivers Dolby Atmos surround sound from a single elegant bar, while the Sonos Era 300 and Era 100 speakers fill individual rooms with rich, detailed sound. The Sonos app makes setup and control intuitive, and the entire ecosystem works together seamlessly. For condos, Sonos offers the perfect balance of sound quality, ease of use, and aesthetic appeal.</p>
+
+      <h3>Samsung Thin-Spec TVs</h3>
+      <p>Beyond The Frame, Samsung's flagship OLED and Neo QLED TVs offer incredibly thin profiles that look stunning on the wall. These displays deliver exceptional picture quality with deep blacks, vibrant colors, and wide viewing angles &mdash; important in open-concept condo layouts where the TV is viewed from multiple positions. Their slim depth makes them ideal for flush and recessed mounting.</p>
+    </div>
+
+    <div class="brands-strip">
+      <span class="brand-tag">Samsung The Frame</span>
+      <span class="brand-tag">Sonos</span>
+      <span class="brand-tag">Monitor Audio</span>
+      <span class="brand-tag">SpeakerCraft</span>
+      <span class="brand-tag">Stealth Acoustics</span>
+      <span class="brand-tag">Yamaha</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROFESSIONAL DESIGN, SOURCING, INSTALLATION ===== -->
+<section class="condo-section" aria-label="Professional services">
+  <div class="container">
+    <div class="condo-section-header">
+      <span class="section-label">Our Process</span>
+      <h2 class="section-title">Professional Design, Sourcing &amp; Installation</h2>
+      <p class="section-subtitle">From the first consultation to the final calibration, we handle every step of your condo entertainment project.</p>
+    </div>
+    <div class="process-grid">
+
+      <div class="process-card">
+        <div class="process-num">1</div>
+        <h3>Space Evaluation</h3>
+        <p>We visit your condo and assess the room dimensions, wall construction, ceiling type, existing wiring, lighting conditions, and furniture layout. For condos with HOA restrictions or shared-wall concerns, we identify solutions that comply with building rules and minimize sound transmission to neighbors.</p>
+      </div>
+
+      <div class="process-card">
+        <div class="process-num">2</div>
+        <h3>Expert Sourcing</h3>
+        <p>Based on your space evaluation and preferences, we recommend and source the right equipment at competitive pricing. We work directly with manufacturers and authorized distributors, ensuring you receive genuine products with full manufacturer warranties. No big-box markups, no gray-market risk.</p>
+      </div>
+
+      <div class="process-card">
+        <div class="process-num">3</div>
+        <h3>Precise Installation</h3>
+        <p>Our installers handle everything: wall mounting, wire concealment, speaker placement, equipment configuration, and system programming. We leave your condo clean and organized &mdash; no holes to patch, no loose cables, no mess. Every installation is tested and calibrated before we consider the job complete.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSTALLATION & CHOOSING A LOCAL INSTALLER ===== -->
+<section class="condo-section alt" aria-label="Choosing an installer">
+  <div class="container">
+    <div class="condo-section-header">
+      <span class="section-label">Professional Installation</span>
+      <h2 class="section-title">Installation &amp; Choosing a Local Installer</h2>
+      <p class="section-subtitle">Condo installations require specific expertise. Here is what a professional installer brings to the table.</p>
+    </div>
+    <div class="feature-list">
+      <div class="feature-item">
+        <div class="feature-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div>
+          <h4>Optimal Equipment Selection</h4>
+          <p>A condo is not a house. Equipment that works great in a 2,000 square foot home may be completely wrong for a 1,200 square foot condo. We select equipment sized and spec'd for your actual space.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div>
+          <h4>System Compatibility</h4>
+          <p>TVs, soundbars, receivers, speakers, streaming devices, and smart home systems all need to communicate seamlessly. We verify compatibility before purchase to avoid integration headaches.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div>
+          <h4>Professional Installation</h4>
+          <p>Condo walls are often concrete block or metal stud, requiring specialized mounting hardware and techniques. Our installers know how to work with every wall type and conceal wiring in challenging construction.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div>
+          <h4>Post-Installation Support</h4>
+          <p>After your system is installed and calibrated, we provide training on how to operate everything. If you need adjustments, have questions, or want to expand your system later, we are here to help.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW TO CHOOSE (FAQ ACCORDION) ===== -->
+<section class="condo-section" aria-label="How to choose a condo installer">
+  <div class="container">
+    <div class="condo-section-header">
+      <span class="section-label">Hiring Guide</span>
+      <h2 class="section-title">How to Choose the Right Condo Installer</h2>
+      <p class="section-subtitle">Condo work requires a different skill set than residential home installations. Here is what to look for.</p>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Proven Condo Experience
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Ask specifically about condo installations, not just general residential work. Condos have concrete or block walls, limited access to wall cavities, shared-wall noise concerns, and building management rules that a general installer may not know how to navigate. Ask for photos of past condo projects and references from condo owners. Entertainment Pros has completed installations in condos throughout Clearwater Beach, Indian Rocks Beach, St. Petersburg, and across Pinellas County.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Licensing &amp; Insurance
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Any installer working in a Florida condominium should hold a valid Low Voltage License from the state of Florida. This license is required for running wire through walls and ceilings. Additionally, confirm that the company carries general liability insurance and workers compensation coverage. Many condo associations require proof of insurance before allowing contractors to work in the building. Entertainment Pros holds Florida License ES12001376 and carries full insurance.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Design &amp; Consultation Process
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            A good installer will visit your condo before quoting a price. They should assess your room layout, wall construction, existing wiring, and discuss your goals and budget. Be cautious of companies that provide quotes over the phone without seeing your space. Every condo is different, and a proper on-site evaluation prevents surprises during installation. We offer free in-home consultations throughout Pinellas County.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Transparent Pricing
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Your installer should provide a detailed, written estimate that breaks down equipment costs, labor, mounting hardware, and any additional materials. There should be no hidden fees or surprise charges after the work is done. At Entertainment Pros, we provide itemized quotes and discuss every cost before we begin. If something changes during installation, we communicate immediately and get your approval before proceeding.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Long-Term Support
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Your relationship with your installer should not end when they walk out the door. Technology updates, firmware changes, new streaming services, and equipment additions all require ongoing support. Choose a company that will be there six months or six years from now when you need help. We have been serving Pinellas County since 2006, and many of our clients call us for system upgrades, troubleshooting, and additions long after the initial installation.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR WORK ===== -->
+<section class="condo-section" aria-label="Our work">
+  <div class="container">
+    <div class="condo-section-header">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title">Condo Installation Projects</h2>
+      <p class="section-subtitle">Browse examples of TV and sound installations we have completed in condos throughout Pinellas County.</p>
+    </div>
+    <div class="condo-gallery">
+      <div class="condo-gallery-item">
+        <img src="/images/Custom TV.jpg" alt="Luxury condo TV mounted on designer accent wall" loading="lazy" width="572" height="438">
+      </div>
+      <div class="condo-gallery-item">
+        <img src="/images/Condo TV (1).jpg" alt="Condo bedroom with motorized TV installation" loading="lazy" width="572" height="438">
+      </div>
+      <div class="condo-gallery-item">
+        <img src="/images/Condo TV-b3d99dc7.jpg" alt="Professional condo TV and sound system installation" loading="lazy" width="572" height="438">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Transform Your Condo?</h2>
+    <p>Schedule a free consultation and let us design the perfect TV and sound solution for your space.</p>
+    <div class="cta-buttons">
+      <a href="tel:727-804-2277" class="btn btn-dark">Call 727-804-2277</a>
+      <a href="/contact/" class="btn" style="background:#fff;color:var(--orange-dark);font-weight:700">Schedule Consultation</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/images/Transparent Logo.png" alt="Entertainment Pros" width="160" height="42">
+        <p>Licensed and insured Audio/Video Sales and Installation company serving Pinellas County since 2006. Residential and commercial AV projects.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/audio-video-planning-and-installation/">Audio-Video</a></li>
+          <li><a href="/home-theater-design-and-installation/">Home Theater</a></li>
+          <li><a href="/hanging-tvs-mounting-services/">TV Mounting</a></li>
+          <li><a href="/lighting-control/">Lighting Control</a></li>
+          <li><a href="/exterior-illumination/">Exterior Illumination</a></li>
+          <li><a href="/home-automation/">Home Automation</a></li>
+          <li><a href="/automated-shades/">Automated Shades</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about-us/">About Us</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/brands/">Brands</a></li>
+          <li><a href="/leave-a-review/">Leave a Review</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:727-804-2277">727-804-2277</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Pinellas County, FL</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>License ES12001376</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2006&ndash;2026 Entertainment Pros. All rights reserved.</span>
+      <span>Serving Clearwater, St. Pete, Palm Harbor, Dunedin &amp; all of Pinellas</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var open=this.classList.contains('active');
+    document.querySelectorAll('.faq-question.active').forEach(function(b){
+      b.classList.remove('active');
+      b.setAttribute('aria-expanded','false');
+      b.nextElementSibling.style.maxHeight=null;
+    });
+    if(!open){
+      this.classList.add('active');
+      this.setAttribute('aria-expanded','true');
+      this.nextElementSibling.style.maxHeight=this.nextElementSibling.scrollHeight+'px';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
