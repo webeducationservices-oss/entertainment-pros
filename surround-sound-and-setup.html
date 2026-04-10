@@ -51,6 +51,83 @@
 @media(max-width:1024px) and (min-width:769px){
   .related-grid{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ===== SURROUND SOUND CALCULATOR ===== */
+.ss-calc{padding:var(--section-pad);background:var(--dark)}
+.ss-calc .section-title{color:#fff}
+.ss-calc .section-subtitle{color:var(--gray-light);margin-bottom:48px}
+.ss-calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1000px;margin:0 auto}
+.ss-calc-panel{background:var(--black);border-radius:var(--radius);padding:32px;border:1px solid rgba(255,255,255,.08)}
+.ss-calc-panel h3{color:#fff;font-size:1.15rem;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.ss-calc-panel h3 .panel-num{background:var(--orange);color:#fff;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+.ss-calc label{display:block;font-family:var(--font-heading);font-size:.78rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray-light);margin-bottom:6px}
+.ss-calc input,.ss-calc select{width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.15);border-radius:8px;background:rgba(255,255,255,.06);color:#fff;font-family:var(--font-body);font-size:1rem;transition:var(--transition);margin-bottom:16px;appearance:none;-webkit-appearance:none}
+.ss-calc select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23b4b4b4' stroke-width='2'%3E%3Cpolyline points='2 4 6 8 10 4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.ss-calc select option{background:var(--black);color:#fff}
+.ss-calc input:focus,.ss-calc select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(243,137,41,.2)}
+.ss-calc input::placeholder{color:var(--gray)}
+.ss-calc .dim-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.ss-calc-btn{width:100%;padding:14px;background:var(--orange);color:#fff;border:none;border-radius:8px;font-family:var(--font-heading);font-size:.95rem;font-weight:700;cursor:pointer;transition:var(--transition);margin-top:8px}
+.ss-calc-btn:hover{background:var(--orange-dark);transform:translateY(-1px)}
+
+/* Results */
+.ss-results{display:none}
+.ss-results.active{display:block}
+.ss-results-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.ss-result-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:20px}
+.ss-result-card .result-label{font-family:var(--font-heading);font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
+.ss-result-card .result-value{color:#fff;font-size:1rem;line-height:1.5}
+.ss-result-card .result-value strong{font-weight:700}
+.ss-result-card.full-width{grid-column:1/-1}
+
+/* Room diagram */
+.ss-diagram-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:24px;margin-bottom:24px}
+.ss-diagram-title{font-family:var(--font-heading);font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;text-align:center}
+.ss-diagram{position:relative;width:100%;max-width:360px;margin:0 auto;aspect-ratio:1/1}
+.ss-room-box{position:absolute;border:2px solid rgba(255,255,255,.25);border-radius:6px;top:15%;left:15%;right:15%;bottom:15%}
+.ss-room-label{position:absolute;color:var(--gray);font-size:.65rem;text-align:center;width:100%;bottom:17%;font-family:var(--font-heading);letter-spacing:.5px;text-transform:uppercase}
+.ss-listener{position:absolute;width:18px;height:18px;background:var(--orange);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2}
+.ss-listener::after{content:'You';position:absolute;top:22px;left:50%;transform:translateX(-50%);font-size:.6rem;color:var(--orange);font-family:var(--font-heading);font-weight:600;white-space:nowrap;letter-spacing:.5px;text-transform:uppercase}
+.ss-speaker{position:absolute;width:14px;height:14px;border-radius:50%;z-index:2;transform:translate(-50%,-50%)}
+.ss-speaker::after{position:absolute;font-size:.55rem;color:rgba(255,255,255,.7);font-family:var(--font-heading);font-weight:600;white-space:nowrap;letter-spacing:.3px}
+.ss-speaker.front{background:#4fc3f7}
+.ss-speaker.surround{background:#81c784}
+.ss-speaker.rear{background:#ce93d8}
+.ss-speaker.overhead{background:#fff176;width:12px;height:12px;border:2px dashed rgba(255,255,255,.3)}
+.ss-speaker.sub{background:#ef5350;border-radius:3px;width:16px;height:16px}
+.ss-diagram-legend{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:16px}
+.ss-diagram-legend span{display:flex;align-items:center;gap:5px;font-size:.68rem;color:rgba(255,255,255,.6);font-family:var(--font-heading);font-weight:600;letter-spacing:.3px}
+.ss-diagram-legend .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.ss-diagram-legend .dot.front-dot{background:#4fc3f7}
+.ss-diagram-legend .dot.surround-dot{background:#81c784}
+.ss-diagram-legend .dot.rear-dot{background:#ce93d8}
+.ss-diagram-legend .dot.overhead-dot{background:#fff176;border:1px dashed rgba(255,255,255,.3)}
+.ss-diagram-legend .dot.sub-dot{background:#ef5350;border-radius:2px}
+.ss-diagram-legend .dot.listener-dot{background:var(--orange)}
+
+/* Budget */
+.ss-budget-table{width:100%;border-collapse:collapse;margin-bottom:8px}
+.ss-budget-table th,.ss-budget-table td{text-align:left;padding:10px 14px;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.ss-budget-table th{color:var(--orange);font-family:var(--font-heading);font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.ss-budget-table td{color:rgba(255,255,255,.8)}
+.ss-budget-table td:last-child{color:#fff;font-weight:700}
+
+/* CTA */
+.ss-calc-cta{background:rgba(243,137,41,.1);border:1px solid rgba(243,137,41,.25);border-radius:10px;padding:24px;text-align:center;margin-top:24px}
+.ss-calc-cta p{color:rgba(255,255,255,.85);font-size:.95rem;margin-bottom:12px;line-height:1.6}
+.ss-calc-cta .cta-links{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.ss-calc-cta a{color:var(--orange);font-family:var(--font-heading);font-size:.88rem;font-weight:700;transition:var(--transition)}
+.ss-calc-cta a:hover{color:var(--orange-light)}
+.ss-calc-cta .cta-sep{color:var(--gray);font-size:.8rem}
+
+@media(max-width:768px){
+  .ss-calc-grid{grid-template-columns:1fr}
+  .ss-results-grid{grid-template-columns:1fr}
+  .ss-calc .dim-row{grid-template-columns:1fr}
+  .ss-diagram{max-width:280px}
+  .ss-calc-cta .cta-links{flex-direction:column;gap:8px}
+  .ss-calc-cta .cta-sep{display:none}
+}
 </style>
 </head>
 <body>
@@ -196,6 +273,93 @@
   </div>
 </section>
 
+<!-- ===== SURROUND SOUND CALCULATOR ===== -->
+<section class="ss-calc" aria-label="Surround Sound Setup Calculator">
+  <div class="container">
+    <p class="section-label">Interactive Tool</p>
+    <h2 class="section-title">Surround Sound Setup Calculator</h2>
+    <p class="section-subtitle">Enter your room dimensions and choose a speaker configuration to get personalized placement recommendations, a visual layout, and budget estimates.</p>
+
+    <div class="ss-calc-grid">
+      <!-- Input Panel -->
+      <div class="ss-calc-panel">
+        <h3><span class="panel-num">1</span> Your Room</h3>
+        <label for="ss-config">Speaker Configuration</label>
+        <select id="ss-config">
+          <option value="2.1">2.1 — Stereo + Subwoofer</option>
+          <option value="3.1">3.1 — Front Stage + Subwoofer</option>
+          <option value="5.1" selected>5.1 — Standard Surround</option>
+          <option value="7.1">7.1 — Full Surround</option>
+          <option value="7.1.2">7.1.2 — Dolby Atmos (2 Overhead)</option>
+          <option value="7.1.4">7.1.4 — Dolby Atmos (4 Overhead)</option>
+        </select>
+        <label>Room Dimensions (feet)</label>
+        <div class="dim-row">
+          <div>
+            <input type="number" id="ss-length" placeholder="Length" min="6" max="80" step="0.5">
+          </div>
+          <div>
+            <input type="number" id="ss-width" placeholder="Width" min="6" max="80" step="0.5">
+          </div>
+          <div>
+            <input type="number" id="ss-height" placeholder="Height" min="7" max="20" step="0.5">
+          </div>
+        </div>
+        <button class="ss-calc-btn" id="ss-calculate">Calculate Setup</button>
+      </div>
+
+      <!-- Results Panel -->
+      <div class="ss-calc-panel">
+        <h3><span class="panel-num">2</span> Your Setup</h3>
+        <div id="ss-placeholder" style="color:var(--gray);font-size:.92rem;text-align:center;padding:40px 0">
+          Enter your room dimensions and click<br><strong style="color:var(--orange)">Calculate Setup</strong> to see results.
+        </div>
+        <div class="ss-results" id="ss-results">
+          <!-- Room diagram -->
+          <div class="ss-diagram-wrap">
+            <div class="ss-diagram-title">Top-Down Speaker Layout</div>
+            <div class="ss-diagram" id="ss-diagram">
+              <div class="ss-room-box"></div>
+              <div class="ss-room-label" id="ss-room-label"></div>
+              <div class="ss-listener"></div>
+            </div>
+            <div class="ss-diagram-legend">
+              <span><span class="dot listener-dot"></span>Listener</span>
+              <span><span class="dot front-dot"></span>Front</span>
+              <span><span class="dot surround-dot"></span>Surround</span>
+              <span><span class="dot rear-dot"></span>Rear</span>
+              <span><span class="dot overhead-dot"></span>Overhead</span>
+              <span><span class="dot sub-dot"></span>Sub</span>
+            </div>
+          </div>
+
+          <!-- Result cards -->
+          <div class="ss-results-grid" id="ss-results-grid"></div>
+
+          <!-- Budget table -->
+          <div class="ss-result-card full-width" style="grid-column:auto">
+            <div class="result-label">Estimated Budget Range</div>
+            <table class="ss-budget-table" id="ss-budget-table">
+              <thead><tr><th>Tier</th><th>Estimate</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <!-- CTA -->
+          <div class="ss-calc-cta">
+            <p>Need help choosing the right speakers and placement for your room?</p>
+            <div class="cta-links">
+              <a href="tel:727-804-2277">Call 727-804-2277</a>
+              <span class="cta-sep">|</span>
+              <a href="/contact/">Request a Consultation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== RELATED POSTS ===== -->
 <section class="related-posts">
   <div class="container">
@@ -305,5 +469,186 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var btn = document.getElementById('ss-calculate');
+  var resultsEl = document.getElementById('ss-results');
+  var placeholder = document.getElementById('ss-placeholder');
+  var diagram = document.getElementById('ss-diagram');
+  var resultsGrid = document.getElementById('ss-results-grid');
+  var budgetTbody = document.querySelector('#ss-budget-table tbody');
+  var roomLabel = document.getElementById('ss-room-label');
+
+  var configs = {
+    '2.1':   {front:2, center:0, surround:0, rear:0, overhead:0, sub:1, label:'2.1 Stereo'},
+    '3.1':   {front:2, center:1, surround:0, rear:0, overhead:0, sub:1, label:'3.1 Front Stage'},
+    '5.1':   {front:2, center:1, surround:2, rear:0, overhead:0, sub:1, label:'5.1 Surround'},
+    '7.1':   {front:2, center:1, surround:2, rear:2, overhead:0, sub:1, label:'7.1 Full Surround'},
+    '7.1.2': {front:2, center:1, surround:2, rear:2, overhead:2, sub:1, label:'7.1.2 Atmos'},
+    '7.1.4': {front:2, center:1, surround:2, rear:2, overhead:4, sub:1, label:'7.1.4 Atmos'}
+  };
+
+  var budgetPerSpeaker = {
+    budget:  {min:80, max:150, sub:150, overhead:100},
+    mid:     {min:200, max:400, sub:400, overhead:250},
+    premium: {min:500, max:1200, sub:800, overhead:600}
+  };
+
+  btn.addEventListener('click', calculate);
+
+  function calculate(){
+    var length = parseFloat(document.getElementById('ss-length').value);
+    var width  = parseFloat(document.getElementById('ss-width').value);
+    var height = parseFloat(document.getElementById('ss-height').value);
+    var config = document.getElementById('ss-config').value;
+
+    if(!length||!width||!height||length<6||width<6||height<7){
+      alert('Please enter valid room dimensions (min 6x6x7 feet).');
+      return;
+    }
+
+    var c = configs[config];
+    var totalSpeakers = c.front + c.center + c.surround + c.rear + c.overhead + c.sub;
+
+    // Listener position: roughly 60-65% back from the front wall
+    var listenerDist = length * 0.62;
+    var halfWidth = width / 2;
+
+    // Front speaker angles and distances
+    var frontAngle = 26; // degrees from center
+    var frontDist = Math.round(listenerDist * 10) / 10;
+
+    // Surround speaker angles
+    var surroundAngle = 110;
+    var surroundDist = Math.round((halfWidth * 1.1) * 10) / 10;
+
+    // Rear speaker angles
+    var rearAngle = 150;
+    var rearDist = Math.round(((length - listenerDist) * 1.2) * 10) / 10;
+
+    // Subwoofer placement
+    var roomArea = length * width;
+    var subPlacement;
+    if(roomArea < 150){
+      subPlacement = 'Front wall, near corner — small rooms benefit from corner reinforcement';
+    } else if(roomArea < 300){
+      subPlacement = 'Front wall, 1/4 to 1/3 of the way from corner — balances bass response';
+    } else {
+      subPlacement = 'Consider dual subwoofers at opposite walls for even bass in large rooms';
+    }
+
+    // Build results
+    placeholder.style.display = 'none';
+    resultsEl.classList.add('active');
+
+    // Speaker count breakdown
+    var breakdown = [];
+    if(c.front) breakdown.push(c.front + ' Front L/R');
+    if(c.center) breakdown.push(c.center + ' Center');
+    if(c.surround) breakdown.push(c.surround + ' Surround L/R');
+    if(c.rear) breakdown.push(c.rear + ' Rear L/R');
+    if(c.overhead) breakdown.push(c.overhead + ' Overhead');
+    if(c.sub) breakdown.push(c.sub + ' Subwoofer');
+
+    // Placement recommendations
+    var placements = [];
+    placements.push('<strong>Front L/R:</strong> ' + frontAngle + '\u00B0 from center, ~' + frontDist + ' ft from listener');
+    if(c.center) placements.push('<strong>Center:</strong> Directly ahead, ear level, ~' + frontDist + ' ft');
+    if(c.surround) placements.push('<strong>Surround L/R:</strong> ' + surroundAngle + '\u2013120\u00B0, ~' + surroundDist + ' ft, 2\u20133 ft above ear level');
+    if(c.rear) placements.push('<strong>Rear L/R:</strong> ' + rearAngle + '\u2013160\u00B0, ~' + rearDist + ' ft behind listener');
+    if(c.overhead) placements.push('<strong>Overhead:</strong> ' + (c.overhead===2?'2 speakers':'4 speakers') + ' at 45\u201355\u00B0 elevation, ' + (height>=9?'ceiling mount ideal':'consider Atmos-enabled upfiring modules for low ceilings'));
+
+    var cards = '';
+    cards += resultCard('Configuration', '<strong>' + config + ' ' + c.label + '</strong><br>Room: ' + length + '\u2032 \u00D7 ' + width + '\u2032 \u00D7 ' + height + '\u2032 (' + Math.round(roomArea) + ' sq ft)');
+    cards += resultCard('Speaker Count', '<strong>' + totalSpeakers + ' total</strong><br>' + breakdown.join(' &bull; '));
+    cards += resultCard('Placement Angles & Distances', placements.join('<br>'), true);
+    cards += resultCard('Subwoofer Placement', subPlacement);
+    resultsGrid.innerHTML = cards;
+
+    // Budget
+    var regularCount = c.front + c.center + c.surround + c.rear;
+    var tiers = ['budget','mid','premium'];
+    var tierLabels = {budget:'Budget',mid:'Mid-Range',premium:'Premium'};
+    budgetTbody.innerHTML = '';
+    tiers.forEach(function(t){
+      var b = budgetPerSpeaker[t];
+      var avg = (b.min + b.max) / 2;
+      var lo = regularCount * b.min + c.sub * b.sub + c.overhead * b.overhead;
+      var hi = regularCount * b.max + c.sub * b.sub + c.overhead * b.overhead;
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + tierLabels[t] + '</td><td>$' + lo.toLocaleString() + ' \u2013 $' + hi.toLocaleString() + '</td>';
+      budgetTbody.appendChild(tr);
+    });
+
+    // Draw diagram
+    drawDiagram(c, length, width);
+
+    roomLabel.textContent = length + '\u2032 \u00D7 ' + width + '\u2032';
+  }
+
+  function resultCard(label, value, fullWidth){
+    return '<div class="ss-result-card' + (fullWidth?' full-width':'') + '"><div class="result-label">' + label + '</div><div class="result-value">' + value + '</div></div>';
+  }
+
+  function drawDiagram(c, roomL, roomW){
+    // Remove existing speakers
+    var old = diagram.querySelectorAll('.ss-speaker');
+    for(var i=0;i<old.length;i++) old[i].remove();
+
+    // Coordinate system: diagram percentage
+    // Room box: 15%-85% on both axes
+    // Front wall = top (15%), back wall = bottom (85%)
+    // Listener at center (50%, 50%)
+    var cx = 50, cy = 50;
+    var roomTop = 17, roomBot = 83, roomLeft = 17, roomRight = 83;
+
+    function addSpeaker(pctX, pctY, cls, label, labelPos){
+      var el = document.createElement('div');
+      el.className = 'ss-speaker ' + cls;
+      el.style.left = pctX + '%';
+      el.style.top = pctY + '%';
+      var lStyle = 'position:absolute;';
+      if(labelPos === 'above') lStyle += 'bottom:18px;left:50%;transform:translateX(-50%);';
+      else if(labelPos === 'below') lStyle += 'top:18px;left:50%;transform:translateX(-50%);';
+      else if(labelPos === 'left') lStyle += 'right:20px;top:50%;transform:translateY(-50%);';
+      else lStyle += 'left:20px;top:50%;transform:translateY(-50%);';
+      el.innerHTML = '<span style="' + lStyle + 'font-size:.55rem;color:rgba(255,255,255,.6);font-family:var(--font-heading);font-weight:600;white-space:nowrap;letter-spacing:.3px">' + label + '</span>';
+      diagram.appendChild(el);
+    }
+
+    // Front L/R
+    addSpeaker(28, roomTop + 2, 'front', 'FL', 'above');
+    addSpeaker(72, roomTop + 2, 'front', 'FR', 'above');
+
+    // Center
+    if(c.center) addSpeaker(cx, roomTop + 2, 'front', 'C', 'above');
+
+    // Surround L/R
+    if(c.surround){
+      addSpeaker(roomLeft, cy + 4, 'surround', 'SL', 'left');
+      addSpeaker(roomRight, cy + 4, 'surround', 'SR', 'right');
+    }
+
+    // Rear L/R
+    if(c.rear){
+      addSpeaker(30, roomBot - 2, 'rear', 'RL', 'below');
+      addSpeaker(70, roomBot - 2, 'rear', 'RR', 'below');
+    }
+
+    // Overhead
+    if(c.overhead >= 2){
+      addSpeaker(35, 36, 'overhead', 'OH1', 'left');
+      addSpeaker(65, 36, 'overhead', 'OH2', 'right');
+    }
+    if(c.overhead >= 4){
+      addSpeaker(35, 64, 'overhead', 'OH3', 'left');
+      addSpeaker(65, 64, 'overhead', 'OH4', 'right');
+    }
+
+    // Subwoofer
+    addSpeaker(roomLeft + 2, roomTop + 2, 'sub', 'SUB', 'right');
+  }
+})();
+</script>
 </body>
 </html>
