@@ -87,22 +87,42 @@
 
 <!-- ===== HEADER ===== -->
 <header class="header header-solid" id="header">
+  <!-- Top Utility Bar (visible on desktop XL only) -->
+  <div class="header-utility">
+    <div class="util-left">
+      <span class="util-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        License ES12001376
+      </span>
+      <span class="util-divider"></span>
+      <span class="util-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Mon–Fri 8am–5pm
+      </span>
+      <span class="util-divider"></span>
+      <span class="util-item">Serving Pinellas Since 2006</span>
+    </div>
+    <div class="util-right">
+      <a href="tel:727-804-2277" class="util-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        727-804-2277
+      </a>
+    </div>
+  </div>
   <div class="header-inner">
     <a href="/" class="logo">
       <img src="/images/Transparent Logo.png" alt="Entertainment Pros logo" width="180" height="48">
     </a>
     <div class="header-right">
+      <!-- In-row phone (shown only at 1024-1199px when utility bar is hidden) -->
       <div class="header-info">
         <a href="tel:727-804-2277">
           <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           727-804-2277
         </a>
-        <span class="divider"></span>
-        <span>License ES12001376</span>
       </div>
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
           <li class="mega">
             <a href="/services-audio-visual-planning-and-installation/" class="active">Services <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
             <div class="mega-menu">
@@ -147,18 +167,20 @@
               <li><a href="/brands/">Brands</a></li>
             </ul>
           </li>
-          <li><a href="/about-us/">About Us</a></li>
+          <li><a href="/about-us/">About</a></li>
           <li class="dropdown">
-            <a href="/blog/">AV Hub <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <a href="/blog/">Resources <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
             <ul class="dropdown-menu">
               <li><a href="/blog/">Blog</a></li>
-              <li><a href="/tv-size/">TV Size Guide</a></li>
+              <li><a href="/tv-size/">TV Size Calculator</a></li>
+              <li><a href="/surround-sound-and-setup/">Surround Sound Calculator</a></li>
+              <li><a href="/av-budget-calculator/">AV Budget Calculator</a></li>
             </ul>
           </li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
-      <a href="/contact/" class="btn btn-primary header-cta">Request Consultation</a>
+      <a href="/contact/" class="btn btn-primary header-cta">Free Quote</a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -182,8 +204,14 @@
     <a href="/home-automation/">Home Automation</a>
   </div>
   <a href="/portfolio/">Portfolio</a>
-  <a href="/about-us/">About Us</a>
-  <a href="/blog/">AV Hub</a>
+  <a href="/about-us/">About</a>
+  <a href="/blog/">Resources</a>
+  <div class="mobile-nav-sub">
+    <a href="/blog/">Blog</a>
+    <a href="/tv-size/">TV Size Calculator</a>
+    <a href="/surround-sound-and-setup/">Surround Sound Calculator</a>
+    <a href="/av-budget-calculator/">AV Budget Calculator</a>
+  </div>
   <a href="/contact/">Contact</a>
   <a href="tel:727-804-2277" class="mobile-phone">727-804-2277</a>
 </div>
