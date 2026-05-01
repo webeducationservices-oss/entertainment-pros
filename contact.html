@@ -20,7 +20,7 @@
 
 /* Contact info cards */
 .contact-info{padding:var(--section-pad);background:var(--white)}
-.contact-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:60px}
+.contact-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .contact-card{text-align:center;padding:40px 28px;border-radius:var(--radius);background:var(--gray-bg);transition:var(--transition)}
 .contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
 .contact-card-icon{width:64px;height:64px;background:rgba(243,137,41,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
@@ -30,21 +30,89 @@
 .contact-card a{color:var(--orange);font-weight:600;transition:var(--transition)}
 .contact-card a:hover{color:var(--orange-dark)}
 
-/* Form section */
-.contact-form-section{padding:0 0 var(--section-pad-bottom);background:var(--white)}
-.contact-form-wrapper{max-width:720px;margin:0 auto;background:var(--gray-bg);border-radius:var(--radius);padding:48px;box-shadow:var(--shadow)}
-.contact-form-wrapper h2{text-align:center;margin-bottom:8px}
-.contact-form-wrapper .form-subtitle{text-align:center;color:var(--gray);margin-bottom:36px;font-size:.95rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
-.form-group{display:flex;flex-direction:column;margin-bottom:0}
-.form-group.full{grid-column:1/-1}
-.form-group label{font-family:var(--font-heading);font-size:.8rem;font-weight:600;color:var(--black);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 18px;border:1px solid rgba(0,0,0,.1);border-radius:8px;font-family:var(--font-body);font-size:.95rem;color:var(--black);background:#fff;transition:var(--transition);box-sizing:border-box}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(243,137,41,.15)}
-.form-group textarea{resize:vertical;min-height:140px}
-.form-submit{text-align:center;margin-top:28px}
-.form-submit .btn{padding:16px 48px;font-size:1rem}
-.form-note{text-align:center;margin-top:16px;font-size:.8rem;color:var(--gray-light)}
+/* ===== WIZARD FORM (from /your-project/) ===== */
+.consult-form-intro{max-width:720px;margin:0 auto 32px;text-align:center}
+.consult-form-intro h2{margin-bottom:8px}
+.consult-form-intro p{color:var(--gray);font-size:.95rem;line-height:1.7}
+.consult-form-wrapper{max-width:780px;margin:0 auto;padding-bottom:var(--section-pad-bottom)}
+.consult-card{background:#fff;border-radius:16px;padding:48px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.consult-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--orange-dark))}
+
+/* Step indicator */
+.step-indicator{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:32px}
+.step-dot{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--gray-bg);color:var(--gray);font-family:var(--font-heading);font-weight:700;font-size:.85rem;border:2px solid transparent;transition:var(--transition)}
+.step-dot.active{background:var(--orange);color:#fff;transform:scale(1.1)}
+.step-dot.complete{background:#fff;color:var(--orange);border-color:var(--orange)}
+.step-line{flex:0 0 36px;height:2px;background:var(--gray-bg);transition:var(--transition)}
+.step-line.complete{background:var(--orange)}
+
+/* Step content */
+.consult-step{display:none;animation:fadeIn .35s ease}
+.consult-step.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.step-label{font-family:var(--font-heading);font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:block}
+.step-title{font-size:1.5rem;color:var(--black);margin-bottom:8px;line-height:1.3}
+.step-help{font-size:.95rem;color:var(--gray);margin-bottom:28px;line-height:1.6}
+
+/* Choice cards */
+.choice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px}
+.choice-grid.cols-1{grid-template-columns:1fr}
+.choice{position:relative;cursor:pointer}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice-card{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:2px solid #e5e5e5;border-radius:10px;background:#fff;transition:var(--transition);min-height:64px}
+.choice:hover .choice-card{border-color:var(--orange-light);background:rgba(243,137,41,.03)}
+.choice input:checked + .choice-card{border-color:var(--orange);background:rgba(243,137,41,.08);box-shadow:0 0 0 3px rgba(243,137,41,.1)}
+.choice input:focus-visible + .choice-card{outline:2px solid var(--orange);outline-offset:2px}
+.choice-icon{flex-shrink:0;width:36px;height:36px;background:var(--gray-bg);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+.choice-icon svg{width:18px;height:18px;color:var(--gray)}
+.choice input:checked + .choice-card .choice-icon{background:var(--orange)}
+.choice input:checked + .choice-card .choice-icon svg{color:#fff}
+.choice-text{flex:1}
+.choice-text strong{display:block;font-family:var(--font-heading);font-size:.92rem;font-weight:600;color:var(--black);margin-bottom:2px;line-height:1.3}
+.choice-text span{display:block;font-size:.82rem;color:var(--gray);line-height:1.5}
+.choice-check{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:2px solid #d5d5d5;display:flex;align-items:center;justify-content:center;transition:var(--transition);margin-top:6px}
+.choice-check svg{width:12px;height:12px;color:#fff;opacity:0;transition:opacity .2s}
+.choice input:checked + .choice-card .choice-check{border-color:var(--orange);background:var(--orange)}
+.choice input:checked + .choice-card .choice-check svg{opacity:1}
+
+/* Free-form */
+.consult-textarea{width:100%;padding:16px 18px;border:2px solid #e5e5e5;border-radius:10px;font-family:var(--font-body);font-size:.95rem;color:var(--black);background:#fff;transition:var(--transition);resize:vertical;min-height:140px;line-height:1.6}
+.consult-textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(243,137,41,.15)}
+
+/* Contact fields */
+.consult-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:8px}
+.consult-fields .full{grid-column:1/-1}
+.consult-field label{display:block;font-family:var(--font-heading);font-size:.78rem;font-weight:600;color:var(--black);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.consult-field label .req{color:var(--orange)}
+.consult-field input{width:100%;padding:14px 16px;border:2px solid #e5e5e5;border-radius:10px;font-family:var(--font-body);font-size:.95rem;color:var(--black);background:#fff;transition:var(--transition);box-sizing:border-box}
+.consult-field input:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(243,137,41,.15)}
+
+/* Step navigation */
+.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:24px;border-top:1px solid #f0f0f0;gap:12px}
+.step-nav .progress-text{font-size:.85rem;color:var(--gray);font-family:var(--font-heading)}
+.step-nav .nav-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn-back{background:transparent;color:var(--gray);border:2px solid #e5e5e5;padding:12px 22px;font-family:var(--font-heading);font-size:.85rem;font-weight:600;border-radius:8px;cursor:pointer;transition:var(--transition);display:inline-flex;align-items:center;gap:6px}
+.btn-back:hover{border-color:var(--gray);color:var(--black)}
+.btn-back svg{width:14px;height:14px}
+.btn-next{background:var(--orange);color:#fff;border:none;padding:14px 28px;font-family:var(--font-heading);font-size:.9rem;font-weight:700;border-radius:8px;cursor:pointer;transition:var(--transition);display:inline-flex;align-items:center;gap:8px}
+.btn-next:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(243,137,41,.35)}
+.btn-next:disabled{background:#d5d5d5;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-next svg{width:16px;height:16px}
+
+/* Success state */
+.consult-success{text-align:center;padding:30px 20px}
+.consult-success-icon{width:80px;height:80px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+.consult-success-icon svg{width:38px;height:38px;color:#fff}
+.consult-success h2{font-size:1.8rem;color:var(--black);margin-bottom:14px}
+.consult-success p{color:var(--gray);font-size:1.05rem;line-height:1.7;margin-bottom:8px;max-width:520px;margin-left:auto;margin-right:auto}
+.consult-success .next-step{display:inline-flex;align-items:center;gap:10px;background:var(--gray-bg);padding:14px 20px;border-radius:10px;margin-top:24px;font-family:var(--font-heading);font-size:.92rem;font-weight:600;color:var(--black)}
+.consult-success .next-step svg{width:18px;height:18px;color:var(--orange);flex-shrink:0}
+
+/* Trust strip */
+.trust-strip{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:36px;padding-top:24px;border-top:1px solid #f0f0f0;font-size:.78rem;color:var(--gray)}
+.trust-strip-item{display:flex;align-items:center;gap:6px}
+.trust-strip-item svg{width:14px;height:14px;color:var(--orange)}
+
 ._honey{position:absolute;left:-9999px;opacity:0;height:0;width:0}
 
 /* Service area */
@@ -55,11 +123,24 @@
 .service-area-tag{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);padding:8px 20px;border-radius:100px;font-family:var(--font-heading);font-size:.8rem;font-weight:500;letter-spacing:.5px;color:rgba(255,255,255,.7);transition:var(--transition)}
 .service-area-tag:hover{background:rgba(243,137,41,.15);border-color:rgba(243,137,41,.3);color:var(--orange)}
 
+/* Form section wrapper */
+.contact-form-section{padding:60px 0 var(--section-pad-bottom);background:var(--gray-bg)}
+
 /* Responsive */
 @media(max-width:768px){
   .contact-info-grid{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
-  .contact-form-wrapper{padding:32px 24px}
+  .consult-card{padding:32px 22px}
+  .choice-grid{grid-template-columns:1fr}
+  .consult-fields{grid-template-columns:1fr}
+  .step-nav{flex-direction:column-reverse;align-items:stretch}
+  .step-nav .nav-btns{flex-direction:column-reverse;width:100%}
+  .step-nav .progress-text{text-align:center}
+  .btn-back,.btn-next{width:100%;justify-content:center}
+  .step-title{font-size:1.25rem}
+  .trust-strip{gap:18px;font-size:.72rem}
+}
+@media(max-width:420px){
+  .consult-card{padding:28px 18px}
 }
 </style>
 </head>
@@ -152,6 +233,7 @@
             <a href="/blog/">Resources <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
             <ul class="dropdown-menu">
               <li><a href="/blog/">Blog</a></li>
+              <li><a href="/your-project/">Tell Us About Your Project</a></li>
               <li><a href="/tv-size/">TV Size Calculator</a></li>
               <li><a href="/surround-sound-and-setup/">Surround Sound Calculator</a></li>
               <li><a href="/av-budget-calculator/">AV Budget Calculator</a></li>
@@ -188,6 +270,7 @@
   <a href="/blog/">Resources</a>
   <div class="mobile-nav-sub">
     <a href="/blog/">Blog</a>
+    <a href="/your-project/">Tell Us About Your Project</a>
     <a href="/tv-size/">TV Size Calculator</a>
     <a href="/surround-sound-and-setup/">Surround Sound Calculator</a>
     <a href="/av-budget-calculator/">AV Budget Calculator</a>

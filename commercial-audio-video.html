@@ -77,18 +77,39 @@
 .comm-gallery-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .comm-gallery-item img{width:100%;height:280px;object-fit:cover;display:block}
 
+/* Cambridge Sound Management section */
+.csm-section{padding:var(--section-pad);background:var(--black);color:#fff;position:relative;overflow:hidden}
+.csm-section::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--orange-dark))}
+.csm-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+.csm-content .csm-eyebrow{display:inline-block;background:rgba(243,137,41,.15);color:var(--orange);font-family:var(--font-heading);font-size:.72rem;font-weight:700;padding:6px 14px;border-radius:100px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:18px;border:1px solid rgba(243,137,41,.35)}
+.csm-logo{max-width:300px;height:auto;margin-bottom:24px;display:block;filter:brightness(0) invert(1)}
+.csm-content h2{font-family:var(--font-heading);font-size:2rem;line-height:1.2;color:#fff;margin-bottom:20px;font-weight:700}
+.csm-content h2 span{color:var(--orange)}
+.csm-content p{color:rgba(255,255,255,.78);line-height:1.8;margin-bottom:16px;font-size:1rem}
+.csm-list{list-style:none;padding:0;margin:24px 0 28px;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+.csm-list li{display:flex;align-items:flex-start;gap:10px;color:rgba(255,255,255,.88);font-size:.95rem;line-height:1.5}
+.csm-list li svg{flex-shrink:0;width:18px;height:18px;color:var(--orange);margin-top:2px}
+.csm-cta{display:inline-flex;align-items:center;gap:8px;margin-top:8px}
+.csm-image-wrap{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.5);background:#fff}
+.csm-image-wrap img{width:100%;height:auto;display:block}
+.csm-image-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.85),transparent);color:#fff;padding:24px 20px 16px;font-family:var(--font-heading);font-size:.85rem;font-weight:600;letter-spacing:.5px}
+
 /* Responsive */
 @media(max-width:1024px){
   .comm-intro-grid{grid-template-columns:1fr;gap:48px}
   .comm-svc-grid{grid-template-columns:repeat(2,1fr)}
   .project-grid{grid-template-columns:repeat(2,1fr)}
   .why-grid{grid-template-columns:repeat(2,1fr)}
+  .csm-grid{grid-template-columns:1fr;gap:48px}
+  .csm-content h2{font-size:1.7rem}
 }
 @media(max-width:768px){
   .comm-svc-grid{grid-template-columns:1fr}
   .project-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
   .comm-gallery-grid{grid-template-columns:1fr}
+  .csm-list{grid-template-columns:1fr}
+  .csm-logo{max-width:240px}
 }
 </style>
 </head>
@@ -181,6 +202,7 @@
             <a href="/blog/">Resources <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
             <ul class="dropdown-menu">
               <li><a href="/blog/">Blog</a></li>
+              <li><a href="/your-project/">Tell Us About Your Project</a></li>
               <li><a href="/tv-size/">TV Size Calculator</a></li>
               <li><a href="/surround-sound-and-setup/">Surround Sound Calculator</a></li>
               <li><a href="/av-budget-calculator/">AV Budget Calculator</a></li>
@@ -217,6 +239,7 @@
   <a href="/blog/">Resources</a>
   <div class="mobile-nav-sub">
     <a href="/blog/">Blog</a>
+    <a href="/your-project/">Tell Us About Your Project</a>
     <a href="/tv-size/">TV Size Calculator</a>
     <a href="/surround-sound-and-setup/">Surround Sound Calculator</a>
     <a href="/av-budget-calculator/">AV Budget Calculator</a>
@@ -302,6 +325,36 @@
         <div class="comm-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
         <h3>System Integration</h3>
         <p>We integrate AV equipment with your existing IT infrastructure, automated shading, and room control systems for seamless operation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAMBRIDGE SOUND MANAGEMENT ===== -->
+<section class="csm-section" aria-label="Cambridge Sound Management licensed dealer">
+  <div class="container">
+    <div class="csm-grid">
+      <div class="csm-content">
+        <span class="csm-eyebrow">Licensed Dealer</span>
+        <img src="/images/cambridge-sound-management.png" alt="Cambridge Sound Management by Biamp logo" class="csm-logo" width="300" height="75" loading="lazy">
+        <h2>Cambridge Sound Management &mdash; <span>Speech Privacy Done Right</span></h2>
+        <p>Entertainment Pros is a <strong style="color:#fff">licensed dealer of Cambridge Sound Management</strong> (now part of Biamp), the industry leader in sound masking and speech privacy systems. Their <strong style="color:#fff">QtPro</strong>, <strong style="color:#fff">Qt&nbsp;X</strong>, and <strong style="color:#fff">Dynasound</strong> systems are trusted by hospitals, law firms, banks, and Fortune 500 companies worldwide.</p>
+        <p>Sound masking adds a barely perceptible background sound &mdash; engineered to match the frequency of human speech &mdash; so conversations one or two offices away become unintelligible. The result: HIPAA compliance for medical practices, attorney-client privilege protection for legal teams, and a calmer, more productive workspace for everyone.</p>
+        <ul class="csm-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Medical offices (HIPAA)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Law firms &amp; courts</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Banks &amp; financial services</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Executive suites</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Open-plan offices</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Therapy &amp; counseling</li>
+        </ul>
+        <a href="/your-project/" class="btn btn-primary csm-cta">Tell Us About Your Project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="csm-image-wrap">
+        <img src="/images/cambridge-qt-emitter.jpg" alt="Cambridge Sound Management Qt active emitter ceiling speaker for sound masking" width="576" height="384" loading="lazy">
+        <div class="csm-image-caption">Qt Active Emitter &middot; Ceiling-mounted sound masking</div>
       </div>
     </div>
   </div>
