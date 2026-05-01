@@ -80,16 +80,24 @@
 
 /* Gallery */
 .gallery{padding:var(--section-pad);background:var(--white)}
-.gallery-header{text-align:center;margin-bottom:60px}
-.gallery-header .section-subtitle{margin:0 auto}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:280px 280px;gap:16px}
-.gallery-item{border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gallery-header{text-align:center;margin-bottom:56px;max-width:760px;margin-left:auto;margin-right:auto}
+.gallery-header .section-subtitle{margin:0 auto;max-width:560px}
+.gallery-byline{display:inline-flex;align-items:center;justify-content:center;gap:14px;margin-top:18px;font-family:var(--font-heading);font-size:.78rem;font-weight:600;color:var(--gray);letter-spacing:2px;text-transform:uppercase}
+.gallery-byline .dot{width:4px;height:4px;border-radius:50%;background:var(--orange)}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 240px;gap:18px}
+.gallery-item{border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;background:#0a0a0a}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;display:block}
 .gallery-item:hover img{transform:scale(1.08)}
-.gallery-item::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0);transition:var(--transition)}
-.gallery-item:hover::after{background:rgba(243,137,41,.15)}
-.gallery-item:first-child{grid-row:span 2}
+.gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%);opacity:0;transition:var(--transition);pointer-events:none}
+.gallery-item:hover::after{opacity:1}
+.gallery-item .gallery-label{position:absolute;left:18px;bottom:14px;color:#fff;font-family:var(--font-heading);font-size:.78rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:all .35s ease;z-index:2}
+.gallery-item:hover .gallery-label{opacity:1;transform:translateY(0)}
+.gallery-item:first-child{grid-row:span 2;grid-column:span 2}
 .gallery-item:first-child img{height:100%}
+.gallery-cta{text-align:center;margin-top:48px}
+.gallery-cta a{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-heading);font-weight:600;font-size:.95rem;color:var(--black);padding:14px 28px;border:2px solid var(--black);border-radius:999px;transition:var(--transition)}
+.gallery-cta a:hover{background:var(--black);color:#fff;gap:14px}
+.gallery-cta a svg{width:16px;height:16px}
 
 /* Reviews */
 .reviews{padding:var(--section-pad);background:var(--black);color:#fff}
@@ -153,9 +161,9 @@
 .brands-ticker:hover{animation-play-state:paused}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes ticker-reverse{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
-.brand-item{flex-shrink:0;display:flex;align-items:center;justify-content:center;height:56px;min-width:120px;opacity:.6;filter:grayscale(100%);transition:all .35s ease}
+.brand-item{flex-shrink:0;display:flex;align-items:center;justify-content:center;height:72px;min-width:160px;opacity:.6;filter:grayscale(100%);transition:all .35s ease}
 .brand-item:hover{opacity:1;filter:grayscale(0);transform:translateY(-2px)}
-.brand-item img{max-height:40px;max-width:140px;width:auto;object-fit:contain;display:block}
+.brand-item img{max-height:56px;max-width:160px;width:auto;object-fit:contain;display:block}
 .brand-item span{font-family:var(--font-heading);font-size:1rem;font-weight:800;color:var(--dark);letter-spacing:1.5px;white-space:nowrap;text-transform:uppercase;line-height:1;font-variant:small-caps}
 .brands-independent{text-align:center;margin-top:32px;font-size:.95rem;color:var(--gray);font-style:italic}
 .brands-independent strong{color:var(--dark)}
@@ -165,8 +173,9 @@
   .about-grid{grid-template-columns:1fr;gap:48px}
   .about-img-accent{right:0}
   .services-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
-  .gallery-item:first-child{grid-row:auto}
+  .gallery-grid{grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:14px}
+  .gallery-item{height:240px}
+  .gallery-item:first-child{grid-row:auto;grid-column:auto}
   .reviews-grid{grid-template-columns:repeat(2,1fr)}
   .hero-stats{display:none}
 }
@@ -177,6 +186,8 @@
   .hero-sub{min-height:auto}
   .services-grid{grid-template-columns:1fr}
   .gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .gallery-item{height:220px}
+  .gallery-item:first-child{grid-row:auto;grid-column:auto}
   .reviews-grid{grid-template-columns:1fr}
   .blog-grid{grid-template-columns:1fr}
   .about-features{grid-template-columns:1fr}
@@ -504,17 +515,47 @@
 <section class="gallery" id="gallery">
   <div class="container">
     <div class="gallery-header">
-      <span class="section-label">Our Work</span>
-      <h2 class="section-title">Installation Inspiration Gallery</h2>
-      <p class="section-subtitle">Browse some of our recent residential and commercial AV projects across Pinellas County.</p>
+      <span class="section-label">Portfolio</span>
+      <h2 class="section-title">Where AV Meets Architecture</h2>
+      <p class="section-subtitle">Real installs in real Pinellas homes — entertainment systems designed to disappear into the room.</p>
+      <div class="gallery-byline">
+        <span>1,000+ Installations</span>
+        <span class="dot"></span>
+        <span>Since 2006</span>
+        <span class="dot"></span>
+        <span>Pinellas County</span>
+      </div>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="/images/Custom TV.jpg" alt="Luxury condo TV on custom wood and marble entertainment wall" width="600" height="560" loading="lazy"></div>
-      <div class="gallery-item"><img src="/images/gallery-2.jpeg" alt="Recessed TV installation in marble wall" width="400" height="280" loading="lazy"></div>
-      <div class="gallery-item"><img src="/images/Surround Systems (1).jpg" alt="Living room TV with full surround sound system" width="400" height="280" loading="lazy"></div>
-      <div class="gallery-item"><img src="/images/MacLeod.jpg" alt="Custom home theater with screen, recessed lighting and theater seating" width="400" height="280" loading="lazy"></div>
-      <div class="gallery-item"><img src="/images/gallery-5.jpeg" alt="Two-story luxury living room with large wall-mounted TV" width="400" height="280" loading="lazy"></div>
-      <div class="gallery-item"><img src="/images/572x438_pearson.jpg" alt="Custom entertainment wall with TV in curved modern design" width="400" height="280" loading="lazy"></div>
+      <div class="gallery-item">
+        <img src="/images/Custom TV.jpg" alt="Luxury condo TV on custom wood and marble entertainment wall" width="600" height="560" loading="lazy">
+        <span class="gallery-label">Custom Entertainment Wall</span>
+      </div>
+      <div class="gallery-item">
+        <img src="/images/gallery-2.jpeg" alt="Recessed TV installation in marble wall" width="400" height="280" loading="lazy">
+        <span class="gallery-label">Recessed TV in Marble</span>
+      </div>
+      <div class="gallery-item">
+        <img src="/images/Surround Systems (1).jpg" alt="Living room TV with full surround sound system" width="400" height="280" loading="lazy">
+        <span class="gallery-label">Living Room Surround</span>
+      </div>
+      <div class="gallery-item">
+        <img src="/images/MacLeod.jpg" alt="Custom home theater with screen, recessed lighting and theater seating" width="400" height="280" loading="lazy">
+        <span class="gallery-label">Dedicated Home Theater</span>
+      </div>
+      <div class="gallery-item">
+        <img src="/images/gallery-5.jpeg" alt="Two-story luxury living room with large wall-mounted TV" width="400" height="280" loading="lazy">
+        <span class="gallery-label">Two-Story Great Room</span>
+      </div>
+      <div class="gallery-item">
+        <img src="/images/572x438_pearson.jpg" alt="Custom entertainment wall with TV in curved modern design" width="400" height="280" loading="lazy">
+        <span class="gallery-label">Curved Modern Design</span>
+      </div>
+    </div>
+    <div class="gallery-cta">
+      <a href="/portfolio/">View Full Portfolio
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
   </div>
 </section>
