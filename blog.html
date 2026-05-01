@@ -3,59 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog | Learn More About Audiovisual Installation</title>
+<title>Blog | Learn More About Audiovisual Installation | Entertainment Pros</title>
 <meta name="description" content="Tips, project spotlights, and expert advice from the Entertainment Pros team. Stay up to date on AV installations, home theater design, and smart home technology.">
+<link rel="canonical" href="https://www.entertainment-pros.com/blog/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.entertainment-pros.com/blog/">
 <meta property="og:title" content="Blog | Learn More About Audiovisual Installation">
-<meta property="og:description" content="Tips, project spotlights, and expert advice from the Entertainment Pros team. Stay up to date on AV installations, home theater design, and smart home technology.">
+<meta property="og:description" content="Tips, project spotlights, and expert advice from the Entertainment Pros team.">
 <link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <script src="/components.js" defer></script>
 <style>
-/* ===== PAGE-SPECIFIC: BLOG LISTING ===== */
-
-/* Category filter tags */
-.blog-filters{padding:48px 0 0;background:var(--white)}
+/* ===== BLOG INDEX ===== */
+.blog-filters{padding:48px 0 24px;background:var(--white)}
 .filter-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.filter-tag{display:inline-block;padding:8px 22px;border-radius:100px;font-family:var(--font-heading);font-size:.8rem;font-weight:600;letter-spacing:.5px;border:2px solid var(--gray-light);color:var(--gray);background:transparent;cursor:pointer;transition:var(--transition)}
-.filter-tag:hover{border-color:var(--orange);color:var(--orange)}
-.filter-tag.active{background:var(--orange);border-color:var(--orange);color:#fff}
+.filter-btn{display:inline-block;padding:8px 22px;border-radius:100px;font-family:var(--font-heading);font-size:.8rem;font-weight:600;letter-spacing:.5px;border:2px solid var(--gray-light);color:var(--gray);background:transparent;cursor:pointer;transition:var(--transition)}
+.filter-btn:hover{border-color:var(--orange);color:var(--orange)}
+.filter-btn.active{background:var(--orange);border-color:var(--orange);color:#fff}
 
-/* Blog grid */
-.blog-listing{padding:48px 0 var(--section-pad);background:var(--white)}
+.blog-listing{padding:24px 0 var(--section-pad);background:var(--white)}
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 
-/* Blog card */
-.blog-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);display:flex;flex-direction:column}
-.blog-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-.blog-card-img{width:100%;height:220px;background:var(--dark);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.blog-card-img svg{width:48px;height:48px;color:rgba(255,255,255,.15)}
-.blog-card-body{padding:28px 24px;flex:1;display:flex;flex-direction:column}
-.blog-card-date{font-family:var(--font-heading);font-size:.75rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
-.blog-card-body h3{font-size:1.1rem;margin-bottom:10px;color:var(--black);line-height:1.4}
-.blog-card-body p{font-size:.9rem;color:var(--gray);line-height:1.7;margin-bottom:20px;flex:1}
-.blog-card-link{font-family:var(--font-heading);font-size:.8rem;font-weight:600;color:var(--orange);display:inline-flex;align-items:center;gap:6px;transition:var(--transition)}
-.blog-card-link:hover{gap:10px;color:var(--orange-dark)}
-.blog-card-link svg{width:14px;height:14px}
+.post-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.post-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.post-card-thumb{width:100%;height:220px;background:var(--dark);overflow:hidden}
+.post-card-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.post-card-body{padding:24px;flex:1;display:flex;flex-direction:column;gap:8px}
+.post-card-cat{font-family:var(--font-heading);font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--orange)}
+.post-card-title{font-family:var(--font-heading);font-size:1.1rem;font-weight:700;line-height:1.4;color:var(--black);flex:1}
+.post-card-meta{font-size:.82rem;color:var(--gray)}
 
-/* Load more */
-.blog-load-more{text-align:center;margin-top:48px}
+@media(max-width:1024px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.blog-grid{grid-template-columns:1fr}.post-card-thumb{height:200px}}
 
-/* Responsive */
-@media(max-width:1024px){
-  .blog-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:768px){
-  .blog-grid{grid-template-columns:1fr}
-  .blog-card-img{height:200px}
-}
 </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
 <header class="header header-solid" id="header">
   <!-- Top Utility Bar (visible on desktop XL only) -->
   <div class="header-utility">
@@ -70,7 +55,7 @@
         Mon–Fri 8am–5pm
       </span>
       <span class="util-divider"></span>
-      <span class="util-item">Serving Pinellas Since 2006</span>
+      <span class="util-item">Serving Pinellas Since 1997 · Entertainment Pros Est. 2006</span>
     </div>
     <div class="util-right">
       <a href="tel:727-804-2277" class="util-item">
@@ -173,22 +158,9 @@
     <a href="/exterior-illumination/">Exterior Lighting</a>
     <a href="/home-automation/">Home Automation</a>
   </div>
-  <a href="/portfolio/">Portfolio</a>
-  <a href="/about-us/">About</a>
-  <a href="/blog/">Resources</a>
-  <div class="mobile-nav-sub">
-    <a href="/blog/">Blog</a>
-    <a href="/tv-size/">TV Size Calculator</a>
-    <a href="/surround-sound-and-setup/">Surround Sound Calculator</a>
-    <a href="/av-budget-calculator/">AV Budget Calculator</a>
-  </div>
-  <a href="/contact/">Contact</a>
-  <a href="tel:727-804-2277" class="mobile-phone">727-804-2277</a>
-</div>
 
 <main>
 
-<!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
   <div class="container">
     <div class="breadcrumb">
@@ -201,148 +173,93 @@
   </div>
 </section>
 
-<!-- ===== CATEGORY FILTERS ===== -->
 <section class="blog-filters">
   <div class="container">
-    <div class="filter-tags">
-      <span class="filter-tag active">All Posts</span>
-      <span class="filter-tag">Home Theater</span>
-      <span class="filter-tag">TV Mounting</span>
-      <span class="filter-tag">Surround Sound</span>
-      <span class="filter-tag">Outdoor Audio</span>
-      <span class="filter-tag">Lighting</span>
-      <span class="filter-tag">Tips &amp; Tricks</span>
+    <div class="filter-tags" id="blogFilters">
+      <button class="filter-btn active" data-filter="all">All Posts</button>
+      <button class="filter-btn" data-filter="Home Theater">Home Theater</button>
+      <button class="filter-btn" data-filter="TV Mounting">TV Mounting</button>
+      <button class="filter-btn" data-filter="Surround Sound">Surround Sound</button>
+      <button class="filter-btn" data-filter="Outdoor Audio">Outdoor Audio</button>
+      <button class="filter-btn" data-filter="Lighting">Lighting</button>
+      <button class="filter-btn" data-filter="Tips & Tricks">Tips & Tricks</button>
     </div>
   </div>
 </section>
 
-<!-- ===== BLOG LISTING ===== -->
 <section class="blog-listing">
   <div class="container">
-    <div class="blog-grid">
-
-      <!-- Post 1 -->
-      <article class="blog-card">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+    <div id="postGrid" class="blog-grid">
+      <a class="post-card" href="/articulating-tv-wall-mount-reinstallation/" data-cat="TV Mounting">
+        <div class="post-card-thumb">
+          <img src="/images/Hanging-on-a-TV-mount-fde45019.png" alt="Articulating TV Wall Mount Reinstallation: Fixing a DIY Disaster" loading="lazy">
         </div>
-        <div class="blog-card-body">
-          <span class="blog-card-date">March 14, 2026</span>
-          <h3>Articulating TV Wall Mount Reinstallation: Fixing a DIY Disaster</h3>
-          <p>Is your wall-mounted TV crooked, loose, or riddled with unnecessary holes? Learn how we fix terrible TV mount installations.</p>
-          <a href="/articulating-tv-wall-mount-reinstallation/" class="blog-card-link">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <div class="post-card-body">
+          <div class="post-card-cat">TV Mounting</div>
+          <div class="post-card-title">Articulating TV Wall Mount Reinstallation: Fixing a DIY Disaster</div>
+          <div class="post-card-meta">March 14, 2026</div>
         </div>
-      </article>
-
-      <!-- Post 2 -->
-      <article class="blog-card">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+      </a>
+      <a class="post-card" href="/entertainment-system-design-sound-and-style-without-compromise/" data-cat="Home Theater">
+        <div class="post-card-thumb">
+          <img src="/images/Surround Systems (3).jpg" alt="Entertainment System Design: Sound and Style Without Compromise" loading="lazy">
         </div>
-        <div class="blog-card-body">
-          <span class="blog-card-date">February 28, 2026</span>
-          <h3>Entertainment System Design: Sound and Style Without Compromise</h3>
-          <p>Discover sleek entertainment system designs that deliver incredible sound and a clean aesthetic with hidden speakers.</p>
-          <a href="/entertainment-system-design-sound-and-style-without-compromise/" class="blog-card-link">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <div class="post-card-body">
+          <div class="post-card-cat">Home Theater</div>
+          <div class="post-card-title">Entertainment System Design: Sound and Style Without Compromise</div>
+          <div class="post-card-meta">February 28, 2026</div>
         </div>
-      </article>
-
-      <!-- Post 3 -->
-      <article class="blog-card">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+      </a>
+      <a class="post-card" href="/surround-sound-and-setup/" data-cat="Surround Sound">
+        <div class="post-card-thumb">
+          <img src="/images/Who Makes the Best Surround Sound System.jpg" alt="Surround Sound and the Art of Setup: Where Tech Meets Configuration" loading="lazy">
         </div>
-        <div class="blog-card-body">
-          <span class="blog-card-date">February 5, 2026</span>
-          <h3>Surround Sound and the Art of Setup: Where Tech Meets Configuration</h3>
-          <p>Learn how our surround sound setup works, why angles matter, and how we design room-based audio systems.</p>
-          <a href="/surround-sound-and-setup/" class="blog-card-link">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <div class="post-card-body">
+          <div class="post-card-cat">Surround Sound</div>
+          <div class="post-card-title">Surround Sound and the Art of Setup: Where Tech Meets Configuration</div>
+          <div class="post-card-meta">February 5, 2026</div>
         </div>
-      </article>
-
-      <!-- Post 4 -->
-      <article class="blog-card">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+      </a>
+      <a class="post-card" href="/upgrading-speakers-and-tvs/" data-cat="Tips & Tricks">
+        <div class="post-card-thumb">
+          <img src="/images/Surround Systems (1).jpg" alt="Upgrading Speakers and TVs: Time to Refresh Your Setup" loading="lazy">
         </div>
-        <div class="blog-card-body">
-          <span class="blog-card-date">October 29, 2025</span>
-          <h3>Upgrading Speakers and TVs: Time to Refresh Your Setup</h3>
-          <p>When should you upgrade your speakers and TV? We cover the signs it's time for better sound and a brighter picture.</p>
-          <a href="/upgrading-speakers-and-tvs/" class="blog-card-link">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <div class="post-card-body">
+          <div class="post-card-cat">Tips & Tricks</div>
+          <div class="post-card-title">Upgrading Speakers and TVs: Time to Refresh Your Setup</div>
+          <div class="post-card-meta">October 29, 2025</div>
         </div>
-      </article>
-
-      <!-- Post 5 -->
-      <article class="blog-card">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </a>
+      <a class="post-card" href="/invisible-speakers-with-stealth-acoustics/" data-cat="Surround Sound">
+        <div class="post-card-thumb">
+          <img src="/images/Invisible speakers.JPG" alt="Invisible Speakers with Stealth Acoustics" loading="lazy">
         </div>
-        <div class="blog-card-body">
-          <span class="blog-card-date">September 12, 2025</span>
-          <h3>Invisible Speakers with Stealth Acoustics</h3>
-          <p>Get surround sound without the visual clutter. Stealth Acoustics invisible speakers deliver amazing audio from behind your walls.</p>
-          <a href="/invisible-speakers-with-stealth-acoustics/" class="blog-card-link">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <div class="post-card-body">
+          <div class="post-card-cat">Surround Sound</div>
+          <div class="post-card-title">Invisible Speakers with Stealth Acoustics</div>
+          <div class="post-card-meta">September 12, 2025</div>
         </div>
-      </article>
-
-      <!-- Post 6 -->
-      <article class="blog-card">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </a>
+      <a class="post-card" href="/when-work-goes-wrong/" data-cat="Tips & Tricks">
+        <div class="post-card-thumb">
+          <img src="/images/It-s more than hanging a TV.jpg" alt="When Work Goes Wrong: Why AV Professionals Matter" loading="lazy">
         </div>
-        <div class="blog-card-body">
-          <span class="blog-card-date">September 4, 2025</span>
-          <h3>When Work Goes Wrong: Why AV Professionals Matter</h3>
-          <p>See what happens when AV installations are done incorrectly and why hiring a professional makes all the difference.</p>
-          <a href="/when-work-goes-wrong/" class="blog-card-link">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <div class="post-card-body">
+          <div class="post-card-cat">Tips & Tricks</div>
+          <div class="post-card-title">When Work Goes Wrong: Why AV Professionals Matter</div>
+          <div class="post-card-meta">September 4, 2025</div>
         </div>
-      </article>
-
-      <!-- Post 7 -->
-      <article class="blog-card">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+      </a>
+      <a class="post-card" href="/motorized-pull-down-tv-mount-installation/" data-cat="TV Mounting">
+        <div class="post-card-thumb">
+          <img src="/images/Custom TV.jpg" alt="Motorized Pull-Down TV Mount Installation" loading="lazy">
         </div>
-        <div class="blog-card-body">
-          <span class="blog-card-date">August 14, 2025</span>
-          <h3>Motorized Pull-Down TV Mount Installation</h3>
-          <p>A creative solution for a glass-walled space: motorized pull-down TV mount that disappears when not in use.</p>
-          <a href="/motorized-pull-down-tv-mount-installation/" class="blog-card-link">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <div class="post-card-body">
+          <div class="post-card-cat">TV Mounting</div>
+          <div class="post-card-title">Motorized Pull-Down TV Mount Installation</div>
+          <div class="post-card-meta">August 14, 2025</div>
         </div>
-      </article>
-
-      <!-- Post 8 -->
-      <article class="blog-card">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div class="blog-card-body">
-          <span class="blog-card-date">July 30, 2025</span>
-          <h3>Clean Home AV Installations that Wow</h3>
-          <p>See how we transformed a condo with a clean AV installation, hidden wiring, and perfectly fine-tuned sound.</p>
-          <a href="/clean-home-av-installations-that-wow/" class="blog-card-link">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-      </article>
-
-      <!-- Post 9 -->
-      <article class="blog-card">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div class="blog-card-body">
-          <span class="blog-card-date">July 18, 2025</span>
-          <h3>Outdoor Audio Systems | Landscape Sound Solutions</h3>
-          <p>Premium outdoor audio designed for Florida weather. Landscape speakers and burial subwoofers for your backyard.</p>
-          <a href="/outdoor-audio-systems/" class="blog-card-link">Read Article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- Load More -->
-    <div class="blog-load-more">
-      <button class="btn btn-dark">Load More Posts</button>
+      </a>
     </div>
   </div>
 </section>
@@ -367,7 +284,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="/images/Transparent Logo.png" alt="Entertainment Pros" width="160" height="42">
-        <p>Licensed and insured Audio/Video Sales and Installation company serving Pinellas County since 2006. Residential and commercial AV projects.</p>
+        <p>Licensed and insured Audio/Video Sales and Installation. Serving Pinellas County since 1997 — Entertainment Pros founded in 2006. Residential and commercial AV projects.</p>
       </div>
       <div>
         <h4>Services</h4>
@@ -417,5 +334,18 @@
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('#blogFilters .filter-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#blogFilters .filter-btn').forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('#postGrid .post-card').forEach((card) => {
+      const cat = card.getAttribute('data-cat');
+      card.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
 </body>
 </html>
