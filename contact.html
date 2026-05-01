@@ -323,46 +323,265 @@
         <p>Free onsite consultations<br>Residential &amp; Commercial<br>Pinellas County &amp; Beyond</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- ===== CONTACT FORM ===== -->
-    <div class="contact-form-wrapper">
-      <h2 class="section-title">Tell Us About Your Next Project</h2>
-      <p class="form-subtitle">Whether it's a quick question or a big idea — share what you have in mind and we'll get back to you within 24 hours.</p>
-      <form id="contactForm" action="https://myaieditor.com/api/form-notify" method="POST">
-        <input type="hidden" name="site_slug" value="entertainment-pros">
-        <input type="hidden" name="form_type" value="contact">
-        <input type="text" name="_honey" class="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <!-- reCAPTCHA token will be injected here via JS -->
-        <input type="hidden" name="recaptcha_token" id="recaptchaToken" value="">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your full name" required>
+<!-- ===== CONSULTATION WIZARD ===== -->
+<section class="contact-form-section">
+  <div class="container">
+    <div class="consult-form-intro">
+      <span class="section-label">Tell Us About Your Project</span>
+      <h2>Take 60 seconds — we'll take it from there</h2>
+      <p>Share a few details about what you have in mind and a real human from our team will call you within 24 hours. No pressure, no obligation.</p>
+    </div>
+    <div class="consult-form-wrapper">
+      <div class="consult-card" id="consultCard">
+
+        <!-- Step indicator -->
+        <div class="step-indicator" id="stepIndicator">
+          <div class="step-dot active" data-step="1">1</div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="2">2</div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="3">3</div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="4">4</div>
+        </div>
+
+        <form id="consultForm" novalidate>
+          <input type="hidden" name="site_slug" value="entertainment-pros">
+          <input type="hidden" name="form_type" value="your-project">
+          <input type="text" name="_honey" class="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="recaptcha_token" id="recaptchaToken" value="">
+
+          <!-- ============ STEP 1: WHAT'S ON YOUR MIND ============ -->
+          <div class="consult-step active" data-step="1">
+            <span class="step-label">Step 1 of 4</span>
+            <h3 class="step-title">What's on your mind?</h3>
+            <p class="step-help">Pick anything that sounds like you — you can choose more than one. Not sure yet? That's totally fine, we'll figure it out together.</p>
+            <div class="choice-grid">
+              <label class="choice"><input type="checkbox" name="interests" value="Home Theater">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                  <div class="choice-text"><strong>Home Theater</strong><span>Big-screen, immersive sound</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="checkbox" name="interests" value="Surround Sound">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
+                  <div class="choice-text"><strong>Surround Sound</strong><span>Living-room audio that wows</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="checkbox" name="interests" value="TV Mounting">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+                  <div class="choice-text"><strong>TV Mounting</strong><span>Hidden wires, perfect placement</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="checkbox" name="interests" value="Outdoor Audio/TV">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></div>
+                  <div class="choice-text"><strong>Outdoor Audio &amp; TV</strong><span>Lanai, pool deck, patio</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="checkbox" name="interests" value="Lighting Control">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                  <div class="choice-text"><strong>Lighting Control</strong><span>Scenes, dimming, automation</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="checkbox" name="interests" value="Landscape Lighting">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
+                  <div class="choice-text"><strong>Landscape Lighting</strong><span>Color-changing, accent, holiday</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="checkbox" name="interests" value="Smart Home Automation">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+                  <div class="choice-text"><strong>Smart Home</strong><span>One-touch control, automation</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="checkbox" name="interests" value="Automated Shades">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg></div>
+                  <div class="choice-text"><strong>Automated Shades</strong><span>Motorized, scheduled, integrated</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="checkbox" name="interests" value="Whole-house Audio">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
+                  <div class="choice-text"><strong>Whole-House Audio</strong><span>Music in every room</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="checkbox" name="interests" value="Not Sure Yet">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+                  <div class="choice-text"><strong>Not Sure Yet</strong><span>That's what we're here for</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+
+          <!-- ============ STEP 2: YOUR SPACE ============ -->
+          <div class="consult-step" data-step="2">
+            <span class="step-label">Step 2 of 4</span>
+            <h3 class="step-title">Tell us about the space</h3>
+            <p class="step-help">This helps us bring the right people and the right ideas to your walk-through.</p>
+            <div class="choice-grid cols-1">
+              <label class="choice"><input type="radio" name="space_type" value="New Construction">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                  <div class="choice-text"><strong>New Construction</strong><span>Pre-wire opportunity — the magic happens before drywall</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="radio" name="space_type" value="Existing Home / Retrofit">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                  <div class="choice-text"><strong>Existing Home — Retrofit</strong><span>We're great at hiding wires in finished spaces</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="radio" name="space_type" value="Renovation in Progress">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                  <div class="choice-text"><strong>Renovation in Progress</strong><span>We can join the team mid-project</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="radio" name="space_type" value="Condo / Apartment">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="16" y2="6"/></svg></div>
+                  <div class="choice-text"><strong>Condo or Apartment</strong><span>We do a lot of these — HOA-friendly solutions</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="radio" name="space_type" value="Commercial Space">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                  <div class="choice-text"><strong>Commercial Space</strong><span>Office, restaurant, fitness, retail</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- ============ STEP 3: TIMELINE & DETAILS ============ -->
+          <div class="consult-step" data-step="3">
+            <span class="step-label">Step 3 of 4</span>
+            <h3 class="step-title">When are you hoping to start?</h3>
+            <p class="step-help">No pressure on timing — we'll meet you where you are.</p>
+            <div class="choice-grid">
+              <label class="choice"><input type="radio" name="timeline" value="ASAP">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                  <div class="choice-text"><strong>ASAP</strong><span>Within a few weeks</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="radio" name="timeline" value="1-3 Months">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                  <div class="choice-text"><strong>1–3 Months</strong><span>Planning ahead</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="radio" name="timeline" value="3-6 Months">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                  <div class="choice-text"><strong>3–6 Months</strong><span>Early planning stage</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+              <label class="choice"><input type="radio" name="timeline" value="Just Exploring">
+                <div class="choice-card">
+                  <div class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                  <div class="choice-text"><strong>Just Exploring</strong><span>Gathering ideas</span></div>
+                  <div class="choice-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                </div>
+              </label>
+            </div>
+
+            <label for="vision" style="display:block;font-family:var(--font-heading);font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin:10px 0 8px">Tell us what you're imagining</label>
+            <textarea class="consult-textarea" id="vision" name="vision" placeholder="A few sentences is plenty — what you want, what's frustrating you, what would make this perfect..."></textarea>
+          </div>
+
+          <!-- ============ STEP 4: CONTACT ============ -->
+          <div class="consult-step" data-step="4">
+            <span class="step-label">Step 4 of 4 — Almost there</span>
+            <h3 class="step-title">How can we reach you?</h3>
+            <p class="step-help">We'll call within one business day to set up your free walk-through. We don't share your info — ever.</p>
+            <div class="consult-fields">
+              <div class="consult-field">
+                <label for="name">First Name <span class="req">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Jane" required>
+              </div>
+              <div class="consult-field">
+                <label for="lastname">Last Name <span class="req">*</span></label>
+                <input type="text" id="lastname" name="lastname" placeholder="Smith" required>
+              </div>
+              <div class="consult-field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+              </div>
+              <div class="consult-field">
+                <label for="phone">Phone <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="(727) 555-1234" required>
+              </div>
+              <div class="consult-field full">
+                <label for="address">Property Address or City</label>
+                <input type="text" id="address" name="address" placeholder="123 Coastal Way, Clearwater FL — or just city &amp; zip">
+              </div>
+            </div>
+
+            <div class="trust-strip">
+              <span class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Licensed &amp; Insured</span>
+              <span class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>5-Star Reviews</span>
+              <span class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>29+ Years</span>
+              <span class="trust-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>No Obligation</span>
+            </div>
+          </div>
+
+          <!-- Step navigation -->
+          <div class="step-nav">
+            <span class="progress-text" id="progressText">Step 1 of 4</span>
+            <div class="nav-btns">
+              <button type="button" class="btn-back" id="btnBack" style="display:none">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back
+              </button>
+              <button type="button" class="btn-next" id="btnNext">
+                Continue
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Success state (hidden until submit) -->
+        <div class="consult-success" id="consultSuccess" style="display:none">
+          <div class="consult-success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2>Got it — thank you.</h2>
+          <p><strong>We'll call you within 24 hours.</strong> A real person from our team will reach out to talk through your project and, if helpful, schedule a free in-home visit. Want to chat sooner? Give us a call.</p>
+          <div class="next-step">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:727-804-2277" style="color:var(--orange)">727-804-2277</a>
           </div>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="(727) 555-1234">
-          </div>
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="How can we help?">
-          </div>
-        </div>
-        <div class="form-group full" style="margin-bottom:0">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
-        </div>
-        <div class="form-submit">
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </div>
-        <p class="form-note">We respect your privacy. Your information will never be shared.</p>
-      </form>
+      </div>
     </div>
   </div>
 </section>
@@ -446,41 +665,127 @@
 </footer>
 
 <script>
-// Contact form submission via fetch
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('button[type="submit"]');
-  const origText = btn.textContent;
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
+(function() {
+  const TOTAL_STEPS = 4;
+  let currentStep = 1;
 
-  // TODO: Get reCAPTCHA token when reCAPTCHA is configured
-  // grecaptcha.ready(function() {
-  //   grecaptcha.execute('YOUR_SITE_KEY', {action: 'contact'}).then(function(token) {
-  //     document.getElementById('recaptchaToken').value = token;
-  //   });
-  // });
+  const form = document.getElementById('consultForm');
+  const card = document.getElementById('consultCard');
+  const successEl = document.getElementById('consultSuccess');
+  const btnNext = document.getElementById('btnNext');
+  const btnBack = document.getElementById('btnBack');
+  const progressText = document.getElementById('progressText');
+  const stepIndicator = document.getElementById('stepIndicator');
 
-  const data = Object.fromEntries(new FormData(form));
-
-  try {
-    const res = await fetch('https://myaieditor.com/api/form-notify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+  function showStep(n) {
+    document.querySelectorAll('.consult-step').forEach(el => {
+      el.classList.toggle('active', parseInt(el.dataset.step) === n);
     });
-    if (res.ok) {
-      form.innerHTML = '<div style="text-align:center;padding:40px 0"><h3 style="color:var(--black);margin-bottom:12px">Thank You!</h3><p style="color:var(--gray)">Your message has been sent. We\'ll get back to you shortly.</p></div>';
-    } else {
-      throw new Error('Server error');
-    }
-  } catch (err) {
-    btn.textContent = origText;
-    btn.disabled = false;
-    alert('Something went wrong. Please call us at 727-804-2277.');
+    document.querySelectorAll('.step-dot').forEach((dot, i) => {
+      const stepNum = i + 1;
+      dot.classList.toggle('active', stepNum === n);
+      dot.classList.toggle('complete', stepNum < n);
+    });
+    document.querySelectorAll('.step-line').forEach((line, i) => {
+      line.classList.toggle('complete', i + 1 < n);
+    });
+    progressText.textContent = `Step ${n} of ${TOTAL_STEPS}`;
+    btnBack.style.display = n === 1 ? 'none' : 'inline-flex';
+    btnNext.innerHTML = n === TOTAL_STEPS
+      ? 'Send to Entertainment Pros <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>'
+      : 'Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+
+    setTimeout(() => {
+      const cardTop = card.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: cardTop, behavior: 'smooth' });
+    }, 50);
   }
-});
+
+  function validateStep(n) {
+    if (n === 4) {
+      const required = ['name', 'lastname', 'email', 'phone'];
+      for (const id of required) {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.focus();
+          el.style.borderColor = '#dc2626';
+          setTimeout(() => el.style.borderColor = '', 2500);
+          return false;
+        }
+      }
+      const email = document.getElementById('email');
+      if (!/^\S+@\S+\.\S+$/.test(email.value)) {
+        email.focus();
+        email.style.borderColor = '#dc2626';
+        setTimeout(() => email.style.borderColor = '', 2500);
+        return false;
+      }
+    }
+    return true;
+  }
+
+  btnNext.addEventListener('click', async () => {
+    if (!validateStep(currentStep)) return;
+    if (currentStep < TOTAL_STEPS) {
+      currentStep++;
+      showStep(currentStep);
+    } else {
+      btnNext.disabled = true;
+      btnNext.innerHTML = 'Sending...';
+
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((v, k) => {
+        if (data[k] !== undefined) {
+          if (!Array.isArray(data[k])) data[k] = [data[k]];
+          data[k].push(v);
+        } else {
+          data[k] = v;
+        }
+      });
+      Object.keys(data).forEach(k => {
+        if (Array.isArray(data[k])) data[k] = data[k].join(', ');
+      });
+
+      try {
+        const res = await fetch('https://myaieditor.com/api/form-notify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          stepIndicator.style.display = 'none';
+          document.querySelector('.step-nav').style.display = 'none';
+          successEl.style.display = 'block';
+          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          throw new Error('Server error');
+        }
+      } catch (err) {
+        btnNext.disabled = false;
+        btnNext.innerHTML = 'Send to Entertainment Pros <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+        alert('Something went wrong. Please call us at 727-804-2277.');
+      }
+    }
+  });
+
+  btnBack.addEventListener('click', () => {
+    if (currentStep > 1) {
+      currentStep--;
+      showStep(currentStep);
+    }
+  });
+
+  form.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      btnNext.click();
+    }
+  });
+
+  showStep(1);
+})();
 </script>
 
 </body>
