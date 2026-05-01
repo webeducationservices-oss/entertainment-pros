@@ -171,7 +171,7 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
                   <h5>TV &amp; Installations</h5>
                   <a href="/hanging-tvs-mounting-services/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> TV Hanging &amp; Mounting</a>
                   <a href="/installations-residential/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Residential Installations</a>
-                  <a href="/commercial-audio-video/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Commercial Audio-Video</a>
+                  <a href="/commercial-audio-video/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Light Commercial AV</a>
                   <a href="/sales/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Equipment Sales</a>
                 </div>
                 <div class="mega-col">
@@ -579,49 +579,70 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
 (function() {
   'use strict';
 
-  // TV data: diagonal -> width in inches
-  var tvWidths = {
-    32: 27.9, 43: 37.5, 55: 47.9, 65: 56.7,
-    75: 65.4, 77: 67.1, 83: 72.3, 85: 74.1
-  };
+  // ===== Logic ported from live entertainment-pros.com/tv-size =====
+  // Combines a comfort field-of-view target with an acuity limit of 60 pixels per degree.
+  // Recommended distance is the larger of the HFOV distance and the acuity distance.
+  var ASPECT_W = 16, ASPECT_H = 9;
+  var DIAG_TO_WIDTH = ASPECT_W / Math.sqrt(ASPECT_W*ASPECT_W + ASPECT_H*ASPECT_H); // ~0.8716
+  var HPIX = { '1080p': 1920, '4K': 3840, '8K': 7680 };
+  var PPD_TARGET = 60;
+
+  function degToRad(d){ return d * Math.PI / 180; }
+  function radToDeg(r){ return r * 180 / Math.PI; }
+  function round(n, d){ d = d || 1; var f = Math.pow(10, d); return Math.round(n*f)/f; }
+
+  // Comfort HFOV targets (degrees)
+  function hfovTarget(res, immersion){
+    if (immersion === 'imax') return 70;
+    if (immersion === 'immersive') return 55;
+    if (res === '8K') return 52;
+    return 47; // 1080p and 4K, normal
+  }
+  function distanceFromHFOV(widthIn, hfovDeg){
+    return (widthIn / 2) / Math.tan(degToRad(hfovDeg/2));
+  }
+  function distanceFromAcuity(widthIn, horizPixels){
+    return (widthIn / horizPixels) * (10800 / Math.PI);
+  }
+  // distance -> recommended diagonal size
+  function sizeForDistance(distanceFt, res, immersion){
+    var p = HPIX[res];
+    var targetHFOV = hfovTarget(res, immersion);
+    var maxHFOVFromAcuity = p / PPD_TARGET; // deg
+    var chosenHFOV = Math.min(targetHFOV, maxHFOVFromAcuity);
+    var distanceIn = distanceFt * 12;
+    var widthIn = 2 * distanceIn * Math.tan(degToRad(chosenHFOV/2));
+    var diagIn = widthIn / DIAG_TO_WIDTH;
+    var ppd = p / chosenHFOV;
+    return { diagIn: diagIn, widthIn: widthIn, chosenHFOV: chosenHFOV, targetHFOV: targetHFOV, ppd: ppd, acuityLimited: chosenHFOV < targetHFOV };
+  }
+  // diagonal size -> recommended distance
+  function distanceForSize(diagIn, res, immersion){
+    var p = HPIX[res];
+    var widthIn = diagIn * DIAG_TO_WIDTH;
+    var targetHFOV = hfovTarget(res, immersion);
+    var dHFOV = distanceFromHFOV(widthIn, targetHFOV);
+    var dAcuity = distanceFromAcuity(widthIn, p);
+    var recommendedIn = Math.max(dHFOV, dAcuity);
+    var recommendedFt = recommendedIn / 12;
+    var resultingHFOV = 2 * radToDeg(Math.atan((widthIn/2) / recommendedIn));
+    var ppd = p / resultingHFOV;
+    return { widthIn: widthIn, recommendedFt: recommendedFt, resultingHFOV: resultingHFOV, ppd: ppd, targetHFOV: targetHFOV, wasAcuityLimited: dAcuity > dHFOV };
+  }
+
+  // Snap a calculated diagonal to the nearest standard TV size we support.
   var standardSizes = [32, 43, 55, 65, 75, 77, 83, 85];
-
-  // Viewing angle targets in degrees
-  function getViewingAngle(resolution, immersiveness) {
-    if (immersiveness === 'imax') return 70;
-    if (immersiveness === 'immersive') return 55;
-    // normal
-    if (resolution === '8K') return 52;
-    return 47;
-  }
-
-  // Given angle and width, calculate distance
-  function calcDistance(angleDeg, widthInches) {
-    var angleRad = (angleDeg * Math.PI) / 180;
-    return (widthInches / 2) / Math.tan(angleRad / 2);
-  }
-
-  // Given angle and distance, calculate required width
-  function calcWidth(angleDeg, distanceInches) {
-    var angleRad = (angleDeg * Math.PI) / 180;
-    return 2 * distanceInches * Math.tan(angleRad / 2);
-  }
-
-  // Find closest standard TV size for a given width
-  function closestTV(targetWidth) {
+  function closestTV(diagIn){
     var best = standardSizes[0];
-    var bestDiff = Math.abs(tvWidths[best] - targetWidth);
-    for (var i = 1; i < standardSizes.length; i++) {
-      var diff = Math.abs(tvWidths[standardSizes[i]] - targetWidth);
-      if (diff < bestDiff) {
-        bestDiff = diff;
-        best = standardSizes[i];
-      }
+    var bestDiff = Math.abs(best - diagIn);
+    for (var i = 1; i < standardSizes.length; i++){
+      var diff = Math.abs(standardSizes[i] - diagIn);
+      if (diff < bestDiff){ bestDiff = diff; best = standardSizes[i]; }
     }
     return best;
   }
 
-  // Elements
+  // ===== UI wiring =====
   var modeBtns = document.querySelectorAll('.mode-btn');
   var modeDistance = document.getElementById('mode-distance');
   var modeSize = document.getElementById('mode-size');
@@ -634,7 +655,6 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
 
   var currentMode = 'distance';
 
-  // Update slider fill
   function updateSliderFill() {
     var val = distanceSlider.value;
     var min = distanceSlider.min;
@@ -642,52 +662,41 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
     var pct = ((val - min) / (max - min)) * 100;
     distanceSlider.style.setProperty('--fill', pct + '%');
   }
-
-  // Get selected radio value
   function getRadio(name) {
     var el = document.querySelector('input[name="' + name + '"]:checked');
     return el ? el.value : null;
   }
-
-  // Immersiveness label
   function immLabel(val) {
     if (val === 'immersive') return 'an immersive';
     if (val === 'imax') return 'an IMAX-style';
     return 'a normal';
   }
 
-  // Calculate and display result
   function calculate() {
     if (currentMode === 'distance') {
       var distFt = parseFloat(distanceSlider.value);
-      var distIn = distFt * 12;
       var res = getRadio('res-distance');
       var imm = getRadio('imm-distance');
-      var angle = getViewingAngle(res, imm);
-      var neededWidth = calcWidth(angle, distIn);
-      var bestSize = closestTV(neededWidth);
+      var out = sizeForDistance(distFt, res, imm);
+      var bestSize = closestTV(out.diagIn);
 
       resultLabel.textContent = 'Recommended TV Size';
       resultValue.textContent = bestSize + '"';
       resultValue.className = 'calc-result-value';
-      resultSub.textContent = 'for ' + res + ' content at ' + immLabel(imm) + ' viewing angle';
+      resultSub.textContent = 'Ideal diagonal ' + Math.round(out.diagIn) + '" for ' + res + ' at ' + immLabel(imm) + ' viewing angle (' + round(out.chosenHFOV, 1) + '° FOV)';
     } else {
       var size = parseInt(tvSizeSelect.value);
-      var width = tvWidths[size];
-      var res = getRadio('res-size');
-      var imm = getRadio('imm-size');
-      var angle = getViewingAngle(res, imm);
-      var idealDist = calcDistance(angle, width);
-      var idealFt = idealDist / 12;
-
-      // Show a range: ideal +/- 20%
-      var minFt = Math.max(3, idealFt * 0.8);
-      var maxFt = idealFt * 1.2;
+      var res2 = getRadio('res-size');
+      var imm2 = getRadio('imm-size');
+      var out2 = distanceForSize(size, res2, imm2);
+      var idealFt = out2.recommendedFt;
+      var minFt = Math.max(3, idealFt * 0.85);
+      var maxFt = idealFt * 1.15;
 
       resultLabel.textContent = 'Recommended Viewing Distance';
-      resultValue.textContent = minFt.toFixed(1) + ' - ' + maxFt.toFixed(1) + ' ft';
+      resultValue.textContent = round(minFt, 1) + ' - ' + round(maxFt, 1) + ' ft';
       resultValue.className = 'calc-result-range';
-      resultSub.textContent = 'for a ' + size + '" TV with ' + res + ' content at ' + immLabel(imm) + ' viewing angle';
+      resultSub.textContent = 'For a ' + size + '" ' + res2 + ' TV at ' + immLabel(imm2) + ' viewing angle (' + round(out2.resultingHFOV, 1) + '° FOV)';
     }
   }
 

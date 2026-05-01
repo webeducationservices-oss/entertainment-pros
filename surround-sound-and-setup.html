@@ -197,7 +197,7 @@
                   <h5>TV &amp; Installations</h5>
                   <a href="/hanging-tvs-mounting-services/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> TV Hanging &amp; Mounting</a>
                   <a href="/installations-residential/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Residential Installations</a>
-                  <a href="/commercial-audio-video/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Commercial Audio-Video</a>
+                  <a href="/commercial-audio-video/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Light Commercial AV</a>
                   <a href="/sales/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Equipment Sales</a>
                 </div>
                 <div class="mega-col">
@@ -397,6 +397,8 @@
             <input type="number" id="ss-height" placeholder="Height" min="7" max="20" step="0.5">
           </div>
         </div>
+        <label for="ss-distance">Seating Distance From Screen (feet, optional)</label>
+        <input type="number" id="ss-distance" placeholder="e.g. 10" min="3" max="40" step="0.5">
         <button class="ss-calc-btn" id="ss-calculate">Calculate Setup</button>
       </div>
 
@@ -550,6 +552,7 @@
     var width  = parseFloat(document.getElementById('ss-width').value);
     var height = parseFloat(document.getElementById('ss-height').value);
     var config = document.getElementById('ss-config').value;
+    var seatingDistInput = parseFloat(document.getElementById('ss-distance').value);
 
     if(!length||!width||!height||length<6||width<6||height<7){
       alert('Please enter valid room dimensions (min 6x6x7 feet).');
@@ -559,13 +562,17 @@
     var c = configs[config];
     var totalSpeakers = c.front + c.center + c.surround + c.rear + c.overhead + c.sub;
 
-    // Listener position: roughly 60-65% back from the front wall
-    var listenerDist = length * 0.62;
+    // Listener position: use entered seating distance if provided, else 62% back from front wall
+    var listenerDist = (seatingDistInput && seatingDistInput > 0) ? seatingDistInput : length * 0.62;
     var halfWidth = width / 2;
 
     // Front speaker angles and distances
-    var frontAngle = 26; // degrees from center
+    // Live entertainment-pros.com calculator uses the "45-degree rule":
+    //   front soundstage width = seating distance * 0.828  (= 2 * tan(22.5deg))
+    // i.e. front L/R speakers placed at 22.5 degrees off center for a 45-degree total spread.
+    var frontAngle = 22.5; // degrees from center (industry-standard 45-degree rule)
     var frontDist = Math.round(listenerDist * 10) / 10;
+    var frontStageWidthFt = Math.round((listenerDist * 0.828) * 10) / 10;
 
     // Surround speaker angles
     var surroundAngle = 110;
@@ -601,7 +608,7 @@
 
     // Placement recommendations
     var placements = [];
-    placements.push('<strong>Front L/R:</strong> ' + frontAngle + '\u00B0 from center, ~' + frontDist + ' ft from listener');
+    placements.push('<strong>Front L/R:</strong> ' + frontAngle + '\u00B0 from center (45\u00B0 rule), ~' + frontStageWidthFt + ' ft apart, ~' + frontDist + ' ft from listener');
     if(c.center) placements.push('<strong>Center:</strong> Directly ahead, ear level, ~' + frontDist + ' ft');
     if(c.surround) placements.push('<strong>Surround L/R:</strong> ' + surroundAngle + '\u2013120\u00B0, ~' + surroundDist + ' ft, 2\u20133 ft above ear level');
     if(c.rear) placements.push('<strong>Rear L/R:</strong> ' + rearAngle + '\u2013160\u00B0, ~' + rearDist + ' ft behind listener');
