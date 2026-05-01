@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Portfolio | AV Installation Gallery | Entertainment Pros</title>
-<meta name="description" content="Browse completed residential and commercial AV projects by Entertainment Pros. Home theaters, surround sound, outdoor audio, TV installations, and more across Pinellas County.">
+<title>Portfolio | AV Project Gallery | Entertainment Pros</title>
+<meta name="description" content="Real Entertainment Pros AV projects: invisible speakers, home theaters, living-room surround sound, outdoor sound systems, and commercial AV rebuilds across Pinellas and Tampa Bay.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.entertainment-pros.com/portfolio/">
-<meta property="og:title" content="Portfolio | AV Installation Gallery | Entertainment Pros">
-<meta property="og:description" content="Browse completed residential and commercial AV projects by Entertainment Pros. Home theaters, surround sound, outdoor audio, TV installations, and more across Pinellas County.">
+<meta property="og:title" content="Portfolio | AV Project Gallery | Entertainment Pros">
+<meta property="og:description" content="Real Entertainment Pros AV projects: invisible speakers, home theaters, living-room surround sound, outdoor sound systems, and commercial AV rebuilds across Pinellas and Tampa Bay.">
 <link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
@@ -16,46 +16,42 @@
 <style>
 /* ===== PAGE-SPECIFIC: PORTFOLIO ===== */
 
-/* Featured projects */
-.featured-projects{padding:var(--section-pad);background:var(--white)}
-.featured-header{text-align:center;margin-bottom:60px}
-.featured-header .section-subtitle{margin:0 auto}
-.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+/* Filter bar */
+.portfolio-filters{padding:40px 0 0;background:var(--white)}
+.filter-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:20px}
+.filter-btn{appearance:none;border:1px solid rgba(0,0,0,.12);background:#fff;color:var(--black);font-family:inherit;font-weight:600;font-size:.92rem;padding:10px 20px;border-radius:999px;cursor:pointer;transition:var(--transition);letter-spacing:.01em}
+.filter-btn:hover{border-color:var(--orange);color:var(--orange)}
+.filter-btn.active{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:var(--shadow)}
+
+/* Project grid */
+.portfolio-grid-section{padding:40px 0 var(--section-pad);background:var(--white)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
 .project-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);border:1px solid rgba(0,0,0,.06);display:flex;flex-direction:column}
 .project-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-.project-card-img{height:200px;overflow:hidden;position:relative}
+.project-card.is-hidden{display:none}
+.project-card-img{aspect-ratio:16/10;overflow:hidden;position:relative;background:#111}
 .project-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .project-card:hover .project-card-img img{transform:scale(1.06)}
-.project-card-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.project-card-icon svg{width:26px;height:26px;color:#fff}
-.project-card-body{padding:32px 28px;flex:1;display:flex;flex-direction:column}
-.project-card-body h3{font-size:1.1rem;margin-bottom:10px;color:var(--black);line-height:1.4}
-.project-card-body p{font-size:.9rem;color:var(--gray);line-height:1.7;flex:1}
-
-/* Photo gallery */
-.photo-gallery{padding:var(--section-pad);background:var(--gray-bg)}
-.gallery-header{text-align:center;margin-bottom:60px}
-.gallery-header .section-subtitle{margin:0 auto}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.gallery-grid a{border-radius:var(--radius);overflow:hidden;display:block;transition:var(--transition)}
-.gallery-grid a:hover{transform:scale(1.02);box-shadow:var(--shadow-lg)}
-.gallery-grid img{width:100%;height:280px;object-fit:cover;display:block;transition:var(--transition)}
-.gallery-grid a:hover img{transform:scale(1.05)}
+.project-card-tag{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.7);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.project-card-body{padding:28px 26px 26px;flex:1;display:flex;flex-direction:column}
+.project-card-body h3{font-size:1.15rem;margin-bottom:12px;color:var(--black);line-height:1.35}
+.project-card-body p{font-size:.92rem;color:var(--gray);line-height:1.65;flex:1;margin-bottom:20px}
+.project-card-link{display:inline-flex;align-items:center;gap:6px;color:var(--orange);font-weight:700;font-size:.92rem;text-decoration:none;transition:var(--transition)}
+.project-card-link:hover{color:var(--orange-dark);gap:10px}
+.project-card-link svg{width:16px;height:16px}
 
 /* Portfolio CTA */
-.portfolio-cta{padding:80px 0;background:var(--white);text-align:center}
+.portfolio-cta{padding:80px 0;background:var(--gray-bg);text-align:center}
 .portfolio-cta h2{margin-bottom:16px}
 .portfolio-cta p{color:var(--gray);max-width:600px;margin:0 auto 32px;font-size:1.05rem;line-height:1.7}
 
 /* Responsive */
 @media(max-width:1024px){
-  .featured-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .portfolio-grid{grid-template-columns:repeat(2,1fr);gap:24px}
 }
-@media(max-width:768px){
-  .featured-grid{grid-template-columns:1fr}
-  .gallery-grid{grid-template-columns:1fr}
-  .gallery-grid img{height:240px}
+@media(max-width:640px){
+  .portfolio-grid{grid-template-columns:1fr;gap:20px}
+  .filter-btn{padding:8px 16px;font-size:.85rem}
 }
 </style>
 </head>
@@ -203,104 +199,106 @@
       <span class="current">Portfolio</span>
     </div>
     <h1>Our Portfolio</h1>
-    <p>Browse our completed residential and commercial AV projects across Pinellas County and the Tampa Bay area.</p>
+    <p>Real Entertainment Pros installations across Pinellas County and the Tampa Bay area &mdash; from invisible in-wall speakers to full commercial AV rebuilds.</p>
   </div>
 </section>
 
-<!-- ===== FEATURED PROJECTS ===== -->
-<section class="featured-projects">
+<!-- ===== FILTER BAR ===== -->
+<section class="portfolio-filters">
   <div class="container">
-    <div class="featured-header">
-      <span class="section-label">Project Spotlights</span>
-      <h2 class="section-title">Featured Work</h2>
-      <p class="section-subtitle">A look at some of our most interesting and impactful AV installations.</p>
+    <div class="filter-bar" id="filterBar" role="tablist" aria-label="Filter projects by category">
+      <button class="filter-btn active" data-filter="all" type="button">All Projects</button>
+      <button class="filter-btn" data-filter="living-rooms" type="button">Living Rooms</button>
+      <button class="filter-btn" data-filter="home-theaters" type="button">Home Theaters</button>
+      <button class="filter-btn" data-filter="outdoor" type="button">Outdoor</button>
+      <button class="filter-btn" data-filter="commercial" type="button">Commercial</button>
     </div>
-    <div class="featured-grid">
+  </div>
+</section>
 
-      <div class="project-card">
-        <div class="project-card-img"><img src="/images/572x438_pearson.jpg" alt="Invisible speaker installation with Stealth Acoustics" width="400" height="200" loading="lazy"></div>
+<!-- ===== PROJECT GRID ===== -->
+<section class="portfolio-grid-section">
+  <div class="container">
+    <div class="portfolio-grid" id="portfolioGrid">
+
+      <!-- 1. Invisible Speakers with Stealth Acoustics -->
+      <article class="project-card" data-category="living-rooms home-theaters">
+        <div class="project-card-img">
+          <span class="project-card-tag">Living Room</span>
+          <img src="/images/project-stealth-speakers.jpg" alt="Invisible Stealth Acoustics speaker installation in a modern living room" width="800" height="500" loading="lazy">
+        </div>
         <div class="project-card-body">
-          <div class="project-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
           <h3>Invisible Speakers with Stealth Acoustics</h3>
-          <p>High-fidelity audio without visible speakers. Stealth Acoustics invisible speakers were installed behind drywall, delivering stunning sound while preserving the room's clean aesthetic.</p>
+          <p>Discover how Stealth Acoustics invisible speakers deliver surround sound without the clutter &mdash; high-fidelity audio hidden completely behind drywall.</p>
+          <a href="/invisible-speakers-with-stealth-acoustics/" class="project-card-link">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card">
-        <div class="project-card-img"><img src="/images/Custom TV.jpg" alt="Why professional AV installation matters" width="400" height="200" loading="lazy"></div>
+      <!-- 2. When Work Goes Wrong -->
+      <article class="project-card" data-category="living-rooms home-theaters">
+        <div class="project-card-img">
+          <span class="project-card-tag">Case Study</span>
+          <img src="/images/project-when-work-goes-wrong.jpg" alt="Ceiling speaker installation done right after a stucco mishap" width="800" height="500" loading="lazy">
+        </div>
         <div class="project-card-body">
-          <div class="project-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-          <h3>When Work Goes Wrong &mdash; Why AV Professionals Matter</h3>
-          <p>A cautionary showcase of DIY and handyman AV attempts gone wrong. Improper wiring, unsafe mounts, and poor calibration that required professional correction.</p>
+          <h3>When Work Goes Wrong &mdash; Why AV Pros Matter</h3>
+          <p>A stucco mishap shows why "close enough" isn't good enough. See how a botched DIY install was corrected with proper materials, mounting, and calibration.</p>
+          <a href="/when-work-goes-wrong/" class="project-card-link">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card">
-        <div class="project-card-img"><img src="/images/service-av.jpeg" alt="Ricky T's AV system restoration project" width="400" height="200" loading="lazy"></div>
+      <!-- 3. Ricky T's Comeback -->
+      <article class="project-card" data-category="commercial">
+        <div class="project-card-img">
+          <span class="project-card-tag">Commercial</span>
+          <img src="/images/project-ricky-ts.jpg" alt="Ricky T's bar AV system rebuild after flood damage" width="800" height="500" loading="lazy">
+        </div>
         <div class="project-card-body">
-          <div class="project-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <h3>Ricky T's Comeback &mdash; AV Restoration After Flood Damage</h3>
-          <p>Complete AV system restoration for Ricky T's bar and restaurant after devastating flood damage. New audio distribution, TVs, and control systems brought the venue back to life.</p>
+          <h3>Ricky T's Comeback &mdash; AV Rebuild After the Storm</h3>
+          <p>How Ricky T's bar came back stronger after a flood &mdash; with a custom commercial AV rebuild including new audio distribution, TVs, and control.</p>
+          <a href="/commercial-audio-video/" class="project-card-link">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card">
-        <div class="project-card-img"><img src="/images/Surround Systems (1).jpg" alt="Living room surround sound system installation" width="400" height="200" loading="lazy"></div>
+      <!-- 4. Living Room Surround Sound and TV Options -->
+      <article class="project-card" data-category="living-rooms">
+        <div class="project-card-img">
+          <span class="project-card-tag">Living Room</span>
+          <img src="/images/project-living-room-surround.jpeg" alt="Living room surround sound and Frame TV installation" width="800" height="500" loading="lazy">
+        </div>
         <div class="project-card-body">
-          <div class="project-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
-          <h3>Living Room Surround Sound and TV Options</h3>
-          <p>Custom surround sound configurations for living rooms of all sizes. From compact 3.1 systems to immersive 7.2.4 Dolby Atmos setups with perfectly positioned TV placement.</p>
+          <h3>Living Room Surround Sound &amp; TV Options</h3>
+          <p>Explore home theater setups with surround sound, invisible speakers, and Frame TV options &mdash; tailored to the room and the way the family lives.</p>
+          <a href="/living-room-surround-sound/" class="project-card-link">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card">
-        <div class="project-card-img"><img src="/images/MacLeod.jpg" alt="Multi-purpose media room transformation" width="400" height="200" loading="lazy"></div>
+      <!-- 5. Tricky Room to Multi-Purpose Media Room -->
+      <article class="project-card" data-category="home-theaters">
+        <div class="project-card-img">
+          <span class="project-card-tag">Home Theater</span>
+          <img src="/images/project-tricky-media-room.jpg" alt="Multi-purpose media room with 4K display and balanced surround sound" width="800" height="500" loading="lazy">
+        </div>
         <div class="project-card-body">
-          <div class="project-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-          <h3>From Tricky Room Layout to Multi-Purpose Media Room</h3>
-          <p>A challenging room with odd angles and limited wall space was transformed into a versatile media room with hidden speakers, motorized screen, and smart lighting scenes.</p>
+          <h3>From Tricky Layout to Multi-Purpose Media Room</h3>
+          <p>We turned a challenging room layout into a stunning multi-purpose media room with 4K visuals, balanced sound, and clean integration into the existing space.</p>
+          <a href="/home-theater-design-and-installation/" class="project-card-link">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card">
-        <div class="project-card-img"><img src="/images/Outdoor Spaces (1).jpg" alt="Outdoor sound system installation" width="400" height="200" loading="lazy"></div>
+      <!-- 6. Outdoor Sound -->
+      <article class="project-card" data-category="outdoor">
+        <div class="project-card-img">
+          <span class="project-card-tag">Outdoor</span>
+          <img src="/images/project-outdoor-sound.jpg" alt="Outdoor backyard sound system with multi-zone audio" width="800" height="500" loading="lazy">
+        </div>
         <div class="project-card-body">
-          <div class="project-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
-          <h3>New Outdoor Sound System Installation</h3>
-          <p>Weather-resistant outdoor audio system for a waterfront property. Multi-zone coverage for the pool deck, patio, and dock area with centralized control from a single app.</p>
+          <h3>1 Backyard, 3 Installs &mdash; Killer Outdoor Sound</h3>
+          <p>We helped a Tampa client build their dream outdoor entertainment setup &mdash; multi-zone audio coverage across the patio, pool deck, and yard.</p>
+          <a href="/outdoor-audio-systems/" class="project-card-link">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
-      </div>
+      </article>
 
-    </div>
-  </div>
-</section>
-
-<!-- ===== PHOTO GALLERY ===== -->
-<section class="photo-gallery">
-  <div class="container">
-    <div class="gallery-header">
-      <span class="section-label">Installation Gallery</span>
-      <h2 class="section-title">Photos From the Field</h2>
-      <p class="section-subtitle">A sample of our residential and commercial AV installation work.</p>
-    </div>
-    <div class="gallery-grid">
-      <a href="/images/gallery-1.jpeg"><img src="/images/gallery-1.jpeg" alt="Elegant living room with Samsung Frame TV and chandelier" width="400" height="280" loading="lazy"></a>
-      <a href="/images/gallery-2.jpeg"><img src="/images/gallery-2.jpeg" alt="Recessed TV installation in marble wall" width="400" height="280" loading="lazy"></a>
-      <a href="/images/gallery-3.jpeg"><img src="/images/gallery-3.jpeg" alt="Outdoor TV installation on covered patio" width="400" height="280" loading="lazy"></a>
-      <a href="/images/gallery-4.jpeg"><img src="/images/gallery-4.jpeg" alt="Home theater with surround sound speakers" width="400" height="280" loading="lazy"></a>
-      <a href="/images/gallery-5.jpeg"><img src="/images/gallery-5.jpeg" alt="Two-story luxury living room with large TV" width="400" height="280" loading="lazy"></a>
-      <a href="/images/gallery-6.jpeg"><img src="/images/gallery-6.jpeg" alt="Professional AV equipment installation" width="400" height="280" loading="lazy"></a>
-      <a href="/images/572x438_laprade.jpg"><img src="/images/572x438_laprade.jpg" alt="LaPrade residential AV project" width="400" height="280" loading="lazy"></a>
-      <a href="/images/572x438_pearson.jpg"><img src="/images/572x438_pearson.jpg" alt="Pearson home entertainment installation" width="400" height="280" loading="lazy"></a>
-      <a href="/images/572x438_permuy.jpg"><img src="/images/572x438_permuy.jpg" alt="Permuy whole-house audio video project" width="400" height="280" loading="lazy"></a>
-      <a href="/images/572x438_macleod_closed.jpg"><img src="/images/572x438_macleod_closed.jpg" alt="MacLeod home theater with cabinet closed" width="400" height="280" loading="lazy"></a>
-      <a href="/images/MacLeod.jpg"><img src="/images/MacLeod.jpg" alt="MacLeod home theater system open" width="400" height="280" loading="lazy"></a>
-      <a href="/images/Outdoor Spaces (1).jpg"><img src="/images/Outdoor Spaces (1).jpg" alt="Outdoor entertainment space with audio system" width="400" height="280" loading="lazy"></a>
-      <a href="/images/Custom TV.jpg"><img src="/images/Custom TV.jpg" alt="Custom TV installation in living room" width="400" height="280" loading="lazy"></a>
-      <a href="/images/service-av.jpeg"><img src="/images/service-av.jpeg" alt="Audio-video system planning and installation" width="400" height="280" loading="lazy"></a>
-      <a href="/images/service-theater.jpeg"><img src="/images/service-theater.jpeg" alt="Home theater design with built-in entertainment center" width="400" height="280" loading="lazy"></a>
-      <a href="/images/Surround Systems (1).jpg"><img src="/images/Surround Systems (1).jpg" alt="Surround sound speaker system installation" width="400" height="280" loading="lazy"></a>
-      <a href="/images/Surround Systems (2).jpg"><img src="/images/Surround Systems (2).jpg" alt="Multi-channel surround sound setup" width="400" height="280" loading="lazy"></a>
     </div>
   </div>
 </section>
@@ -384,6 +382,26 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var bar = document.getElementById('filterBar');
+  var grid = document.getElementById('portfolioGrid');
+  if(!bar || !grid) return;
+  var cards = grid.querySelectorAll('.project-card');
+  bar.addEventListener('click', function(e){
+    var btn = e.target.closest('.filter-btn');
+    if(!btn) return;
+    var filter = btn.getAttribute('data-filter');
+    bar.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.toggle('active', b === btn); });
+    cards.forEach(function(card){
+      var cats = (card.getAttribute('data-category') || '').split(/\s+/);
+      var show = filter === 'all' || cats.indexOf(filter) !== -1;
+      card.classList.toggle('is-hidden', !show);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
