@@ -16,17 +16,28 @@
 <style>
 /* ===== PAGE-SPECIFIC: BRANDS ===== */
 
-/* Brand grid */
+/* Brand sections */
 .brand-grid-section{padding:var(--section-pad);background:var(--white)}
-.brand-header{text-align:center;margin-bottom:60px}
+.brand-header{text-align:center;margin-bottom:48px}
 .brand-header .section-subtitle{margin:0 auto}
-.brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.brand-card{text-align:center;padding:40px 24px;border-radius:var(--radius);background:var(--gray-bg);border:1px solid rgba(0,0,0,.04);transition:var(--transition);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px}
-.brand-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(243,137,41,.2)}
-.brand-card:hover .brand-card-logo{transform:scale(1.06)}
-.brand-card-logo{max-width:160px;max-height:80px;object-fit:contain;margin-bottom:24px;transition:transform .35s ease}
-.brand-card-name{font-family:var(--font-heading);font-size:1.15rem;font-weight:700;color:var(--black);letter-spacing:.5px}
-.brand-card-line{width:40px;height:3px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));border-radius:2px;margin:12px auto 0}
+
+/* Featured brands — top tier */
+.brand-tier-label{display:block;text-align:center;font-family:var(--font-heading);font-size:.78rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:24px}
+.featured-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:64px}
+.featured-card{text-align:center;padding:40px 28px 32px;border-radius:var(--radius);background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 6px 24px rgba(0,0,0,.04);transition:var(--transition);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:240px}
+.featured-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.10);border-color:rgba(243,137,41,.25)}
+.featured-card:hover .featured-card-logo{transform:scale(1.04)}
+.featured-card-logo{max-width:200px;max-height:96px;object-fit:contain;margin-bottom:20px;transition:transform .35s ease}
+.featured-card-tag{font-family:var(--font-heading);font-size:.92rem;font-weight:600;color:var(--gray);line-height:1.5;margin:0}
+
+/* Supporting brands — compact tier */
+.supporting-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.supporting-card{text-align:center;padding:32px 20px 28px;border-radius:var(--radius);background:#fff;border:1px solid rgba(0,0,0,.06);transition:var(--transition);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:170px}
+.supporting-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.06);border-color:rgba(243,137,41,.2)}
+.supporting-card:hover .supporting-card-logo{transform:scale(1.06)}
+.supporting-card-logo{max-width:160px;max-height:72px;object-fit:contain;margin-bottom:14px;transition:transform .35s ease;flex:0 0 auto}
+.supporting-card-name{font-family:var(--font-heading);font-size:.95rem;font-weight:700;color:var(--black);letter-spacing:.3px;line-height:1.3}
+.supporting-card .name-only{font-family:var(--font-heading);font-size:1.05rem;font-weight:700;color:var(--black);letter-spacing:.5px}
 
 /* Clients sections */
 .clients-section{padding:var(--section-pad);background:var(--gray-bg)}
@@ -42,14 +53,19 @@
 
 /* Responsive */
 @media(max-width:1024px){
-  .brand-grid{grid-template-columns:repeat(3,1fr)}
+  .featured-grid{grid-template-columns:repeat(2,1fr)}
+  .supporting-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:768px){
-  .brand-grid{grid-template-columns:repeat(2,1fr)}
+  .featured-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+  .featured-card{padding:32px 20px 26px;min-height:220px}
+  .featured-card-logo{max-width:160px;max-height:80px}
+  .supporting-grid{grid-template-columns:repeat(2,1fr)}
   .clients-columns{grid-template-columns:1fr;gap:40px}
 }
 @media(max-width:480px){
-  .brand-grid{grid-template-columns:1fr}
+  .featured-grid{grid-template-columns:1fr}
+  .supporting-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -213,106 +229,78 @@
       <h2 class="section-title">Premium AV Brands</h2>
       <p class="section-subtitle">We select and install products from manufacturers known for quality, reliability, and performance.</p>
     </div>
-    <div class="brand-grid">
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/yamaha.gif" alt="Yamaha logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Yamaha</span>
-        <div class="brand-card-line"></div>
+    <!-- Featured brands -->
+    <span class="brand-tier-label">Featured Partners</span>
+    <div class="featured-grid">
+      <div class="featured-card">
+        <img class="featured-card-logo" src="/images/samsung.gif" alt="Samsung logo" width="200" height="96" loading="lazy">
+        <p class="featured-card-tag">Award-winning 4K and 8K TVs and the Frame display we install in luxury condos.</p>
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/sony.gif" alt="Sony logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Sony</span>
-        <div class="brand-card-line"></div>
+      <div class="featured-card">
+        <img class="featured-card-logo" src="/images/sony.gif" alt="Sony logo" width="200" height="96" loading="lazy">
+        <p class="featured-card-tag">Reference-grade OLEDs, projectors, and home theater receivers built to last.</p>
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/samsung.gif" alt="Samsung logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Samsung</span>
-        <div class="brand-card-line"></div>
+      <div class="featured-card">
+        <img class="featured-card-logo" src="/images/lutron.gif" alt="Lutron logo" width="200" height="96" loading="lazy">
+        <p class="featured-card-tag">The gold standard for whole-home lighting control, dimmers, and automated shades.</p>
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/monitor_audio.gif" alt="Monitor Audio logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Monitor Audio</span>
-        <div class="brand-card-line"></div>
+      <div class="featured-card">
+        <img class="featured-card-logo" src="/images/sonos.gif" alt="Sonos logo" width="200" height="96" loading="lazy">
+        <p class="featured-card-tag">Effortless multi-room audio that just works — perfect for retrofit and new construction alike.</p>
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/nice_elan.png" alt="Elan / Nice logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Elan / Nice</span>
-        <div class="brand-card-line"></div>
+    </div>
+
+    <!-- Supporting brands -->
+    <span class="brand-tier-label">Also On Our Bench</span>
+    <div class="supporting-grid">
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/yamaha.gif" alt="Yamaha logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/urc.gif" alt="Universal Remote Control logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Universal Remote (URC)</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/lg.svg" alt="LG logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/lg.svg" alt="LG logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">LG</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/epson.gif" alt="Epson logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/lutron.gif" alt="Lutron logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Lutron</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/monitor_audio.gif" alt="Monitor Audio logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/fxluminaire.jpg" alt="FX Luminaire logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">FX Luminaire</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/nice_elan.png" alt="Elan / Nice logo" width="160" height="72" loading="lazy">
+        <span class="supporting-card-name">Elan / Nice</span>
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/niles.gif" alt="Niles Audio logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Niles Audio</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/urc.gif" alt="URC logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/draper.png" alt="Draper logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Draper</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/fxluminaire.jpg" alt="FX Luminaire logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/peerless.gif" alt="Peerless-AV logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Peerless-AV</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/niles.gif" alt="Niles Audio logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/sonos.gif" alt="Sonos logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Sonos</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/draper.png" alt="Draper logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/speakercraft.svg" alt="SpeakerCraft logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">SpeakerCraft</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/peerless.gif" alt="Peerless-AV logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/epson.gif" alt="Epson logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Epson</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/speakercraft.svg" alt="SpeakerCraft logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/stealth_acoustics.gif" alt="Stealth Acoustics logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Stealth Acoustics</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/stealth_acoustics.gif" alt="Stealth Acoustics logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/svs.png" alt="SVS Sound logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">SVS</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/svs.png" alt="SVS Sound logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/furman.svg" alt="Furman logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Furman</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/furman.svg" alt="Furman logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/panamax.svg" alt="Panamax logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">Panamax</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/panamax.svg" alt="Panamax logo" width="160" height="72" loading="lazy">
       </div>
-      <div class="brand-card">
-        <img class="brand-card-logo" src="/images/surgex.svg" alt="SurgeX logo" width="120" height="60" loading="lazy">
-        <span class="brand-card-name">SurgeX</span>
-        <div class="brand-card-line"></div>
+      <div class="supporting-card">
+        <img class="supporting-card-logo" src="/images/surgex.svg" alt="SurgeX logo" width="160" height="72" loading="lazy">
       </div>
     </div>
   </div>
