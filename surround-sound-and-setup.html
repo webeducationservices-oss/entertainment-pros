@@ -298,6 +298,91 @@
   </div>
 </section>
 
+<!-- ===== SURROUND SOUND CALCULATOR ===== -->
+<section class="ss-calc" aria-label="Surround Sound Setup Calculator">
+  <div class="container">
+    <p class="section-label">Interactive Tool</p>
+    <h2 class="section-title">Surround Sound Setup Calculator</h2>
+    <p class="section-subtitle">Enter your room dimensions and choose a speaker configuration to get personalized placement recommendations, a visual layout, and budget estimates.</p>
+
+    <div class="ss-calc-grid">
+      <!-- Input Panel -->
+      <div class="ss-calc-panel">
+        <h3><span class="panel-num">1</span> Your Room</h3>
+        <label for="ss-config">Speaker Configuration</label>
+        <select id="ss-config">
+          <option value="2.1">2.1 — Stereo + Subwoofer</option>
+          <option value="3.1">3.1 — Front Stage + Subwoofer</option>
+          <option value="5.1" selected>5.1 — Standard Surround</option>
+          <option value="7.1">7.1 — Full Surround</option>
+          <option value="7.1.2">7.1.2 — Dolby Atmos (2 Overhead)</option>
+          <option value="7.1.4">7.1.4 — Dolby Atmos (4 Overhead)</option>
+        </select>
+        <label>Room Dimensions (feet)</label>
+        <div class="dim-row">
+          <div>
+            <input type="number" id="ss-length" placeholder="Length" min="6" max="80" step="0.5">
+          </div>
+          <div>
+            <input type="number" id="ss-width" placeholder="Width" min="6" max="80" step="0.5">
+          </div>
+          <div>
+            <input type="number" id="ss-height" placeholder="Height" min="7" max="20" step="0.5">
+          </div>
+        </div>
+        <label for="ss-distance">Seating Distance From Screen (feet, optional)</label>
+        <input type="number" id="ss-distance" placeholder="e.g. 10" min="3" max="40" step="0.5">
+        <button class="ss-calc-btn" id="ss-calculate">Calculate Setup</button>
+      </div>
+
+      <!-- Results Panel -->
+      <div class="ss-calc-panel">
+        <h3><span class="panel-num">2</span> Your Setup</h3>
+        <div id="ss-placeholder" style="color:var(--gray);font-size:.92rem;text-align:center;padding:40px 0">
+          Enter your room dimensions and click<br><strong style="color:var(--orange)">Calculate Setup</strong> to see results.
+        </div>
+        <div class="ss-results" id="ss-results">
+          <div class="ss-diagram-wrap">
+            <div class="ss-diagram-title">Top-Down Speaker Layout</div>
+            <div class="ss-diagram" id="ss-diagram">
+              <div class="ss-room-box"></div>
+              <div class="ss-room-label" id="ss-room-label"></div>
+              <div class="ss-listener"></div>
+            </div>
+            <div class="ss-diagram-legend">
+              <span><span class="dot listener-dot"></span>Listener</span>
+              <span><span class="dot front-dot"></span>Front</span>
+              <span><span class="dot surround-dot"></span>Surround</span>
+              <span><span class="dot rear-dot"></span>Rear</span>
+              <span><span class="dot overhead-dot"></span>Overhead</span>
+              <span><span class="dot sub-dot"></span>Sub</span>
+            </div>
+          </div>
+
+          <div class="ss-results-grid" id="ss-results-grid"></div>
+
+          <div class="ss-result-card full-width" style="grid-column:auto">
+            <div class="result-label">Estimated Budget Range</div>
+            <table class="ss-budget-table" id="ss-budget-table">
+              <thead><tr><th>Tier</th><th>Estimate</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="ss-calc-cta">
+            <p>Need help choosing the right speakers and placement for your room?</p>
+            <div class="cta-links">
+              <a href="tel:727-804-2277">Call 727-804-2277</a>
+              <span class="cta-sep">|</span>
+              <a href="/contact/">Request a Consultation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="blog-post-wrap">
   <article class="blog-article">
 <p>You can buy great speakers and still end up with disappointing sound.</p>
@@ -383,90 +468,6 @@
       </aside>
 </div>
 
-<!-- ===== SURROUND SOUND CALCULATOR ===== -->
-<section class="ss-calc" aria-label="Surround Sound Setup Calculator">
-  <div class="container">
-    <p class="section-label">Interactive Tool</p>
-    <h2 class="section-title">Surround Sound Setup Calculator</h2>
-    <p class="section-subtitle">Enter your room dimensions and choose a speaker configuration to get personalized placement recommendations, a visual layout, and budget estimates.</p>
-
-    <div class="ss-calc-grid">
-      <!-- Input Panel -->
-      <div class="ss-calc-panel">
-        <h3><span class="panel-num">1</span> Your Room</h3>
-        <label for="ss-config">Speaker Configuration</label>
-        <select id="ss-config">
-          <option value="2.1">2.1 — Stereo + Subwoofer</option>
-          <option value="3.1">3.1 — Front Stage + Subwoofer</option>
-          <option value="5.1" selected>5.1 — Standard Surround</option>
-          <option value="7.1">7.1 — Full Surround</option>
-          <option value="7.1.2">7.1.2 — Dolby Atmos (2 Overhead)</option>
-          <option value="7.1.4">7.1.4 — Dolby Atmos (4 Overhead)</option>
-        </select>
-        <label>Room Dimensions (feet)</label>
-        <div class="dim-row">
-          <div>
-            <input type="number" id="ss-length" placeholder="Length" min="6" max="80" step="0.5">
-          </div>
-          <div>
-            <input type="number" id="ss-width" placeholder="Width" min="6" max="80" step="0.5">
-          </div>
-          <div>
-            <input type="number" id="ss-height" placeholder="Height" min="7" max="20" step="0.5">
-          </div>
-        </div>
-        <label for="ss-distance">Seating Distance From Screen (feet, optional)</label>
-        <input type="number" id="ss-distance" placeholder="e.g. 10" min="3" max="40" step="0.5">
-        <button class="ss-calc-btn" id="ss-calculate">Calculate Setup</button>
-      </div>
-
-      <!-- Results Panel -->
-      <div class="ss-calc-panel">
-        <h3><span class="panel-num">2</span> Your Setup</h3>
-        <div id="ss-placeholder" style="color:var(--gray);font-size:.92rem;text-align:center;padding:40px 0">
-          Enter your room dimensions and click<br><strong style="color:var(--orange)">Calculate Setup</strong> to see results.
-        </div>
-        <div class="ss-results" id="ss-results">
-          <div class="ss-diagram-wrap">
-            <div class="ss-diagram-title">Top-Down Speaker Layout</div>
-            <div class="ss-diagram" id="ss-diagram">
-              <div class="ss-room-box"></div>
-              <div class="ss-room-label" id="ss-room-label"></div>
-              <div class="ss-listener"></div>
-            </div>
-            <div class="ss-diagram-legend">
-              <span><span class="dot listener-dot"></span>Listener</span>
-              <span><span class="dot front-dot"></span>Front</span>
-              <span><span class="dot surround-dot"></span>Surround</span>
-              <span><span class="dot rear-dot"></span>Rear</span>
-              <span><span class="dot overhead-dot"></span>Overhead</span>
-              <span><span class="dot sub-dot"></span>Sub</span>
-            </div>
-          </div>
-
-          <div class="ss-results-grid" id="ss-results-grid"></div>
-
-          <div class="ss-result-card full-width" style="grid-column:auto">
-            <div class="result-label">Estimated Budget Range</div>
-            <table class="ss-budget-table" id="ss-budget-table">
-              <thead><tr><th>Tier</th><th>Estimate</th></tr></thead>
-              <tbody></tbody>
-            </table>
-          </div>
-
-          <div class="ss-calc-cta">
-            <p>Need help choosing the right speakers and placement for your room?</p>
-            <div class="cta-links">
-              <a href="tel:727-804-2277">Call 727-804-2277</a>
-              <span class="cta-sep">|</span>
-              <a href="/contact/">Request a Consultation</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== CTA BANNER ===== -->
 <section class="cta-banner">
