@@ -75,7 +75,9 @@ main { display: block; }
 .header.header-solid.scrolled { background: rgba(26,26,26,.97); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,.3); }
 
 /* Utility bar (top row) — desktop XL only */
-.header-utility { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 8px 24px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: .78rem; }
+.header-utility { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 8px 24px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: .78rem; overflow: hidden; transition: max-height .35s ease, padding .35s ease, opacity .25s ease, border-color .25s ease; max-height: 48px; }
+/* Collapse utility bar on scroll */
+.header.scrolled .header-utility { max-height: 0; padding-top: 0; padding-bottom: 0; opacity: 0; border-bottom-color: transparent; }
 .header-utility .util-left, .header-utility .util-right { display: flex; align-items: center; gap: 24px; color: rgba(255,255,255,.7); white-space: nowrap; }
 .header-utility a { color: rgba(255,255,255,.85); font-weight: 500; letter-spacing: .3px; transition: color .2s; white-space: nowrap; }
 .header-utility a:hover { color: var(--orange); }
@@ -84,9 +86,13 @@ main { display: block; }
 .header-utility .util-divider { width: 1px; height: 12px; background: rgba(255,255,255,.2); }
 
 /* Main header row */
-.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: 1400px; margin: 0 auto; gap: 24px; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: 1400px; margin: 0 auto; gap: 24px; transition: padding .25s ease; }
+/* Tighter padding on scroll for a slimmer header */
+.header.scrolled .header-inner { padding-top: 8px; padding-bottom: 8px; }
 
-.logo img { height: 48px; width: auto; display: block; }
+.logo img { height: 48px; width: auto; display: block; transition: height .25s ease; }
+/* Shrink logo on scroll */
+.header.scrolled .logo img { height: 36px; }
 .header-right { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
 /* Legacy header-info (in-row phone) — hidden by default since utility bar replaces it */
 .header-info { display: none; align-items: center; gap: 20px; }
