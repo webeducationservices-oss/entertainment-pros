@@ -20,41 +20,47 @@
 <link rel="stylesheet" href="/styles.css">
 <script src="/components.js" defer></script>
 <style>
-/* ===== BLOG POST STYLES ===== */
-.blog-article{padding:60px 0 var(--section-pad-bottom,80px);background:var(--white)}
-.article-container{max-width:780px;margin:0 auto;padding:0 24px}
-.article-meta{display:flex;align-items:center;gap:14px;margin:0 0 28px;padding-bottom:24px;border-bottom:1px solid #eee;font-family:var(--font-heading);font-size:.78rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);flex-wrap:wrap}
-.article-meta .meta-date{color:var(--orange)}
-.article-meta .meta-sep{color:var(--gray-light);opacity:.4}
-.article-body{font-size:1.08rem;line-height:1.85;color:var(--gray-dark, #404040)}
-.article-body p{margin:0 0 22px}
-.article-body p:first-of-type::first-letter{font-size:1.05em}
-.article-body h2{font-family:var(--font-heading);font-size:1.7rem;color:var(--black);margin:48px 0 20px;line-height:1.25;font-weight:700}
-.article-body h3{font-family:var(--font-heading);font-size:1.25rem;color:var(--black);margin:36px 0 14px;line-height:1.3;font-weight:700}
-.article-body ul,.article-body ol{margin:0 0 22px;padding-left:24px}
-.article-body li{margin:0 0 10px}
-.article-body blockquote{position:relative;border-left:4px solid var(--orange);margin:36px 0;padding:24px 28px 24px 32px;background:#faf7f4;border-radius:0 12px 12px 0;font-size:1.1rem;line-height:1.7;color:var(--black);font-style:italic}
-.article-body blockquote::before{content:'\201C';position:absolute;left:14px;top:8px;font-size:3rem;line-height:1;color:var(--orange);opacity:.25;font-family:Georgia,serif}
-.article-body blockquote p{margin:0}
-.article-body img,.article-body figure img{display:block;width:100%;max-width:780px;height:auto;margin:36px auto;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.10)}
-.article-body figure{margin:36px 0}
-.article-body figcaption{text-align:center;font-size:.88rem;color:var(--gray);margin-top:10px;font-style:italic}
-.article-body a{color:var(--orange);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-weight:500}
-.article-body a:hover{color:var(--orange-dark)}
-.article-body strong{color:var(--black);font-weight:700}
-.article-body em{font-style:italic}
-.article-body video{display:block;width:100%;max-width:780px;height:auto;margin:36px auto;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.10);background:#000}
-.article-body iframe{display:block;width:100%;max-width:780px;height:auto;aspect-ratio:16/9;margin:36px auto;border:0;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.10)}
-/* Hero feature image */
-.post-hero-feature-img{max-width:1100px;margin:0 auto;padding:24px 24px 0}
-.post-hero-feature-img img{width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.14);display:block}
-.post-hero-feature-video{max-width:1100px;margin:0 auto;padding:24px 24px 0}
-.post-hero-feature-video video{width:100%;height:auto;max-height:580px;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.14);background:#000}
-@media(max-width:768px){
-  .article-body{font-size:1rem;line-height:1.75}
-  .article-body h2{font-size:1.4rem;margin:36px 0 16px}
-  .article-body h3{font-size:1.15rem}
+/* ===== BLOG POST (BLOG-TEMPLATE.md spec) ===== */
+.blog-post-hero{position:relative;padding:48px 24px 32px;max-width:1100px;margin:0 auto}
+.blog-post-hero img{width:100%;max-height:450px;object-fit:cover;border-radius:var(--radius);margin-bottom:32px;box-shadow:var(--shadow)}
+.blog-post-hero-content{max-width:900px}
+.blog-post-cat{display:inline-block;padding:6px 16px;border-radius:100px;font-family:var(--font-heading);font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--orange);color:#fff;margin-bottom:16px}
+.blog-post-hero-content h1{font-size:2.4rem;line-height:1.2;margin-bottom:20px;color:var(--black)}
+.post-meta{font-family:var(--font-heading);font-size:.82rem;font-weight:600;letter-spacing:.5px;color:var(--gray);display:flex;flex-wrap:wrap;gap:10px;align-items:center;text-transform:uppercase}
+.post-meta-dot{width:4px;height:4px;border-radius:50%;background:var(--gray-light);display:inline-block}
+
+.blog-post-wrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;max-width:1100px;margin:0 auto;padding:32px 24px 64px}
+.blog-article{font-size:1.05rem;line-height:1.8;color:var(--gray)}
+.blog-article h2{font-size:1.6rem;color:var(--black);margin:40px 0 16px;line-height:1.3}
+.blog-article h3{font-size:1.2rem;color:var(--black);margin:28px 0 10px}
+.blog-article p{margin-bottom:18px}
+.blog-article ul,.blog-article ol{margin:0 0 20px 24px}
+.blog-article li{margin-bottom:8px}
+.blog-article blockquote{border-left:4px solid var(--orange);margin:28px 0;padding:18px 24px;background:var(--gray-bg);border-radius:0 var(--radius) var(--radius) 0;font-style:italic;color:var(--dark)}
+.blog-article blockquote p{margin-bottom:0}
+.blog-article a{color:var(--orange);text-decoration:underline}
+.blog-article a:hover{color:var(--orange-dark)}
+.blog-article img{width:100%;border-radius:var(--radius);margin:24px 0}
+
+.blog-sidebar{display:flex;flex-direction:column;gap:20px}
+.sidebar-card{border-radius:var(--radius);padding:24px;background:#fff;border:1px solid var(--gray-light);box-shadow:var(--shadow)}
+.sidebar-head{font-family:var(--font-heading);font-weight:700;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;color:var(--black);margin-bottom:16px}
+.sidebar-body{display:flex;flex-direction:column}
+.sidebar-link{display:block;padding:10px 0;font-size:.9rem;line-height:1.4;color:var(--dark);border-bottom:1px solid var(--gray-light);text-decoration:none;transition:var(--transition)}
+.sidebar-link:hover{color:var(--orange)}
+.sidebar-link:last-child{border-bottom:none}
+.sidebar-cta{border-radius:var(--radius);padding:24px;background:var(--orange);color:#fff;text-align:center}
+.sidebar-cta-title{font-family:var(--font-heading);font-weight:700;font-size:1rem;margin-bottom:8px;color:#fff}
+.sidebar-cta p{font-size:.88rem;line-height:1.5;margin-bottom:16px;color:rgba(255,255,255,.92)}
+.sidebar-cta a{display:inline-block;background:#fff;color:var(--orange-dark);padding:10px 22px;border-radius:8px;font-family:var(--font-heading);font-weight:700;font-size:.85rem;text-decoration:none;transition:var(--transition)}
+.sidebar-cta a:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+
+@media(max-width:900px){
+  .blog-post-wrap{grid-template-columns:1fr;gap:32px}
+  .blog-post-hero-content h1{font-size:1.8rem}
+  .blog-post-hero{padding:24px 20px 16px}
 }
+
 </style>
 <script type="application/ld+json">
 {
@@ -206,36 +212,44 @@
 
 <main>
 
-<section class="page-hero">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="/">Home</a>
-      <span class="sep">/</span>
-      <a href="/blog/">AV Hub</a>
-      <span class="sep">/</span>
-      <span class="current">TV Mounting Timelapse and How To: It&#x27;s More Than Just Hanging a TV</span>
+<!-- ===== BLOG POST HERO ===== -->
+<section class="blog-post-hero">
+  <img src="/images/tv-mounting-timelapse-and-how-to-it-s-more-than-just-hanging-a-tv-thumb.jpg" alt="TV Mounting Timelapse and How To: It&amp;#x27;s More Than Just Hanging a TV" loading="eager">
+  <div class="blog-post-hero-content">
+    <span class="blog-post-cat">TV Mounting</span>
+    <h1>TV Mounting Timelapse and How To: It&amp;#x27;s More Than Just Hanging a TV</h1>
+    <div class="post-meta">
+      <span>Entertainment Pros</span>
+      <span class="post-meta-dot"></span>
+      <span>October 5, 2023</span>
+      <span class="post-meta-dot"></span>
+      <span>8 min read</span>
     </div>
-    <h1>TV Mounting Timelapse and How To: It&#x27;s More Than Just Hanging a TV</h1>
   </div>
 </section>
 
-
-<!-- ===== POST HERO VIDEO ===== -->
-<div class="post-hero-feature-video"><iframe src="https://iframe.videodelivery.net/ec364395652dcbda2cdde9133d406616" loading="eager" style="border:none;width:100%;aspect-ratio:16/9;max-height:580px;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.14);background:#000" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe></div>
-<section class="blog-article">
-  <div class="container">
-    <div class="article-container">
-      <div class="article-meta">
-        <span class="meta-date">October 5, 2023</span>
-        <span class="meta-sep">|</span>
-        <span>By Entertainment Pros</span>
-      </div>
-      <div class="article-body">
+<!-- ===== ARTICLE + SIDEBAR ===== -->
+<div class="blog-post-wrap">
+  <article class="blog-article">
 <h2>TV Mounting Timelapse and How To:</h2> <p>At Entertainment Pros, we've always emphasized the precision behind a perfect TV setup. Today, we're giving you a unique, behind-the-scenes look at how it all comes together, but with a twist!</p> <p>We've captured the entire process, from unboxing to the final adjustments, in a timelapse video. Witness hours of work condensed into a little over 1 minute, showcasing the transformation of a space into an entertainment haven. <br/></p> <p>Let's make your install a smooth experience with this detailed breakdown of what we did in the video.</p> <h3>Planning <br/></h3> <p>Every project starts with a plan. Proper planning makes the mounting of your TV easier and ensures you won't get stuck halfway through a job. Here's what to do:</p> <ul> <li>Layout your workspace: This is about creating an environment where you can move freely and access everything you need. Moving furniture and laying down protective pads will shield your floor and furniture from potential scuffs or damages.</li> </ul> <ul> <li>Organize your tools: A well-organized toolset means a more efficient workflow. By having everything ready and on hand, you'll sidestep any unnecessary pauses which might break your momentum.</li> </ul> <ul> <li>Organize your installation materials: This is about taking inventory and making sure you have all the necessary materials for <a href="/tv-installation-and-mounting-entertainment-pros-proven-process/"> a successful TV installation </a> . In your mind, walk through how you are going to use the materials and tools in front of you for a successful install. If you notice something is missing. Now's the time to get it. You don't want to realize you are missing an anchor while holding an 98" TV.</li> </ul> <h3>Removal of Old TV</h3> <p>Removing your old TV is not just about taking it off the wall; it's about ensuring it's done safely, without causing damage to the device or your home.</p> <ul> <li>Safety first: Disconnecting all cables minimizes the risk of electrical mishaps. Designating a safe spot for your old TV ensures it remains undamaged, ready for repurposing or disposal.</li> </ul> <ul> <li>Handle with care: Remember, old doesn't mean obsolete. Many older models are much heavier and bulkier than their modern counterparts. Always approach with caution, ideally with a helping hand.</li> </ul> <h3><br/></h3> <h3><br/></h3> <h3>Prepping New TV &amp; Location</h3> <p>When you're eager to enjoy your new TV, it's tempting to rush the mounting process. However, proper preparation is crucial to ensure the TV is securely fastened and at the ideal height for viewing. Let's dive deeper into these essential preparatory steps:</p> <h4>Prepping the TV Mounts:</h4> <p>Before even touching the wall, it's imperative to understand the mounting mechanism which will hold your TV.</p> <ul> <li>Understand Your Mount: Different TVs will have unique mounting points, typically located at the back. Familiarize yourself with your TV's manual to identify these points.</li> </ul> <ul> <li>Attach the Mount: Once identified, attach the TV bracket or mount adapters to these points. Ensure you use the screws provided, as they're specifically designed for your TV's weight and size. Tighten them securely, but be careful not to over-tighten, which might damage the TV.</li> </ul> <h4>Measuring the Wall for the Desired TV Location:</h4> <p>Your TV's position will impact your viewing experience, so it's essential to get it right.</p> <ul> <li>Determine the Ideal Height: Consider the height at which you'll be watching the TV. Ideally, when seated, your eyes should be level with the middle or bottom third of the screen. Use a measuring tape and perhaps some painter's tape to mark this height on your wall.</li> </ul> <ul> <li>Factor in Other Elements: Consider other factors like avoiding direct sunlight on the screen, positioning relative to seating areas, and proximity to power outlets.</li> </ul> <h4>Locating the Studs and Lag Screw Locations:</h4> <p>Your TV, while sleek and modern, is also heavy. A secure mounting ensures it won't take a dangerous tumble.</p> <ul> <li>Use a Stud Finder: Walls are supported by studs, typically wooden beams behind the drywall. These are the most secure points to attach your TV. Using a stud finder, locate and mark the studs in your desired mounting area.</li> </ul> <ul> <li>Determine Lag Screw Locations: Once you've identified where the studs are, align your wall-mount bracket with these points. Mark the exact locations where your lag screws (heavy-duty screws) will go. These screws will penetrate deep into the studs, providing a sturdy hold for your TV's weight.</li> </ul> <ul> <li>Ensure Leveling: Before drilling or screwing anything into the wall, use a level to ensure the mount bracket is straight. A crooked mount will not only look unappealing but might also compromise the safety of your TV installation.</li> </ul> <h3>Installing the Mount</h3> <p>The mount serves as the foundation for your TV. Ensuring its stability is crucial for the longevity and safety of your entertainment setup. Use a level for proper results! Reverify all dimensions for exact locations. Don't just trust what you did during the prep step.</p> <ul> <li>Position: Like hanging a picture frame but on a larger scale, ensuring your mount is level is paramount. This prevents undue stress on one side of the TV and ensures a straight viewing angle.</li> </ul> <ul> <li>Use the correct hardware: Always attach to wood studs, metal studs, plywood backer, or cement. Never attach to drywall, furring strips, or non-substantial structure. Wood requires lag bolts. Cement requires cement anchors- lag shields, Redhead anchors, or other suitable structural mounting (NOT TAPCONS!). Metal studs require metal stud anchors, not drywall screws or any other perforating screws. Think of how dangerous and expensive it will be if your TV falls, destroying your TV, floor, furniture, or worst of all, injures anyone.</li> </ul> <ul> <li>Safety checkpoints: A mount's rigidity is its strength. This step isn't just about ensuring the TV stays on the wall, but about guaranteeing the safety of everyone who sits in front of it. Hang on the mount to verify rigidity. If it isn't solid and secure, redo it! If it moves or flexes, redo it!</li> </ul> <h3>Hanging the TV</h3> <p>Though newer TVs tend to be lighter, their large screens and slim builds make them delicate, especially thinner and larger models like this 98" Samsung.</p> <ul> <li>Handle delicately: A simple thumbprint might be easy to clean, but excessive pressure can cause irreparable damage. Always hold from the sides or frame, never the screen.</li> </ul> <ul> <li>Secure placement: Ensuring the TV is securely hooked means peace of mind. Double-checking can make the difference between a secure installation and a costly accident.</li> </ul> <h3>Verifying Connections and Hardware</h3> <p>The aesthetics of a mounted TV can be captivating, but what truly brings your TV to life is the number of connections running behind the scenes. Ensuring these connections are "connected" is paramount for the best experience.</p> <ul> <li>Surge Suppressors: Power surges can be the silent killers of electronics. By including a surge suppressor in your setup, you're adding a layer of protection against unexpected power spikes which can harm your TV or connected devices. Think of this as an insurance policy for your entertainment system.</li> </ul> <ul> <li>Cable Management: As you connect various cables – HDMI, optical, power, and others – ensure they are neatly organized. Not only does this make the setup look tidy, but it also reduces the risk of cables getting tangled, pinched, or accidentally unplugged.</li> </ul> <ul> <li>Secure and Test: Each connection should be snug but not forced. Once everything is connected, test each component. Play a video to check the visuals and audio. Cycle through different inputs to ensure all connected devices are recognized and functioning.</li> </ul> <h3>Programming</h3> <p>Now the TV is up and physically set. It's time to make it come alive with your favorite channels, streaming services, and settings. <br/></p> <p>Configuring the TV Network: Decide whether you're connecting your TV to the internet wirelessly or via an ethernet cable. A wired connection often offers more stability, while Wi-Fi provides flexibility in placement. If using Wi-Fi, navigate to the network settings, find your home network from the list, and enter the password to connect.</p> <p>Video Settings Calibration: In the picture settings menu, adjust the brightness, contrast, color, and sharpness to get the best visual output for your room's lighting and viewing distance.</p> <p>Audio Settings Calibration: In the audio settings, tweak the bass, treble, and balance. If your TV has preset sound modes (like "Movie" or "Sports"), experiment to find what sounds best for your space.</p> <p>Software Updates: Ensure your TV has the latest firmware or software. Updates can bring new features, security patches, or performance improvements.</p> <p>Program Universal Remote or Control System: If you're using a universal remote, follow its manual to program it with your TV and other devices. This consolidation allows you to control multiple devices from one remote, streamlining the experience.</p> <p>Testing All Sources: Cycle through all input sources (e.g., HDMI1, HDMI2, AV) to ensure each connected device (like gaming consoles or Blu-ray players) is recognized and displays correctly.</p> <p>Verifying Streaming Audio and Video: If you use built-in streaming apps on your TV or external streaming devices, play a few minutes of content to ensure both audio and video are clear, synced, and buffer-free.</p> <p>Ensuring Reliable Control: T est the responsiveness of your remote or control system. Ensure volume adjustments, channel changes, and menu navigations occur without lag or glitches.</p> <h3>Clean up</h3> <p>A clean workspace is a reflection of a job well done. It also sets the stage for you to truly enjoy your new entertainment setup.</p> <ul> <li>Tidiness: Disposing of packaging and rechecking the TV's positioning means there are no distractions when you sit down to watch.</li> <li>Care for your screen: Your TV screen is both the most important and the most delicate part of the device. Proper cleaning ensures clarity without risking damage. Clean screen with appropriate screen cleaning fluid and clean microfiber cloth. Never use non-approved liquids or solvents on a TV screen, you may destroy it. A dirty or coarse cloth or rag can also permanently scratch your screen.</li> </ul> <h3><br/></h3> <h3>Happiness</h3> <p>After meticulously setting everything up, the moment of true delight has arrived. It's time to bask in the satisfaction of a job well done. Now, all that's left is to sit back, relax, and immerse yourself in the world of entertainment.</p> <h3>Other Options for Hanging a TV</h3> <p>If hanging and setting up a TV seems questionable or daunting, call us. We have been hanging TV's since before the first plasmas existed. We have installed thousands of TVs including $20,000 Pioneer Elite Plasmas, 36" Sony Grand Vega XBR when they were over 2' deep and weighed 237 pounds. A 98" QLED TV, TVs on lifts which rise from cabinets or drop down from attics. You name it, we have probably done it.! It's your choice whether you do it yourself, or trust the handyman with the minivan. <a href="/about-us#reviews"> Read our reviews, </a> we can be trusted to install yours safely. <br/></p> <p>Want to see more AV projects? <a href="/portfolio/"> Go to our portfolio page </a> and see what we've been up to.</p>
+  </article>
+
+  <aside class="blog-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-head">Related Articles</div>
+      <div class="sidebar-body">
+          <a class="sidebar-link" href="/motorized-tv-mount-installation/">Motorized Pull-Down TV Mount Installation</a>
+          <a class="sidebar-link" href="/tv-installation-and-mounting-entertainment-pros-proven-process/">TV Installation and Mounting: Entertainment Pros Proven Process</a>
+          <a class="sidebar-link" href="/mounting-a-tv-can-be-a-tricky-business/">Mounting A TV Can Be A Tricky Business</a>
       </div>
     </div>
-  </div>
-</section>
+    <div class="sidebar-cta">
+      <div class="sidebar-cta-title">Ready to Get Started?</div>
+      <p>Free onsite consultation with a real human within 24 hours.</p>
+      <a href="/your-project/" class="btn btn-primary">Tell Us About Your Project</a>
+    </div>
+  </aside>
+</div>
 
 <section class="cta-banner">
   <div class="container">

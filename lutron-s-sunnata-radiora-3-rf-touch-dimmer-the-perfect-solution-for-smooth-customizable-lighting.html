@@ -20,41 +20,47 @@
 <link rel="stylesheet" href="/styles.css">
 <script src="/components.js" defer></script>
 <style>
-/* ===== BLOG POST STYLES ===== */
-.blog-article{padding:60px 0 var(--section-pad-bottom,80px);background:var(--white)}
-.article-container{max-width:780px;margin:0 auto;padding:0 24px}
-.article-meta{display:flex;align-items:center;gap:14px;margin:0 0 28px;padding-bottom:24px;border-bottom:1px solid #eee;font-family:var(--font-heading);font-size:.78rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);flex-wrap:wrap}
-.article-meta .meta-date{color:var(--orange)}
-.article-meta .meta-sep{color:var(--gray-light);opacity:.4}
-.article-body{font-size:1.08rem;line-height:1.85;color:var(--gray-dark, #404040)}
-.article-body p{margin:0 0 22px}
-.article-body p:first-of-type::first-letter{font-size:1.05em}
-.article-body h2{font-family:var(--font-heading);font-size:1.7rem;color:var(--black);margin:48px 0 20px;line-height:1.25;font-weight:700}
-.article-body h3{font-family:var(--font-heading);font-size:1.25rem;color:var(--black);margin:36px 0 14px;line-height:1.3;font-weight:700}
-.article-body ul,.article-body ol{margin:0 0 22px;padding-left:24px}
-.article-body li{margin:0 0 10px}
-.article-body blockquote{position:relative;border-left:4px solid var(--orange);margin:36px 0;padding:24px 28px 24px 32px;background:#faf7f4;border-radius:0 12px 12px 0;font-size:1.1rem;line-height:1.7;color:var(--black);font-style:italic}
-.article-body blockquote::before{content:'\201C';position:absolute;left:14px;top:8px;font-size:3rem;line-height:1;color:var(--orange);opacity:.25;font-family:Georgia,serif}
-.article-body blockquote p{margin:0}
-.article-body img,.article-body figure img{display:block;width:100%;max-width:780px;height:auto;margin:36px auto;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.10)}
-.article-body figure{margin:36px 0}
-.article-body figcaption{text-align:center;font-size:.88rem;color:var(--gray);margin-top:10px;font-style:italic}
-.article-body a{color:var(--orange);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-weight:500}
-.article-body a:hover{color:var(--orange-dark)}
-.article-body strong{color:var(--black);font-weight:700}
-.article-body em{font-style:italic}
-.article-body video{display:block;width:100%;max-width:780px;height:auto;margin:36px auto;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.10);background:#000}
-.article-body iframe{display:block;width:100%;max-width:780px;height:auto;aspect-ratio:16/9;margin:36px auto;border:0;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.10)}
-/* Hero feature image */
-.post-hero-feature-img{max-width:1100px;margin:0 auto;padding:24px 24px 0}
-.post-hero-feature-img img{width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.14);display:block}
-.post-hero-feature-video{max-width:1100px;margin:0 auto;padding:24px 24px 0}
-.post-hero-feature-video video{width:100%;height:auto;max-height:580px;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.14);background:#000}
-@media(max-width:768px){
-  .article-body{font-size:1rem;line-height:1.75}
-  .article-body h2{font-size:1.4rem;margin:36px 0 16px}
-  .article-body h3{font-size:1.15rem}
+/* ===== BLOG POST (BLOG-TEMPLATE.md spec) ===== */
+.blog-post-hero{position:relative;padding:48px 24px 32px;max-width:1100px;margin:0 auto}
+.blog-post-hero img{width:100%;max-height:450px;object-fit:cover;border-radius:var(--radius);margin-bottom:32px;box-shadow:var(--shadow)}
+.blog-post-hero-content{max-width:900px}
+.blog-post-cat{display:inline-block;padding:6px 16px;border-radius:100px;font-family:var(--font-heading);font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--orange);color:#fff;margin-bottom:16px}
+.blog-post-hero-content h1{font-size:2.4rem;line-height:1.2;margin-bottom:20px;color:var(--black)}
+.post-meta{font-family:var(--font-heading);font-size:.82rem;font-weight:600;letter-spacing:.5px;color:var(--gray);display:flex;flex-wrap:wrap;gap:10px;align-items:center;text-transform:uppercase}
+.post-meta-dot{width:4px;height:4px;border-radius:50%;background:var(--gray-light);display:inline-block}
+
+.blog-post-wrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;max-width:1100px;margin:0 auto;padding:32px 24px 64px}
+.blog-article{font-size:1.05rem;line-height:1.8;color:var(--gray)}
+.blog-article h2{font-size:1.6rem;color:var(--black);margin:40px 0 16px;line-height:1.3}
+.blog-article h3{font-size:1.2rem;color:var(--black);margin:28px 0 10px}
+.blog-article p{margin-bottom:18px}
+.blog-article ul,.blog-article ol{margin:0 0 20px 24px}
+.blog-article li{margin-bottom:8px}
+.blog-article blockquote{border-left:4px solid var(--orange);margin:28px 0;padding:18px 24px;background:var(--gray-bg);border-radius:0 var(--radius) var(--radius) 0;font-style:italic;color:var(--dark)}
+.blog-article blockquote p{margin-bottom:0}
+.blog-article a{color:var(--orange);text-decoration:underline}
+.blog-article a:hover{color:var(--orange-dark)}
+.blog-article img{width:100%;border-radius:var(--radius);margin:24px 0}
+
+.blog-sidebar{display:flex;flex-direction:column;gap:20px}
+.sidebar-card{border-radius:var(--radius);padding:24px;background:#fff;border:1px solid var(--gray-light);box-shadow:var(--shadow)}
+.sidebar-head{font-family:var(--font-heading);font-weight:700;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;color:var(--black);margin-bottom:16px}
+.sidebar-body{display:flex;flex-direction:column}
+.sidebar-link{display:block;padding:10px 0;font-size:.9rem;line-height:1.4;color:var(--dark);border-bottom:1px solid var(--gray-light);text-decoration:none;transition:var(--transition)}
+.sidebar-link:hover{color:var(--orange)}
+.sidebar-link:last-child{border-bottom:none}
+.sidebar-cta{border-radius:var(--radius);padding:24px;background:var(--orange);color:#fff;text-align:center}
+.sidebar-cta-title{font-family:var(--font-heading);font-weight:700;font-size:1rem;margin-bottom:8px;color:#fff}
+.sidebar-cta p{font-size:.88rem;line-height:1.5;margin-bottom:16px;color:rgba(255,255,255,.92)}
+.sidebar-cta a{display:inline-block;background:#fff;color:var(--orange-dark);padding:10px 22px;border-radius:8px;font-family:var(--font-heading);font-weight:700;font-size:.85rem;text-decoration:none;transition:var(--transition)}
+.sidebar-cta a:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+
+@media(max-width:900px){
+  .blog-post-wrap{grid-template-columns:1fr;gap:32px}
+  .blog-post-hero-content h1{font-size:1.8rem}
+  .blog-post-hero{padding:24px 20px 16px}
 }
+
 </style>
 <script type="application/ld+json">
 {
@@ -206,36 +212,44 @@
 
 <main>
 
-<section class="page-hero">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="/">Home</a>
-      <span class="sep">/</span>
-      <a href="/blog/">AV Hub</a>
-      <span class="sep">/</span>
-      <span class="current">Lutron&#x27;s Sunnata RadioRA 3 RF Touch Dimmer: The Perfect Solution for Smooth, Customizable Lighting</span>
+<!-- ===== BLOG POST HERO ===== -->
+<section class="blog-post-hero">
+  <img src="/images/lutron-s-sunnata-radiora-3-rf-touch-dimmer-the-perfect-solution-for-smooth-customizable-lighting-thumb.png" alt="Lutron&amp;#x27;s Sunnata RadioRA 3 RF Touch Dimmer: The Perfect Solution for Smooth, Customizable Lighting" loading="eager">
+  <div class="blog-post-hero-content">
+    <span class="blog-post-cat">Lighting</span>
+    <h1>Lutron&amp;#x27;s Sunnata RadioRA 3 RF Touch Dimmer: The Perfect Solution for Smooth, Customizable Lighting</h1>
+    <div class="post-meta">
+      <span>Entertainment Pros</span>
+      <span class="post-meta-dot"></span>
+      <span>February 27, 2023</span>
+      <span class="post-meta-dot"></span>
+      <span>2 min read</span>
     </div>
-    <h1>Lutron&#x27;s Sunnata RadioRA 3 RF Touch Dimmer: The Perfect Solution for Smooth, Customizable Lighting</h1>
   </div>
 </section>
 
-
-<!-- ===== POST HERO VIDEO ===== -->
-<div class="post-hero-feature-video"><iframe src="https://iframe.videodelivery.net/3ca6a44e34be884379eac213d8fec0ab" loading="eager" style="border:none;width:100%;aspect-ratio:16/9;max-height:580px;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.14);background:#000" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe></div>
-<section class="blog-article">
-  <div class="container">
-    <div class="article-container">
-      <div class="article-meta">
-        <span class="meta-date">February 27, 2023</span>
-        <span class="meta-sep">|</span>
-        <span>By Entertainment Pros</span>
-      </div>
-      <div class="article-body">
+<!-- ===== ARTICLE + SIDEBAR ===== -->
+<div class="blog-post-wrap">
+  <article class="blog-article">
 <p>When it comes to lighting, homeowners know that it's not just about brightness, but also about ambiance. That's where Lutron's Sunnata RadioRA 3 RF Touch Dimmer comes in. This advanced dimmer switch is designed to provide superior dimming of LED, halogen, incandescent, MLV, and ELV lighting with the help of PRO LED+ technology. <br/></p> <h2>Customizable Features for the Perfect Lighting Experience</h2> <p>With its sleek light bar design and touch/swipe capabilities, Lutron's Sunnata RadioRA 3 RF Touch Dimmer is both intuitive and modern. The light bar can be easily customized to achieve the desired level of brightness, or it can be turned off completely in places like the bedroom. The lights can also be set to gradually fade on and off with a customizable fade rate, providing a smooth and comfortable transition of lighting.</p> <h2>Easy Installation and Compatibility</h2> <p>Installation is a breeze with Lutron's Sunnata RadioRA 3 RF Touch Dimmer, with each dimmer taking only 15 minutes to install. Wiring is easy with screw terminals, and a neutral wire is required for proper functioning. The dimming range can also be easily adjusted to improve bulb performance.</p> <p>The Sunnata RF Touch Dimmer works with dimmable bulbs such as LED up to 250W, incandescent/halogen/ELV up to 500W, and MLV up to 400VA, making it a versatile solution for various lighting applications. For multi-location dimming, homeowners can add up to four companion dimmers with each Sunnata dimmer for control from up to five locations. The companion dimmers offer the same look and feel as the primary dimmer, and light bars respond uniformly across all companion dimmers.</p> <h2>RF Connectivity for Ultimate Control</h2> <p>The Sunnata RF Touch Dimmer also features RF connectivity, which enables schedule, scene, and other system-controlled events. Homeowners can customize their lighting schedule and create unique lighting scenes for different moods and occasions. The RF Companion Dimmer is available for use with the SUNNATA RF Touch Dimmer to provide additional control from multiple locations.</p> <p>For rooms and lights where connected control is not required, non-RF dimmers are also available. These non-RF dimmers work with PRO LED+ technology and provide a simple solution for basic lighting needs.</p> <h2>Contact Entertainment Pros for Professional Installation</h2> <p>If you're looking to upgrade your home's lighting control, look no further than Lutron's Sunnata RadioRA 3 RF Touch Dimmer with PRO LED+ technology and RF Companion Dimmer. For professional installation and more information about how these innovative products can enhance your home, contact Entertainment Pros today at <a href="tel:727-804-3996"> 727-804-2277 </a> or visit our <a href="/portfolio/"> portfolio page </a> . Don't settle for dull and uninspired lighting – upgrade to Lutron's Sunnata RadioRA 3 RF and experience the perfect lighting ambiance for your home. <br/></p>
+  </article>
+
+  <aside class="blog-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-head">Related Articles</div>
+      <div class="sidebar-body">
+          <a class="sidebar-link" href="/palm-harbor-client-upgrades-to-color-changing-landscape-lighting/">Palm Harbor Client Upgrades to Color Changing Landscape Lighting</a>
+          <a class="sidebar-link" href="/fx-luminaire-s-advanced-landscape-lighting-solutions/">FX Luminaire&amp;#x27;s Advanced Landscape Lighting Solutions</a>
+          <a class="sidebar-link" href="/holiday-home-transformation-with-landscape-lighting/">Holiday Home Transformation with Landscape Lighting</a>
       </div>
     </div>
-  </div>
-</section>
+    <div class="sidebar-cta">
+      <div class="sidebar-cta-title">Ready to Get Started?</div>
+      <p>Free onsite consultation with a real human within 24 hours.</p>
+      <a href="/your-project/" class="btn btn-primary">Tell Us About Your Project</a>
+    </div>
+  </aside>
+</div>
 
 <section class="cta-banner">
   <div class="container">

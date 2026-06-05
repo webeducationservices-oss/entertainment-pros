@@ -20,41 +20,47 @@
 <link rel="stylesheet" href="/styles.css">
 <script src="/components.js" defer></script>
 <style>
-/* ===== BLOG POST STYLES ===== */
-.blog-article{padding:60px 0 var(--section-pad-bottom,80px);background:var(--white)}
-.article-container{max-width:780px;margin:0 auto;padding:0 24px}
-.article-meta{display:flex;align-items:center;gap:14px;margin:0 0 28px;padding-bottom:24px;border-bottom:1px solid #eee;font-family:var(--font-heading);font-size:.78rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);flex-wrap:wrap}
-.article-meta .meta-date{color:var(--orange)}
-.article-meta .meta-sep{color:var(--gray-light);opacity:.4}
-.article-body{font-size:1.08rem;line-height:1.85;color:var(--gray-dark, #404040)}
-.article-body p{margin:0 0 22px}
-.article-body p:first-of-type::first-letter{font-size:1.05em}
-.article-body h2{font-family:var(--font-heading);font-size:1.7rem;color:var(--black);margin:48px 0 20px;line-height:1.25;font-weight:700}
-.article-body h3{font-family:var(--font-heading);font-size:1.25rem;color:var(--black);margin:36px 0 14px;line-height:1.3;font-weight:700}
-.article-body ul,.article-body ol{margin:0 0 22px;padding-left:24px}
-.article-body li{margin:0 0 10px}
-.article-body blockquote{position:relative;border-left:4px solid var(--orange);margin:36px 0;padding:24px 28px 24px 32px;background:#faf7f4;border-radius:0 12px 12px 0;font-size:1.1rem;line-height:1.7;color:var(--black);font-style:italic}
-.article-body blockquote::before{content:'\201C';position:absolute;left:14px;top:8px;font-size:3rem;line-height:1;color:var(--orange);opacity:.25;font-family:Georgia,serif}
-.article-body blockquote p{margin:0}
-.article-body img,.article-body figure img{display:block;width:100%;max-width:780px;height:auto;margin:36px auto;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.10)}
-.article-body figure{margin:36px 0}
-.article-body figcaption{text-align:center;font-size:.88rem;color:var(--gray);margin-top:10px;font-style:italic}
-.article-body a{color:var(--orange);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-weight:500}
-.article-body a:hover{color:var(--orange-dark)}
-.article-body strong{color:var(--black);font-weight:700}
-.article-body em{font-style:italic}
-.article-body video{display:block;width:100%;max-width:780px;height:auto;margin:36px auto;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.10);background:#000}
-.article-body iframe{display:block;width:100%;max-width:780px;height:auto;aspect-ratio:16/9;margin:36px auto;border:0;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.10)}
-/* Hero feature image */
-.post-hero-feature-img{max-width:1100px;margin:0 auto;padding:24px 24px 0}
-.post-hero-feature-img img{width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.14);display:block}
-.post-hero-feature-video{max-width:1100px;margin:0 auto;padding:24px 24px 0}
-.post-hero-feature-video video{width:100%;height:auto;max-height:580px;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.14);background:#000}
-@media(max-width:768px){
-  .article-body{font-size:1rem;line-height:1.75}
-  .article-body h2{font-size:1.4rem;margin:36px 0 16px}
-  .article-body h3{font-size:1.15rem}
+/* ===== BLOG POST (BLOG-TEMPLATE.md spec) ===== */
+.blog-post-hero{position:relative;padding:48px 24px 32px;max-width:1100px;margin:0 auto}
+.blog-post-hero img{width:100%;max-height:450px;object-fit:cover;border-radius:var(--radius);margin-bottom:32px;box-shadow:var(--shadow)}
+.blog-post-hero-content{max-width:900px}
+.blog-post-cat{display:inline-block;padding:6px 16px;border-radius:100px;font-family:var(--font-heading);font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--orange);color:#fff;margin-bottom:16px}
+.blog-post-hero-content h1{font-size:2.4rem;line-height:1.2;margin-bottom:20px;color:var(--black)}
+.post-meta{font-family:var(--font-heading);font-size:.82rem;font-weight:600;letter-spacing:.5px;color:var(--gray);display:flex;flex-wrap:wrap;gap:10px;align-items:center;text-transform:uppercase}
+.post-meta-dot{width:4px;height:4px;border-radius:50%;background:var(--gray-light);display:inline-block}
+
+.blog-post-wrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;max-width:1100px;margin:0 auto;padding:32px 24px 64px}
+.blog-article{font-size:1.05rem;line-height:1.8;color:var(--gray)}
+.blog-article h2{font-size:1.6rem;color:var(--black);margin:40px 0 16px;line-height:1.3}
+.blog-article h3{font-size:1.2rem;color:var(--black);margin:28px 0 10px}
+.blog-article p{margin-bottom:18px}
+.blog-article ul,.blog-article ol{margin:0 0 20px 24px}
+.blog-article li{margin-bottom:8px}
+.blog-article blockquote{border-left:4px solid var(--orange);margin:28px 0;padding:18px 24px;background:var(--gray-bg);border-radius:0 var(--radius) var(--radius) 0;font-style:italic;color:var(--dark)}
+.blog-article blockquote p{margin-bottom:0}
+.blog-article a{color:var(--orange);text-decoration:underline}
+.blog-article a:hover{color:var(--orange-dark)}
+.blog-article img{width:100%;border-radius:var(--radius);margin:24px 0}
+
+.blog-sidebar{display:flex;flex-direction:column;gap:20px}
+.sidebar-card{border-radius:var(--radius);padding:24px;background:#fff;border:1px solid var(--gray-light);box-shadow:var(--shadow)}
+.sidebar-head{font-family:var(--font-heading);font-weight:700;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;color:var(--black);margin-bottom:16px}
+.sidebar-body{display:flex;flex-direction:column}
+.sidebar-link{display:block;padding:10px 0;font-size:.9rem;line-height:1.4;color:var(--dark);border-bottom:1px solid var(--gray-light);text-decoration:none;transition:var(--transition)}
+.sidebar-link:hover{color:var(--orange)}
+.sidebar-link:last-child{border-bottom:none}
+.sidebar-cta{border-radius:var(--radius);padding:24px;background:var(--orange);color:#fff;text-align:center}
+.sidebar-cta-title{font-family:var(--font-heading);font-weight:700;font-size:1rem;margin-bottom:8px;color:#fff}
+.sidebar-cta p{font-size:.88rem;line-height:1.5;margin-bottom:16px;color:rgba(255,255,255,.92)}
+.sidebar-cta a{display:inline-block;background:#fff;color:var(--orange-dark);padding:10px 22px;border-radius:8px;font-family:var(--font-heading);font-weight:700;font-size:.85rem;text-decoration:none;transition:var(--transition)}
+.sidebar-cta a:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+
+@media(max-width:900px){
+  .blog-post-wrap{grid-template-columns:1fr;gap:32px}
+  .blog-post-hero-content h1{font-size:1.8rem}
+  .blog-post-hero{padding:24px 20px 16px}
 }
+
 </style>
 <script type="application/ld+json">
 {
@@ -206,36 +212,44 @@
 
 <main>
 
-<section class="page-hero">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="/">Home</a>
-      <span class="sep">/</span>
-      <a href="/blog/">AV Hub</a>
-      <span class="sep">/</span>
-      <span class="current">AV Equipment and Installation for Unique Spaces: Specialized Entertainment Room Project</span>
-    </div>
+<!-- ===== BLOG POST HERO ===== -->
+<section class="blog-post-hero">
+  <img src="/images/av-equipment-and-installation-for-unique-spaces-specialized-entertainment-room-project-thumb.jpg" alt="AV Equipment and Installation for Unique Spaces: Specialized Entertainment Room Project" loading="eager">
+  <div class="blog-post-hero-content">
+    <span class="blog-post-cat">Tips &amp; Tricks</span>
     <h1>AV Equipment and Installation for Unique Spaces: Specialized Entertainment Room Project</h1>
-  </div>
-</section>
-
-
-<!-- ===== POST HERO VIDEO ===== -->
-<div class="post-hero-feature-video"><iframe src="https://iframe.videodelivery.net/e7440121747184523ca76f6ceb6376b9" loading="eager" style="border:none;width:100%;aspect-ratio:16/9;max-height:580px;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.14);background:#000" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe></div>
-<section class="blog-article">
-  <div class="container">
-    <div class="article-container">
-      <div class="article-meta">
-        <span class="meta-date">February 29, 2024</span>
-        <span class="meta-sep">|</span>
-        <span>By Entertainment Pros</span>
-      </div>
-      <div class="article-body">
-<h2>The Challenge of Unique Houses and Unique A/V Projects <br/> <br/></h2> <p>When it comes to designing and implementing unique spaces within your home, project planning is as varied and intricate as the projects themselves. One such unique project which we are currently working on is a specialized entertainment room designed to house a vast and detailed train collection.</p> <p>﻿ Situated in a separate, free-standing addition to a historical home in St. Petersburg, this 30 x 50 room was built specifically to house the owners expansive train set, a marvel of miniature engineering and artistic detail, meticulously crafted, complete with landscapes, buildings, figures, and vehicles. The level of detail is staggering, from the texture of the terrain to the expressions on the tiny figures, each element has been carefully chosen to create an amazing experience. <br/></p> <h2>Rich, immersive sound throughout the building:</h2> <p>The homeowner has been a client of ours for decades, but we were still honored to be asked to be a part of the project. Our goal was to complement the unique quality of the train collection while making the rooms visually and acoustically immersive, providing both the homeowners and their guests an unparalleled experience.</p> <p>The main feature our client wanted was rich, immersive sound in both the rooms and the outside area. We chose Monitor Audio In-ceiling speakers to accomplish this. All of these in-ceiling speakers are discreetly installed to blend with the building's historical aesthetics while delivering powerful audio performance. This setup ensures the softest whisper or an action-packed movie is lifelike and engaging.</p> <ul> <li>The Entertainment Room features a 5.1 surround sound system comprised of five Monitor Audio 6.5" CC165 in-ceiling high performance speakers with a SpeakerCraft HRSi10 subwoofer.</li> </ul> <ul> <li>The Train Room utilizes (6) larger Monitor Audio In-Ceiling CC180 high performance speakers. This is a larger space which has no subwoofer so the 8" drivers of these speakers provide the lower frequencies for full, not tinny sound.</li> </ul> <ul> <li>The Outdoor Walkway speakers are Monitor Audio's larger weatherproof In-Ceiling AWC280 high performance models. This guarantees the same quality sound is heard anywhere in or around the space. <br/></li> </ul> <p>The Audiovisual Installation</p> <ul> <li>Yamaha RXA 6A Receiver: The receiver is the conductor of the symphony, seamlessly integrating various audio sources and outputting them with unmatched clarity and depth. We chose a Yamaha RXA 6A Receiver, a powerhouse of audio fidelity, to provide crystal-clear sound reproduction</li> <li>Elan SC100 System Controller: The Elan SC100 controller is the brains behind the operation, managing the system's components - audio, video, and lighting. Complete and intuitive control over the entire setup is available via Elan ITP-8 in wall touchscreen, an HR40 Handheld remote or the phone, tablet or laptop App. (from anywhere in the world)</li> <li>Samsung QN series television A 65" TV in the Entertainment Room and an 85" TV in the Train room provide not only relaxation but also visual support and information on the elaborate train sets.</li> <li>Panamax surge suppressors: Provides much-needed surge protection for delicate electronics</li> <li>Sanus Rolling Equipment Rack: This mobile unit houses the essential components of the audiovisual system, offering both flexibility and ease of access for maintenance and upgrades.</li> <li>Lutron Radio Ra3 Sunnata dimmers and switches: Allows control of the lighting for overall atmosphere while enhancing the visual impact of the trains and the building's other architectural features.</li> <li>Ubiquiti Pro-Series access points: For strong seamless Wifi throughout the space and outside pool area.</li> </ul> <h2>Sound, Vision, and Passion</h2> <h2><br/></h2> <p>As we think about this project, we are reminded of the importance of attention to detail, the value of custom solutions, and the impact of creating spaces which truly resonate. Remember Entertainment Pros for your next project, where we make staying home fun! <a href="/contact/"> Contact us </a> today or call, <a href="tel:727-804-2277"> 727-804-2277 </a> , for a free estimate on your next project.</p>
-      </div>
+    <div class="post-meta">
+      <span>Entertainment Pros</span>
+      <span class="post-meta-dot"></span>
+      <span>February 29, 2024</span>
+      <span class="post-meta-dot"></span>
+      <span>3 min read</span>
     </div>
   </div>
 </section>
+
+<!-- ===== ARTICLE + SIDEBAR ===== -->
+<div class="blog-post-wrap">
+  <article class="blog-article">
+<h2>The Challenge of Unique Houses and Unique A/V Projects <br/> <br/></h2> <p>When it comes to designing and implementing unique spaces within your home, project planning is as varied and intricate as the projects themselves. One such unique project which we are currently working on is a specialized entertainment room designed to house a vast and detailed train collection.</p> <p>﻿ Situated in a separate, free-standing addition to a historical home in St. Petersburg, this 30 x 50 room was built specifically to house the owners expansive train set, a marvel of miniature engineering and artistic detail, meticulously crafted, complete with landscapes, buildings, figures, and vehicles. The level of detail is staggering, from the texture of the terrain to the expressions on the tiny figures, each element has been carefully chosen to create an amazing experience. <br/></p> <h2>Rich, immersive sound throughout the building:</h2> <p>The homeowner has been a client of ours for decades, but we were still honored to be asked to be a part of the project. Our goal was to complement the unique quality of the train collection while making the rooms visually and acoustically immersive, providing both the homeowners and their guests an unparalleled experience.</p> <p>The main feature our client wanted was rich, immersive sound in both the rooms and the outside area. We chose Monitor Audio In-ceiling speakers to accomplish this. All of these in-ceiling speakers are discreetly installed to blend with the building's historical aesthetics while delivering powerful audio performance. This setup ensures the softest whisper or an action-packed movie is lifelike and engaging.</p> <ul> <li>The Entertainment Room features a 5.1 surround sound system comprised of five Monitor Audio 6.5" CC165 in-ceiling high performance speakers with a SpeakerCraft HRSi10 subwoofer.</li> </ul> <ul> <li>The Train Room utilizes (6) larger Monitor Audio In-Ceiling CC180 high performance speakers. This is a larger space which has no subwoofer so the 8" drivers of these speakers provide the lower frequencies for full, not tinny sound.</li> </ul> <ul> <li>The Outdoor Walkway speakers are Monitor Audio's larger weatherproof In-Ceiling AWC280 high performance models. This guarantees the same quality sound is heard anywhere in or around the space. <br/></li> </ul> <p>The Audiovisual Installation</p> <ul> <li>Yamaha RXA 6A Receiver: The receiver is the conductor of the symphony, seamlessly integrating various audio sources and outputting them with unmatched clarity and depth. We chose a Yamaha RXA 6A Receiver, a powerhouse of audio fidelity, to provide crystal-clear sound reproduction</li> <li>Elan SC100 System Controller: The Elan SC100 controller is the brains behind the operation, managing the system's components - audio, video, and lighting. Complete and intuitive control over the entire setup is available via Elan ITP-8 in wall touchscreen, an HR40 Handheld remote or the phone, tablet or laptop App. (from anywhere in the world)</li> <li>Samsung QN series television A 65" TV in the Entertainment Room and an 85" TV in the Train room provide not only relaxation but also visual support and information on the elaborate train sets.</li> <li>Panamax surge suppressors: Provides much-needed surge protection for delicate electronics</li> <li>Sanus Rolling Equipment Rack: This mobile unit houses the essential components of the audiovisual system, offering both flexibility and ease of access for maintenance and upgrades.</li> <li>Lutron Radio Ra3 Sunnata dimmers and switches: Allows control of the lighting for overall atmosphere while enhancing the visual impact of the trains and the building's other architectural features.</li> <li>Ubiquiti Pro-Series access points: For strong seamless Wifi throughout the space and outside pool area.</li> </ul> <h2>Sound, Vision, and Passion</h2> <h2><br/></h2> <p>As we think about this project, we are reminded of the importance of attention to detail, the value of custom solutions, and the impact of creating spaces which truly resonate. Remember Entertainment Pros for your next project, where we make staying home fun! <a href="/contact/"> Contact us </a> today or call, <a href="tel:727-804-2277"> 727-804-2277 </a> , for a free estimate on your next project.</p>
+  </article>
+
+  <aside class="blog-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-head">Related Articles</div>
+      <div class="sidebar-body">
+          <a class="sidebar-link" href="/why-built-in-tv-speakers-sound-worse/">Why Your Brand-New TV Sounds Worse Than Your Old One</a>
+          <a class="sidebar-link" href="/av-professionals-matter/">When Work Goes Wrong: Why AV Professionals Matter</a>
+          <a class="sidebar-link" href="/clean-home-av-installations/">Clean Home AV Installations that Wow</a>
+      </div>
+    </div>
+    <div class="sidebar-cta">
+      <div class="sidebar-cta-title">Ready to Get Started?</div>
+      <p>Free onsite consultation with a real human within 24 hours.</p>
+      <a href="/your-project/" class="btn btn-primary">Tell Us About Your Project</a>
+    </div>
+  </aside>
+</div>
 
 <section class="cta-banner">
   <div class="container">

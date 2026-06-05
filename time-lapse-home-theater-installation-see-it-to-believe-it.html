@@ -20,41 +20,47 @@
 <link rel="stylesheet" href="/styles.css">
 <script src="/components.js" defer></script>
 <style>
-/* ===== BLOG POST STYLES ===== */
-.blog-article{padding:60px 0 var(--section-pad-bottom,80px);background:var(--white)}
-.article-container{max-width:780px;margin:0 auto;padding:0 24px}
-.article-meta{display:flex;align-items:center;gap:14px;margin:0 0 28px;padding-bottom:24px;border-bottom:1px solid #eee;font-family:var(--font-heading);font-size:.78rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);flex-wrap:wrap}
-.article-meta .meta-date{color:var(--orange)}
-.article-meta .meta-sep{color:var(--gray-light);opacity:.4}
-.article-body{font-size:1.08rem;line-height:1.85;color:var(--gray-dark, #404040)}
-.article-body p{margin:0 0 22px}
-.article-body p:first-of-type::first-letter{font-size:1.05em}
-.article-body h2{font-family:var(--font-heading);font-size:1.7rem;color:var(--black);margin:48px 0 20px;line-height:1.25;font-weight:700}
-.article-body h3{font-family:var(--font-heading);font-size:1.25rem;color:var(--black);margin:36px 0 14px;line-height:1.3;font-weight:700}
-.article-body ul,.article-body ol{margin:0 0 22px;padding-left:24px}
-.article-body li{margin:0 0 10px}
-.article-body blockquote{position:relative;border-left:4px solid var(--orange);margin:36px 0;padding:24px 28px 24px 32px;background:#faf7f4;border-radius:0 12px 12px 0;font-size:1.1rem;line-height:1.7;color:var(--black);font-style:italic}
-.article-body blockquote::before{content:'\201C';position:absolute;left:14px;top:8px;font-size:3rem;line-height:1;color:var(--orange);opacity:.25;font-family:Georgia,serif}
-.article-body blockquote p{margin:0}
-.article-body img,.article-body figure img{display:block;width:100%;max-width:780px;height:auto;margin:36px auto;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.10)}
-.article-body figure{margin:36px 0}
-.article-body figcaption{text-align:center;font-size:.88rem;color:var(--gray);margin-top:10px;font-style:italic}
-.article-body a{color:var(--orange);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-weight:500}
-.article-body a:hover{color:var(--orange-dark)}
-.article-body strong{color:var(--black);font-weight:700}
-.article-body em{font-style:italic}
-.article-body video{display:block;width:100%;max-width:780px;height:auto;margin:36px auto;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.10);background:#000}
-.article-body iframe{display:block;width:100%;max-width:780px;height:auto;aspect-ratio:16/9;margin:36px auto;border:0;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.10)}
-/* Hero feature image */
-.post-hero-feature-img{max-width:1100px;margin:0 auto;padding:24px 24px 0}
-.post-hero-feature-img img{width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.14);display:block}
-.post-hero-feature-video{max-width:1100px;margin:0 auto;padding:24px 24px 0}
-.post-hero-feature-video video{width:100%;height:auto;max-height:580px;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.14);background:#000}
-@media(max-width:768px){
-  .article-body{font-size:1rem;line-height:1.75}
-  .article-body h2{font-size:1.4rem;margin:36px 0 16px}
-  .article-body h3{font-size:1.15rem}
+/* ===== BLOG POST (BLOG-TEMPLATE.md spec) ===== */
+.blog-post-hero{position:relative;padding:48px 24px 32px;max-width:1100px;margin:0 auto}
+.blog-post-hero img{width:100%;max-height:450px;object-fit:cover;border-radius:var(--radius);margin-bottom:32px;box-shadow:var(--shadow)}
+.blog-post-hero-content{max-width:900px}
+.blog-post-cat{display:inline-block;padding:6px 16px;border-radius:100px;font-family:var(--font-heading);font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--orange);color:#fff;margin-bottom:16px}
+.blog-post-hero-content h1{font-size:2.4rem;line-height:1.2;margin-bottom:20px;color:var(--black)}
+.post-meta{font-family:var(--font-heading);font-size:.82rem;font-weight:600;letter-spacing:.5px;color:var(--gray);display:flex;flex-wrap:wrap;gap:10px;align-items:center;text-transform:uppercase}
+.post-meta-dot{width:4px;height:4px;border-radius:50%;background:var(--gray-light);display:inline-block}
+
+.blog-post-wrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;max-width:1100px;margin:0 auto;padding:32px 24px 64px}
+.blog-article{font-size:1.05rem;line-height:1.8;color:var(--gray)}
+.blog-article h2{font-size:1.6rem;color:var(--black);margin:40px 0 16px;line-height:1.3}
+.blog-article h3{font-size:1.2rem;color:var(--black);margin:28px 0 10px}
+.blog-article p{margin-bottom:18px}
+.blog-article ul,.blog-article ol{margin:0 0 20px 24px}
+.blog-article li{margin-bottom:8px}
+.blog-article blockquote{border-left:4px solid var(--orange);margin:28px 0;padding:18px 24px;background:var(--gray-bg);border-radius:0 var(--radius) var(--radius) 0;font-style:italic;color:var(--dark)}
+.blog-article blockquote p{margin-bottom:0}
+.blog-article a{color:var(--orange);text-decoration:underline}
+.blog-article a:hover{color:var(--orange-dark)}
+.blog-article img{width:100%;border-radius:var(--radius);margin:24px 0}
+
+.blog-sidebar{display:flex;flex-direction:column;gap:20px}
+.sidebar-card{border-radius:var(--radius);padding:24px;background:#fff;border:1px solid var(--gray-light);box-shadow:var(--shadow)}
+.sidebar-head{font-family:var(--font-heading);font-weight:700;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;color:var(--black);margin-bottom:16px}
+.sidebar-body{display:flex;flex-direction:column}
+.sidebar-link{display:block;padding:10px 0;font-size:.9rem;line-height:1.4;color:var(--dark);border-bottom:1px solid var(--gray-light);text-decoration:none;transition:var(--transition)}
+.sidebar-link:hover{color:var(--orange)}
+.sidebar-link:last-child{border-bottom:none}
+.sidebar-cta{border-radius:var(--radius);padding:24px;background:var(--orange);color:#fff;text-align:center}
+.sidebar-cta-title{font-family:var(--font-heading);font-weight:700;font-size:1rem;margin-bottom:8px;color:#fff}
+.sidebar-cta p{font-size:.88rem;line-height:1.5;margin-bottom:16px;color:rgba(255,255,255,.92)}
+.sidebar-cta a{display:inline-block;background:#fff;color:var(--orange-dark);padding:10px 22px;border-radius:8px;font-family:var(--font-heading);font-weight:700;font-size:.85rem;text-decoration:none;transition:var(--transition)}
+.sidebar-cta a:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+
+@media(max-width:900px){
+  .blog-post-wrap{grid-template-columns:1fr;gap:32px}
+  .blog-post-hero-content h1{font-size:1.8rem}
+  .blog-post-hero{padding:24px 20px 16px}
 }
+
 </style>
 <script type="application/ld+json">
 {
@@ -206,36 +212,44 @@
 
 <main>
 
-<section class="page-hero">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="/">Home</a>
-      <span class="sep">/</span>
-      <a href="/blog/">AV Hub</a>
-      <span class="sep">/</span>
-      <span class="current">Time-lapse Home Theater Installation: See It to Believe It</span>
-    </div>
+<!-- ===== BLOG POST HERO ===== -->
+<section class="blog-post-hero">
+  <img src="/images/time-lapse-home-theater-installation-see-it-to-believe-it-thumb.jpg" alt="Time-lapse Home Theater Installation: See It to Believe It" loading="eager">
+  <div class="blog-post-hero-content">
+    <span class="blog-post-cat">Home Theater</span>
     <h1>Time-lapse Home Theater Installation: See It to Believe It</h1>
-  </div>
-</section>
-
-
-<!-- ===== POST HERO VIDEO ===== -->
-<div class="post-hero-feature-video"><iframe src="https://iframe.videodelivery.net/5f6e1ddc52fc16e14581612ee790cf4c" loading="eager" style="border:none;width:100%;aspect-ratio:16/9;max-height:580px;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.14);background:#000" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe></div>
-<section class="blog-article">
-  <div class="container">
-    <div class="article-container">
-      <div class="article-meta">
-        <span class="meta-date">July 25, 2023</span>
-        <span class="meta-sep">|</span>
-        <span>By Entertainment Pros</span>
-      </div>
-      <div class="article-body">
-<h2>Time-lapse Home Theater</h2> <p>At Entertainment Pros, we deliver high-quality, custom-tailored home theater experiences every day. But our clients, friends, and fans usually only get to see the finished systems, equipment, and installs. We know "seeing is believing", so we created a time-lapse video showing Chip's step-by-step process of each phase of a home theater installation with his commentary at the top.</p> <p>﻿ This video encapsulates our standard installation process, and shows the transformation from a typical interior room to a personal entertainment hub. <br/></p> <h2>Step 1: Prepping the Work Area</h2> <p>At Entertainment Pros, the first step in our process involves preparing the workspace. We ensure the room is clear of any furniture or decor which could interfere with the installation or potentially become damaged. A clean, uncluttered area is essential for a smooth and efficient installation process.</p> <h2>Step 2: Measuring the Screen and Room</h2> <p>We carefully measures the screen and room to guarantee the home theater will look and feel just right. Considering the room's dimensions, including ceiling height and wall length, is crucial to ensuring a perfect fit.</p> <h2>Step 3: Assessing Projector Distance</h2> <p>The distance between the projector and the screen is crucial for optimal image quality. This distance varies based on the type of projector and the size of the screen. We calculate this to ensure the projector is placed at the ideal distance.</p> <h2>Step 4: Installing the Screen Frame</h2> <p>The next step involves installing the screen frame on the designated wall. We ensure the frame is secure, level, and tightly affixed to the wall.</p> <h2>Step 5: Attaching the Screen Material</h2> <p>Next, we stretch the screen material over the secure frame. We aim for a tight, smooth surface to ensure the best possible viewing experience.</p> <h2>Step 6: Installing the Projector Mount</h2> <p>Our next step is to securely install the projector mount on the ceiling, ensuring it can support the weight of the projector.</p> <h2>Step 7: Installing the Projector</h2> <p>With the mount securely in place, we install the projector, verifying it's properly aligned with the screen for an optimal viewing experience.</p> <h2>Step 8: Projecting and Adjusting</h2> <p>The next step is to project a test image onto the screen to fine-tune alignment from top to bottom and left to right. We want to make sure the image fits perfectly within the edges of the screen.</p> <h2>Step 9: Installing the Sound System</h2> <p>Sound is also a critical part of the home theater experience. Our experts position speakers around the viewing area based on the specific surround sound format the client has chosen.</p> <h2>Step 10: Organizing Seating and Lighting</h2> <p>The seating arrangement and lighting significantly impact the home theater experience. We ensure all seats have a clear, comfortable view of the screen and lighting can be adequately controlled.</p> <h2>Step 11: Calibration</h2> <p>After setting up your equipment, we meticulously calibrate your sound and picture settings. While some home theater equipment comes with automatic calibration tools, our experience shows manual adjustments often yield better results.</p> <h2>Step 12: Testing the System</h2> <p>Using a familiar movie, we test the system, ensuring clear, balanced sound from all speakers, and a crisp, vibrant image on your screen.</p> <h2>Step 13: Managing Cables</h2> <p>Proper cable management enhances the aesthetics and safety of your home theater. We use cable ties, conduits, or cable management boxes to keep everything tidy and organized.</p> <h2>Step 14: Optimizing Room Acoustics</h2> <p>Acoustic panels can manage echo and reverb, creating a clearer, more immersive audio experience. If a client has chosen this option, the placement of these panels depends on the specific acoustics of the room.</p> <h2>Step 15: Ensuring Ventilation and Equipment Care</h2> <p>Home theater equipment must have good ventilation to prevent overheating. Our team strategically places electronics in open-air shelves or specially designed cabinets with built-in cooling systems.</p> <h2>Step 16: Setting up the Universal Remote</h2> <p>We set up a universal remote which can control all your devices from one place. This streamlines the management of your home theater components, eliminating the need for multiple remotes.</p> <h2>Step 17: Familiarizing the Client With the AV System</h2> <p>Our final step involves familiarizing you with the operation and maintenance of your new home theater system. We ensure you know how to clean and care for your equipment, prolonging its lifespan and ensuring optimal performance.</p> <h2>Step 18: Enjoy Your Show</h2> <p>Congratulations! Your home theater installation is complete. Now it's time to dim the lights, grab some popcorn (or ice cream!), and enjoy your favorite movie or show in the comfort of your newly installed home theater.</p> <p>At Entertainment Pros, we're always here to assist with all your AV sales and installation needs. We will help you pick the right sound and video equipment, develop a plan, install your equipment, configure your AV equipment, and most importantly, help you maintain your entertainment system.</p> <p>Don't hesitate to reach out if you need help at any stage of your home theater setup journey, <a href="tel:727-804-2277"> 727-804-2277 </a> . Enjoy your new home theater experience!</p> <p>Want to see more AV projects? <a href="/portfolio/"> Go to our portfolio page </a> and see what we've been up to.</p>
-      </div>
+    <div class="post-meta">
+      <span>Entertainment Pros</span>
+      <span class="post-meta-dot"></span>
+      <span>July 25, 2023</span>
+      <span class="post-meta-dot"></span>
+      <span>4 min read</span>
     </div>
   </div>
 </section>
+
+<!-- ===== ARTICLE + SIDEBAR ===== -->
+<div class="blog-post-wrap">
+  <article class="blog-article">
+<h2>Time-lapse Home Theater</h2> <p>At Entertainment Pros, we deliver high-quality, custom-tailored home theater experiences every day. But our clients, friends, and fans usually only get to see the finished systems, equipment, and installs. We know "seeing is believing", so we created a time-lapse video showing Chip's step-by-step process of each phase of a home theater installation with his commentary at the top.</p> <p>﻿ This video encapsulates our standard installation process, and shows the transformation from a typical interior room to a personal entertainment hub. <br/></p> <h2>Step 1: Prepping the Work Area</h2> <p>At Entertainment Pros, the first step in our process involves preparing the workspace. We ensure the room is clear of any furniture or decor which could interfere with the installation or potentially become damaged. A clean, uncluttered area is essential for a smooth and efficient installation process.</p> <h2>Step 2: Measuring the Screen and Room</h2> <p>We carefully measures the screen and room to guarantee the home theater will look and feel just right. Considering the room's dimensions, including ceiling height and wall length, is crucial to ensuring a perfect fit.</p> <h2>Step 3: Assessing Projector Distance</h2> <p>The distance between the projector and the screen is crucial for optimal image quality. This distance varies based on the type of projector and the size of the screen. We calculate this to ensure the projector is placed at the ideal distance.</p> <h2>Step 4: Installing the Screen Frame</h2> <p>The next step involves installing the screen frame on the designated wall. We ensure the frame is secure, level, and tightly affixed to the wall.</p> <h2>Step 5: Attaching the Screen Material</h2> <p>Next, we stretch the screen material over the secure frame. We aim for a tight, smooth surface to ensure the best possible viewing experience.</p> <h2>Step 6: Installing the Projector Mount</h2> <p>Our next step is to securely install the projector mount on the ceiling, ensuring it can support the weight of the projector.</p> <h2>Step 7: Installing the Projector</h2> <p>With the mount securely in place, we install the projector, verifying it's properly aligned with the screen for an optimal viewing experience.</p> <h2>Step 8: Projecting and Adjusting</h2> <p>The next step is to project a test image onto the screen to fine-tune alignment from top to bottom and left to right. We want to make sure the image fits perfectly within the edges of the screen.</p> <h2>Step 9: Installing the Sound System</h2> <p>Sound is also a critical part of the home theater experience. Our experts position speakers around the viewing area based on the specific surround sound format the client has chosen.</p> <h2>Step 10: Organizing Seating and Lighting</h2> <p>The seating arrangement and lighting significantly impact the home theater experience. We ensure all seats have a clear, comfortable view of the screen and lighting can be adequately controlled.</p> <h2>Step 11: Calibration</h2> <p>After setting up your equipment, we meticulously calibrate your sound and picture settings. While some home theater equipment comes with automatic calibration tools, our experience shows manual adjustments often yield better results.</p> <h2>Step 12: Testing the System</h2> <p>Using a familiar movie, we test the system, ensuring clear, balanced sound from all speakers, and a crisp, vibrant image on your screen.</p> <h2>Step 13: Managing Cables</h2> <p>Proper cable management enhances the aesthetics and safety of your home theater. We use cable ties, conduits, or cable management boxes to keep everything tidy and organized.</p> <h2>Step 14: Optimizing Room Acoustics</h2> <p>Acoustic panels can manage echo and reverb, creating a clearer, more immersive audio experience. If a client has chosen this option, the placement of these panels depends on the specific acoustics of the room.</p> <h2>Step 15: Ensuring Ventilation and Equipment Care</h2> <p>Home theater equipment must have good ventilation to prevent overheating. Our team strategically places electronics in open-air shelves or specially designed cabinets with built-in cooling systems.</p> <h2>Step 16: Setting up the Universal Remote</h2> <p>We set up a universal remote which can control all your devices from one place. This streamlines the management of your home theater components, eliminating the need for multiple remotes.</p> <h2>Step 17: Familiarizing the Client With the AV System</h2> <p>Our final step involves familiarizing you with the operation and maintenance of your new home theater system. We ensure you know how to clean and care for your equipment, prolonging its lifespan and ensuring optimal performance.</p> <h2>Step 18: Enjoy Your Show</h2> <p>Congratulations! Your home theater installation is complete. Now it's time to dim the lights, grab some popcorn (or ice cream!), and enjoy your favorite movie or show in the comfort of your newly installed home theater.</p> <p>At Entertainment Pros, we're always here to assist with all your AV sales and installation needs. We will help you pick the right sound and video equipment, develop a plan, install your equipment, configure your AV equipment, and most importantly, help you maintain your entertainment system.</p> <p>Don't hesitate to reach out if you need help at any stage of your home theater setup journey, <a href="tel:727-804-2277"> 727-804-2277 </a> . Enjoy your new home theater experience!</p> <p>Want to see more AV projects? <a href="/portfolio/"> Go to our portfolio page </a> and see what we've been up to.</p>
+  </article>
+
+  <aside class="blog-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-head">Related Articles</div>
+      <div class="sidebar-body">
+          <a class="sidebar-link" href="/from-a-tricky-room-layout-to-a-home-theater/">From a Tricky  Room Layout to a Multi-Purpose Media Room</a>
+          <a class="sidebar-link" href="/family-home-entertainment-system-building-the-perfect-av-system/">Family Entertainment System | Home Theater Upgrade with Smart Integration</a>
+          <a class="sidebar-link" href="/home-theaters-in-any-room-entertainment-solutions/">Home Theaters in Any Room: Entertainment Solutions</a>
+      </div>
+    </div>
+    <div class="sidebar-cta">
+      <div class="sidebar-cta-title">Ready to Get Started?</div>
+      <p>Free onsite consultation with a real human within 24 hours.</p>
+      <a href="/your-project/" class="btn btn-primary">Tell Us About Your Project</a>
+    </div>
+  </aside>
+</div>
 
 <section class="cta-banner">
   <div class="container">
