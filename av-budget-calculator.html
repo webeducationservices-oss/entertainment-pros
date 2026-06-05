@@ -17,6 +17,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <script src="/components.js" defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6Lck8aQsAAAAALMA-T6nwfkSf7bv4K-mOhkszeKh" defer></script>
 <style>
 /* ===== PAGE-SPECIFIC: AV BUDGET CALCULATOR ===== */
 
@@ -135,6 +136,34 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
 .results-cta .btn-dark{background:var(--black);color:#fff}
 .results-cta .btn-dark:hover{background:var(--orange);transform:translateY(-2px)}
 .results-cta .btn svg{width:18px;height:18px}
+
+/* Inline consultation form */
+.consult-inline{display:none;margin-top:28px;background:var(--gray-bg);border-radius:var(--radius);padding:32px;animation:fadeSlideIn .4s ease}
+.consult-inline.active{display:block}
+.consult-inline h3{font-family:var(--font-heading);font-size:1.25rem;color:var(--black);margin:0 0 6px;text-align:center}
+.consult-inline .ci-sub{text-align:center;color:var(--gray);font-size:.92rem;line-height:1.6;margin:0 0 24px}
+.ci-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.ci-field{display:flex;flex-direction:column}
+.ci-field.full{grid-column:1/-1}
+.ci-field label{font-family:var(--font-heading);font-size:.74rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--black);margin-bottom:6px}
+.ci-field label .req{color:var(--orange)}
+.ci-field input,.ci-field textarea{width:100%;padding:13px 15px;border:2px solid #e5e5e5;border-radius:8px;font-family:var(--font-body);font-size:.95rem;color:var(--black);background:#fff;transition:all .2s ease;box-sizing:border-box}
+.ci-field input:focus,.ci-field textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(243,137,41,.15)}
+.ci-field textarea{resize:vertical;min-height:90px;line-height:1.6}
+.ci-estimate-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(243,137,41,.1);color:var(--orange-dark);font-family:var(--font-heading);font-size:.82rem;font-weight:600;padding:8px 16px;border-radius:100px;margin:0 auto 20px}
+.ci-estimate-chip svg{width:15px;height:15px}
+.ci-submit{width:100%;padding:15px;background:var(--orange);color:#fff;border:none;border-radius:8px;font-family:var(--font-heading);font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s ease;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.ci-submit:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(243,137,41,.35)}
+.ci-submit:disabled{background:#d5d5d5;cursor:not-allowed;transform:none;box-shadow:none}
+.ci-note{text-align:center;font-size:.78rem;color:var(--gray-light);margin:14px 0 0}
+.ci-success{display:none;text-align:center;padding:36px 20px}
+.ci-success.active{display:block}
+.ci-success-icon{width:64px;height:64px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.ci-success-icon svg{width:30px;height:30px;color:#fff}
+.ci-success h3{font-size:1.4rem;margin-bottom:10px}
+.ci-success p{color:var(--gray);font-size:1rem;line-height:1.7;max-width:440px;margin:0 auto}
+._honey{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+@media(max-width:600px){.ci-fields{grid-template-columns:1fr}}
 
 /* Start Over */
 .start-over{text-align:center;margin-top:20px}
@@ -544,9 +573,60 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               Call 727-804-2277
             </a>
-            <a href="/contact/" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" id="open-consult">
               Request Consultation
-            </a>
+            </button>
+          </div>
+
+          <!-- ===== INLINE CONSULTATION FORM ===== -->
+          <div class="consult-inline" id="consult-inline">
+            <form id="ci-form">
+              <h3>Let's Talk About Your Project</h3>
+              <p class="ci-sub">Share your details and we'll reach out within one business day to turn this estimate into a real plan. No pressure, no obligation.</p>
+              <div style="text-align:center">
+                <span class="ci-estimate-chip">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  Your estimate: <span id="ci-estimate-display">—</span>
+                </span>
+              </div>
+              <input type="hidden" name="site_slug" value="entertainment-pros">
+              <input type="hidden" name="form_type" value="av-budget-calculator">
+              <input type="hidden" name="estimate" id="ci-estimate-field" value="">
+              <input type="hidden" name="project_details" id="ci-details-field" value="">
+              <input type="hidden" name="recaptcha_token" id="ci-recaptcha" value="">
+              <input type="text" name="_honey" class="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <div class="ci-fields">
+                <div class="ci-field">
+                  <label for="ci-name">Name <span class="req">*</span></label>
+                  <input type="text" id="ci-name" name="name" placeholder="Your name" required>
+                </div>
+                <div class="ci-field">
+                  <label for="ci-phone">Phone <span class="req">*</span></label>
+                  <input type="tel" id="ci-phone" name="phone" placeholder="(727) 555-1234" required>
+                </div>
+                <div class="ci-field full">
+                  <label for="ci-email">Email <span class="req">*</span></label>
+                  <input type="email" id="ci-email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="ci-field full">
+                  <label for="ci-address">Property Address or City</label>
+                  <input type="text" id="ci-address" name="address" placeholder="123 Coastal Way, Clearwater — or just city &amp; zip">
+                </div>
+                <div class="ci-field full">
+                  <label for="ci-message">Anything else? (optional)</label>
+                  <textarea id="ci-message" name="message" placeholder="Tell us a little more about what you have in mind..."></textarea>
+                </div>
+              </div>
+              <button type="submit" class="ci-submit" id="ci-submit">Send My Request</button>
+              <p class="ci-note">We respect your privacy. Your details are only used to contact you about your project.</p>
+            </form>
+            <div class="ci-success" id="ci-success">
+              <div class="ci-success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h3>Got it — thank you!</h3>
+              <p><strong>We'll call you within one business day</strong> to talk through your project and turn this estimate into a real, customized plan. Want to chat sooner? Call us at <a href="tel:727-804-2277" style="color:var(--orange);font-weight:600">727-804-2277</a>.</p>
+            </div>
           </div>
 
           <div class="start-over">
@@ -837,14 +917,31 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
     });
 
     document.getElementById('breakdown-list').innerHTML = breakdownHTML;
-    document.getElementById('total-range').textContent = fmt(totalLow) + ' - ' + fmt(totalHigh);
+    var totalRangeStr = fmt(totalLow) + ' - ' + fmt(totalHigh);
+    document.getElementById('total-range').textContent = totalRangeStr;
 
     var tierLabels = { budget: 'Budget Tier', mid: 'Mid-Range Tier', premium: 'Premium Tier' };
     var homeSizeLabels = { condo: 'Condo/Apartment', single: 'Single Family Home', large: 'Large/Custom Home' };
-    document.getElementById('total-tier').textContent = tierLabels[tierKey] + ' \u00B7 ' + homeSizeLabels[homeSize] + ' \u00B7 ' + rooms + (rooms === 1 ? ' Room' : ' Rooms');
+    var tierSummary = tierLabels[tierKey] + ' \u00B7 ' + homeSizeLabels[homeSize] + ' \u00B7 ' + rooms + (rooms === 1 ? ' Room' : ' Rooms');
+    document.getElementById('total-tier').textContent = tierSummary;
 
     // Retrofit note
     document.getElementById('retrofit-note').style.display = isRetrofit ? 'flex' : 'none';
+
+    // Capture the estimate for the inline consultation form
+    var detailParts = selected.map(function(svc){ return serviceLabels[svc]; });
+    window.__avEstimate = {
+      range: totalRangeStr,
+      summary: tierSummary,
+      services: detailParts.join(', '),
+      construction: isRetrofit ? 'Retrofit' : 'New Construction'
+    };
+    var estDisplay = document.getElementById('ci-estimate-display');
+    if (estDisplay) estDisplay.textContent = totalRangeStr;
+    var estField = document.getElementById('ci-estimate-field');
+    if (estField) estField.value = totalRangeStr + ' (' + tierSummary + ')';
+    var detField = document.getElementById('ci-details-field');
+    if (detField) detField.value = 'Services: ' + detailParts.join(', ') + ' | ' + (isRetrofit ? 'Retrofit' : 'New Construction');
   }
 
   // ===== EVENT LISTENERS =====
@@ -867,6 +964,14 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
     document.getElementById('tier-mid').checked = true;
     document.getElementById('size-single').checked = true;
     document.getElementById('const-retro').checked = true;
+    // Reset the inline consultation form
+    if (consultInline) {
+      consultInline.classList.remove('active');
+      if (ciForm) { ciForm.reset(); ciForm.style.display = ''; }
+      if (ciSuccess) ciSuccess.classList.remove('active');
+      if (ciSubmit) { ciSubmit.disabled = false; ciSubmit.textContent = 'Send My Request'; }
+      if (openConsultBtn) openConsultBtn.style.display = '';
+    }
     updateNext1();
     goToStep(1);
   });
@@ -875,6 +980,64 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
     updateRoomDisplay();
     updateSliderFill();
   });
+
+  // ===== INLINE CONSULTATION FORM =====
+  var openConsultBtn = document.getElementById('open-consult');
+  var consultInline = document.getElementById('consult-inline');
+  var ciForm = document.getElementById('ci-form');
+  var ciSuccess = document.getElementById('ci-success');
+  var ciSubmit = document.getElementById('ci-submit');
+
+  if (openConsultBtn) {
+    openConsultBtn.addEventListener('click', function() {
+      consultInline.classList.add('active');
+      openConsultBtn.style.display = 'none';
+      // Smooth-scroll the form into view
+      setTimeout(function() {
+        consultInline.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        var nameField = document.getElementById('ci-name');
+        if (nameField) nameField.focus();
+      }, 100);
+    });
+  }
+
+  if (ciForm) {
+    ciForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      ciSubmit.disabled = true;
+      ciSubmit.textContent = 'Sending...';
+
+      var data = {};
+      new FormData(ciForm).forEach(function(v, k) { data[k] = v; });
+
+      // reCAPTCHA token
+      if (typeof grecaptcha !== 'undefined') {
+        try {
+          var token = await grecaptcha.execute('6Lck8aQsAAAAALMA-T6nwfkSf7bv4K-mOhkszeKh', { action: 'av_budget_calculator' });
+          data.recaptcha_token = token;
+        } catch (err) { console.warn('recaptcha failed', err); }
+      }
+
+      try {
+        var res = await fetch('https://myaieditor.com/api/form-notify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (res.ok) {
+          ciForm.style.display = 'none';
+          ciSuccess.classList.add('active');
+          ciSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error('Server error');
+        }
+      } catch (err) {
+        ciSubmit.disabled = false;
+        ciSubmit.textContent = 'Send My Request';
+        alert('Something went wrong. Please call us at 727-804-2277.');
+      }
+    });
+  }
 
   // ===== INIT =====
   updateSliderFill();
