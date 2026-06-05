@@ -17,6 +17,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <script src="/components.js" defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6Lck8aQsAAAAALMA-T6nwfkSf7bv4K-mOhkszeKh" defer></script>
 <style>
 /* ===== PAGE-SPECIFIC: TV SIZE GUIDE ===== */
 
@@ -388,6 +389,32 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
           <div class="calc-result-label">Recommended TV Size</div>
           <div class="calc-result-value" id="resultValue">65"</div>
           <div class="calc-result-sub" id="resultSub">for 4K content at a normal viewing angle</div>
+          <div class="calc-result-snap" id="resultSnap" style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1);font-family:var(--font-heading);font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#fff"></div>
+        </div>
+
+        <!-- Email me my results -->
+        <div class="calc-email-capture" id="calcEmailCapture" style="margin-top:24px;padding:28px;background:var(--gray-bg);border-radius:var(--radius);text-align:center">
+          <h3 style="font-size:1.1rem;color:var(--black);margin-bottom:6px">Get this report by email</h3>
+          <p style="font-size:.92rem;color:var(--gray);margin-bottom:18px">We&rsquo;ll send your TV-size recommendation to your inbox &mdash; plus a short note from Chip if you&rsquo;d like help with installation.</p>
+          <form id="calcEmailForm" style="display:flex;gap:10px;max-width:520px;margin:0 auto;flex-wrap:wrap">
+            <input type="hidden" name="site_slug" value="entertainment-pros">
+            <input type="hidden" name="form_type" value="tv-size-calculator">
+            <input type="hidden" name="send_visitor_copy" value="true">
+            <input type="hidden" name="recaptcha_token" id="calcRecaptchaToken" value="">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="recommended_size" id="calcRecommendedSize" value="">
+            <input type="hidden" name="ideal_diagonal" id="calcIdealDiagonal" value="">
+            <input type="hidden" name="viewing_distance" id="calcViewingDistance" value="">
+            <input type="hidden" name="resolution" id="calcResolution" value="">
+            <input type="hidden" name="viewing_angle_mode" id="calcViewingAngleMode" value="">
+            <input type="hidden" name="mode" id="calcMode" value="">
+            <input type="text" name="name" id="calcName" placeholder="Your name (optional)" style="flex:1 1 180px;padding:13px 16px;border:1px solid #ddd;border-radius:8px;font-family:var(--font-body);font-size:.95rem;background:#fff">
+            <input type="email" name="email" id="calcEmail" placeholder="your@email.com" required style="flex:2 1 220px;padding:13px 16px;border:1px solid #ddd;border-radius:8px;font-family:var(--font-body);font-size:.95rem;background:#fff">
+            <button type="submit" class="btn btn-primary" id="calcEmailBtn" style="flex:0 0 auto">Email Me My Results</button>
+          </form>
+          <div id="calcEmailSuccess" style="display:none;margin-top:16px;padding:14px 16px;background:rgba(243,137,41,.1);border:1px solid rgba(243,137,41,.3);border-radius:8px;color:var(--black);font-size:.92rem">
+            <strong>Sent!</strong> Check your inbox for your TV-size report. Chip will follow up within one business day if you&rsquo;d like installation help.
+          </div>
         </div>
       </div>
 
@@ -679,17 +706,32 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
   }
 
   function calculate() {
+    var snap = document.getElementById('resultSnap');
     if (currentMode === 'distance') {
       var distFt = parseFloat(distanceSlider.value);
       var res = getRadio('res-distance');
       var imm = getRadio('imm-distance');
       var out = sizeForDistance(distFt, res, imm);
       var bestSize = closestTV(out.diagIn);
+      var idealDiag = Math.round(out.diagIn);
 
-      resultLabel.textContent = 'Recommended TV Size';
-      resultValue.textContent = bestSize + '"';
+      resultLabel.textContent = 'Ideal TV Size';
+      // Lead with the actual ideal diagonal so the headline number moves with inputs
+      resultValue.textContent = idealDiag + '"';
       resultValue.className = 'calc-result-value';
-      resultSub.textContent = 'Ideal diagonal ' + Math.round(out.diagIn) + '" for ' + res + ' at ' + immLabel(imm) + ' viewing angle (' + round(out.chosenHFOV, 1) + '° FOV)';
+      resultSub.textContent = res + ' at ' + immLabel(imm) + ' viewing angle (' + round(out.chosenHFOV, 1) + '° FOV) from ' + distFt + ' ft';
+      // Secondary line — closest commercially available size
+      if (snap) snap.textContent = (idealDiag === bestSize)
+        ? 'Available off the shelf'
+        : '↳ Closest standard size: ' + bestSize + '"';
+
+      // Capture for email
+      setHidden('calcMode', 'distance');
+      setHidden('calcRecommendedSize', bestSize + '"');
+      setHidden('calcIdealDiagonal', idealDiag + '"');
+      setHidden('calcViewingDistance', distFt + ' ft');
+      setHidden('calcResolution', res);
+      setHidden('calcViewingAngleMode', imm);
     } else {
       var size = parseInt(tvSizeSelect.value);
       var res2 = getRadio('res-size');
@@ -703,8 +745,18 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
       resultValue.textContent = round(minFt, 1) + ' - ' + round(maxFt, 1) + ' ft';
       resultValue.className = 'calc-result-range';
       resultSub.textContent = 'For a ' + size + '" ' + res2 + ' TV at ' + immLabel(imm2) + ' viewing angle (' + round(out2.resultingHFOV, 1) + '° FOV)';
+      if (snap) snap.textContent = 'Sweet spot: ' + round(idealFt, 1) + ' ft';
+
+      // Capture for email
+      setHidden('calcMode', 'size');
+      setHidden('calcRecommendedSize', size + '"');
+      setHidden('calcIdealDiagonal', size + '"');
+      setHidden('calcViewingDistance', round(minFt, 1) + ' - ' + round(maxFt, 1) + ' ft');
+      setHidden('calcResolution', res2);
+      setHidden('calcViewingAngleMode', imm2);
     }
   }
+  function setHidden(id, val) { var el = document.getElementById(id); if (el) el.value = val; }
 
   // Mode toggle
   modeBtns.forEach(function(btn) {
@@ -744,6 +796,39 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
   // Init
   updateSliderFill();
   calculate();
+
+  // ===== Email Me My Results =====
+  var RECAPTCHA_KEY = '6Lck8aQsAAAAALMA-T6nwfkSf7bv4K-mOhkszeKh';
+  var emailForm = document.getElementById('calcEmailForm');
+  if (emailForm) {
+    emailForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (emailForm.querySelector('[name="_honey"]').value) return;
+      var btn = document.getElementById('calcEmailBtn');
+      var originalText = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending...';
+      var data = Object.fromEntries(new FormData(emailForm).entries());
+      // reCAPTCHA v3
+      if (typeof grecaptcha !== 'undefined') {
+        try {
+          var token = await grecaptcha.execute(RECAPTCHA_KEY, { action: 'tv_size_calculator' });
+          data.recaptcha_token = token;
+        } catch (err) { console.warn('recaptcha failed', err); }
+      }
+      // GTM conversion event
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'form_submission', form_type: 'tv-size-calculator', form_location: window.location.pathname });
+      try {
+        await fetch('https://myaieditor.com/api/form-notify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      } catch (err) { console.error('TV-size email submit error', err); }
+      emailForm.style.display = 'none';
+      document.getElementById('calcEmailSuccess').style.display = 'block';
+    });
+  }
 })();
 </script>
 
