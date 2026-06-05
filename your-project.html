@@ -17,6 +17,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <script src="/components.js" defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6Lck8aQsAAAAALMA-T6nwfkSf7bv4K-mOhkszeKh" defer></script>
 <style>
 /* ===== PAGE-SPECIFIC: CONSULTATION ===== */
 
@@ -725,6 +726,16 @@
       });
 
       try {
+        // reCAPTCHA v3 token (invisible, no user friction)
+        if (typeof grecaptcha !== 'undefined') {
+          try {
+            const token = await grecaptcha.execute('6Lck8aQsAAAAALMA-T6nwfkSf7bv4K-mOhkszeKh', { action: 'your_project' });
+            data.recaptcha_token = token;
+          } catch (e) { console.warn('recaptcha failed', e); }
+        }
+        // GTM conversion event
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'form_submission', form_type: 'your-project', form_location: window.location.pathname });
         const res = await fetch('https://myaieditor.com/api/form-notify', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
