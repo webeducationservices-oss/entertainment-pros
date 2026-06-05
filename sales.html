@@ -61,12 +61,26 @@
 .why-buy-card h3{font-size:1.05rem;margin-bottom:10px;color:var(--black)}
 .why-buy-card p{font-size:.9rem;color:var(--gray);line-height:1.7}
 
-/* Brand logo bar */
-.brand-logos{padding:60px 0;background:var(--white)}
-.brand-logos-header{text-align:center;margin-bottom:40px}
-.brand-logos-grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:32px 48px;max-width:1000px;margin:0 auto}
-.brand-logos-grid img{height:48px;width:auto;object-fit:contain;filter:grayscale(100%);opacity:.7;transition:var(--transition)}
-.brand-logos-grid img:hover{filter:grayscale(0%);opacity:1}
+/* Brands ticker (matches home page) */
+.brands-section{padding:var(--section-pad);background:#fafafa;text-align:center}
+.brands-section .section-label,.brands-section .section-title{text-align:center}
+.brands-section .section-subtitle{max-width:620px;margin:0 auto 48px;text-align:center}
+.brands-ticker-wrap{overflow:hidden;position:relative;padding:18px 0}
+.brands-ticker-wrap+.brands-ticker-wrap{padding-top:6px}
+.brands-ticker-wrap::before,.brands-ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.brands-ticker-wrap::before{left:0;background:linear-gradient(90deg,#fafafa,transparent)}
+.brands-ticker-wrap::after{right:0;background:linear-gradient(270deg,#fafafa,transparent)}
+.brands-ticker{display:flex;gap:72px;animation:ticker 50s linear infinite;width:max-content;align-items:center}
+.brands-ticker.reverse{animation:ticker-reverse 55s linear infinite}
+.brands-ticker:hover{animation-play-state:paused}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes ticker-reverse{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+.brand-item{flex-shrink:0;display:flex;align-items:center;justify-content:center;height:72px;min-width:160px;opacity:.6;filter:grayscale(100%);transition:all .35s ease}
+.brand-item:hover{opacity:1;filter:grayscale(0);transform:translateY(-2px)}
+.brand-item img{max-height:56px;max-width:160px;width:auto;object-fit:contain;display:block}
+.brand-item span{font-family:var(--font-heading);font-size:1rem;font-weight:800;color:var(--dark);letter-spacing:1.5px;white-space:nowrap;text-transform:uppercase;line-height:1;font-variant:small-caps}
+.brands-independent{text-align:center;margin-top:32px;font-size:.95rem;color:var(--gray);font-style:italic}
+.brands-independent strong{color:var(--dark)}
 
 /* Responsive */
 @media(max-width:1024px){
@@ -245,25 +259,81 @@
 </section>
 
 <!-- ===== BRAND LOGOS ===== -->
-<section class="brand-logos" aria-label="Brands we carry">
+<!-- ===== BRANDS WE STOCK ===== -->
+<section class="brands-section" aria-label="Brands we stock and sell">
   <div class="container">
-    <div class="brand-logos-header">
-      <span class="section-label">Trusted Brands</span>
-      <h2 class="section-title">Brands We Carry</h2>
+    <span class="section-label">Trusted Equipment</span>
+    <h2 class="section-title">Brands We Stock &amp; Sell</h2>
+    <p class="section-subtitle">Direct manufacturer relationships let us pass real savings on to you — and spec the right equipment for the job, not whatever's on a shelf.</p>
+    <div class="brands-ticker-wrap">
+      <div class="brands-ticker">
+        <div class="brand-item"><img src="/images/samsung.gif" alt="Samsung" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/sony.gif" alt="Sony" width="120" height="40"></div>
+        <div class="brand-item"><span>LG</span></div>
+        <div class="brand-item"><img src="/images/yamaha.gif" alt="Yamaha" width="120" height="40"></div>
+        <div class="brand-item"><span>Crown Audio</span></div>
+        <div class="brand-item"><img src="/images/sonos.gif" alt="Sonos" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/monitor_audio.gif" alt="Monitor Audio" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/epson.gif" alt="Epson" width="120" height="40"></div>
+        <div class="brand-item"><span>BDI Furniture</span></div>
+        <div class="brand-item"><span>Salamander Designs</span></div>
+        <div class="brand-item"><span>SpeakerCraft</span></div>
+        <div class="brand-item"><span>James Loudspeakers</span></div>
+        <div class="brand-item"><img src="/images/stealth_acoustics.gif" alt="Stealth Acoustics" width="120" height="40"></div>
+        <div class="brand-item"><span>SVS Subwoofers</span></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="brand-item"><img src="/images/samsung.gif" alt="Samsung" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/sony.gif" alt="Sony" width="120" height="40"></div>
+        <div class="brand-item"><span>LG</span></div>
+        <div class="brand-item"><img src="/images/yamaha.gif" alt="Yamaha" width="120" height="40"></div>
+        <div class="brand-item"><span>Crown Audio</span></div>
+        <div class="brand-item"><img src="/images/sonos.gif" alt="Sonos" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/monitor_audio.gif" alt="Monitor Audio" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/epson.gif" alt="Epson" width="120" height="40"></div>
+        <div class="brand-item"><span>BDI Furniture</span></div>
+        <div class="brand-item"><span>Salamander Designs</span></div>
+        <div class="brand-item"><span>SpeakerCraft</span></div>
+        <div class="brand-item"><span>James Loudspeakers</span></div>
+        <div class="brand-item"><img src="/images/stealth_acoustics.gif" alt="Stealth Acoustics" width="120" height="40"></div>
+        <div class="brand-item"><span>SVS Subwoofers</span></div>
+      </div>
     </div>
-    <div class="brand-logos-grid">
-      <img src="/images/yamaha.gif" alt="Yamaha" width="120" height="48" loading="lazy">
-      <img src="/images/sony.gif" alt="Sony" width="120" height="48" loading="lazy">
-      <img src="/images/samsung.gif" alt="Samsung" width="120" height="48" loading="lazy">
-      <img src="/images/monitor_audio.gif" alt="Monitor Audio" width="120" height="48" loading="lazy">
-      <img src="/images/lutron.gif" alt="Lutron" width="120" height="48" loading="lazy">
-      <img src="/images/sonos.gif" alt="Sonos" width="120" height="48" loading="lazy">
-      <img src="/images/epson.gif" alt="Epson" width="120" height="48" loading="lazy">
-      <img src="/images/stealth_acoustics.gif" alt="Stealth Acoustics" width="120" height="48" loading="lazy">
-      <img src="/images/urc.gif" alt="URC" width="120" height="48" loading="lazy">
-      <img src="/images/peerless.gif" alt="Peerless" width="120" height="48" loading="lazy">
-      <img src="/images/niles.gif" alt="Niles" width="120" height="48" loading="lazy">
+    <div class="brands-ticker-wrap">
+      <div class="brands-ticker reverse">
+        <div class="brand-item"><img src="/images/lutron.gif" alt="Lutron" width="120" height="40"></div>
+        <div class="brand-item"><span>Draper</span></div>
+        <div class="brand-item"><span>Severtson</span></div>
+        <div class="brand-item"><span>FX Luminaire/Luxor</span></div>
+        <div class="brand-item"><span>Elan / Nice</span></div>
+        <div class="brand-item"><img src="/images/urc.gif" alt="Universal Remote Control" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/peerless.gif" alt="Peerless" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/niles.gif" alt="Niles Audio" width="120" height="40"></div>
+        <div class="brand-item"><span>Vanco</span></div>
+        <div class="brand-item"><span>Sanus</span></div>
+        <div class="brand-item"><span>Ethereal</span></div>
+        <div class="brand-item"><span>Cambridge Sound</span></div>
+        <div class="brand-item"><span>SurgeX</span></div>
+        <div class="brand-item"><span>Panamax</span></div>
+        <div class="brand-item"><span>Furman</span></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="brand-item"><img src="/images/lutron.gif" alt="Lutron" width="120" height="40"></div>
+        <div class="brand-item"><span>Draper</span></div>
+        <div class="brand-item"><span>Severtson</span></div>
+        <div class="brand-item"><span>FX Luminaire/Luxor</span></div>
+        <div class="brand-item"><span>Elan / Nice</span></div>
+        <div class="brand-item"><img src="/images/urc.gif" alt="Universal Remote Control" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/peerless.gif" alt="Peerless" width="120" height="40"></div>
+        <div class="brand-item"><img src="/images/niles.gif" alt="Niles Audio" width="120" height="40"></div>
+        <div class="brand-item"><span>Vanco</span></div>
+        <div class="brand-item"><span>Sanus</span></div>
+        <div class="brand-item"><span>Ethereal</span></div>
+        <div class="brand-item"><span>Cambridge Sound</span></div>
+        <div class="brand-item"><span>SurgeX</span></div>
+        <div class="brand-item"><span>Panamax</span></div>
+        <div class="brand-item"><span>Furman</span></div>
+      </div>
     </div>
+    <p class="brands-independent"><strong>Buy direct, save direct.</strong> Our trade pricing flows straight to your project — you get pro-grade gear without retail markup.</p>
   </div>
 </section>
 
