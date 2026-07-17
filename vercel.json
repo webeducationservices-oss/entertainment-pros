@@ -1,6 +1,6 @@
 {
   "cleanUrls": true,
-  "trailingSlash": true,
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/(.*)",
@@ -18,13 +18,18 @@
   ],
   "redirects": [
     {
-      "source": "/motorized-tv-mount-installation",
-      "destination": "/motorized-pull-down-tv-mount-installation/",
+      "source": "/motorized-pull-down-tv-mount-installation",
+      "destination": "/motorized-tv-mount-installation",
       "permanent": true
     },
     {
-      "source": "/av-professionals-matter",
-      "destination": "/when-work-goes-wrong/",
+      "source": "/when-work-goes-wrong",
+      "destination": "/av-professionals-matter",
+      "permanent": true
+    },
+    {
+      "source": "/contact-thank-you-page",
+      "destination": "/contact",
       "permanent": true
     }
   ]
