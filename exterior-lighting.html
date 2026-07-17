@@ -18,7 +18,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <script src="/components.js" defer></script>
-<script src="https://www.google.com/recaptcha/api.js?render=6Lck8aQsAAAAALMA-T6nwfkSf7bv4K-mOhkszeKh" defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfFsFgtAAAAAJHpFhY1P3rWGwz4xd-UQUsXWZRG" defer></script>
 <style>
 /* ===== PAGE-SPECIFIC: EXTERIOR LIGHTING ===== */
 
@@ -452,7 +452,7 @@ document.getElementById('consultationForm').addEventListener('submit', async (e)
   // reCAPTCHA v3
   if (typeof grecaptcha !== 'undefined') {
     try {
-      const token = await grecaptcha.execute('6Lck8aQsAAAAALMA-T6nwfkSf7bv4K-mOhkszeKh', { action: 'exterior_lighting' });
+      const token = await grecaptcha.execute('6LfFsFgtAAAAAJHpFhY1P3rWGwz4xd-UQUsXWZRG', { action: 'exterior_lighting' });
       data.recaptcha_token = token;
     } catch (err) { console.warn('recaptcha failed', err); }
   }

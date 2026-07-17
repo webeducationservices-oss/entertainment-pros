@@ -18,7 +18,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <script src="/components.js" defer></script>
-<script src="https://www.google.com/recaptcha/api.js?render=6Lck8aQsAAAAALMA-T6nwfkSf7bv4K-mOhkszeKh" defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfFsFgtAAAAAJHpFhY1P3rWGwz4xd-UQUsXWZRG" defer></script>
 <style>
 /* ===== PAGE-SPECIFIC: AV BUDGET CALCULATOR ===== */
 
@@ -1016,7 +1016,7 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;b
       // reCAPTCHA token
       if (typeof grecaptcha !== 'undefined') {
         try {
-          var token = await grecaptcha.execute('6Lck8aQsAAAAALMA-T6nwfkSf7bv4K-mOhkszeKh', { action: 'av_budget_calculator' });
+          var token = await grecaptcha.execute('6LfFsFgtAAAAAJHpFhY1P3rWGwz4xd-UQUsXWZRG', { action: 'av_budget_calculator' });
           data.recaptcha_token = token;
         } catch (err) { console.warn('recaptcha failed', err); }
       }
