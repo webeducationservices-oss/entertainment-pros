@@ -18,6 +18,11 @@
   ],
   "redirects": [
     {
+      "source": "/edit",
+      "destination": "https://myaieditor.com",
+      "permanent": false
+    },
+    {
       "source": "/motorized-pull-down-tv-mount-installation",
       "destination": "/motorized-tv-mount-installation",
       "permanent": true
