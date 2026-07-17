@@ -829,15 +829,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           data.recaptcha_token = token;
         } catch (err) { console.warn('recaptcha failed', err); }
       }
-      // GTM conversion event
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: 'form_submission', form_type: 'tv-size-calculator', form_location: window.location.pathname });
       try {
-        await fetch('https://myaieditor.com/api/form-notify', {
+        var res = await fetch('https://myaieditor.com/api/form-notify', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
+        // GTM conversion event — only on a genuinely accepted lead (not spam/rejected)
+        var accepted = false;
+        try { accepted = res.ok && (await res.json()).accepted === true; } catch (e) {}
+        if (accepted) {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'form_submission', form_type: 'tv-size-calculator', form_location: window.location.pathname });
+        }
       } catch (err) { console.error('TV-size email submit error', err); }
       emailForm.style.display = 'none';
       document.getElementById('calcEmailSuccess').style.display = 'block';
