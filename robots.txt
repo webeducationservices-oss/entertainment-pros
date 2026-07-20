@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.entertainment-pros.com/sitemap.xml
+
+# LLM guide: https://www.entertainment-pros.com/llms.txt

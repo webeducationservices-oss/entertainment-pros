@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Consent Mode v2 (must run before GTM) -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'granted',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -82,6 +93,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
   <!-- myaieditor inline-edit loader (no-op for real visitors) -->
   <script src="/mae-edit-loader.js" async></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.entertainment-pros.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://www.entertainment-pros.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Hurricane Helene Cleanup: Salvaging AV Systems with Entertainment Pros",
+      "item": "https://www.entertainment-pros.com/hurricane-helene-cleanup-salvaging-av-systems-with-entertainment-pros"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -193,34 +230,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </header>
 
-<!-- Mobile Nav -->
-<div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  </button>
-  <a href="/">Home</a>
-  <a href="/services-audio-visual-planning-and-installation">Services</a>
-  <div class="mobile-nav-sub">
-    <a href="/audio-video-planning-and-installation">Audio-Video Planning</a>
-    <a href="/home-theater-design-and-installation">Home Theater</a>
-    <a href="/hanging-tvs-mounting-services">TV Mounting</a>
-    <a href="/lighting-control">Lighting Control</a>
-    <a href="/exterior-illumination">Exterior Lighting</a>
-    <a href="/home-automation">Home Automation</a>
-  </div>
-  <a href="/portfolio">Portfolio</a>
-  <a href="/about-us">About</a>
-  <a href="/blog">Resources</a>
-  <div class="mobile-nav-sub">
-    <a href="/blog">Blog</a>
-    <a href="/your-project">Tell Us About Your Project</a>
-    <a href="/tv-size">TV Size Calculator</a>
-    <a href="/surround-sound-and-setup">Surround Sound Calculator</a>
-    <a href="/av-budget-calculator">AV Budget Calculator</a>
-  </div>
-  <a href="/contact">Contact</a>
-  <a href="tel:727-804-2277" class="mobile-phone">727-804-2277</a>
-</div>
+<!-- Mobile nav - markup injected by components.js (single source of truth) -->
+<div class="mobile-nav" id="mobileNav"></div>
 
 <main>
 
@@ -342,7 +353,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Pinellas County, FL</span>
+            <a href="https://www.google.com/maps/place/Entertainment+Pros+Inc/data=!4m2!3m1!1s0x0:0x4f70f30cc100606e" target="_blank" rel="noopener noreferrer">29656 US Hwy 19 N, Clearwater, FL 33761</a>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
