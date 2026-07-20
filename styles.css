@@ -161,7 +161,7 @@ nav .mega:hover .nav-chevron { transform: rotate(180deg); }
 .mnav-panel > a:hover, .mnav-panel a.active { color: var(--orange); }
 .mnav-all { font-weight: 700 !important; color: #fff !important; }
 .mnav-group { padding: 4px 0 8px; }
-.mnav-group h5 { padding: 12px 22px 4px; margin: 0; color: var(--orange); font-family: var(--font-heading); font-size: .7rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
+.mnav-group .mnav-group-title { display: block; padding: 12px 22px 4px; margin: 0; color: var(--orange); font-family: var(--font-heading); font-size: .7rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
 .mnav-group a { display: block; padding: 10px 22px 10px 34px; color: rgba(255,255,255,.72); font-family: var(--font-body); font-size: .95rem; transition: color .2s; }
 .mnav-group a:hover, .mnav-group a.active { color: var(--orange); }
 

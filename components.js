@@ -74,7 +74,7 @@ function buildMobileNav() {
     if (item.href) panel += `<a class="mnav-all" href="${item.href}">All ${item.label}</a>`;
     if (item.groups) {
       item.groups.forEach(g => {
-        panel += `<div class="mnav-group"><h5>${g.heading}</h5>${g.links.map(linkRow).join('')}</div>`;
+        panel += `<div class="mnav-group"><span class="mnav-group-title">${g.heading}</span>${g.links.map(linkRow).join('')}</div>`;
       });
     }
     if (item.links) panel += item.links.map(linkRow).join('');
