@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Consent Mode v2 (must run before GTM) -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'granted',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TR2FJ4D');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<title>Page Not Found | Entertainment Pros</title>
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="That page has moved or no longer exists. Browse our AV, lighting and smart home services, or call Entertainment Pros at 727-804-2277.">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
+<link rel="preload" as="image" href="/images/hero-luxury-av-hires.jpg" fetchpriority="high">
+<link rel="stylesheet" href="/styles.css">
+<script src="/components.js" defer></script>
+<style>
+/* ===== PAGE-SPECIFIC: HOME ===== */
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.4) 50%,rgba(0,0,0,.2) 100%)}
+.hero-content{position:relative;z-index:2;max-width:700px;padding:0 24px;margin-left:max(24px,calc((100vw - 1200px)/2))}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(243,137,41,.15);border:1px solid rgba(243,137,41,.4);color:var(--orange-light);padding:8px 20px;border-radius:100px;font-family:var(--font-heading);font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;backdrop-filter:blur(8px)}
+.hero-badge svg{width:14px;height:14px;fill:var(--orange-light)}
+.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;font-weight:800;line-height:1.1;margin-bottom:20px;min-height:120px}
+.hero h1 span{color:var(--orange)}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:36px;max-width:560px;font-weight:300;min-height:72px}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+.hero-stats{position:absolute;bottom:60px;right:max(40px,calc((100vw - 1200px)/2));z-index:2;display:flex;gap:40px}
+.hero-stat{text-align:center;color:#fff}
+.hero-stat .number{font-family:var(--font-heading);font-size:2.4rem;font-weight:800;color:var(--orange)}
+.hero-stat .label{font-size:.8rem;letter-spacing:1px;text-transform:uppercase;opacity:.7;margin-top:4px}
+.scroll-indicator{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.5);font-size:.7rem;letter-spacing:2px;text-transform:uppercase}
+.scroll-indicator .line{width:1px;height:40px;background:linear-gradient(180deg,rgba(255,255,255,.5),transparent)}
+
+/* Trust bar */
+.trust-bar{background:var(--black);padding:24px 0}
+.trust-bar .container{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.7);font-size:.85rem;font-weight:400}
+.trust-item svg{width:20px;height:20px;color:var(--orange);flex-shrink:0}
+.trust-item strong{color:#fff;font-weight:600}
+
+/* About */
+.about{padding:var(--section-pad);background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-images{position:relative}
+.about-img-main{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg)}
+.about-img-accent{position:absolute;bottom:-30px;right:-30px;width:200px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);border:4px solid #fff}
+.about-content .section-title{margin-top:8px}
+.about-content p{color:var(--gray);margin-bottom:20px;font-size:1.05rem}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.about-feature{display:flex;align-items:flex-start;gap:12px;padding:16px;border-radius:8px;background:var(--gray-bg)}
+.about-feature svg{width:22px;height:22px;color:var(--orange);flex-shrink:0;margin-top:2px}
+.about-feature h4{font-size:.9rem;margin-bottom:2px}
+.about-feature p{font-size:.82rem;color:var(--gray-light);margin:0}
+
+/* Services */
+.services{padding:var(--section-pad);background:var(--gray-bg)}
+.services-header{text-align:center;margin-bottom:60px}
+.services-header .section-subtitle{margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);position:relative}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.service-card-img{height:220px;overflow:hidden;position:relative}
+.service-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.service-card:hover .service-card-img img{transform:scale(1.06)}
+.service-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.4) 100%)}
+.service-icon{position:absolute;top:16px;right:16px;width:44px;height:44px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:1}
+.service-icon svg{width:20px;height:20px;color:#fff}
+.service-card-body{padding:28px 24px}
+.service-card-body h3{font-size:1.15rem;margin-bottom:8px;color:var(--black)}
+.service-card-body p{font-size:.9rem;color:var(--gray);line-height:1.7;margin-bottom:16px}
+.service-link{font-family:var(--font-heading);font-size:.8rem;font-weight:600;color:var(--orange);display:inline-flex;align-items:center;gap:6px;transition:var(--transition)}
+.service-link:hover{gap:10px;color:var(--orange-dark)}
+.service-link svg{width:14px;height:14px}
+
+/* Gallery */
+.gallery{padding:var(--section-pad);background:var(--white)}
+.gallery-header{text-align:center;margin-bottom:56px;max-width:760px;margin-left:auto;margin-right:auto}
+.gallery-header .section-subtitle{margin:0 auto;max-width:560px}
+.gallery-byline{display:inline-flex;align-items:center;justify-content:center;gap:14px;margin-top:18px;font-family:var(--font-heading);font-size:.78rem;font-weight:600;color:var(--gray);letter-spacing:2px;text-transform:uppercase}
+.gallery-byline .dot{width:4px;height:4px;border-radius:50%;background:var(--orange)}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 240px;gap:18px}
+.gallery-item{border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;background:#0a0a0a}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;display:block}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%);opacity:0;transition:var(--transition);pointer-events:none}
+.gallery-item:hover::after{opacity:1}
+.gallery-item .gallery-label{position:absolute;left:18px;bottom:14px;color:#fff;font-family:var(--font-heading);font-size:.78rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:all .35s ease;z-index:2}
+.gallery-item:hover .gallery-label{opacity:1;transform:translateY(0)}
+.gallery-item:first-child{grid-row:span 2;grid-column:span 2}
+.gallery-item:first-child img{height:100%}
+.gallery-cta{text-align:center;margin-top:48px}
+.gallery-cta a{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-heading);font-weight:600;font-size:.95rem;color:var(--black);padding:14px 28px;border:2px solid var(--black);border-radius:999px;transition:var(--transition)}
+.gallery-cta a:hover{background:var(--black);color:#fff;gap:14px}
+.gallery-cta a svg{width:16px;height:16px}
+
+/* Reviews */
+.reviews{padding:var(--section-pad);background:var(--black);color:#fff}
+.reviews-header{text-align:center;margin-bottom:60px}
+.reviews-header .section-title{color:#fff}
+.reviews-header .section-subtitle{color:rgba(255,255,255,.6);margin:0 auto}
+.reviews-rating{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:32px}
+.reviews-stars{display:flex;gap:4px}
+.reviews-stars svg{width:28px;height:28px;fill:var(--orange)}
+.reviews-score{font-family:var(--font-heading);font-size:2.4rem;font-weight:800}
+.reviews-count{font-size:.9rem;color:rgba(255,255,255,.5)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+.review-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:32px;transition:var(--transition)}
+.review-card:hover{background:rgba(255,255,255,.1);border-color:rgba(243,137,41,.2)}
+.review-stars{display:flex;gap:2px;margin-bottom:16px}
+.review-stars svg{width:16px;height:16px;fill:var(--orange)}
+.review-card p{font-size:.95rem;line-height:1.8;color:rgba(255,255,255,.75);margin-bottom:20px;font-style:italic}
+.review-author{font-family:var(--font-heading);font-weight:600;font-size:.85rem}
+.review-source{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:4px}
+.reviews-cta{text-align:center}
+
+/* FAQ */
+.faq{padding:var(--section-pad);background:var(--gray-bg)}
+.faq-header{text-align:center;margin-bottom:60px}
+.faq-header .section-subtitle{margin:0 auto}
+.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06)}
+.faq-question{width:100%;padding:22px 28px;background:none;border:none;font-family:var(--font-heading);font-size:.95rem;font-weight:600;color:var(--black);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;transition:var(--transition)}
+.faq-question:hover{color:var(--orange)}
+.faq-question svg{width:20px;height:20px;color:var(--gray-light);flex-shrink:0;transition:transform .3s ease}
+.faq-item.open .faq-question svg{transform:rotate(45deg);color:var(--orange)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-answer-inner{padding:0 28px 22px;color:var(--gray);font-size:.92rem;line-height:1.8}
+
+/* Blog */
+.blog{padding:var(--section-pad);background:var(--white)}
+.blog-header{text-align:center;margin-bottom:60px}
+.blog-header .section-subtitle{margin:0 auto}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+.blog-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);border:1px solid rgba(0,0,0,.06)}
+.blog-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.blog-card-body{padding:24px}
+.blog-meta{font-size:.78rem;color:var(--gray-light);font-family:var(--font-heading);font-weight:500;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.blog-card-body h3{font-size:1.05rem;margin-bottom:10px;color:var(--black);line-height:1.4}
+.blog-card-body p{font-size:.88rem;color:var(--gray);line-height:1.7;margin-bottom:16px}
+.blog-link{font-family:var(--font-heading);font-size:.8rem;font-weight:600;color:var(--orange);display:inline-flex;align-items:center;gap:6px}
+.blog-link:hover{gap:10px;color:var(--orange-dark)}
+.blog-cta{text-align:center}
+
+/* Brands Ticker */
+.brands-section{padding:var(--section-pad);background:#fafafa;text-align:center}
+.brands-section .section-label,.brands-section .section-title{text-align:center}
+.brands-section .section-subtitle{max-width:600px;margin:0 auto 48px;text-align:center}
+.brands-ticker-wrap{overflow:hidden;position:relative;padding:18px 0}
+.brands-ticker-wrap+.brands-ticker-wrap{padding-top:6px}
+.brands-ticker-wrap::before,.brands-ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.brands-ticker-wrap::before{left:0;background:linear-gradient(90deg,#fafafa,transparent)}
+.brands-ticker-wrap::after{right:0;background:linear-gradient(270deg,#fafafa,transparent)}
+.brands-ticker{display:flex;gap:72px;animation:ticker 50s linear infinite;width:max-content;align-items:center}
+.brands-ticker.reverse{animation:ticker-reverse 55s linear infinite}
+.brands-ticker:hover{animation-play-state:paused}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes ticker-reverse{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+.brand-item{flex-shrink:0;display:flex;align-items:center;justify-content:center;height:72px;min-width:160px;opacity:.6;filter:grayscale(100%);transition:all .35s ease}
+.brand-item:hover{opacity:1;filter:grayscale(0);transform:translateY(-2px)}
+.brand-item img{max-height:56px;max-width:160px;width:auto;object-fit:contain;display:block}
+.brand-item span{font-family:var(--font-heading);font-size:1rem;font-weight:800;color:var(--dark);letter-spacing:1.5px;white-space:nowrap;text-transform:uppercase;line-height:1;font-variant:small-caps}
+.brands-independent{text-align:center;margin-top:32px;font-size:.95rem;color:var(--gray);font-style:italic}
+.brands-independent strong{color:var(--dark)}
+
+/* Home responsive overrides */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .about-img-accent{right:0}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:14px}
+  .gallery-item{height:240px}
+  .gallery-item:first-child{grid-row:auto;grid-column:auto}
+  .reviews-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-stats{display:none}
+}
+@media(max-width:768px){
+  .hero{min-height:85vh}
+  .hero-content{margin-left:0;padding:0 24px}
+  .hero h1{font-size:2.2rem;min-height:auto}
+  .hero-sub{min-height:auto}
+  .services-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .gallery-item{height:220px}
+  .gallery-item:first-child{grid-row:auto;grid-column:auto}
+  .reviews-grid{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr}
+  .about-features{grid-template-columns:1fr}
+  .hero-buttons{flex-direction:column;align-items:flex-start}
+  .trust-bar .container{gap:24px;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:0 24px}
+  .trust-item{white-space:nowrap;flex-shrink:0}
+}
+</style>
+  <!-- myaieditor inline-edit loader (no-op for real visitors) -->
+  <script src="/mae-edit-loader.js" async></script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TR2FJ4D"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <!-- Top Utility Bar (visible on desktop XL only) -->
+  <div class="header-utility">
+    <div class="util-left">
+      <span class="util-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        License ES12001376
+      </span>
+      <span class="util-divider"></span>
+      <span class="util-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Mon–Fri 8am–5pm
+      </span>
+      <span class="util-divider"></span>
+      <span class="util-item">Serving Pinellas Since 2006</span>
+    </div>
+    <div class="util-right">
+      <a href="tel:727-804-2277" class="util-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        727-804-2277
+      </a>
+    </div>
+  </div>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/images/Transparent Logo.png" alt="Entertainment Pros logo" width="180" height="48">
+    </a>
+    <div class="header-right">
+      <!-- In-row phone (shown only at 1024-1199px when utility bar is hidden) -->
+      <div class="header-info">
+        <a href="tel:727-804-2277">
+          <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          727-804-2277
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li class="mega">
+            <a href="/services-audio-visual-planning-and-installation">Services <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <div class="mega-menu">
+              <div class="mega-inner">
+                <div class="mega-col">
+                  <span class="mega-col-title">Audio &amp; Sound</span>
+                  <a href="/audio-video-planning-and-installation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Audio-Video Planning</a>
+                  <a href="/home-theater-design-and-installation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Home Theater Design</a>
+                  <a href="/living-room-surround-sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Surround Sound Systems</a>
+                  <a href="/condo-tv-and-sound-solutions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="16" y2="6"/></svg> Condo TV &amp; Sound</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col-title">TV &amp; Installations</span>
+                  <a href="/hanging-tvs-mounting-services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> TV Hanging &amp; Mounting</a>
+                  <a href="/installations-residential"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Residential Installations</a>
+                  <a href="/commercial-audio-video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Light Commercial AV</a>
+                  <a href="/sales"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Equipment Sales</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col-title">Lighting</span>
+                  <a href="/lighting-control"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg> Lighting Control</a>
+                  <a href="/led-accent-lighting"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> LED Accent Lighting</a>
+                  <a href="/exterior-illumination"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Exterior Illumination</a>
+                  <a href="/exterior-lighting"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> Landscape Lighting</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col-title">Smart Home</span>
+                  <a href="/home-automation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg> Home Automation</a>
+                  <a href="/automated-shades"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg> Automated Shades</a>
+                </div>
+                <div class="mega-cta">
+                  <p>Not sure what you need? We'll help you figure it out.</p>
+                  <a href="/your-project" class="btn btn-primary">Tell Us About Your Project</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="/portfolio">Portfolio <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/portfolio">Gallery</a></li>
+              <li><a href="/brands">Brands</a></li>
+            </ul>
+          </li>
+          <li><a href="/about-us">About</a></li>
+          <li class="dropdown">
+            <a href="/blog">Resources <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/your-project">Tell Us About Your Project</a></li>
+              <li><a href="/tv-size">TV Size Calculator</a></li>
+              <li><a href="/surround-sound-and-setup">Surround Sound Calculator</a></li>
+              <li><a href="/av-budget-calculator">AV Budget Calculator</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="/your-project" class="btn btn-primary header-cta">Tell Us About Your Project</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav - markup injected by components.js (single source of truth) -->
+<div class="mobile-nav" id="mobileNav"></div>
+
+<main>
+<section style="padding:140px 0 100px;background:var(--gray-bg);">
+  <div class="container" style="max-width:760px;text-align:center;">
+    <div style="font-family:var(--font-heading);font-size:clamp(4rem,14vw,8rem);font-weight:800;line-height:1;color:var(--orange);letter-spacing:-2px;">404</div>
+    <h1 style="font-size:clamp(1.6rem,4vw,2.4rem);color:var(--black);margin:12px 0 16px;">This page took a wrong turn</h1>
+    <p style="color:var(--gray);font-size:1.05rem;line-height:1.8;max-width:560px;margin:0 auto 36px;">
+      The page you&rsquo;re looking for has moved or no longer exists. Here&rsquo;s where most people go next &mdash;
+      or call us at <a href="tel:727-804-2277" style="color:var(--orange);font-weight:700;">727-804-2277</a> and we&rsquo;ll point you in the right direction.
+    </p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;">
+      <a href="/" class="btn btn-primary">Back to Home</a>
+      <a href="/your-project" class="btn btn-outline">Tell Us About Your Project</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;text-align:left;">
+      <a href="/services-audio-visual-planning-and-installation" style="background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:block;">
+        <strong style="font-family:var(--font-heading);color:var(--black);display:block;margin-bottom:5px;">All Services</strong>
+        <span style="color:var(--gray);font-size:.9rem;">Home theater, TV mounting, lighting, automation.</span></a>
+      <a href="/portfolio" style="background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:block;">
+        <strong style="font-family:var(--font-heading);color:var(--black);display:block;margin-bottom:5px;">Our Work</strong>
+        <span style="color:var(--gray);font-size:.9rem;">Completed projects across Pinellas County.</span></a>
+      <a href="/blog" style="background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:block;">
+        <strong style="font-family:var(--font-heading);color:var(--black);display:block;margin-bottom:5px;">Resources</strong>
+        <span style="color:var(--gray);font-size:.9rem;">Guides, tips and free calculators.</span></a>
+      <a href="/contact" style="background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:block;">
+        <strong style="font-family:var(--font-heading);color:var(--black);display:block;margin-bottom:5px;">Contact</strong>
+        <span style="color:var(--gray);font-size:.9rem;">Free onsite consultations, by appointment.</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/images/Transparent Logo.png" alt="Entertainment Pros" width="160" height="42">
+        <p>Licensed and insured Audio/Video Sales and Installation. Serving Pinellas County since 2006. Residential and commercial AV projects.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="/audio-video-planning-and-installation">Audio-Video</a></li>
+          <li><a href="/home-theater-design-and-installation">Home Theater</a></li>
+          <li><a href="/hanging-tvs-mounting-services">TV Mounting</a></li>
+          <li><a href="/lighting-control">Lighting Control</a></li>
+          <li><a href="/exterior-illumination">Exterior Illumination</a></li>
+          <li><a href="/home-automation">Home Automation</a></li>
+          <li><a href="/automated-shades">Automated Shades</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/brands">Brands</a></li>
+          <li><a href="/leave-a-review">Leave a Review</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:727-804-2277">727-804-2277</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <a href="https://www.google.com/maps/place/Entertainment+Pros+Inc/data=!4m2!3m1!1s0x0:0x4f70f30cc100606e" target="_blank" rel="noopener noreferrer">29656 US Hwy 19 N, Clearwater, FL 33761</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>License ES12001376</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2006&ndash;2026 Entertainment Pros. All rights reserved.</span>
+      <span>Serving Clearwater, St. Pete, Palm Harbor, Dunedin &amp; all of Pinellas</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
