@@ -84,8 +84,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .blog-article .ep-note p{margin-bottom:0;font-size:.98rem}
 .ep-note strong{color:var(--black);font-family:var(--font-heading)}
 
-.ep-cmp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0 28px}
-.ep-cmp-grid.ep-cmp-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ep-cmp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(222px,1fr));gap:16px;margin:24px 0 28px}
+.ep-cmp-grid.ep-cmp-2{grid-template-columns:repeat(auto-fit,minmax(222px,1fr))}
 .ep-model{display:flex;flex-direction:column;background:#fff;border:1px solid #e7e7e7;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 .ep-model-top{padding:16px 18px 13px;border-bottom:1px solid #f0f0f0}
 .ep-badge{display:inline-block;margin-bottom:9px;padding:4px 11px;border-radius:100px;font-family:var(--font-heading);font-size:.64rem;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
@@ -95,7 +95,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .ep-model-name{font-family:var(--font-heading);font-weight:800;font-size:1rem;color:var(--black);line-height:1.28}
 .ep-model-sub{font-size:.82rem;color:var(--gray);margin-top:3px;line-height:1.4}
 .blog-article .ep-specs{list-style:none;margin:0;padding:8px 18px 4px}
-.blog-article .ep-specs li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0;padding:8px 0;border-bottom:1px dashed #eee;font-size:.88rem;line-height:1.45}
+.blog-article .ep-specs li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:1px 12px;margin:0;padding:8px 0;border-bottom:1px dashed #eee;font-size:.88rem;line-height:1.45}
 .blog-article .ep-specs li:last-child{border-bottom:0}
 .ep-specs .k{color:var(--gray);flex-shrink:0}
 .ep-specs .v{color:var(--black);font-weight:700;text-align:right}
@@ -120,12 +120,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .ep-cmp-grid:not(.ep-cmp-2){grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 @media(max-width:640px){
-  .ep-cmp-grid,.ep-cmp-grid.ep-cmp-2{grid-template-columns:1fr;gap:14px}
+  /* The grid itself needs no rule here: repeat(auto-fit,minmax(222px,1fr))
+     gives 2x2 in the article column and in the editor preview pane, and
+     stacks to one column on a phone, where there is no room for two. */
+  .ep-cmp-grid,.ep-cmp-grid.ep-cmp-2{gap:12px}
+  .ep-model-top{padding:14px 15px 12px}
+  .ep-model-name{font-size:.95rem}
+  .blog-article .ep-specs{padding:7px 15px 3px}
+  .blog-article .ep-specs li{padding:7px 0;font-size:.85rem}
+  .blog-article .ep-pick{padding:12px 15px 14px;font-size:.84rem}
   .ep-rec-row{grid-template-columns:1fr;gap:5px;padding:14px 16px}
   .blog-article .ep-scroll-hint{display:block}
   .ep-note{padding:16px 18px}
   .ep-table th,.ep-table td{padding:11px 13px}
 }
+
 
 /* ===== POST IMAGERY: figures, pair, gallery ===== */
 .blog-article figure{margin:24px 0}
