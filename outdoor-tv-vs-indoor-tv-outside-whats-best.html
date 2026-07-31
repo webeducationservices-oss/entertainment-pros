@@ -78,6 +78,77 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .blog-post-hero{padding:24px 20px 16px}
 }
 
+
+/* ===== OUTDOOR TV COMPARISON (SunBrite vs Samsung) ===== */
+.ep-note{background:var(--gray-bg);border-left:4px solid var(--orange);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:24px 0}
+.blog-article .ep-note p{margin-bottom:0;font-size:.98rem}
+.ep-note strong{color:var(--black);font-family:var(--font-heading)}
+
+.ep-cmp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0 28px}
+.ep-cmp-grid.ep-cmp-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ep-model{display:flex;flex-direction:column;background:#fff;border:1px solid #e7e7e7;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.ep-model-top{padding:16px 18px 13px;border-bottom:1px solid #f0f0f0}
+.ep-badge{display:inline-block;margin-bottom:9px;padding:4px 11px;border-radius:100px;font-family:var(--font-heading);font-size:.64rem;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
+.ep-badge.shade{background:#e9eef4;color:#3c566e}
+.ep-badge.partial{background:#fdf0da;color:#96610f}
+.ep-badge.sun{background:#fce4d4;color:#b0470a}
+.ep-model-name{font-family:var(--font-heading);font-weight:800;font-size:1rem;color:var(--black);line-height:1.28}
+.ep-model-sub{font-size:.82rem;color:var(--gray);margin-top:3px;line-height:1.4}
+.blog-article .ep-specs{list-style:none;margin:0;padding:8px 18px 4px}
+.blog-article .ep-specs li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0;padding:8px 0;border-bottom:1px dashed #eee;font-size:.88rem;line-height:1.45}
+.blog-article .ep-specs li:last-child{border-bottom:0}
+.ep-specs .k{color:var(--gray);flex-shrink:0}
+.ep-specs .v{color:var(--black);font-weight:700;text-align:right}
+.blog-article .ep-pick{margin:auto 0 0;padding:13px 18px 15px;background:#fbfbfb;border-top:1px solid #f0f0f0;font-size:.87rem;line-height:1.6;color:var(--gray)}
+
+.ep-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0 24px;border:1px solid #e7e7e7;border-radius:var(--radius);box-shadow:var(--shadow);background:#fff}
+.ep-table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:540px}
+.ep-table th{background:var(--black);color:#fff;font-family:var(--font-heading);font-size:.72rem;font-weight:700;letter-spacing:.9px;text-transform:uppercase;padding:13px 15px;text-align:left;vertical-align:bottom}
+.ep-table td{padding:13px 15px;border-bottom:1px solid #f0f0f0;color:var(--gray);vertical-align:top;line-height:1.55}
+.ep-table tbody tr:last-child td{border-bottom:0}
+.ep-table tbody tr:nth-child(even){background:#fafafa}
+.ep-table td:first-child{color:var(--black);font-weight:700}
+.blog-article .ep-scroll-hint{display:none;font-size:.78rem;color:var(--gray-light);margin:0 0 6px;font-style:italic}
+
+.ep-rec{display:grid;gap:11px;margin:22px 0 26px}
+.ep-rec-row{display:grid;grid-template-columns:210px 1fr;gap:18px;align-items:start;background:#fff;border:1px solid #e7e7e7;border-left:3px solid var(--orange);border-radius:var(--radius);padding:15px 19px}
+.ep-rec-when{font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--black);line-height:1.35}
+.ep-rec-what{font-size:.92rem;color:var(--gray);line-height:1.6}
+.ep-rec-what b{color:var(--orange-dark);font-weight:700}
+
+@media(min-width:1500px){
+  .ep-cmp-grid:not(.ep-cmp-2){grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(max-width:640px){
+  .ep-cmp-grid,.ep-cmp-grid.ep-cmp-2{grid-template-columns:1fr;gap:14px}
+  .ep-rec-row{grid-template-columns:1fr;gap:5px;padding:14px 16px}
+  .blog-article .ep-scroll-hint{display:block}
+  .ep-note{padding:16px 18px}
+  .ep-table th,.ep-table td{padding:11px 13px}
+}
+
+/* ===== POST IMAGERY: figures, pair, gallery ===== */
+.blog-article figure{margin:24px 0}
+.blog-article figure img{margin:0;width:100%;height:auto;border-radius:var(--radius);display:block;box-shadow:var(--shadow)}
+.blog-article figcaption{margin-top:10px;font-size:.86rem;line-height:1.6;color:var(--gray)}
+.blog-article figcaption strong{color:var(--black);font-family:var(--font-heading)}
+
+.ep-figpair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:24px 0}
+.blog-article .ep-figpair figure{margin:0}
+.blog-article .ep-figpair figcaption{font-size:.83rem;margin-top:8px}
+
+.blog-article .ep-fig{margin:26px 0}
+
+.ep-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0 28px}
+.blog-article .ep-gallery figure{margin:0}
+.blog-article .ep-gallery img{border-radius:10px;aspect-ratio:16/9;object-fit:cover;box-shadow:var(--shadow);transition:transform .25s ease}
+.blog-article .ep-gallery img:hover{transform:scale(1.02)}
+
+@media(max-width:640px){
+  .ep-figpair{grid-template-columns:1fr;gap:20px}
+  .ep-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .blog-article figcaption{font-size:.84rem}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -253,7 +324,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== PAGE HERO ===== -->
 <!-- ===== BLOG POST HERO ===== -->
 <section class="blog-post-hero">
-  <div class="blog-post-hero-video" style="margin-bottom:32px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)"><iframe src="https://iframe.videodelivery.net/4e405afe80fee5f54967bd428b012a8a" loading="eager" style="border:none;width:100%;aspect-ratio:16/9;display:block;background:#000" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe></div>
+  <img src="/images/outdoor-tv-tiki-hut-waterfront-pinellas.jpg" alt="Outdoor TV mounted in a waterfront tiki hut overlooking a dock in Pinellas County" width="1600" height="900" fetchpriority="high">
   <div class="blog-post-hero-content">
     <span class="blog-post-cat">Home Theater</span>
     <h1>Outdoor TV vs. Indoor TV Outside: What's Best?</h1>
@@ -270,388 +341,338 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== ARTICLE + SIDEBAR ===== -->
 <div class="blog-post-wrap">
   <article class="blog-article">
-      <h2>Do You Really Need an Outdoor TV Outside? Navigating Your Entertainment Choices</h2>
+<h2>Do You Actually Need an Outdoor TV?</h2>
 
-<p>Picture this: a perfect Florida evening, a gentle breeze, and your favorite show or game playing on a big screen right in your backyard. Sounds idyllic, doesn't it? But then reality sets in. You start looking at outdoor TVs, and the price tag can be a bit of a shock. Suddenly, that old indoor TV sitting in the garage starts looking like a tempting, budget-friendly alternative. So, the big question arises: do you really need a specialized outdoor TV, or can an indoor model survive the Florida elements? How long will an indoor TV last outside, especially if you're near the ocean? What's truly necessary for a reliable, enjoyable outdoor viewing experience? Let's dive in and sort out the facts from the fiction, helping you make the best decision for your home and your wallet.</p>
+<p>It starts the same way every time. Somebody pictures a Saturday on the lanai, the game on, a breeze coming off the water. Then they look up what an outdoor TV costs, and the TV sitting unused in the garage starts looking awfully reasonable.</p>
 
-<h2>When an Outdoor TV is an Absolute Must-Have for Your Entertainment Space</h2>
+<p>Fair question, and we get asked it constantly: will an indoor TV survive out there? Sometimes, yes. We have seen indoor sets last four years on a deep covered porch, and we have seen one die in a single August on a pool deck. The difference is never luck. It comes down to sun, water, and salt, in that order.</p>
 
-<p>While the idea of repurposing an indoor TV for your patio might seem appealing for its cost savings, there are crucial situations where a dedicated outdoor television isn't just a luxury, but a necessity. Ignoring these factors can lead to costly replacements, voided warranties, and a frustrating viewing experience. Let's explore the scenarios where investing in a purpose-built outdoor TV is the smart choice.</p>
+<p>Here is how to tell which side of the line your patio falls on.</p>
 
-<h3>Protecting Your Warranty and Investment</h3>
-<p>First things first: manufacturers design indoor TVs for indoor environments. Placing an indoor TV outside, even in a seemingly protected spot, will almost certainly <a href="undefined" target="_blank" rel="noopener">void its warranty</a>. This means if humidity, heat, cold, or even a tiny splash of water causes damage, you're entirely on your own for repair or replacement costs. Outdoor TVs, on the other hand, are engineered to withstand the elements, and their warranties cover their use in outdoor conditions. It's a fundamental difference in design and intended use.</p>
+<img src="/images/outdoor-tv-vs-indoor-tv-outside-whats-best.jpg" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="Contextual Blog Image 1" / width="1600" height="900">
 
-<h3>Battling the Ocean's Embrace: Salt Air and Corrosion</h3>
-<p>If your property is anywhere near the coast, particularly in a beachfront location, the salt air is a relentless enemy of electronics. Indoor TVs are simply not built to resist this corrosive environment. The salt particles in the air will rapidly degrade internal components, leading to premature failure. Even if an indoor TV is placed in a protective box, it's still exposed to the ambient humidity and microscopic salt particles that can seep into any unsealed enclosure. For beachfront properties, a dedicated outdoor TV is non-negotiable. These units feature sealed enclosures, sometimes even waterproof, that protect the delicate electronic components from salt, moisture, and dust, ensuring a much longer lifespan and reliable performance. We highly recommend them for these challenging environments.</p>
+<h2>When You Need a Real Outdoor TV</h2>
 
-<h3>Direct Rain? Outdoor TV Only, Please!</h3>
-<p>This might seem obvious, but it bears repeating: an indoor TV will not last if it's exposed to direct rain. Even a brief downpour can short-circuit components, leading to irreversible damage. Outdoor TVs, with their IP (Ingress Protection) ratings, are designed to withstand direct water exposure, from light splashes to sustained rain. If your intended TV spot is open to the sky and could get hit with rain, an outdoor TV is your only viable option. Don't risk it with an indoor unit; the repair costs will far outweigh the initial savings.</p>
+<p>These are the situations where we will not install an indoor set, even if a customer asks. Not because we want to sell a more expensive television, but because we would rather not come back in eight months to take a dead one off the wall.</p>
 
-<div style="text-align: center; margin: 25px 0;"><img src="/images/outdoor-tv-vs-indoor-tv-outside-whats-best.jpg" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="Contextual Blog Image 1" /></div>
+<h3>Your Warranty Ends the Day You Hang It Outside</h3>
 
-<h3>When Picture Quality Truly Matters Outdoors</h3>
-<p>Have you ever tried to watch a regular TV outside on a sunny day? It's often a frustrating experience, with glare, washed-out colors, and a practically invisible screen. If picture quality is important to you - and let's be honest, for most of us, it is - then an outdoor TV is essential. They are specifically designed with brighter screens (measured in nits), anti-glare coatings, and enhanced contrast ratios to combat ambient light. This means clearer, more vibrant images even in partial sunlight, making your viewing experience genuinely enjoyable. You wouldn't want to invest in an outdoor entertainment setup only to squint at a dim, reflective screen, would you? For a complete entertainment experience, remember that great visuals pair perfectly with superior sound. Explore our options for <a href="https://www.entertainment-pros.com/killer-outdoor-sound">killer outdoor sound</a> to truly elevate your space.</p>
+<p>Start here, because it decides everything after it. Indoor televisions are warranted for indoor use. Mount one outside, even somewhere well protected, and the coverage is gone. Humidity kills it in month seven, that is your problem, not the manufacturer's.</p>
 
-<h3>Full Sun Exposure vs. Covered Patios</h3>
-<p>This is a critical distinction. If your TV will be in full, direct sunlight for any significant part of the day, an indoor TV simply won't cut it. Beyond the picture quality issues, the heat generated by direct sun can quickly overheat and damage internal components not designed for such thermal stress. While covered patios offer some protection, even they can be problematic. If your covered patio still receives direct sun at certain times of the day, or if rain mist can blow in, an outdoor TV is still the safer bet. Indoor TVs might "get away with it" in deeply recessed, fully shaded, and bone-dry covered lanais, but it's always a gamble.</p>
+<p>Outdoor televisions are warranted for exactly what you are about to do with them. That is a real part of what the extra money buys, and it is the part people forget to put in the comparison.</p>
 
-<h3>The Limitations of Covers and Boxes</h3>
-<p>Many homeowners consider covers or protective boxes for their indoor TVs. While these accessories can offer some level of physical protection from dust and direct splashes, they come with significant drawbacks. First, you have to remember to use them every single time. Forget once, and a sudden storm could spell disaster. Second, they don't solve the fundamental issues of humidity, heat dissipation, or salt air corrosion. A box might slow down the degradation, but it won't stop it. The internal environment of a box can still trap heat and moisture, potentially accelerating component failure. For a truly worry-free outdoor entertainment area, especially in Florida's climate, a dedicated outdoor TV is designed to handle these environmental challenges without constant vigilance.</p>
+<h3>Salt Air Eats Electronics</h3>
 
-<h2>Indoor TVs Are Okay When... You're Willing to Take a Chance and Replace Often</h2>
+<p>Anywhere near the water, salt is the thing that gets you. It does not need rain or a storm. It arrives on the breeze, settles on the boards inside the set, and corrodes them quietly for months before anything looks wrong.</p>
 
-<p>Despite the strong arguments for dedicated outdoor TVs, there are specific, limited scenarios where using an indoor TV outside might be an acceptable compromise. These situations usually involve a trade-off between initial cost savings and long-term durability, performance, and peace of mind. If you're considering this route, it's essential to understand the inherent risks and limitations.</p>
+<p>An indoor TV has no defense against it. The chassis is not sealed, because it was never meant to be. Even inside an enclosure it is breathing the same salty air, just more slowly. On the beach side of Pinellas, this is not a judgment call. Outdoor sets use sealed enclosures specifically so salt cannot reach the electronics, and it is the single biggest reason they last out here.</p>
 
-<h3>The Fully Covered Lanai Advantage</h3>
-<p>The most suitable environment for an indoor TV outdoors is a <strong>fully covered lanai or patio that is deeply recessed</strong>. This means the TV is significantly inward from any direct rain, direct sun exposure, and water spray from sprinklers or wind-blown rain. The more protected the space, the better. Think of it as an "outdoor room" rather than an open-air space. In such an environment, the TV is shielded from the most damaging elements, potentially extending its lifespan compared to an exposed setup. This also applies to considerations for <a href="https://www.entertainment-pros.com/condo-tv-and-sound-solutions">condo TV and sound solutions</a> where outdoor spaces might be more compact and naturally sheltered.</p>
+<h3>If Rain Can Reach It, the Decision Is Already Made</h3>
 
-<h3>Away from the Salt Water's Reach</h3>
-<p>If your property is far inland, away from the corrosive effects of salt air, an indoor TV will face one less major threat. While humidity remains a concern across much of Florida, eliminating salt spray significantly reduces the speed of internal component corrosion. This doesn't make an indoor TV indestructible, but it does remove a major accelerant for its demise.</p>
+<p>Obvious, but worth saying because people gamble on it anyway. An indoor TV and direct rain is a one time event. Not a slow decline, an ending. One good afternoon storm blowing sideways under the overhang is enough.</p>
 
-<h3>Fully Enclosed in a Protective Box on a Lanai</h3>
-<p>We've discussed the limitations of boxes, but for an indoor TV on a well-covered lanai, a truly sealed and well-ventilated protective enclosure can add a layer of defense. This isn't just a cover; it's a structural housing designed to protect the TV from dust, insects, and incidental splashes. However, even the best enclosures can't perfectly regulate internal temperature or humidity, nor can they prevent all forms of environmental ingress over time. It's a mitigation strategy, not a complete solution, and still requires careful consideration of ventilation to prevent overheating.</p>
+<p>Outdoor televisions carry an IP rating precisely for this, and we break down what those numbers actually mean further down. If your spot is open to the sky, stop reading and buy the outdoor set. The repair bill is always larger than the difference in price.</p>
 
-<div style="text-align: center; margin: 25px 0;"><img src="/images/outdoor-tv-vs-indoor-tv-outside-whats-best-body-1.jpg" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="Contextual Blog Image 2" /></div>
+<h3>Glare Is What Actually Ruins It</h3>
 
-<h3>Accepting the Inevitable: Frequent Replacements</h3>
-<p>Perhaps the most critical factor in deciding if an indoor TV is "okay" outside is your willingness to treat it as a disposable item. If you're okay with buying a new TV every so often - perhaps every one to three years, depending on exposure and luck - then an indoor TV might fit your budget. You must accept that a bad storm, a forgotten cover, or just the relentless march of humidity will eventually take it out. If you don't watch TV often outdoors, or if it's not a critical entertainment hub, this disposable approach might be acceptable to you. For those looking to <a href="https://www.entertainment-pros.com/upgrade-your-outdoor-entertainment-area-and-enjoy-the-tampa-bay-summer">upgrade your outdoor entertainment area</a> with a more permanent and reliable solution, this approach is usually not ideal.</p>
+<p>Everyone worries about the TV dying. What people actually complain about is that they cannot see anything.</p>
 
-<h3>Starting with What You Have</h3>
-<p>Do you have an older, good-condition TV sitting in your garage or storage that you're not using? Starting off with it outside might be a low-cost way to test the waters of outdoor entertainment. Just go into it with open eyes, knowing that its lifespan will be limited. It's a temporary solution to gauge your interest and usage patterns before committing to a more robust, long-term outdoor TV investment. However, be prepared: with an indoor TV outside, replacing it more often is an inevitable part of the experience.</p>
+<p>Take a regular TV outside on a bright afternoon and you get a mirror. Washed out color, black bars that reflect your own patio back at you, and a screen you end up squinting at. Outdoor televisions fight that with much higher brightness, measured in nits, plus anti glare coatings and panels tuned for high ambient light. That is the whole reason a full sun model exists.</p>
 
-<h2>Top 5 Outdoor TV Brands & Models: A Detailed Comparison for Entertainment Pros</h2>
+<p>Worth remembering that the picture is only half of it. A screen you cannot hear over the pool pump is its own kind of disappointment, so look at <a href="https://www.entertainment-pros.com/killer-outdoor-sound">outdoor sound</a> at the same time.</p>
 
-<p>When you decide that a dedicated outdoor TV is the right choice for your entertainment needs, navigating the market can be daunting. Outdoor TV manufacturers do not publish audited model-by-model sales numbers, so our shortlist below uses a combination of current U.S. retailer availability, review activity, manufacturer visibility, and overall market presence to provide a comprehensive comparison. The columns are arranged roughly by retail traction, not necessarily by picture quality. Let's break down some of the leading options available today.</p>
+<h3>Full Sun Is a Heat Problem, Not Just a Glare Problem</h3>
 
-<h3>Outdoor TV Construction and Weather Sealing</h3>
-<p>The foundation of any good outdoor TV is its ability to withstand the elements. Here's how some top brands compare in their construction and weather sealing:</p>
-<p><table>
+<p>This is the one people underestimate. Direct Florida sun on a dark screen does more than wash out the picture. It bakes the panel. Indoor sets are engineered for a climate controlled room, not for surface temperatures on a west facing wall in July, and the heat degrades components faster than anything except salt.</p>
+
+<p>A covered patio helps, but it is not automatically safe. If sun swings under the roof for two hours every afternoon, or if rain mist blows in sideways, you are still in outdoor TV territory. The only genuinely forgiving spot is a deep, fully shaded, consistently dry lanai.</p>
+
+<h3>Covers and Boxes Buy Time, They Do Not Buy Immunity</h3>
+
+<p>Two problems with the cover approach.</p>
+
+<p>The first is that it depends on you. Every time, without forgetting, including the afternoon you left for dinner and a storm rolled through. One miss undoes the whole strategy.</p>
+
+<p>The second is bigger: a cover does nothing about the things that actually kill outdoor televisions. Humidity still gets in. Salt still gets in. And a sealed box with a running TV inside traps heat, which can shorten its life rather than extend it. A cover slows the decline. It does not stop it.</p>
+
+<h2>When an Indoor TV Outside Is a Reasonable Bet</h2>
+
+<p>We are not going to pretend it never works. There are real situations where putting an indoor set outside is a sensible call, as long as you go in knowing what you signed up for.</p>
+
+<h3>A Deeply Covered Lanai</h3>
+
+<p>The best case is a lanai that is genuinely an outdoor room. Solid roof, set well back, no direct sun on the wall at any hour, no sprinkler spray, no rain blowing in. The further inside that envelope the TV sits, the better it does. Screened porches and recessed <a href="https://www.entertainment-pros.com/condo-tv-and-sound-solutions">condo balconies</a> often qualify, since they tend to be sheltered on three sides already.</p>
+
+<h3>Well Inland, Away From the Salt</h3>
+
+<p>Get far enough from the Gulf and you remove the biggest single threat. Humidity is still working on the set, because this is Florida, but without salt the corrosion clock runs much slower. It does not make an indoor TV weatherproof. It just takes the fastest killer off the table.</p>
+
+<h3>A Sealed Enclosure on a Covered Lanai</h3>
+
+<p>A real enclosure is different from a slipcover. A proper housing keeps out dust, insects and incidental splashes, and on an already covered lanai it adds a genuine layer of protection.</p>
+
+<p>Just know its limits. It cannot regulate humidity, and if it is not ventilated properly it will cook the television it is protecting. Treat it as risk reduction, not a solution.</p>
+
+<h3>You Are Fine Treating It as Disposable</h3>
+
+<p>Honestly, this is the deciding factor more often than any spec. If you are genuinely at peace with replacing the TV every one to three years, an indoor set can pencil out. Something will get it eventually: a storm, a forgotten cover, or just humidity doing what humidity does.</p>
+
+<p>That math works fine for a set that gets watched a few times a year. It stops working when the patio becomes where everyone actually hangs out. At that point most people would rather <a href="https://www.entertainment-pros.com/upgrade-your-outdoor-entertainment-area-and-enjoy-the-tampa-bay-summer">do it once and be done</a>.</p>
+
+<h3>You Already Own the TV</h3>
+
+<p>If there is a decent television sitting in the garage doing nothing, hanging it outside is a cheap way to learn how you will actually use the space. Maybe you find you are out there four nights a week. Maybe you find it goes unwatched all summer.</p>
+
+<p>That is useful information, and it costs you nothing but a TV you were not using. Go in expecting a short life, and let it tell you what to buy for real.</p>
+
+<h2>SunBrite vs Samsung: Which Outdoor TV Actually Fits Your Space</h2>
+
+<p>Two brands come up in almost every outdoor TV conversation we have: SunBrite and Samsung. Both build genuinely good televisions. The mistake most people make is shopping by brand first.</p>
+
+<p>Shop by sunlight instead, then check the weather rating. Get those two right and either brand will make you happy. Get them wrong and you will spend every afternoon squinting at an expensive screen, wondering why it looked so much better in the showroom.</p>
+
+<h3>First, Direct Sunlight or Indirect Sunlight?</h3>
+
+<p>This is the whole decision, and it takes about a minute to answer. Go stand where the TV is going. Do it around two or three in the afternoon, because that is when the Florida sun is worst and, not coincidentally, when you will be out there watching.</p>
+
+<p>Then look at the wall, not the sky. You are asking one question: does sunlight physically land on the spot where the screen will be?</p>
+
+<ul>
+<li><strong>Indirect sunlight.</strong> The space is bright, but no sun reaches the wall. A fully covered lanai, a screened porch, a patio with a solid roof over it. Bright ambient light, zero direct rays on the panel.</li>
+<li><strong>Partial direct sunlight.</strong> Sun touches the screen for part of the day. A pergola with slats, a deep overhang that lets in low morning or late afternoon light, a covered patio that is open on the west side.</li>
+<li><strong>Full direct sunlight.</strong> An open pool deck, an uncovered patio, a summer kitchen with nothing overhead. Sun lands on the screen and stays there.</li>
+</ul>
+
+<div class="ep-figpair">
+  <figure>
+    <img src="/images/covered-outdoor-kitchen-tv-indirect-light.jpg" alt="Covered rooftop outdoor kitchen with a wall mounted TV in indirect light" width="1600" height="900" loading="lazy">
+    <figcaption><strong>Indirect light.</strong> Fully covered, bright all day, but the sun never touches the screen.</figcaption>
+  </figure>
+  <figure>
+    <img src="/images/full-sun-outdoor-tv-daylight-pinellas.jpg" alt="Outdoor TV in full direct sunlight showing a weather forecast on a Pinellas County patio" width="1600" height="900" loading="lazy">
+    <figcaption><strong>Direct light.</strong> Sun lands on the panel. This is where brightness stops being a spec and starts being the whole point.</figcaption>
+  </figure>
+</div>
+
+<p>Manufacturers sort their models the same three ways, which makes the shopping simple once you know your answer. Full shade models for fully covered areas with indirect light only. Partial sun models for spaces that catch a few hours. Full sun models for anything exposed.</p>
+
+<p>Putting a fully covered model in a full sun spot is the most common mistake we get called out to fix. It is also the most expensive, because the fix is a new television.</p>
+
+<div class="ep-note">
+<p><strong>One thing to know about brightness numbers.</strong> Manufacturers do not all measure the same way. Some publish <em>peak</em> brightness, which is what a small area of the picture hits for a moment. Others publish <em>sustained full screen</em> brightness, which is what the entire panel holds all day. Sustained is the number that matters outdoors, and it is always the lower of the two. SunBrite rates the Veranda 4 at 600 nits sustained full screen, while the older Veranda 3 was advertised at 1,000 nits peak. The newer set is not dimmer in practice. It is measured more honestly.</p>
+</div>
+
+<h3>What the IP Rating Actually Means</h3>
+
+<p>Every outdoor TV lists an IP rating, usually IP54, IP55 or IP56. IP stands for Ingress Protection, and it is a real international standard (IEC 60529), not marketing language. Two digits, and each one means something specific.</p>
+
+<p><strong>The first digit is solids and dust.</strong> On outdoor televisions it is almost always a 5, which means dust protected: enough dust cannot get in to interfere with how the set operates. A 6 would mean completely dust tight.</p>
+
+<p><strong>The second digit is water,</strong> and this is where the models actually differ.</p>
+
+<div class="ep-tablewrap">
+<table class="ep-table">
 <thead>
-<tr>
-<th>Construction feature</th>
-<th>Samsung The Terrace LST7D</th>
-<th>Element 55″ Outdoor Roku TV</th>
-<th>Sylvox Deck Pro 3.0</th>
-<th>Furrion Aurora Partial-Sun 2</th>
-<th>SunBrite Veranda 4</th>
-</tr>
+<tr><th>Rating</th><th>Protects against</th><th>What that means on your patio</th></tr>
 </thead>
 <tbody>
-<tr>
-<td>Designed for permanent outdoor use</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-</tr>
-<tr>
-<td>Metal exterior or housing</td>
-<td>&#9989; Solid metal</td>
-<td>&#9989; Weather-resistant metal</td>
-<td>&#9989; Full-metal enclosure</td>
-<td>&#9989; Powder-coated metal</td>
-<td>&#9989; Industrial-grade aluminum</td>
-</tr>
-<tr>
-<td>IP55 or higher</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-</tr>
-<tr>
-<td>Higher IP56 rating</td>
-<td>&#9989;</td>
-<td>&#10060;</td>
-<td>&#9989;</td>
-<td>&#10060;</td>
-<td>&#10060;</td>
-</tr>
-<tr>
-<td>Protected connection compartment</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9723;</td>
-<td>&#9723;</td>
-<td>&#9989;</td>
-</tr>
-<tr>
-<td>Tempered protective screen</td>
-<td>&#9723;</td>
-<td>&#9989;</td>
-<td>&#9723;</td>
-<td>&#9989;</td>
-<td>&#10060;</td>
-</tr>
-<tr>
-<td>Rated impact-resistant screen</td>
-<td>&#9723;</td>
-<td>&#9723;</td>
-<td>&#9723;</td>
-<td>&#9989; IK09</td>
-<td>&#10060;</td>
-</tr>
-<tr>
-<td>Anti-glare screen treatment</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-</tr>
-<tr>
-<td>Outdoor remote protection</td>
-<td>&#9989; IP56 remote</td>
-<td>&#9989; Protective sleeve</td>
-<td>&#9723;</td>
-<td>&#9989; Protective sleeve</td>
-<td>&#9989; Weatherproof remote</td>
-</tr>
-<tr>
-<td>Automatic internal cooling</td>
-<td>&#9723;</td>
-<td>&#9989;</td>
-<td>&#9723;</td>
-<td>&#9723;</td>
-<td>&#9723;</td>
-</tr>
-<tr>
-<td>Corrosion-resistant construction stated</td>
-<td>&#9989;</td>
-<td>&#9723;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-</tr>
-<tr>
-<td>Weatherproof media-device storage</td>
-<td>&#9989;</td>
-<td>&#9989; Limited space</td>
-<td>&#9723;</td>
-<td>&#9723;</td>
-<td>&#9989; Large media bay</td>
-</tr>
+<tr><td>IP54</td><td>Splashing water from any direction</td><td>Fine under a solid roof. Handles humidity, spray and blowing mist, but it is not built for direct rain.</td></tr>
+<tr><td>IP55</td><td>Low pressure water jets from any direction</td><td>The common rating on quality outdoor TVs. Takes real rain and a rinse from the garden hose.</td></tr>
+<tr><td>IP56</td><td>Powerful water jets</td><td>The tougher tier. Worth having for full exposure, driving storm rain and pressure washing nearby.</td></tr>
 </tbody>
-</table></p>
+</table>
+</div>
 
-<h3>How Each Outdoor TV Is Sealed</h3>
-<p>Understanding the sealing methods is crucial for assessing true outdoor durability:</p>
-<p><table>
+<p>For a covered lanai in Pinellas, IP54 will survive. For anything that sees actual rain, and certainly for a pool deck, go IP55 at minimum. We lean toward IP56 on waterfront installs, because wind driven rain off the bay does not arrive politely from above.</p>
+
+<figure class="ep-fig">
+  <img src="/images/outdoor-tv-mount-install-behind-the-screen.jpg" alt="Back of an outdoor TV on an articulating mount during installation under a thatched tiki hut" width="1600" height="900" loading="lazy">
+  <figcaption>The part nobody photographs. Mount, cable routing and the sealed connection behind the screen are what actually decide whether the set survives its first storm season.</figcaption>
+</figure>
+
+<p>One caveat worth saying out loud: an IP rating covers the television, not the wiring behind it. A perfectly rated set with an unsealed connection is still a callback waiting to happen. That part is on the installer.</p>
+
+<h3>SunBrite, Model by Model</h3>
+
+<p>SunBrite builds outdoor televisions and nothing else. Sealed aluminum chassis, gasketed compartment for the connections, no cover required. Four families, sorted by exactly one thing: how much light the screen has to fight.</p>
+
+<div class="ep-cmp-grid">
+
+  <div class="ep-model">
+    <div class="ep-model-top">
+      <span class="ep-badge shade">Full Shade</span>
+      <div class="ep-model-name">Veranda 4 Series</div>
+      <div class="ep-model-sub">The covered lanai television</div>
+    </div>
+    <ul class="ep-specs">
+      <li><span class="k">Brightness</span> <span class="v">600 nits sustained</span></li>
+      <li><span class="k">Sizes</span> <span class="v">65 and 75 inch</span></li>
+      <li><span class="k">Screen</span> <span class="v">Direct lit, anti glare</span></li>
+    </ul>
+    <p class="ep-pick">Right call for a roofed lanai or screened porch with indirect light only. Put it anywhere the sun reaches and you will be disappointed.</p>
+  </div>
+
+  <div class="ep-model">
+    <div class="ep-model-top">
+      <span class="ep-badge partial">Partial Sun</span>
+      <div class="ep-model-name">Signature 2 Series</div>
+      <div class="ep-model-sub">For spaces that catch some light</div>
+    </div>
+    <ul class="ep-specs">
+      <li><span class="k">Brightness</span> <span class="v">Around 700 nits</span></li>
+      <li><span class="k">Best for</span> <span class="v">Pergolas, deep overhangs</span></li>
+      <li><span class="k">Screen</span> <span class="v">Anti glare</span></li>
+    </ul>
+    <p class="ep-pick">The safe middle. If your patio is covered but still gets a slice of afternoon sun, this is usually the one.</p>
+  </div>
+
+  <div class="ep-model">
+    <div class="ep-model-top">
+      <span class="ep-badge sun">Full Sun</span>
+      <div class="ep-model-name">Pro 2 Series</div>
+      <div class="ep-model-sub">Direct sun, no roof</div>
+    </div>
+    <ul class="ep-specs">
+      <li><span class="k">Brightness</span> <span class="v">1,500 nits</span></li>
+      <li><span class="k">Screen</span> <span class="v">Tempered glass shield</span></li>
+      <li><span class="k">Built for</span> <span class="v">Heat and glare</span></li>
+    </ul>
+    <p class="ep-pick">Pool decks and open patios. More than twice the punch of a shade model, and you can feel the difference at noon.</p>
+  </div>
+
+  <div class="ep-model">
+    <div class="ep-model-top">
+      <span class="ep-badge sun">Full Sun</span>
+      <div class="ep-model-name">Solis Series</div>
+      <div class="ep-model-sub">SunBrite's brightest</div>
+    </div>
+    <ul class="ep-specs">
+      <li><span class="k">Brightness</span> <span class="v">1,500 nits</span></li>
+      <li><span class="k">Screen</span> <span class="v">Brightest anti glare</span></li>
+      <li><span class="k">Built for</span> <span class="v">Worst case exposure</span></li>
+    </ul>
+    <p class="ep-pick">For the brutal spots. West facing, full exposure, water throwing glare back at the screen all afternoon.</p>
+  </div>
+
+</div>
+
+<figure class="ep-fig">
+  <img src="/images/outdoor-tv-under-pergola-partial-sun.jpg" alt="Outdoor TV mounted under a pergola getting partial afternoon sun" width="1600" height="900" loading="lazy">
+  <figcaption>A partial sun spot. Covered overhead, wide open on one side, and bright enough by late afternoon that a full shade model would wash out.</figcaption>
+</figure>
+
+<h3>Samsung The Terrace, Model by Model</h3>
+
+<p>Samsung comes at this from the opposite direction. The Terrace is a QLED panel, the same picture technology in their high end indoor sets, wrapped in an IP55 weather resistant body. Full Tizen smart platform built in, so apps and voice control work the way they do on your living room set.</p>
+
+<p>If picture quality is what you care about most, this is the lineup to look at. It splits two ways.</p>
+
+<div class="ep-cmp-grid ep-cmp-2">
+
+  <div class="ep-model">
+    <div class="ep-model-top">
+      <span class="ep-badge partial">Partial Sun</span>
+      <div class="ep-model-name">The Terrace, Partial Sun</div>
+      <div class="ep-model-sub">LST7 series</div>
+    </div>
+    <ul class="ep-specs">
+      <li><span class="k">Sizes</span> <span class="v">55 to 85 inch</span></li>
+      <li><span class="k">Panel</span> <span class="v">QLED 4K, anti glare</span></li>
+      <li><span class="k">Weather</span> <span class="v">IP55 rated</span></li>
+      <li><span class="k">Smart TV</span> <span class="v">Full Tizen built in</span></li>
+    </ul>
+    <p class="ep-pick">Covered patios and shaded outdoor rooms. The best picture you can put under a roof, and the widest size range out there.</p>
+  </div>
+
+  <div class="ep-model">
+    <div class="ep-model-top">
+      <span class="ep-badge sun">Full Sun</span>
+      <div class="ep-model-name">The Terrace, Full Sun</div>
+      <div class="ep-model-sub">LST9 series</div>
+    </div>
+    <ul class="ep-specs">
+      <li><span class="k">Brightness</span> <span class="v">2,000+ nits</span></li>
+      <li><span class="k">Sizes</span> <span class="v">65 to 85 inch</span></li>
+      <li><span class="k">Panel</span> <span class="v">QLED 4K, anti glare</span></li>
+      <li><span class="k">Weather</span> <span class="v">IP55 rated</span></li>
+    </ul>
+    <p class="ep-pick">The brightest set in this comparison. Open pool deck in July, and it still holds up.</p>
+  </div>
+
+</div>
+
+<figure class="ep-fig">
+  <img src="/images/outdoor-tv-pergola-string-lights.jpg" alt="Outdoor TV under a pergola with string lights during evening viewing" width="900" height="506" loading="lazy">
+  <figcaption>Evening is the easy part. Any of these look good after sunset. The models only separate themselves at two in the afternoon.</figcaption>
+</figure>
+
+<h3>So Which One</h3>
+
+<p>Honest answer: they are both good, and they are good at different things.</p>
+
+<p class="ep-scroll-hint">Swipe to see the full table</p>
+<div class="ep-tablewrap">
+<table class="ep-table">
 <thead>
-<tr>
-<th>Sealing detail</th>
-<th>Samsung</th>
-<th>Element</th>
-<th>Sylvox</th>
-<th>Furrion</th>
-<th>SunBrite</th>
-</tr>
+<tr><th>&nbsp;</th><th>SunBrite</th><th>Samsung The Terrace</th></tr>
 </thead>
 <tbody>
-<tr>
-<td>Enclosure rating</td>
-<td>IP56</td>
-<td>IP55</td>
-<td>IP56</td>
-<td>IP55</td>
-<td>IP55</td>
-</tr>
-<tr>
-<td>Port protection method</td>
-<td>Built-in Media Bay with a six-thumbscrew cover that protects cables and devices from water and dust</td>
-<td>Foam-lined rear panel secured with seven screws; cords exit through a compressed opening</td>
-<td>IP56-rated full-metal enclosure; port-cover construction is not clearly documented</td>
-<td>Heavy-duty weatherproof housing; detailed port-cover construction is not published</td>
-<td>Large weatherproof rear media bay with device storage and USB power</td>
-</tr>
-<tr>
-<td>Screen protection method</td>
-<td>Anti-reflection outdoor panel</td>
-<td>Tempered anti-glare glass</td>
-<td>Anti-glare panel within a metal enclosure</td>
-<td>IK09-rated XtremeShield tempered glass</td>
-<td>Anti-glare screen inside an aluminum enclosure</td>
-</tr>
-<tr>
-<td>Water limitation</td>
-<td>Water-resistant, not submersible</td>
-<td>Rain and ordinary water exposure only; no pressurized spraying or submersion</td>
-<td>Water-resistant, not intended for submersion</td>
-<td>Weather-resistant, not submersible</td>
-<td>Weather-resistant, not submersible</td>
-</tr>
+<tr><td>What it is</td><td>Outdoor television, purpose built</td><td>Indoor QLED engineered to live outside</td></tr>
+<tr><td>Light conditions covered</td><td>All three, four separate series</td><td>Two, partial sun and full sun</td></tr>
+<tr><td>Picture quality</td><td>Very good, tuned to beat glare</td><td>Excellent, better contrast and color</td></tr>
+<tr><td>Smart platform</td><td>Varies by model, we usually add a streamer or tie it to your control system</td><td>Full Tizen built in</td></tr>
+<tr><td>Weather protection</td><td>Sealed aluminum body, gasketed connection bay</td><td>IP55 rated enclosure</td></tr>
+<tr><td>Size range</td><td>Roughly 49 to 75 inch by series</td><td>55 to 85 inch</td></tr>
+<tr><td>Where it wins</td><td>Harsh exposure, salt air, set and forget</td><td>Picture first, shade to partial sun</td></tr>
 </tbody>
-</table></p>
-<p>An <strong>IP55 television</strong> is protected against limited dust entry and ordinary water jets. <strong>IP56</strong> provides stronger water-jet protection. Neither rating means the TV can be submerged, pressure-washed, or installed where water can continuously collect around the ports. Always consider the specific environment and potential water exposure when making your choice.</p>
+</table>
+</div>
 
-<h3>Outdoor TV Picture Specifications</h3>
-<p>Beyond durability, picture quality is paramount for an enjoyable viewing experience:</p>
-<p><table>
-<thead>
-<tr>
-<th>Picture feature</th>
-<th>Samsung The Terrace LST7D</th>
-<th>Element Outdoor Roku TV</th>
-<th>Sylvox Deck Pro 3.0</th>
-<th>Furrion Aurora Partial-Sun 2</th>
-<th>SunBrite Veranda 4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>4K UHD resolution</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-</tr>
-<tr>
-<td>Resolution</td>
-<td>3840 × 2160</td>
-<td>3840 × 2160</td>
-<td>3840 × 2160</td>
-<td>3840 × 2160</td>
-<td>3840 × 2160</td>
-</tr>
-<tr>
-<td>Display technology</td>
-<td>Neo QLED with Quantum Mini LEDs</td>
-<td>Direct-lit LED</td>
-<td>LED</td>
-<td>LED</td>
-<td>Direct-lit RGB-W LED</td>
-</tr>
-<tr>
-<td>Published brightness</td>
-<td>Not disclosed</td>
-<td>700 nits</td>
-<td>1,000 nits</td>
-<td>750 nits</td>
-<td>600 sustained nits</td>
-</tr>
-<tr>
-<td>HDR support</td>
-<td>Neo Quantum HDR+ and HDR10+</td>
-<td>HDR10</td>
-<td>HDR, format not specified</td>
-<td>HDR10</td>
-<td>HDR10</td>
-</tr>
-<tr>
-<td>Anti-glare picture</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-</tr>
-<tr>
-<td>Native 120Hz panel</td>
-<td>&#9989;</td>
-<td>&#10060;</td>
-<td>&#10060;</td>
-<td>&#9723;</td>
-<td>&#10060;</td>
-</tr>
-<tr>
-<td>60Hz panel</td>
-<td>&#10060;</td>
-<td>&#9989;</td>
-<td>&#9989;</td>
-<td>&#9723;</td>
-<td>&#9989;</td>
-</tr>
-<tr>
-<td>Advanced local light control</td>
-<td>&#9989; Mini-LED Quantum Matrix</td>
-<td>&#10060;</td>
-<td>&#10060;</td>
-<td>&#10060;</td>
-<td>&#10060;</td>
-</tr>
-<tr>
-<td>4K 120Hz input support</td>
-<td>&#9989; Three HDMI inputs</td>
-<td>&#10060;</td>
-<td>&#10060;</td>
-<td>&#9723;</td>
-<td>&#10060;</td>
-</tr>
-<tr>
-<td>Smart platform</td>
-<td>Samsung Tizen</td>
-<td>Roku TV</td>
-<td>Google TV</td>
-<td>webOS Hub</td>
-<td>webOS</td>
-</tr>
-<tr>
-<td>Intended lighting</td>
-<td>Partial sun</td>
-<td>Partial sun</td>
-<td>Partial sun</td>
-<td>Partial sun or bright shade</td>
-<td>Full shade</td>
-</tr>
-</tbody>
-</table></p>
-<p><strong>Samsung's The Terrace LST7D</strong> stands out as the clear picture-performance leader in this group. It combines a 120Hz Neo QLED panel, Mini-LED light control, HDR10+, anti-reflection technology, 4K 120Hz inputs, and an AI picture processor for an unparalleled outdoor viewing experience. While Samsung does not currently list a standardized nit figure for the LST7D, its advanced display technology ensures exceptional brightness and contrast.</p>
-<p><strong>Sylvox Deck Pro 3.0</strong> provides the highest published brightness among these selected partial-sun value models at an impressive 1,000 nits. Its conventional 60Hz LED panel offers a solid picture, though it doesn't quite match the advanced features of Samsung's Mini-LED QLED.</p>
-<p><strong>Furrion Aurora Partial-Sun 2</strong> combines a 750-nit anti-glare display with the strongest documented impact protection (IK09-rated tempered-glass shield) in this comparison. This makes it a particularly attractive option for active areas like around pools, sports areas, rental properties, restaurants, or homes with children.</p>
-<p><strong>SunBrite Veranda 4</strong> is exceptionally well constructed with an industrial aluminum enclosure and weatherproof media bay. However, its 600-nit display is specifically designed for a fully covered patio and should not be selected for an open patio that receives direct or strong indirect sunlight.</p>
-<p><strong>Element Outdoor Roku TV</strong> offers a compelling budget-oriented choice with a 700-nit, 60Hz, 4K HDR10 picture and Roku built-in. Its tempered glass, foam-lined connection door, and active cooling system provide robust protection at a more accessible price point.</p>
+<h3>What We Would Put In Your Space</h3>
 
-<h3>Best Choice by Situation</h3>
-<p>To help simplify your decision, here's a quick guide based on common priorities:</p>
-<p><table>
-<thead>
-<tr>
-<th>Your priority</th>
-<th>Best model</th>
-<th>Why</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Best overall picture</td>
-<td>Samsung The Terrace LST7D</td>
-<td>Mini-LED Neo QLED, 120Hz, HDR10+, local light control and excellent glare reduction</td>
-</tr>
-<tr>
-<td>Best value for partial sun</td>
-<td>Sylvox Deck Pro 3.0</td>
-<td>1,000-nit brightness, IP56 protection, metal housing and Google TV</td>
-</tr>
-<tr>
-<td>Best impact protection</td>
-<td>Furrion Aurora Partial-Sun 2</td>
-<td>IK09 tempered glass, powder-coated metal casing and IP55 protection</td>
-</tr>
-<tr>
-<td>Best for a fully covered patio</td>
-<td>SunBrite Veranda 4</td>
-<td>Industrial aluminum enclosure, weatherproof media bay and strong outdoor specialization</td>
-</tr>
-<tr>
-<td>Best affordable smart interface</td>
-<td>Element Outdoor Roku TV</td>
-<td>Familiar Roku interface, 700-nit screen, tempered glass and foam-sealed ports</td>
-</tr>
-<tr>
-<td>Best for sports and gaming</td>
-<td>Samsung The Terrace LST7D</td>
-<td>The only verified native 120Hz model in this comparison</td>
-</tr>
-</tbody>
-</table></p>
+<div class="ep-rec">
+  <div class="ep-rec-row"><div class="ep-rec-when">Fully covered lanai, indirect light only</div><div class="ep-rec-what"><b>SunBrite Veranda 4</b> if you want the outdoor build. <b>Terrace Partial Sun</b> if picture quality is the priority.</div></div>
+  <div class="ep-rec-row"><div class="ep-rec-when">Pergola or an hour of direct afternoon sun</div><div class="ep-rec-what"><b>SunBrite Signature 2.</b> Built for exactly this and it will not disappoint you at 4pm.</div></div>
+  <div class="ep-rec-row"><div class="ep-rec-when">Open pool deck, full direct sun</div><div class="ep-rec-what"><b>Terrace Full Sun</b> for the brightest picture, or <b>SunBrite Pro 2 or Solis</b> for the tougher build.</div></div>
+  <div class="ep-rec-row"><div class="ep-rec-when">Waterfront, salt air in the wind</div><div class="ep-rec-what"><b>SunBrite,</b> whichever series matches your light, and look for IP56.</div></div>
+  <div class="ep-rec-row"><div class="ep-rec-when">You want the biggest screen you can get</div><div class="ep-rec-what"><b>Terrace</b> at 85 inch. Nothing else outdoors goes that large.</div></div>
+</div>
 
-<p>Ultimately, the decision between an indoor TV and an outdoor TV for your exterior space comes down to your specific needs, budget, and tolerance for risk. While an indoor TV might offer initial savings, a dedicated outdoor TV provides superior durability, performance, and peace of mind in challenging environments like Florida's. For a truly integrated and worry-free outdoor entertainment experience, investing in a purpose-built outdoor TV is almost always the smarter, long-term choice. Ready to elevate your outdoor living? Let's talk about your next project today!</p>
+<p>Model lineups and pricing move around every year. We confirm current specs before anything gets ordered, and we will tell you when the cheaper model is the right one.</p>
 
-<p>Ready to transform your outdoor space into the ultimate entertainment zone? Whether you need a robust outdoor TV, a full <a href="https://www.entertainment-pros.com/outdoor-audio-systems-landscape-sound-solutions">outdoor audio system</a>, or a complete outdoor entertainment area upgrade, our team at Entertainment Pros is here to help. <a href="https://www.entertainment-pros.com/your-project">Contact us</a> to discuss your vision and get started!</p>
-    </article>
+<h3>Recent Outdoor Installs</h3>
+<p>A few of ours around Pinellas. Rooftop amenity decks, covered outdoor kitchens, and one very good tiki hut.</p>
+<div class="ep-gallery">
+<figure><img src="/images/rooftop-terrace-outdoor-tv-pergola.jpg" alt="Rooftop terrace install under a pergola" width="900" height="506" loading="lazy"></figure>
+<figure><img src="/images/rooftop-lounge-outdoor-tv-bar-seating.jpg" alt="Rooftop lounge with bar seating and a wall mounted TV" width="900" height="506" loading="lazy"></figure>
+<figure><img src="/images/rooftop-deck-outdoor-tv-skyline-dusk.jpg" alt="Rooftop deck TV against the downtown skyline at dusk" width="900" height="506" loading="lazy"></figure>
+<figure><img src="/images/outdoor-tv-bright-daylight-screen-detail.jpg" alt="Outdoor screen holding up in bright daylight" width="900" height="506" loading="lazy"></figure>
+<figure><img src="/images/rooftop-amenity-deck-outdoor-tv-lounge.jpg" alt="Rooftop amenity deck lounge seating and TV" width="900" height="506" loading="lazy"></figure>
+<figure><img src="/images/rooftop-amenity-deck-outdoor-tv-pergolas.jpg" alt="Rooftop amenity deck pergolas and outdoor TV" width="900" height="506" loading="lazy"></figure>
+<figure><img src="/images/rooftop-outdoor-kitchen-tv-install.jpg" alt="Rooftop outdoor kitchen with TV above the counter" width="900" height="506" loading="lazy"></figure>
+<figure><img src="/images/rooftop-deck-outdoor-tv-turf-seating.jpg" alt="Rooftop deck with turf, lounge seating and an outdoor TV" width="900" height="506" loading="lazy"></figure>
+<figure><img src="/images/rooftop-lounge-outdoor-tv-dining-area.jpg" alt="Rooftop dining area with a large outdoor TV" width="900" height="506" loading="lazy"></figure>
+</div>
+
+<h3>Do Not Just Take Our Word For It</h3>
+
+<p>We install these for a living, so we are hardly neutral. If you want independent opinions before you spend the money, these are worth your time:</p>
+
+<ul>
+<li><a href="https://www.rtings.com/tv/reviews/samsung/the-terrace" target="_blank" rel="nofollow noopener noreferrer">RTINGS</a> puts televisions through the same lab tests in a controlled room and publishes the raw measurements, including The Terrace. The best place to look up real brightness numbers instead of marketing ones.</li>
+<li><a href="https://www.cnn.com/cnn-underscored/reviews/samsung-the-terrace" target="_blank" rel="nofollow noopener noreferrer">CNN Underscored</a> reviewed The Terrace hands on and still rates it the best outdoor TV on the market.</li>
+<li><a href="https://www.residentialsystems.com/technology/video/review-sunbrite-tv-veranda-series-gen-3-outdoor-4k-led-tv" target="_blank" rel="nofollow noopener noreferrer">Residential Systems</a> reviewed the SunBrite Veranda Series from an installer's point of view, which is a different and useful angle.</li>
+<li>The manufacturers themselves, <a href="https://www.sunbritetv.com/" target="_blank" rel="nofollow noopener noreferrer">SunBrite</a> and <a href="https://www.samsung.com/us/lifestyle-tvs/the-terrace/" target="_blank" rel="nofollow noopener noreferrer">Samsung</a>, for current model lineups and full specification sheets.</li>
+</ul>
+
+<h3>The Short Version</h3>
+
+<p>If your TV lives fully under roof, out of the salt, and you are fine replacing it in a few years, an indoor set will work. Plenty of people go that route on purpose.</p>
+
+<p>Everywhere else in Pinellas, and especially anywhere near the water, a purpose built outdoor TV costs more once instead of a little every couple of years. That is the whole calculation.</p>
+
+<p>Not sure which category your patio falls into? That is the easiest thing in the world for us to sort out. Whether it is a single television, a full <a href="https://www.entertainment-pros.com/outdoor-audio-systems-landscape-sound-solutions">outdoor audio system</a>, or the whole backyard, <a href="https://www.entertainment-pros.com/your-project">tell us about your project</a> and we will come look at the space.</p>
+</article>
 
   <aside class="blog-sidebar">
     <div class="sidebar-card">
