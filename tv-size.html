@@ -866,6 +866,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   // ===== Email Me My Results =====
   var RECAPTCHA_KEY = '6LfFsFgtAAAAAJHpFhY1P3rWGwz4xd-UQUsXWZRG';
+  var FAIL_HTML = 'We could not send that just now. Please call us at <a href="tel:727-804-2277" style="color:inherit;font-weight:700">727-804-2277</a> and we&rsquo;ll get you your results.';
+  var FAIL_TEXT = 'We could not send that just now. Please call us at 727-804-2277.';
+
+  // Non-fatal reCAPTCHA: never hangs, never blocks the post. If the script is
+  // blocked or slow we post with no token (recorded as missing_recaptcha_token,
+  // rescuable from the Spam tab) instead of leaving the visitor on a dead button.
+  function getRecaptchaToken(action) {
+    if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute !== 'function') return Promise.resolve('');
+    return Promise.race([
+      Promise.resolve().then(function () { return grecaptcha.execute(RECAPTCHA_KEY, { action: action }); }),
+      new Promise(function (_, reject) { setTimeout(function () { reject(new Error('recaptcha timeout')); }, 8000); })
+    ]).catch(function (err) { console.warn('recaptcha unavailable', err); return ''; });
+  }
+
+  function showCalcFailure(anchor) {
+    try {
+      var el = document.getElementById('calcEmailError');
+      if (!el) {
+        el = document.createElement('div');
+        el.id = 'calcEmailError';
+        el.setAttribute('role', 'alert');
+        el.style.cssText = 'margin-top:16px;padding:14px 16px;background:#fdecea;border:1px solid #f3bab4;border-radius:8px;color:#8a1c13;font-size:.92rem;line-height:1.5';
+        anchor.parentNode.insertBefore(el, anchor.nextSibling);
+      }
+      el.innerHTML = FAIL_HTML;
+      el.style.display = 'block';
+    } catch (e) { alert(FAIL_TEXT); }
+  }
+
   var emailForm = document.getElementById('calcEmailForm');
   if (emailForm) {
     emailForm.addEventListener('submit', async function(e) {
@@ -874,28 +903,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var btn = document.getElementById('calcEmailBtn');
       var originalText = btn.textContent;
       btn.disabled = true; btn.textContent = 'Sending...';
+      var prevErr = document.getElementById('calcEmailError');
+      if (prevErr) prevErr.style.display = 'none';
+
       var data = Object.fromEntries(new FormData(emailForm).entries());
-      // reCAPTCHA v3
-      if (typeof grecaptcha !== 'undefined') {
-        try {
-          var token = await grecaptcha.execute(RECAPTCHA_KEY, { action: 'tv_size_calculator' });
-          data.recaptcha_token = token;
-        } catch (err) { console.warn('recaptcha failed', err); }
-      }
+      data.recaptcha_token = await getRecaptchaToken('tv_size_calculator');
+
+      var ok = false, j = {};
       try {
         var res = await fetch('https://myaieditor.com/api/form-notify', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
-        // GTM conversion event — only on a genuinely accepted lead (not spam/rejected)
-        var accepted = false;
-        try { accepted = res.ok && (await res.json()).accepted === true; } catch (e) {}
-        if (accepted) {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({ event: 'form_submission', form_type: 'tv-size-calculator', form_location: window.location.pathname });
-        }
+        j = await res.json().catch(function () { return {}; });
+        ok = res.ok && j.accepted !== false;
       } catch (err) { console.error('TV-size email submit error', err); }
+
+      // Only confirm once the server actually accepted the lead.
+      if (!ok) {
+        btn.disabled = false; btn.textContent = originalText;
+        showCalcFailure(emailForm);
+        return;
+      }
+      // GTM conversion event — only on a genuinely accepted lead (not spam/rejected)
+      if (j.accepted === true) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'form_submission', form_type: 'tv-size-calculator', form_location: window.location.pathname });
+      }
       emailForm.style.display = 'none';
       document.getElementById('calcEmailSuccess').style.display = 'block';
     });

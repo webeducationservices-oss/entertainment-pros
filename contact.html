@@ -699,6 +699,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const progressText = document.getElementById('progressText');
   const stepIndicator = document.getElementById('stepIndicator');
 
+  const RECAPTCHA_KEY = '6LfFsFgtAAAAAJHpFhY1P3rWGwz4xd-UQUsXWZRG';
+  const FAIL_HTML = 'We could not send that just now. Please call us at <a href="tel:727-804-2277" style="color:inherit;font-weight:700">727-804-2277</a> and we&rsquo;ll take your project details over the phone.';
+  const FAIL_TEXT = 'We could not send that just now. Please call us at 727-804-2277.';
+
+  // Non-fatal reCAPTCHA: never hangs, never blocks the post. If the script is
+  // blocked or slow we post with no token (recorded as missing_recaptcha_token,
+  // rescuable from the Spam tab) instead of leaving the visitor on a dead button.
+  function getRecaptchaToken(action) {
+    if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute !== 'function') return Promise.resolve('');
+    return Promise.race([
+      Promise.resolve().then(() => grecaptcha.execute(RECAPTCHA_KEY, { action: action })),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('recaptcha timeout')), 8000))
+    ]).catch((err) => { console.warn('recaptcha unavailable', err); return ''; });
+  }
+
+  function showSendFailure() {
+    try {
+      let el = document.getElementById('formSendError');
+      if (!el) {
+        el = document.createElement('div');
+        el.id = 'formSendError';
+        el.setAttribute('role', 'alert');
+        el.style.cssText = 'margin-top:16px;padding:14px 16px;background:#fdecea;border:1px solid #f3bab4;border-radius:8px;color:#8a1c13;font-size:.95rem;line-height:1.5;text-align:center';
+        const nav = document.querySelector('.step-nav');
+        nav.parentNode.insertBefore(el, nav.nextSibling);
+      }
+      el.innerHTML = FAIL_HTML;
+      el.style.display = 'block';
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (e) { alert(FAIL_TEXT); }
+  }
+
   function showStep(n) {
     document.querySelectorAll('.consult-step').forEach(el => {
       el.classList.toggle('active', parseInt(el.dataset.step) === n);
@@ -754,6 +786,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     } else {
       btnNext.disabled = true;
       btnNext.innerHTML = 'Sending...';
+      const prevErr = document.getElementById('formSendError');
+      if (prevErr) prevErr.style.display = 'none';
 
       const formData = new FormData(form);
       const data = {};
@@ -769,40 +803,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         if (Array.isArray(data[k])) data[k] = data[k].join(', ');
       });
 
+      // reCAPTCHA v3 token (invisible, no user friction)
+      data.recaptcha_token = await getRecaptchaToken('your_project');
+
+      let ok = false, j = {};
       try {
-        // reCAPTCHA v3 token (invisible, no user friction)
-        if (typeof grecaptcha !== 'undefined') {
-          try {
-            const token = await grecaptcha.execute('6LfFsFgtAAAAAJHpFhY1P3rWGwz4xd-UQUsXWZRG', { action: 'your_project' });
-            data.recaptcha_token = token;
-          } catch (e) { console.warn('recaptcha failed', e); }
-        }
         const res = await fetch('https://myaieditor.com/api/form-notify', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
-        if (res.ok) {
-          // GTM conversion event — only fire on a genuinely accepted lead (not spam/rejected)
-          let accepted = false;
-          try { accepted = (await res.json()).accepted === true; } catch (e) {}
-          if (accepted) {
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({ event: 'form_submission', form_type: 'your-project', form_location: window.location.pathname });
-          }
-          form.style.display = 'none';
-          stepIndicator.style.display = 'none';
-          document.querySelector('.step-nav').style.display = 'none';
-          successEl.style.display = 'block';
-          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-          throw new Error('Server error');
-        }
-      } catch (err) {
+        j = await res.json().catch(() => ({}));
+        ok = res.ok && j.accepted !== false;
+      } catch (err) { console.error('Form submit error', err); }
+
+      // Only show the thank-you once the server actually accepted the lead.
+      if (!ok) {
         btnNext.disabled = false;
         btnNext.innerHTML = 'Send to Entertainment Pros <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
-        alert('Something went wrong. Please call us at 727-804-2277.');
+        showSendFailure();
+        return;
       }
+      // GTM conversion event — only fire on a genuinely accepted lead (not spam/rejected)
+      if (j.accepted === true) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'form_submission', form_type: 'your-project', form_location: window.location.pathname });
+      }
+      form.style.display = 'none';
+      stepIndicator.style.display = 'none';
+      document.querySelector('.step-nav').style.display = 'none';
+      successEl.style.display = 'block';
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
 
