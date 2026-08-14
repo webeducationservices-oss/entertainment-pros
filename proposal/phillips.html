@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Private Client Proposal | Entertainment Pros</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* ===== PRIVATE PROPOSAL ===== */
+.pr-wrap{max-width:920px;margin:0 auto;padding:0 24px 90px}
+.pr-rule{height:4px;border-radius:2px;background:linear-gradient(90deg,#F5C518 0%,#F38929 45%,#C1272D 100%);margin:0 0 34px}
+
+.pr-cover{padding:52px 0 0;text-align:center}
+.pr-logo{max-width:330px;width:70%;height:auto;margin:0 auto 10px;display:block}
+.pr-tag{font-family:var(--font-heading);font-size:.9rem;font-weight:700;color:var(--gray);margin-bottom:30px}
+.pr-kicker{font-family:var(--font-heading);font-size:clamp(1.7rem,4.4vw,2.5rem);font-weight:800;color:var(--black);letter-spacing:-.5px;line-height:1.15;margin-bottom:8px}
+.pr-sub{font-size:1.05rem;color:var(--gray);margin-bottom:30px}
+.pr-hero{width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow-lg);display:block;margin-bottom:26px}
+
+.pr-meta{display:grid;grid-template-columns:1fr 1fr;gap:22px;text-align:left;padding-bottom:34px;border-bottom:1px solid #e6e6e6;margin-bottom:8px}
+.pr-meta .r{text-align:right}
+.pr-meta-label{font-family:var(--font-heading);font-size:.7rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--gray-light);margin-bottom:7px}
+.pr-meta strong{display:block;font-family:var(--font-heading);font-size:1.12rem;color:var(--black);margin-bottom:3px}
+.pr-meta span{display:block;font-size:.92rem;color:var(--gray);line-height:1.6}
+
+.pr-sec{padding-top:56px}
+.pr-h2{font-family:var(--font-heading);font-size:clamp(1.35rem,3.2vw,1.85rem);font-weight:800;color:var(--black);letter-spacing:-.2px;margin-bottom:6px}
+.pr-h2 em{font-style:normal;color:#C1272D}
+.pr-lede{font-size:1rem;color:var(--gray);line-height:1.7;margin-bottom:18px;max-width:760px}
+
+.pr-fig{margin:0 0 26px}
+.pr-fig img{width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow);display:block}
+.pr-fig figcaption{font-size:.85rem;color:var(--gray);margin-top:9px;line-height:1.55}
+.pr-fig.plan img{border:1px solid #e0e0e0;box-shadow:none;background:#fff}
+
+.pr-cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-bottom:8px}
+.pr-cols p{font-size:.97rem;line-height:1.75;color:var(--gray);margin:0}
+.pr-cols b{color:#C1272D;font-family:var(--font-heading);font-weight:700}
+
+.pr-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:6px 0 0}
+.pr-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:620px}
+.pr-table thead th{font-family:var(--font-heading);font-size:.68rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--gray-light);text-align:left;padding:0 12px 10px;border-bottom:2px solid #e6e6e6}
+.pr-table thead th.n{text-align:right}
+.pr-table td{padding:12px;border-bottom:1px solid #f0f0f0;color:var(--gray);vertical-align:top;line-height:1.5}
+.pr-table td.sku{font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:.82rem;white-space:nowrap}
+.pr-table td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.pr-table td.amt{text-align:right;white-space:nowrap;font-weight:700;color:var(--black);font-variant-numeric:tabular-nums}
+.pr-room td{background:#fafafa;font-family:var(--font-heading);font-size:.72rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#C1272D;padding:14px 12px 10px;border-bottom:1px solid #ececec}
+
+.pr-totals{margin-top:18px;margin-left:auto;max-width:340px}
+.pr-totals div{display:flex;justify-content:space-between;padding:9px 0;font-size:.95rem;color:var(--gray)}
+.pr-totals div.grand{border-top:2px solid var(--black);margin-top:6px;padding-top:14px;font-family:var(--font-heading);font-size:1.22rem;font-weight:800;color:var(--black)}
+.pr-totals div.grand span:last-child{color:#C1272D}
+
+.pr-terms{margin-top:34px;background:var(--gray-bg);border-left:4px solid var(--orange);border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;font-size:.9rem;line-height:1.7;color:var(--gray)}
+.pr-terms b{color:#C1272D;font-family:var(--font-heading)}
+.pr-note{font-size:.82rem;color:var(--gray-light);line-height:1.6;margin-top:20px}
+
+.pr-cta{margin-top:44px;background:var(--black);border-radius:var(--radius);padding:36px 30px;text-align:center;color:#fff}
+.pr-cta h3{font-family:var(--font-heading);font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:8px}
+.pr-cta p{color:rgba(255,255,255,.72);font-size:.97rem;margin-bottom:22px;line-height:1.65}
+.pr-cta a.btn{background:var(--orange);color:#fff;padding:14px 34px;border-radius:8px;font-family:var(--font-heading);font-weight:700;font-size:.92rem;text-decoration:none;display:inline-block}
+.pr-cta .ph{display:block;margin-top:16px;color:rgba(255,255,255,.6);font-size:.88rem}
+.pr-cta .ph a{color:var(--orange);text-decoration:none;font-weight:700}
+
+.pr-foot{margin-top:38px;padding-top:20px;border-top:1px solid #e6e6e6;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--gray-light)}
+
+.pr-toolbar{display:flex;justify-content:flex-end;padding-top:18px}
+.pr-print{background:linear-gradient(90deg,#F5C518,#F38929,#C1272D);color:#fff;border:none;border-radius:8px;padding:11px 20px;font-family:var(--font-heading);font-weight:700;font-size:.85rem;cursor:pointer}
+.pr-dl{display:inline-block;margin-top:8px;font-family:var(--font-heading);font-size:.78rem;font-weight:700;color:#C1272D;text-decoration:none;border:1px solid #C1272D;border-radius:6px;padding:5px 12px}
+.pr-dl:hover{background:#C1272D;color:#fff}
+@media print{.pr-toolbar,.pr-dl,.pr-cta{display:none!important}.pr-fig,.pr-table,.pr-terms{break-inside:avoid}}
+@media(max-width:760px){
+  .pr-wrap{padding:0 18px 64px}
+  .pr-meta{grid-template-columns:1fr;gap:18px}
+  .pr-meta .r{text-align:left}
+  .pr-cols{grid-template-columns:1fr;gap:20px}
+  .pr-sec{padding-top:40px}
+  .pr-cta{padding:28px 20px}
+}
+</style>
+<script src="/mae-edit-loader.js" async></script>
+</head>
+<body>
+
+<div class="pr-wrap">
+
+  <!-- ===== COVER ===== -->
+  <div class="pr-toolbar"><button class="pr-print" onclick="window.print()" type="button">Download PDF / Print Proposal</button></div>
+  <header class="pr-cover">
+    <img class="pr-logo" src="/images/Transparent%20Logo.png" alt="Entertainment Pros" width="330" height="88">
+    <p class="pr-tag">"We Make Staying Home Fun"</p>
+    <div class="pr-rule"></div>
+    <h1 class="pr-kicker">Audio / Video Proposal</h1>
+    <p class="pr-sub">Whole-Condo System with Reference Great Room</p>
+    <img class="pr-hero" src="/images/proposal/phillips-great-room-listening-position.jpg"
+         alt="Great room reference system with MartinLogan Neolith speakers and McIntosh electronics on a walnut feature wall"
+         width="1800" height="1013">
+    <a class="pr-dl" style="margin:-14px auto 26px;display:table" href="/images/proposal/phillips-great-room-listening-position.jpg" download="phillips-greatroom-lifestyle.jpg">Download this picture</a>
+    <div class="pr-meta">
+      <div>
+        <div class="pr-meta-label">Prepared for</div>
+        <strong>Don Phillips</strong>
+        <span>400 Central Ave, Unit 2401<br>St. Petersburg, FL 33701<br>(813) 846-2669</span>
+      </div>
+      <div class="r">
+        <div class="pr-meta-label">Estimate</div>
+        <strong>#2941</strong>
+        <span>August 12, 2026<br>Pricing effective 30 days (except TVs)</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== GREAT ROOM ===== -->
+  <section class="pr-sec">
+    <h2 class="pr-h2">The Great Room <em>/ Reference System</em></h2>
+    <p class="pr-lede">The centerpiece of the home: a true reference two-channel and cinema wall on the walnut feature wall.</p>
+    <div class="pr-rule"></div>
+    <figure class="pr-fig">
+      <img src="/images/proposal/phillips-great-room-elevation.jpg"
+           alt="Elevation view of the great room AV wall with the speakers toed in toward the listening position"
+           width="1800" height="1013">
+      <figcaption>Elevation view: speakers toed in 15 degrees for the 12-foot listening position, one foot from each TV edge.</figcaption>
+      <a class="pr-dl" href="/images/proposal/phillips-great-room-elevation.jpg" download="phillips-avwall-hero.jpg">Download this picture</a>
+    </figure>
+    <div class="pr-cols">
+      <p><b>The experience.</b> A pair of MartinLogan Neolith electrostatic loudspeakers in Rosso Fuoco red, each driven by its own McIntosh MC901 dual-mono amplifier, anchor the room. The 85-inch Samsung Frame Pro displays full-bleed art when the system rests. Every source is on display: the MT5 turntable floats on a wall-mounted glass shelf, the C55 preamplifier sits below it, and the DS200 streaming DAC rides on the MPC1500 power controller in the cabinet's center bay.</p>
+      <p><b>The furniture.</b> A custom low cabinet in 1.5-inch low-iron glass with open, ventilated ends. Weathered riveted-aluminum divider plates carry the load, echoing the rat-rod artwork above. Zero visible cables: all power and signal route through the laundry-side wall cavity behind the system.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONCEPT DETAIL ===== -->
+  <section class="pr-sec">
+    <h2 class="pr-h2">Concept Details</h2>
+    <p class="pr-lede">Equipment cabinet detail, shown with the full McIntosh stack in place.</p>
+    <div class="pr-rule"></div>
+    <figure class="pr-fig">
+      <img src="/images/proposal/phillips-equipment-cabinet-detail.jpg"
+           alt="Close view of the glass equipment cabinet holding the McIntosh MC901 monoblocks, MPC1500, C55 preamplifier and MT5 turntable"
+           width="1600" height="900">
+      <figcaption>Cabinet detail: McIntosh MC901 monoblocks, DS200 streaming DAC stacked on the MPC1500, C55 preamplifier, MT5 turntable.</figcaption>
+      <a class="pr-dl" href="/images/proposal/phillips-equipment-cabinet-detail.jpg" download="phillips-cabinet-closeup.jpg">Download this picture</a>
+    </figure>
+  </section>
+
+
+  <!-- ===== FINISH OPTION: GLOSS RED BRACKETS ===== -->
+  <section class="pr-sec">
+    <h2 class="pr-h2">Finish Option <em>/ Gloss Red Brackets</em></h2>
+    <p class="pr-lede">As requested: the cabinet's divider brackets shown in smooth gloss Rosso Fuoco red matching the speakers - clean uninterrupted lacquer panels, no rivets. Base specification remains weathered riveted aluminum unless this option is selected.</p>
+    <div class="pr-rule"></div>
+    <figure class="pr-fig">
+      <img src="/images/proposal/phillips-red-brackets-wall.jpg"
+           alt="Full wall view with the cabinet divider brackets finished in gloss red"
+           width="1800" height="1013" loading="lazy">
+      <figcaption>Gloss red brackets: full wall view.</figcaption>
+      <a class="pr-dl" href="/images/proposal/phillips-red-brackets-wall.jpg" download="phillips-avwall-red-brackets.jpg">Download this picture</a>
+    </figure>
+    <figure class="pr-fig">
+      <img src="/images/proposal/phillips-red-brackets-cabinet.jpg"
+           alt="Cabinet detail with smooth gloss red divider brackets"
+           width="1600" height="900" loading="lazy">
+      <figcaption>Gloss red brackets: cabinet detail, smooth lacquer panels.</figcaption>
+      <a class="pr-dl" href="/images/proposal/phillips-red-brackets-cabinet.jpg" download="phillips-cabinet-red-brackets.jpg">Download this picture</a>
+    </figure>
+    <figure class="pr-fig">
+      <img src="/images/proposal/phillips-red-brackets-listening.jpg"
+           alt="View from the listening position with gloss red cabinet brackets"
+           width="1800" height="1013" loading="lazy">
+      <figcaption>Gloss red brackets: from the listening position.</figcaption>
+      <a class="pr-dl" href="/images/proposal/phillips-red-brackets-listening.jpg" download="phillips-lifestyle-red-brackets.jpg">Download this picture</a>
+    </figure>
+  </section>
+
+  <!-- ===== TECHNICAL DRAWINGS ===== -->
+  <section class="pr-sec">
+    <h2 class="pr-h2">Technical Drawings <em>/ Equipment Landing</em></h2>
+    <p class="pr-lede">Referenced to OWA Construction Set 06.20.2026, Great Room 101, wall adjacent to Laundry. Concept only, field verify all dimensions.</p>
+    <div class="pr-rule"></div>
+    <figure class="pr-fig plan">
+      <img src="/images/proposal/phillips-av1-equipment-landing-plan.png"
+           NOMATCH22
+           width="2000" height="1414">
+      <figcaption>AV-1: Equipment landing plan. Wall face 15 ft 9 in (VIF), listening position 12 ft, speaker axes converge behind listener.</figcaption>
+      <a class="pr-dl" href="/images/proposal/phillips-av1-equipment-landing-plan.png" download="phillips-AV1-landing-plan.png">Download this picture</a>
+    </figure>
+    <figure class="pr-fig plan">
+      <img src="/images/proposal/phillips-av2-elevation-drawing.png"
+           alt="AV-2 elevation drawing with the equipment schedule and dimensions for the great room wall"
+           width="2000" height="1414">
+      <figcaption>AV-2: Elevation with equipment schedule. Cabinet 84 in, TV 74.4 in with its top at 86 in so the turntable clears its bottom edge, speaker centers 10 ft 8.7 in apart.</figcaption>
+      <a class="pr-dl" href="/images/proposal/phillips-av2-elevation-drawing.png" download="phillips-AV2-elevation.png">Download this picture</a>
+    </figure>
+  </section>
+
+  <!-- ===== INVESTMENT ===== -->
+  <section class="pr-sec">
+    <h2 class="pr-h2">Investment <em>/ Estimate #2941</em></h2>
+    <p class="pr-lede">August 12, 2026. All items per attached estimate; quantities and pricing unchanged.</p>
+    <div class="pr-rule"></div>
+
+    <div class="pr-tablewrap">
+      <table class="pr-table">
+        <thead>
+          <tr><th>Item</th><th>Description</th><th class="n">Qty</th><th class="n">Price</th><th class="n">Amount</th></tr>
+        </thead>
+        <tbody>
+          <tr class="pr-room"><td colspan="5">Great Room</td></tr>
+          <tr><td class="sku">SAM-85Frame</td><td>Samsung QN85LS03HWFXZA 85 in The Frame Pro TV 2026, custom made low equipment stand</td><td class="n">1</td><td class="n">3,998.00</td><td class="amt">3,998.00</td></tr>
+          <tr><td class="sku">ML Neolith</td><td>MartinLogan Neolith L/R, Rosso Fuoco Red</td><td class="n">2</td><td class="n">59,999.00</td><td class="amt">119,998.00</td></tr>
+          <tr><td class="sku">McI MC901</td><td>McIntosh MC901 Dual Monoblock Amplifier</td><td class="n">2</td><td class="n">22,000.00</td><td class="amt">44,000.00</td></tr>
+          <tr><td class="sku">McI C55</td><td>McIntosh C55 Solid State Preamplifier</td><td class="n">1</td><td class="n">10,500.00</td><td class="amt">10,500.00</td></tr>
+          <tr><td class="sku">McI MT5</td><td>McIntosh MT5 Precision Turntable</td><td class="n">1</td><td class="n">8,500.00</td><td class="amt">8,500.00</td></tr>
+          <tr><td class="sku">McI MPC1500</td><td>McIntosh MPC1500 Power Controller</td><td class="n">1</td><td class="n">7,000.00</td><td class="amt">7,000.00</td></tr>
+          <tr><td class="sku">BlueSound MP</td><td>Bluesound NODE ICON Reference Music Streaming Media Player, Black. AudioQuest speaker cables, AudioQuest HDMI</td><td class="n">1</td><td class="n">1,299.00</td><td class="amt">1,299.00</td></tr>
+          <tr><td class="sku">ML M XTC8</td><td>MartinLogan Motion XTC8 In-ceiling speaker</td><td class="n">4</td><td class="n">1,099.00</td><td class="amt">4,396.00</td></tr>
+
+          <tr class="pr-room"><td colspan="5">Patio</td></tr>
+          <tr><td class="sku">SC OE8B</td><td>OE8 Three Black indoor/outdoor speaker, 8 in woofer, 40 Hz to 20 kHz</td><td class="n">2</td><td class="n">398.00</td><td class="amt">796.00</td></tr>
+
+          <tr class="pr-room"><td colspan="5">Entry Hall</td></tr>
+          <tr><td class="sku">ML MC8</td><td>MartinLogan Motion MC8 In-Ceiling Speaker</td><td class="n">2</td><td class="n">549.00</td><td class="amt">1,098.00</td></tr>
+          <tr><td class="sku">EL-ITP-8</td><td>ELAN 8-inch Intelligent Touch Panel, white or black</td><td class="n">1</td><td class="n">1,098.00</td><td class="amt">1,098.00</td></tr>
+
+          <tr class="pr-room"><td colspan="5">Powder Room</td></tr>
+          <tr><td class="sku">ML IS IC6-ST</td><td>MartinLogan Installer IC6-ST stereo-input in-ceiling speaker</td><td class="n">1</td><td class="n">299.00</td><td class="amt">299.00</td></tr>
+
+          <tr class="pr-room"><td colspan="5">Guest Rooms 1 &amp; 2</td></tr>
+          <tr><td class="sku">SON50 XR30</td><td>Sony 50 in BRAVIA 3 II 4K HDR LED Google TV (2026)</td><td class="n">2</td><td class="n">735.00</td><td class="amt">1,470.00</td></tr>
+          <tr><td class="sku">PM-F650</td><td>SmartMount Universal Flat Wall Mount, 39 to 75 in TV</td><td class="n">1</td><td class="n">109.00</td><td class="amt">109.00</td></tr>
+          <tr><td class="sku">PMA747</td><td>DesignerSeries Ultra Slim Articulating Wall Mount, 32 to 50 in, extends 25 in</td><td class="n">1</td><td class="n">254.00</td><td class="amt">254.00</td></tr>
+
+          <tr class="pr-room"><td colspan="5">Primary Bedroom</td></tr>
+          <tr><td class="sku">SON55XR70M2</td><td>Sony 55 in BRAVIA 7 II True RGB 4K HDR Google TV</td><td class="n">1</td><td class="n">2,100.00</td><td class="amt">2,100.00</td></tr>
+          <tr><td class="sku">PMA750</td><td>Articulating Mount, 39 to 75 in displays, extends 21.35 in</td><td class="n">1</td><td class="n">199.00</td><td class="amt">199.00</td></tr>
+          <tr><td class="sku">ML MW6</td><td>MartinLogan Motion MW6 In-Wall Speaker</td><td class="n">2</td><td class="n">599.00</td><td class="amt">1,198.00</td></tr>
+          <tr><td class="sku">ML Helos22</td><td>MartinLogan Helos 22 in-ceiling stereo input speaker</td><td class="n">1</td><td class="n">549.00</td><td class="amt">549.00</td></tr>
+          <tr><td class="sku">EL-ITP-8</td><td>ELAN 8-inch Intelligent Touch Panel, white or black</td><td class="n">1</td><td class="n">1,236.00</td><td class="amt">1,236.00</td></tr>
+
+          <tr class="pr-room"><td colspan="5">Equipment Area (Laundry Room)</td></tr>
+          <tr><td class="sku">STR-WMS16U</td><td>Strong wallmount rack with swing door, lockable, vented top, shipping</td><td class="n">1</td><td class="n">1,483.00</td><td class="amt">1,483.00</td></tr>
+          <tr><td class="sku">EL-IPDAMP8</td><td>Elan 8CH Multi Zone Audio Matrix Amplifier</td><td class="n">1</td><td class="n">3,836.00</td><td class="amt">3,836.00</td></tr>
+          <tr><td class="sku">EL-SC150GVSL</td><td>Single point of control and automation for media, climate, lighting, with Viewers License</td><td class="n">1</td><td class="n">1,895.00</td><td class="amt">1,895.00</td></tr>
+          <tr><td class="sku">SurgeX XR315</td><td>SurgeX 1RU Surge Eliminator and Power Conditioner, 120V/15A, 8 outlets</td><td class="n">1</td><td class="n">1,608.00</td><td class="amt">1,608.00</td></tr>
+          <tr><td class="sku">SurgeX UPS1000</td><td>SurgeX Line Interactive UPS with Surge Eliminator, 1000VA, 120V/15A, 2RU. Network switch, 16 POE</td><td class="n">1</td><td class="n">1,917.00</td><td class="amt">1,917.00</td></tr>
+
+          <tr class="pr-room"><td colspan="5">Structured Wiring Cabinet</td></tr>
+          <tr><td class="sku">&nbsp;</td><td>Cable modem/router, small POE switch</td><td class="n">&nbsp;</td><td class="n">&nbsp;</td><td class="amt">&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pr-totals">
+      <div><span>Subtotal</span><span>$220,836.00</span></div>
+      <div><span>Sales Tax (7.0%)</span><span>$15,458.52</span></div>
+      <div class="grand"><span>Total</span><span>$236,294.52</span></div>
+    </div>
+
+    <div class="pr-terms">
+      <b>Terms.</b> Pricing effective for 30 days except TVs. All equipment is special ordered per customer specifications and is NON-REFUNDABLE. Full payment for merchandise is required to secure pricing and order products. Installation, service, labor and programming are due at completion. Check, cash, credit card and Zelle accepted. Credit cards are subject to a 3% of total convenience fee.
+    </div>
+
+    <p class="pr-note">Equipment note: concept imagery and drawings show the McIntosh DS200 Streaming DAC (stacked on the MPC1500) in place of the Bluesound Node Icon line item above; the estimate will be revised to reflect this substitution.</p>
+    <p class="pr-note">Concept imagery and technical drawings are design intent only, not for construction. Field verify all dimensions. Cabinet fabrication drawings and final speaker voicing positions to be confirmed at installation.</p>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="pr-cta">
+    <h3>Ready to move forward?</h3>
+    <p>We will walk the space, confirm every dimension, and schedule the build around your timeline.</p>
+    <a class="btn" href="mailto:christina@entertainment-pros.com?subject=Estimate%20%232941%20-%20Phillips%20Residence">Reply to this proposal</a>
+    <span class="ph">Or call the office at <a href="tel:727-804-2277">(727) 804-2277</a></span>
+  </section>
+
+  <div class="pr-foot">
+    <span>Entertainment Pros &nbsp;|&nbsp; US Hwy 19 N, Clearwater, FL 33761</span>
+    <span>(727) 804-2277 &nbsp;|&nbsp; christina@entertainment-pros.com</span>
+  </div>
+
+</div>
+
+</body>
+</html>

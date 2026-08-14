@@ -7,9 +7,9 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('consent', 'default', {
   'analytics_storage': 'granted',
-  'ad_storage': 'denied',
-  'ad_user_data': 'denied',
-  'ad_personalization': 'denied'
+  'ad_storage': 'granted',
+  'ad_user_data': 'granted',
+  'ad_personalization': 'granted'
 });
 </script>
 <!-- Google Tag Manager -->
@@ -1020,41 +1020,72 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   }
 
+  var CI_RECAPTCHA_KEY = '6LfFsFgtAAAAAJHpFhY1P3rWGwz4xd-UQUsXWZRG';
+  var CI_FAIL_HTML = 'We could not send that just now. Please call us at <a href="tel:727-804-2277" style="color:inherit;font-weight:700">727-804-2277</a> and we&rsquo;ll take your project details over the phone.';
+  var CI_FAIL_TEXT = 'We could not send that just now. Please call us at 727-804-2277.';
+
+  // Non-fatal reCAPTCHA: never hangs, never blocks the post. If the script is
+  // blocked or slow we post with no token (recorded as missing_recaptcha_token,
+  // rescuable from the Spam tab) instead of leaving the visitor on a dead button.
+  function ciRecaptchaToken(action) {
+    if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute !== 'function') return Promise.resolve('');
+    return Promise.race([
+      Promise.resolve().then(function () { return grecaptcha.execute(CI_RECAPTCHA_KEY, { action: action }); }),
+      new Promise(function (_, reject) { setTimeout(function () { reject(new Error('recaptcha timeout')); }, 8000); })
+    ]).catch(function (err) { console.warn('recaptcha unavailable', err); return ''; });
+  }
+
+  function ciShowFailure() {
+    try {
+      var el = document.getElementById('ci-error');
+      if (!el) {
+        el = document.createElement('div');
+        el.id = 'ci-error';
+        el.setAttribute('role', 'alert');
+        el.style.cssText = 'margin-top:16px;padding:14px 16px;background:#fdecea;border:1px solid #f3bab4;border-radius:8px;color:#8a1c13;font-size:.92rem;line-height:1.5;text-align:center';
+        ciSubmit.parentNode.insertBefore(el, ciSubmit.nextSibling);
+      }
+      el.innerHTML = CI_FAIL_HTML;
+      el.style.display = 'block';
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (e) { alert(CI_FAIL_TEXT); }
+  }
+
   if (ciForm) {
     ciForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       ciSubmit.disabled = true;
       ciSubmit.textContent = 'Sending...';
+      var prevErr = document.getElementById('ci-error');
+      if (prevErr) prevErr.style.display = 'none';
 
       var data = {};
       new FormData(ciForm).forEach(function(v, k) { data[k] = v; });
 
       // reCAPTCHA token
-      if (typeof grecaptcha !== 'undefined') {
-        try {
-          var token = await grecaptcha.execute('6LfFsFgtAAAAAJHpFhY1P3rWGwz4xd-UQUsXWZRG', { action: 'av_budget_calculator' });
-          data.recaptcha_token = token;
-        } catch (err) { console.warn('recaptcha failed', err); }
-      }
+      data.recaptcha_token = await ciRecaptchaToken('av_budget_calculator');
 
+      var ok = false, j = {};
       try {
         var res = await fetch('https://myaieditor.com/api/form-notify', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
-        if (res.ok) {
-          ciForm.style.display = 'none';
-          ciSuccess.classList.add('active');
-          ciSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-          throw new Error('Server error');
-        }
-      } catch (err) {
+        j = await res.json().catch(function () { return {}; });
+        ok = res.ok && j.accepted !== false;
+      } catch (err) { console.error('AV budget submit error', err); }
+
+      // Only show the thank-you once the server actually accepted the lead.
+      if (!ok) {
         ciSubmit.disabled = false;
         ciSubmit.textContent = 'Send My Request';
-        alert('Something went wrong. Please call us at 727-804-2277.');
+        ciShowFailure();
+        return;
       }
+      ciForm.style.display = 'none';
+      ciSuccess.classList.add('active');
+      ciSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   }
 
