@@ -4,10 +4,23 @@
 // be edited in myaieditor, because there is no HTML for the editor to bind to.
 // Gating at the edge keeps the markup plain, so click-to-edit works.
 //
-// Scope: only the public custom domain is gated. Vercel preview and *.vercel.app
-// hosts are left open on purpose, because that is what the myaieditor preview
-// iframe loads while editing. Those hosts are unguessable and the page itself
-// sends noindex, so it stays out of search either way.
+// Two hard-won constraints from the myaieditor preview pane (do not regress):
+//
+// 1. NEVER return 4xx for the gate. The editor probes the page server-side
+//    (myaiediter app/api/preview-check/route.ts) and any status >= 400 makes
+//    the pane show "Preview can't load here" instead of the iframe. The lock
+//    screen is returned as a normal 200 page; it leaks nothing and is
+//    Cache-Control: no-store, so the status code is doing no real work.
+//
+// 2. The editor iframes this site CROSS-SITE (myaieditor.com framing
+//    entertainment-pros.com), and SameSite=Lax cookies are not sent in that
+//    context. So the unlock sets two cookies: a Lax one for normal top-level
+//    visits (the client), and a SameSite=None; Partitioned one that survives
+//    inside the editor's iframe. Either one passes the gate.
+//
+// Scope: only the public custom domain is gated. Vercel preview and
+// *.vercel.app hosts stay open — the editor swaps its iframe to those while
+// editing, they are unguessable, and the page itself sends noindex.
 
 export const config = { matcher: '/proposal/:path*' }
 
@@ -16,7 +29,9 @@ const GATED_HOSTS = new Set([
   'entertainment-pros.com',
 ])
 
-const COOKIE = 'ep_proposal'
+const COOKIE = 'ep_proposal'          // top-level visits (SameSite=Lax)
+const COOKIE_IFRAME = 'ep_proposal_e' // cross-site iframe visits (editor pane)
+const MAX_AGE = 2592000               // 30 days
 
 function loginPage(wrong) {
   return `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
@@ -56,6 +71,14 @@ button:hover{background:#C66000}
 </div></body></html>`
 }
 
+function gateResponse(wrong) {
+  // 200 on purpose — see constraint 1 above.
+  return new Response(loginPage(wrong), {
+    status: 200,
+    headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
+  })
+}
+
 export default function middleware(request) {
   const url = new URL(request.url)
   const host = (request.headers.get('host') || '').toLowerCase()
@@ -68,30 +91,24 @@ export default function middleware(request) {
   // var is ever missing. The page is noindex either way.
   if (!password) return
 
-  // Already unlocked
+  // Already unlocked (either cookie counts)
   const cookies = request.headers.get('cookie') || ''
-  if (cookies.split(';').some(c => c.trim() === `${COOKIE}=${password}`)) return
+  const has = (name) => cookies.split(';').some(c => c.trim() === `${name}=${password}`)
+  if (has(COOKIE) || has(COOKIE_IFRAME)) return
 
-  // Submitted a code
+  // Submitted a code (also how an emailed ?key= link auto-unlocks)
   const key = url.searchParams.get('key')
   if (key !== null) {
     if (key === password) {
-      return new Response(null, {
-        status: 302,
-        headers: {
-          Location: url.pathname,
-          'Set-Cookie': `${COOKIE}=${password}; Path=/proposal; Max-Age=2592000; Secure; HttpOnly; SameSite=Lax`,
-        },
-      })
+      const headers = new Headers({ Location: url.pathname })
+      headers.append('Set-Cookie',
+        `${COOKIE}=${password}; Path=/proposal; Max-Age=${MAX_AGE}; Secure; HttpOnly; SameSite=Lax`)
+      headers.append('Set-Cookie',
+        `${COOKIE_IFRAME}=${password}; Path=/; Max-Age=${MAX_AGE}; Secure; HttpOnly; SameSite=None; Partitioned`)
+      return new Response(null, { status: 302, headers })
     }
-    return new Response(loginPage(true), {
-      status: 401,
-      headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
-    })
+    return gateResponse(true)
   }
 
-  return new Response(loginPage(false), {
-    status: 401,
-    headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
-  })
+  return gateResponse(false)
 }
