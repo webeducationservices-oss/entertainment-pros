@@ -99,7 +99,7 @@ export default function middleware(request) {
   // Submitted a code (also how an emailed ?key= link auto-unlocks)
   const key = url.searchParams.get('key')
   if (key !== null) {
-    if (key === password) {
+    if (key.trim().toLowerCase() === password.toLowerCase()) {
       const headers = new Headers({ Location: url.pathname })
       headers.append('Set-Cookie',
         `${COOKIE}=${password}; Path=/proposal; Max-Age=${MAX_AGE}; Secure; HttpOnly; SameSite=Lax`)
