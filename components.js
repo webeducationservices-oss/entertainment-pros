@@ -48,7 +48,7 @@ const EP_NAV = [
       ['Blog', '/blog'],
       ['Tell Us About Your Project', '/your-project'],
       ['TV Size Calculator', '/tv-size'],
-      ['Surround Sound Calculator', '/surround-sound-and-setup'],
+      ['Surround Sound Calculator', '/surround-sound-calculator'],
       ['AV Budget Calculator', '/av-budget-calculator'],
     ],
   },
