@@ -12,6 +12,10 @@ gtag('consent', 'default', {
   'ad_personalization': 'granted'
 });
 </script>
+<!-- First-touch capture. Must run on EVERY page: the attribution classifier on the
+     form pages runs at submit, by which time the visitor has navigated off the ad landing
+     page and the ?gclid= is gone. Stores raw signals only. See FORMS-SOURCE-ATTRIBUTION.md -->
+<script>(function(){try{var K='wes_first_touch_raw';if(sessionStorage.getItem(K))return;sessionStorage.setItem(K,JSON.stringify({url:location.href,ref:document.referrer||''}));}catch(e){}})();</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

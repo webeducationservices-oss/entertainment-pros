@@ -12,6 +12,59 @@ gtag('consent', 'default', {
   'ad_personalization': 'granted'
 });
 </script>
+<!-- First-touch capture. Must run on EVERY page: the attribution classifier on the
+     form pages runs at submit, by which time the visitor has navigated off the ad landing
+     page and the ?gclid= is gone. Stores raw signals only. See FORMS-SOURCE-ATTRIBUTION.md -->
+<script>(function(){try{var K='wes_first_touch_raw';if(sessionStorage.getItem(K))return;sessionStorage.setItem(K,JSON.stringify({url:location.href,ref:document.referrer||''}));}catch(e){}})();</script>
+<!-- Source attribution classifier (form pages only). Reads the first-touch capture,
+     treats gclid / gbraid / wbraid as a Google click, and returns the five HubSpot-shaped
+     fields the submit handler spreads into the payload. -->
+<script>
+function getSourceAttribution(){
+  var KEY='wes_first_touch_source',RAW='wes_first_touch_raw';
+  var AD=/[?&](gclid|gbraid|wbraid|msclkid|fbclid|utm_source)=/i;
+  function qs(u){try{return new URLSearchParams(new URL(u,location.href).search);}catch(e){return new URLSearchParams('');}}
+  function host(u){try{return u?new URL(u,location.href).hostname:'';}catch(e){return '';}}
+  var url=location.href,ref=document.referrer||'';
+  if(!AD.test(url)){
+    var raw=null;try{raw=JSON.parse(sessionStorage.getItem(RAW)||'null');}catch(e){}
+    if(raw&&raw.url&&AD.test(raw.url)){url=raw.url;ref=raw.ref||'';}
+    else if(AD.test(ref)&&host(ref)===location.hostname){url=ref;ref='';}
+    else{
+      var cached=null;try{cached=JSON.parse(sessionStorage.getItem(KEY)||'null');}catch(e){}
+      if(cached)return cached;
+      if(raw&&raw.url){url=raw.url;ref=raw.ref||'';}
+    }
+  }
+  var p=qs(url);
+  var utm_source=(p.get('utm_source')||'').toLowerCase();
+  var utm_medium=(p.get('utm_medium')||'').toLowerCase();
+  var utm_campaign=p.get('utm_campaign')||'';
+  var utm_term=p.get('utm_term')||'';
+  var gclid=p.get('gclid')||p.get('gbraid')||p.get('wbraid');
+  var fbclid=p.get('fbclid'),msclkid=p.get('msclkid');
+  var refHost=host(ref);
+  var offSite=ref&&refHost&&refHost!==location.hostname;
+  var src='DIRECT_TRAFFIC',d1='',d2='';
+  if(gclid){src='PAID_SEARCH';d1='google';d2=utm_term||utm_campaign||gclid;}
+  else if(msclkid){src='PAID_SEARCH';d1='bing';d2=utm_term||utm_campaign||msclkid;}
+  else if(fbclid){src='PAID_SOCIAL';d1=utm_source||'facebook';d2=utm_campaign||fbclid;}
+  else if(utm_source){
+    if(utm_medium==='email'||utm_source==='hs_email'){src='EMAIL_MARKETING';d1=utm_source;d2=utm_campaign;}
+    else if(utm_medium==='cpc'||utm_medium==='ppc'||utm_medium==='paid'){src=/google|bing|yahoo/.test(utm_source)?'PAID_SEARCH':'PAID_SOCIAL';d1=utm_source;d2=utm_term||utm_campaign;}
+    else if(utm_medium==='social'||utm_medium==='social_media'){src='SOCIAL_MEDIA';d1=utm_source;d2=utm_campaign;}
+    else if(utm_medium==='referral'){src='REFERRALS';d1=utm_source;d2=utm_campaign;}
+    else{src='OTHER_CAMPAIGNS';d1=utm_source;d2=utm_campaign;}
+  } else if(offSite){
+    if(/^(www\.)?(google|bing|duckduckgo|yahoo|ecosia)\.[a-z.]+$/i.test(refHost)){src='ORGANIC_SEARCH';d1=refHost.replace(/^www\./,'').split('.')[0];}
+    else if(/^(www\.)?(facebook|instagram|twitter|x|linkedin|tiktok|pinterest|reddit|youtube|t)\.com$/i.test(refHost)){src='SOCIAL_MEDIA';d1=refHost.replace(/^www\./,'').split('.')[0];}
+    else{src='REFERRALS';d1=refHost;}
+  }
+  var result={analytics_source:src,analytics_source_data_1:d1,analytics_source_data_2:d2,first_referrer:ref,first_url:url};
+  try{sessionStorage.setItem(KEY,JSON.stringify(result));}catch(e){}
+  return result;
+}
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -911,6 +964,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       var ok = false, j = {};
       try {
+        // Carry first-touch source into the lead row (analytics_source, first_url, ...)
+        Object.assign(data, getSourceAttribution());
         var res = await fetch('https://myaieditor.com/api/form-notify', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
