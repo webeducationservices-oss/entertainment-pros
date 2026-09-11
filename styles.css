@@ -201,6 +201,7 @@ nav .mega:hover .nav-chevron { transform: rotate(180deg); }
 .page-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(243,137,41,.08) 0%, transparent 60%); }
 .page-hero .container { position: relative; z-index: 1; }
 .page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin-bottom: 16px; }
+.page-hero .hero-cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 26px auto 8px; }
 .page-hero p { font-size: 1.1rem; color: rgba(255,255,255,.6); max-width: 600px; margin: 0 auto; }
 .page-hero .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 20px; font-size: .8rem; font-family: var(--font-heading); letter-spacing: 1px; text-transform: uppercase; }
 .page-hero .breadcrumb a { color: rgba(255,255,255,.5); }
