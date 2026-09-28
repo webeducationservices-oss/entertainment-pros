@@ -42,6 +42,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400.woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <script src="/components.js" defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfFsFgtAAAAAJHpFhY1P3rWGwz4xd-UQUsXWZRG" defer></script>
 <style>
 /* ===== BLOG POST (BLOG-TEMPLATE.md spec) ===== */
 .blog-post-hero{position:relative;padding:48px 24px 32px;max-width:1100px;margin:0 auto}
@@ -166,6 +167,106 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .ep-figpair{grid-template-columns:1fr;gap:20px}
   .ep-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
   .blog-article figcaption{font-size:.84rem}
+}
+
+/* ===== MOUNT PLANNER (interactive) ===== */
+.mp{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;background:var(--gray-bg);border:1px solid #e4ddd6;border-radius:var(--radius);padding:20px;margin:28px 0}
+.mp-stage{min-width:0}
+.mp-svg{width:100%;height:auto;display:block;border-radius:10px;border:1px solid #e0d8d0;background:#f7f4f1}
+.mp-svg #mpTv,.mp-svg #mpEyeLine,.mp-svg #mpTarget,.mp-svg #mpDim,.mp-svg #mpPerson,.mp-svg #mpArtLine{transition:transform .25s ease}
+.mp-scene-note{font-size:.8rem;color:var(--gray);margin:8px 0 0;line-height:1.45}
+.mp-controls{display:grid;gap:16px;align-content:start;min-width:0}
+.mp-field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.mp-field label,.mp-legend{font-family:var(--font-heading);font-size:.82rem;font-weight:700;color:var(--gray-dark);letter-spacing:.02em}
+.mp-field label b,.mp-legend b{color:var(--orange-dark);font-variant-numeric:tabular-nums}
+.mp-hint{font-size:.76rem;color:var(--gray);line-height:1.45}
+.mp input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:#ded4c9;outline:none;margin:4px 0}
+.mp input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;background:var(--orange);border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.25);cursor:pointer}
+.mp input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--orange);border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.25);cursor:pointer;border-color:#fff}
+.mp input[type=range]:focus-visible{outline:2px solid var(--orange-dark);outline-offset:4px}
+.mp-seg{display:flex;gap:6px;flex-wrap:wrap}
+.mp-seg button{flex:1 1 auto;min-width:0;padding:11px 10px;border:1px solid #d8cec4;background:#fff;border-radius:9px;font-family:var(--font-heading);font-size:.8rem;font-weight:700;color:var(--gray-dark);cursor:pointer;transition:var(--transition);white-space:nowrap}
+.mp-seg button:hover{border-color:var(--orange)}
+.mp-seg button.is-on{background:var(--black);border-color:var(--black);color:#fff}
+.mp-seg button:focus-visible{outline:2px solid var(--orange-dark);outline-offset:2px}
+.mp-check label{display:flex;align-items:center;gap:9px;cursor:pointer;font-weight:700}
+.mp-check input{width:19px;height:19px;accent-color:var(--orange);cursor:pointer;flex:0 0 auto}
+.mp-sub[hidden]{display:none}
+.mp-sub{margin-top:11px;padding-left:13px;border-left:3px solid #ded4c9;display:flex;flex-direction:column;gap:7px}
+.mp-out{display:flex;flex-direction:column;gap:14px;min-width:0}
+.mp-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.mp-num{background:#fff;border:1px solid #e4ddd6;border-radius:10px;padding:14px 10px;text-align:center;min-width:0}
+.mp-num b{display:block;font-family:var(--font-heading);font-size:1.75rem;font-weight:800;color:var(--black);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.mp-num span{display:block;font-size:.72rem;color:var(--gray);margin-top:5px;line-height:1.3}
+.mp-flags{display:flex;flex-direction:column;gap:8px}
+.mp-flag{display:flex;gap:10px;padding:12px 14px;border-radius:9px;font-size:.88rem;line-height:1.5;border:1px solid}
+.mp-flag i{flex:0 0 auto;width:7px;height:7px;border-radius:50%;margin-top:7px}
+.mp-flag.is-bad{background:#fdecea;border-color:#f3bab4;color:#8a1c13}
+.mp-flag.is-bad i{background:#c0392b}
+.mp-flag.is-warn{background:#fff4e6;border-color:#f6d5aa;color:#8a5008}
+.mp-flag.is-warn i{background:var(--orange-dark)}
+.mp-flag.is-ok{background:#eaf5ee;border-color:#bcdfc8;color:#1e5b35}
+.mp-flag.is-ok i{background:#2f6b4f}
+.mp-flag.is-info{background:#fff;border-color:#e4ddd6;color:var(--gray-dark)}
+.mp-flag.is-info i{background:var(--gray-light)}
+/* steps */
+.mp-steps{display:flex;flex-direction:column;gap:9px;margin:28px 0}
+.mp-step{border:1px solid #e4ddd6;border-radius:10px;background:#fff;overflow:hidden}
+.mp-step[open]{border-color:#d8cec4;box-shadow:var(--shadow)}
+.mp-step summary{display:flex;align-items:center;gap:13px;padding:15px 17px;cursor:pointer;list-style:none;transition:var(--transition)}
+.mp-step summary::-webkit-details-marker{display:none}
+.mp-step summary:hover{background:var(--gray-bg)}
+.mp-step summary:focus-visible{outline:2px solid var(--orange-dark);outline-offset:-2px}
+.mp-step summary h3{margin:0;font-size:1.02rem;line-height:1.35;flex:1 1 auto;min-width:0}
+.mp-n{flex:0 0 auto;width:29px;height:29px;border-radius:50%;background:var(--black);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:800;font-size:.88rem}
+.mp-step[open] .mp-n{background:var(--orange)}
+.mp-step summary::after{content:"";flex:0 0 auto;width:9px;height:9px;border-right:2px solid var(--gray);border-bottom:2px solid var(--gray);transform:rotate(45deg);margin-right:4px;transition:transform .25s ease}
+.mp-step[open] summary::after{transform:rotate(-135deg)}
+.mp-body{padding:0 17px 17px 59px}
+.mp-body p{margin:0 0 13px}
+.mp-body p:last-child{margin-bottom:0}
+.mp-yours{background:#fff7f0;border-left:3px solid var(--orange);padding:11px 14px;border-radius:0 8px 8px 0;font-size:.9rem;color:var(--gray-dark)}
+.mp-yours:empty{display:none}
+.mp-yours b{color:var(--orange-dark);font-variant-numeric:tabular-nums}
+/* lead */
+.mp-lead{background:var(--black);color:#fff;border-radius:var(--radius);padding:26px 24px;margin:28px 0}
+.mp-lead h3{color:#fff;margin:0 0 9px;font-size:1.22rem}
+.mp-lead p{color:#cfcfcf;margin:0 0 17px;font-size:.94rem;line-height:1.55}
+.mp-lead form{display:flex;gap:9px;flex-wrap:wrap}
+.mp-lead input[type=text],.mp-lead input[type=email]{flex:1 1 190px;min-width:0;padding:13px 15px;border:1px solid #3d3d3d;border-radius:9px;background:#242424;color:#fff;font-family:var(--font-body);font-size:.95rem}
+.mp-lead input::placeholder{color:#8a8a8a}
+.mp-lead input:focus{outline:2px solid var(--orange);outline-offset:1px;border-color:var(--orange)}
+.mp-lead button{flex:0 0 auto;padding:13px 24px;background:var(--orange);color:#fff;border:none;border-radius:9px;font-family:var(--font-heading);font-weight:700;font-size:.93rem;cursor:pointer;transition:var(--transition)}
+.mp-lead button:hover:not(:disabled){background:var(--orange-dark)}
+.mp-lead button:disabled{opacity:.6;cursor:default}
+.mp-lead button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.mp-fine{font-size:.78rem;color:#9a9a9a;margin:13px 0 0}
+.mp-lead a{color:var(--orange-light)}
+.mp-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.mp-shell{container-type:inline-size}
+@container (min-width:600px){
+  .mp{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);padding:24px;
+     grid-template-areas:"stage controls" "out controls";align-items:start}
+  .mp-stage{grid-area:stage}
+  .mp-controls{grid-area:controls}
+  .mp-out{grid-area:out}
+}
+@container (max-width:430px){
+  .mp{padding:15px;gap:15px}
+  .mp-seg button{white-space:normal;flex:1 1 30%}
+  .mp-num b{font-size:1.45rem}
+  .mp-num{padding:12px 6px}
+  .mp-num span{font-size:.67rem}
+}
+@media(max-width:520px){
+  .mp-body{padding:0 15px 15px 15px}
+  .mp-step summary{padding:13px 14px;gap:10px}
+  .mp-step summary h3{font-size:.95rem}
+  .mp-lead{padding:22px 18px}
+  .mp-lead button{flex:1 1 100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .mp-svg #mpTv,.mp-svg #mpEyeLine,.mp-svg #mpTarget,.mp-svg #mpDim,.mp-svg #mpPerson,.mp-svg #mpArtLine,.mp-step summary::after{transition:none}
 }
 </style>
 <script type="application/ld+json">
@@ -397,57 +498,203 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h2>How Entertainment Pros Mount a TV</h2>
 
-<p>Here's the process, step by step. Tap any step to open it.</p>
+<p>Seven steps. The order matters more than people expect. Set your room up below and the steps rewrite themselves with your numbers.</p>
 
-<p>Mounting a TV so it stays on the wall</p>
+<div class="mp-shell">
+<div class="mp" id="mountPlanner">
+  <div class="mp-stage">
+    <svg class="mp-svg" id="mpScene" viewBox="0 0 300 142" role="img" aria-labelledby="mpSceneTitle mpSceneDesc">
+      <title id="mpSceneTitle">Side view of your room</title>
+      <desc id="mpSceneDesc">A scale drawing showing the TV on the wall, your seat, and your eye line to the center of the screen.</desc>
+      <defs>
+        <linearGradient id="mpScreen" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#3a3f47"/><stop offset="1" stop-color="#15181c"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="300" height="142" fill="#f7f4f1"/>
+      <rect x="0" y="130" width="300" height="12" fill="#e4ddd6"/>
+      <line x1="0" y1="130" x2="300" y2="130" stroke="#c9beb4" stroke-width="1"/>
+      <rect x="14" y="8" width="10" height="122" fill="#ece5de"/>
+      <line x1="24" y1="8" x2="24" y2="130" stroke="#c9beb4" stroke-width="1"/>
+      <g id="mpMantel" style="display:none">
+        <rect id="mpMantelBox" x="24" y="90" width="26" height="40" fill="#ded4c9"/>
+        <rect id="mpMantelShelf" x="24" y="86" width="34" height="4" rx="1" fill="#b9a897"/>
+      </g>
+      <line id="mpArtLine" x1="24" y1="64" x2="290" y2="64" stroke="#b9a897" stroke-width="0.7" stroke-dasharray="3 3"/>
+      <text id="mpArtLabel" x="292" y="62" font-size="5.5" fill="#8d7f72" text-anchor="end">art height 60 in</text>
+      <g id="mpTv">
+        <rect id="mpTvBody" x="24" y="50" width="6" height="30" rx="1.5" fill="url(#mpScreen)"/>
+        <rect id="mpTvBezel" x="24" y="50" width="2" height="30" fill="#0e1013"/>
+      </g>
+      <line id="mpEyeLine" x1="150" y1="88" x2="30" y2="65" stroke="#F38929" stroke-width="1.1" stroke-dasharray="4 3"/>
+      <circle id="mpTarget" cx="30" cy="65" r="2.6" fill="none" stroke="#F38929" stroke-width="1.1"/>
+      <g id="mpPerson">
+        <rect id="mpCouch" x="140" y="104" width="52" height="26" rx="4" fill="#cdb9a6"/>
+        <rect id="mpCouchBack" x="178" y="84" width="14" height="26" rx="4" fill="#bda68f"/>
+        <rect id="mpTorso" x="156" y="82" width="12" height="26" rx="5" fill="#4a5058"/>
+        <rect id="mpLeg" x="140" y="100" width="24" height="8" rx="4" fill="#4a5058"/>
+        <circle id="mpHead" cx="162" cy="76" r="7" fill="#4a5058"/>
+      </g>
+      <g id="mpDim">
+        <line id="mpDimLine" x1="36" y1="65" x2="36" y2="130" stroke="#C66000" stroke-width="0.8"/>
+        <line id="mpDimTop" x1="32" y1="65" x2="40" y2="65" stroke="#C66000" stroke-width="0.8"/>
+        <line x1="32" y1="130" x2="40" y2="130" stroke="#C66000" stroke-width="0.8"/>
+        <text id="mpDimText" x="43" y="100" font-size="7" font-weight="700" fill="#C66000">42 in</text>
+      </g>
+      <text id="mpDistText" x="150" y="138" font-size="5.5" fill="#8d7f72" text-anchor="middle">10 ft back</text>
+    </svg>
+    <p class="mp-scene-note">Screen center to the floor. Drag anything below and watch it move.</p>
+  </div>
 
-<p>Seven steps. The order matters more than people expect.</p>
+  <div class="mp-controls">
+    <div class="mp-field">
+      <label for="mpSize">TV size <b><span id="mpSizeOut">65</span> in</b></label>
+      <input type="range" id="mpSize" min="32" max="98" step="1" value="65">
+    </div>
+    <div class="mp-field">
+      <label for="mpDist">Seat to wall <b><span id="mpDistOut">10 ft 0 in</span></b></label>
+      <input type="range" id="mpDist" min="48" max="240" step="3" value="120">
+    </div>
+    <div class="mp-field">
+      <label for="mpEye">Your eye height, seated <b><span id="mpEyeOut">42</span> in</b></label>
+      <input type="range" id="mpEye" min="32" max="54" step="1" value="42">
+      <span class="mp-hint">Floor to your eyes in the chair you actually use. Tape measure beats guessing.</span>
+    </div>
 
-<h3>1 Sit down before you measure anything</h3>
+    <div class="mp-field">
+      <span class="mp-legend">What is the wall?</span>
+      <div class="mp-seg" role="radiogroup" aria-label="Wall type">
+        <button type="button" data-wall="stud" class="is-on" role="radio" aria-checked="true">Wood studs</button>
+        <button type="button" data-wall="block" role="radio" aria-checked="false">Concrete block</button>
+        <button type="button" data-wall="unknown" role="radio" aria-checked="false">Not sure</button>
+      </div>
+    </div>
 
-<p>Sit where you'll actually watch. Couch, recliner, wherever you land. Your eyes should hit somewhere in the center of the screen. Most TVs should be around "Art Height", where your eyes are 2/3 up from the bottom while standing. Lower and you feel as if you are "looking down" on the news anchor. Too high and your visting your chiropractor.</p>
+    <div class="mp-field">
+      <span class="mp-legend">Which mount?</span>
+      <div class="mp-seg" role="radiogroup" aria-label="Mount type">
+        <button type="button" data-mount="fixed" class="is-on" role="radio" aria-checked="true">Flat</button>
+        <button type="button" data-mount="tilt" role="radio" aria-checked="false">Tilting</button>
+        <button type="button" data-mount="full" role="radio" aria-checked="false">Full motion</button>
+      </div>
+    </div>
 
-<p>Mark the spot with painter's tape and live with it for an evening if you can.</p>
+    <div class="mp-field mp-check">
+      <label for="mpMantelOn"><input type="checkbox" id="mpMantelOn"> There is a fireplace or mantel in the way</label>
+      <div class="mp-sub" id="mpMantelWrap" hidden>
+        <label for="mpMantelH">Mantel height <b><span id="mpMantelOut">54</span> in</b></label>
+        <input type="range" id="mpMantelH" min="36" max="72" step="1" value="54">
+      </div>
+    </div>
+  </div>
 
-<h3>2 Find the studs, then prove you found them</h3>
+  <div class="mp-out">
+    <div class="mp-nums">
+      <div class="mp-num"><b id="mpCenter">42</b><span>in to screen center</span></div>
+      <div class="mp-num"><b id="mpBottom">26</b><span>in to bottom edge</span></div>
+      <div class="mp-num"><b id="mpTilt">0&deg;</b><span>tilt you need</span></div>
+    </div>
+    <div class="mp-flags" id="mpFlags"></div>
+  </div>
+</div>
+</div>
 
-<p>A stud finder gets you close. A small finish nail or screwdriver through the drywall tells you the truth, and the hole disappears behind the mount.</p>
+<div class="mp-steps">
+  <details class="mp-step" open>
+    <summary><span class="mp-n">1</span><h3>Sit down before you measure anything</h3></summary>
+    <div class="mp-body">
+      <p>Sit where you'll actually watch. Couch, recliner, wherever you land. Your eyes should hit somewhere in the center of the screen. Most TVs should be around "Art Height", where your eyes are 2/3 up from the bottom while standing. Lower and you feel as if you are "looking down" on the news anchor. Too high and you're visiting your chiropractor.</p>
+      <p>Mark the spot with painter's tape and live with it for an evening if you can.</p>
+      <p class="mp-yours" id="mpY1"></p>
+    </div>
+  </details>
 
-<p>Studs usually sit 16 inches apart, sometimes 24. Find the edges of one, then mark its center. Your lag bolts belong in the middle of solid wood.</p>
+  <details class="mp-step">
+    <summary><span class="mp-n">2</span><h3>Find the studs, then prove you found them</h3></summary>
+    <div class="mp-body">
+      <p>A stud finder gets you close. A small finish nail or screwdriver through the drywall tells you the truth, and the hole disappears behind the mount.</p>
+      <p>Studs usually sit 16 inches apart, sometimes 24. Find the edges of one, then mark its center. Your lag bolts belong in the middle of solid wood.</p>
+      <p>Concrete block is common in Pinellas homes, especially on exterior walls. Block needs masonry anchors and a hammer drill, and a stud finder is useless on it. Tapcons are not best suited for this.</p>
+      <p class="mp-yours" id="mpY2"></p>
+    </div>
+  </details>
 
-<p>Concrete block is common in Pinellas homes, especially on exterior walls. Block needs masonry anchors and a hammer drill, and a stud finder is useless on it. Tapcons are not best suited for this.</p>
+  <details class="mp-step">
+    <summary><span class="mp-n">3</span><h3>Know what's inside the wall before you drill</h3></summary>
+    <div class="mp-body">
+      <p>Romex (electrical lines), water lines, and drain stacks all live in walls. So do the old cable runs nobody documented.</p>
+      <p>Look at what's directly below on the other side of that wall. A bathroom, a kitchen, an outlet stacked underneath. Those tell you what might be in there.</p>
+    </div>
+  </details>
 
-<h3>3 Know what's inside the wall before you drill</h3>
+  <details class="mp-step">
+    <summary><span class="mp-n">4</span><h3>Match the mount to the TV and the wall</h3></summary>
+    <div class="mp-body">
+      <p>Check the VESA pattern, which is the bolt hole spacing on the back of the screen, and check the weight rating with real margin. A mount rated right at your TV's weight is a mount with nothing left over.</p>
+      <p>Articulating arms need to be mounted on studs, full stop. If the backing is questionable, the answer is a plywood backer behind the drywall or a different spot, never an anchor.</p>
+      <p class="mp-yours" id="mpY4"></p>
+    </div>
+  </details>
 
-<p>Romex (electrical lines), water lines, and drain stacks all live in walls. So do the old cable runs nobody documented.</p>
+  <details class="mp-step">
+    <summary><span class="mp-n">5</span><h3>Lag into wood, with real washers</h3></summary>
+    <div class="mp-body">
+      <p>Lag bolts sized for the mount, driven into stud centers, with flat washers underneath the heads. The washer spreads the clamping force across the bracket instead of letting the head chew through it.</p>
+      <p>Snug, then a quarter turn. Overtightening crushes the wood fibers and you lose the grip you just made.</p>
+      <p>Anything wrapped, improvised, or borrowed from another job doesn't belong in a wall bracket. If the washer's missing, go get a washer.</p>
+      <p class="mp-yours" id="mpY5"></p>
+    </div>
+  </details>
 
-<p>Look at what's directly below on the other side of that wall. A bathroom, a kitchen, an outlet stacked underneath. Those tell you what might be in there.</p>
+  <details class="mp-step">
+    <summary><span class="mp-n">6</span><h3>Run the wire inside the wall</h3></summary>
+    <div class="mp-body">
+      <p>Power and HDMI both want a path. In-wall rated cable and a recessed box behind the screen keep everything out of sight and up to code. Separate boxes. Electrical and Audio/Video cables can NEVER share the same box or outlet.</p>
+      <p>Do this before the TV goes on the bracket. Fishing cable past a hung 75 inch screen is miserable work.</p>
+    </div>
+  </details>
 
-<h3>4 Match the mount to the TV and the wall</h3>
+  <details class="mp-step">
+    <summary><span class="mp-n">7</span><h3>Level it, load it, then level it again</h3></summary>
+    <div class="mp-body">
+      <p>Level the bracket empty, hang the screen, then check again. Brackets settle when the weight goes on, and a TV half a degree off reads as crooked to everybody who walks in.</p>
+      <p>Then turn it on, sit down in the chair from step one, and watch something. That's the only test which counts.</p>
+      <p class="mp-yours" id="mpY7"></p>
+    </div>
+  </details>
+</div>
 
-<p>Check the VESA pattern, which is the bolt hole spacing on the back of the screen, and check the weight rating with real margin. A mount rated right at your TV's weight is a mount with nothing left over.</p>
-
-<p>Articulating arms need to be mounted on studs, full stop. If the backing is questionable, the answer is a plywood backer behind the drywall or a different spot, never an anchor.</p>
-
-<h3>5 Lag into wood, with real washers</h3>
-
-<p>Lag bolts sized for the mount, driven into stud centers, with flat washers underneath the heads. The washer spreads the clamping force across the bracket instead of letting the head chew through it.</p>
-
-<p>Snug, then a quarter turn. Overtightening crushes the wood fibers and you lose the grip you just made.</p>
-
-<p>Anything wrapped, improvised, or borrowed from another job doesn't belong in a wall bracket. If the washer's missing, go get a washer.</p>
-
-<h3>6 Run the wire inside the wall</h3>
-
-<p>Power and HDMI both want a path. In-wall rated cable and a recessed box behind the screen keep everything out of sight and up to code. Separate boxes. Electrical and Audio/Video cables can NEVER share the same box or outlet.</p>
-
-<p>Do this before the TV goes on the bracket. Fishing cable past a hung 75 inch screen is miserable work.</p>
-
-<h3>7 Level it, load it, then level it again</h3>
-
-<p>Level the bracket empty, hang the screen, then check again. Brackets settle when the weight goes on, and a TV half a degree off reads as crooked to everybody who walks in.</p>
-
-<p>Then turn it on, sit down in the chair from step one, and watch something. That's the only test which counts.</p>
+<div class="mp-lead" id="mpLead">
+  <h3>Want these numbers on your phone at the hardware store?</h3>
+  <p>We'll email you this plan: your mount height, your bottom edge, the tilt, and the fastener spec for your wall. No call unless you ask for one.</p>
+  <form id="mpForm" novalidate>
+    <input type="hidden" name="site_slug" value="entertainment-pros">
+    <input type="hidden" name="form_type" value="tv-mount-planner">
+    <input type="hidden" name="send_visitor_copy" value="true">
+    <input type="hidden" name="recaptcha_token" id="mpToken" value="">
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" data-lpignore="true" data-1p-ignore>
+    <input type="hidden" name="tv_size" id="mpFSize" value="">
+    <input type="hidden" name="seat_distance" id="mpFDist" value="">
+    <input type="hidden" name="eye_height" id="mpFEye" value="">
+    <input type="hidden" name="wall_type" id="mpFWall" value="">
+    <input type="hidden" name="mount_type" id="mpFMount" value="">
+    <input type="hidden" name="screen_center_height" id="mpFCenter" value="">
+    <input type="hidden" name="screen_bottom_height" id="mpFBottom" value="">
+    <input type="hidden" name="tilt_needed" id="mpFTilt" value="">
+    <input type="hidden" name="mantel_height" id="mpFMantel" value="">
+    <input type="hidden" name="notes" id="mpFNotes" value="">
+    <label class="mp-sr" for="mpName">Your name</label>
+    <input type="text" name="name" id="mpName" placeholder="Your name (optional)" autocomplete="name">
+    <label class="mp-sr" for="mpEmail">Your email</label>
+    <input type="email" name="email" id="mpEmail" placeholder="you@email.com" required autocomplete="email">
+    <button type="submit" id="mpBtn">Email me my plan</button>
+  </form>
+  <p class="mp-fine">One email with your numbers. We never sell your information.</p>
+</div>
+<div class="mp-lead mp-done" id="mpDone" hidden>
+  <h3>Check your inbox.</h3>
+  <p>Your mount plan is on its way. If anything on that wall looks like the two jobs above, call Chip at <a href="tel:727-804-2277">727-804-2277</a> and we'll take a look before you drill.</p>
+</div>
 
 <h2>What I'd tell you before you hire anybody</h2>
 
@@ -568,5 +815,302 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </footer>
+<script>
+function getSourceAttribution(){
+  var KEY='wes_first_touch_source',RAW='wes_first_touch_raw';
+  var AD=/[?&](gclid|gbraid|wbraid|msclkid|fbclid|utm_source)=/i;
+  function qs(u){try{return new URLSearchParams(new URL(u,location.href).search);}catch(e){return new URLSearchParams('');}}
+  function host(u){try{return u?new URL(u,location.href).hostname:'';}catch(e){return '';}}
+  var url=location.href,ref=document.referrer||'';
+  if(!AD.test(url)){
+    var raw=null;try{raw=JSON.parse(sessionStorage.getItem(RAW)||'null');}catch(e){}
+    if(raw&&raw.url&&AD.test(raw.url)){url=raw.url;ref=raw.ref||'';}
+    else if(AD.test(ref)&&host(ref)===location.hostname){url=ref;ref='';}
+    else{
+      var cached=null;try{cached=JSON.parse(sessionStorage.getItem(KEY)||'null');}catch(e){}
+      if(cached)return cached;
+      if(raw&&raw.url){url=raw.url;ref=raw.ref||'';}
+    }
+  }
+  var p=qs(url);
+  var utm_source=(p.get('utm_source')||'').toLowerCase();
+  var utm_medium=(p.get('utm_medium')||'').toLowerCase();
+  var utm_campaign=p.get('utm_campaign')||'';
+  var utm_term=p.get('utm_term')||'';
+  var gclid=p.get('gclid')||p.get('gbraid')||p.get('wbraid');
+  var fbclid=p.get('fbclid'),msclkid=p.get('msclkid');
+  var refHost=host(ref);
+  var offSite=ref&&refHost&&refHost!==location.hostname;
+  var src='DIRECT_TRAFFIC',d1='',d2='';
+  if(gclid){src='PAID_SEARCH';d1='google';d2=utm_term||utm_campaign||gclid;}
+  else if(msclkid){src='PAID_SEARCH';d1='bing';d2=utm_term||utm_campaign||msclkid;}
+  else if(fbclid){src='PAID_SOCIAL';d1=utm_source||'facebook';d2=utm_campaign||fbclid;}
+  else if(utm_source){
+    if(utm_medium==='email'||utm_source==='hs_email'){src='EMAIL_MARKETING';d1=utm_source;d2=utm_campaign;}
+    else if(utm_medium==='cpc'||utm_medium==='ppc'||utm_medium==='paid'){src=/google|bing|yahoo/.test(utm_source)?'PAID_SEARCH':'PAID_SOCIAL';d1=utm_source;d2=utm_term||utm_campaign;}
+    else if(utm_medium==='social'||utm_medium==='social_media'){src='SOCIAL_MEDIA';d1=utm_source;d2=utm_campaign;}
+    else if(utm_medium==='referral'){src='REFERRALS';d1=utm_source;d2=utm_campaign;}
+    else{src='OTHER_CAMPAIGNS';d1=utm_source;d2=utm_campaign;}
+  } else if(offSite){
+    if(/^(www\.)?(google|bing|duckduckgo|yahoo|ecosia)\.[a-z.]+$/i.test(refHost)){src='ORGANIC_SEARCH';d1=refHost.replace(/^www\./,'').split('.')[0];}
+    else if(/^(www\.)?(facebook|instagram|twitter|x|linkedin|tiktok|pinterest|reddit|youtube|t)\.com$/i.test(refHost)){src='SOCIAL_MEDIA';d1=refHost.replace(/^www\./,'').split('.')[0];}
+    else{src='REFERRALS';d1=refHost;}
+  }
+  var result={analytics_source:src,analytics_source_data_1:d1,analytics_source_data_2:d2,first_referrer:ref,first_url:url};
+  try{sessionStorage.setItem(KEY,JSON.stringify(result));}catch(e){}
+  return result;
+}
+
+/* ===== MOUNT PLANNER ===== */
+(function () {
+  var root = document.getElementById('mountPlanner');
+  if (!root) return;
+
+  var RECAPTCHA_KEY = '6LfFsFgtAAAAAJHpFhY1P3rWGwz4xd-UQUsXWZRG';
+  var FAIL_HTML = 'We could not send that just now. Please call us at <a href="tel:727-804-2277" style="color:inherit;font-weight:700">727-804-2277</a> and we&rsquo;ll get you your plan.';
+
+  // 16:9 screen height as a fraction of the diagonal
+  var RH = 9 / Math.sqrt(16 * 16 + 9 * 9);
+  var FLOOR = 130, WALLX = 24, TVDEPTH = 6, MIN_BOTTOM = 18;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var state = { size: 65, dist: 120, eye: 42, wall: 'stud', mount: 'fixed', mantelOn: false, mantel: 54 };
+
+  function feetIn(n) {
+    var f = Math.floor(n / 12), i = Math.round(n - f * 12);
+    if (i === 12) { f += 1; i = 0; }
+    return f + ' ft ' + i + ' in';
+  }
+
+  function compute() {
+    var screenH = state.size * RH;
+    var center = state.eye;
+    var forced = false;
+    if (state.mantelOn) {
+      var minB = state.mantel + 6;
+      if (minB + screenH / 2 > center) { center = minB + screenH / 2; forced = true; }
+    }
+    var bottom = center - screenH / 2;
+    if (bottom < MIN_BOTTOM) { bottom = MIN_BOTTOM; center = bottom + screenH / 2; }
+    var rise = center - state.eye;
+    var tilt = rise > 0 ? Math.atan2(rise, state.dist) * 180 / Math.PI : 0;
+    return {
+      screenH: screenH, center: center, bottom: bottom, top: center + screenH / 2,
+      tilt: tilt, forced: forced
+    };
+  }
+
+  function flags(r) {
+    var out = [];
+    if (state.wall === 'unknown' && state.mount === 'full') {
+      out.push(['bad', 'Do not hang a full motion arm until you know what is behind that drywall. This is the exact mount that came off the wall above.']);
+    } else if (state.wall === 'unknown') {
+      out.push(['warn', 'Find out what the wall is before you drill. A finish nail through the drywall tells you the truth, and the hole disappears behind the mount.']);
+    }
+    if (state.wall === 'block' && state.mount === 'full') {
+      out.push(['warn', 'Full motion on block works, but every anchor carries the leverage of the extended arm. Hammer drill and masonry anchors rated for the pull out load. Tapcons are not best suited for this.']);
+    } else if (state.wall === 'block') {
+      out.push(['info', 'Block needs masonry anchors and a hammer drill. A stud finder is useless on it.']);
+    }
+    if (state.wall === 'stud' && state.mount === 'full') {
+      out.push(['info', 'Full motion has to land on stud centers, full stop. If the backing is questionable the answer is a plywood backer, never an anchor.']);
+    }
+    if (r.tilt > 10) {
+      out.push(['bad', 'That is a ' + r.tilt.toFixed(0) + ' degree neck angle for every show you watch. A pull down mount, or a lower spot on a different wall, beats a chiropractor bill.']);
+    } else if (r.tilt > 4) {
+      out.push([state.mount === 'fixed' ? 'warn' : 'info',
+        state.mount === 'fixed'
+          ? 'At ' + r.tilt.toFixed(0) + ' degrees up you want a tilting mount. A flat mount here bounces your ceiling lights straight back at you.'
+          : 'Your ' + (state.mount === 'tilt' ? 'tilting' : 'full motion') + ' mount handles the ' + r.tilt.toFixed(0) + ' degree angle. Set the tilt once the screen is loaded.']);
+    } else if (r.tilt < 1.5) {
+      out.push(['ok', 'Dead on your eye line. This is the height nobody ever complains about.']);
+    }
+    if (r.forced) {
+      out.push(['info', 'The mantel is setting this height, not your eye line. Six inches of clearance above the shelf is the tight end of comfortable.']);
+    }
+    if (state.size >= 75) {
+      out.push(['info', 'At ' + state.size + ' inches, running the wire before the screen goes on the bracket stops being a preference.']);
+    }
+    var rank = { bad: 0, warn: 1, ok: 2, info: 3 };
+    out.sort(function (a, b) { return rank[a[0]] - rank[b[0]]; });
+    return out.slice(0, 4);
+  }
+
+  function yours(r) {
+    var c = Math.round(r.center), b = Math.round(r.bottom);
+    $('mpY1').innerHTML = 'Your plan: screen center <b>' + c + ' in</b> off the floor, bottom edge at <b>' + b + ' in</b>. Put the painter’s tape on that line tonight and see how it feels.';
+    var w = { stud: 'Wood studs: find the edges, mark the center, and put your lag bolts in the middle of solid wood.',
+      block: 'Concrete block: the stud finder stays in the bag. You are drilling with a hammer drill and setting masonry anchors.',
+      unknown: 'You picked "not sure", so this step is the whole job. Nail test first, mount second.' }[state.wall];
+    $('mpY2').textContent = w;
+    var m = { fixed: 'flat', tilt: 'tilting', full: 'full motion' }[state.mount];
+    $('mpY4').innerHTML = 'You are hanging a <b>' + state.size + ' in</b> screen on a <b>' + m + '</b> mount. Check the VESA pattern on the back, then check the weight rating with real margin above what your TV actually weighs.';
+    $('mpY5').textContent = state.wall === 'stud'
+      ? 'This is your step. Lag bolts into stud centers, flat washers under every head, snug then a quarter turn.'
+      : (state.wall === 'block'
+        ? 'Yours is a masonry anchor job, not a lag bolt job, but the same rule holds: the washer spreads the load and nothing improvised goes in the wall.'
+        : 'Which fastener you need depends on what step 2 turns up. Do not buy hardware until you know.');
+    $('mpY7').innerHTML = r.tilt > 1.5
+      ? 'Level it flat first, hang the screen, then set your <b>' + r.tilt.toFixed(0) + ' degree</b> tilt last. Brackets settle when the weight goes on.'
+      : 'Level the bracket empty, hang the screen, check it again, then sit down in that chair and watch something.';
+  }
+
+  function draw(r) {
+    var topH = Math.max(r.top, 66, state.mantelOn ? state.mantel + 8 : 0);
+    var S = Math.min(1.35, 118 / topH, 262 / state.dist);
+    var y = function (h) { return FLOOR - h * S; };
+    var px = WALLX + state.dist * S;
+
+    var tv = $('mpTvBody'), bez = $('mpTvBezel');
+    tv.setAttribute('y', y(r.top)); tv.setAttribute('height', Math.max(2, r.screenH * S));
+    bez.setAttribute('y', y(r.top)); bez.setAttribute('height', Math.max(2, r.screenH * S));
+
+    var eyeY = y(state.eye), cy = y(r.center);
+    var el = $('mpEyeLine');
+    el.setAttribute('x1', px); el.setAttribute('y1', eyeY);
+    el.setAttribute('x2', WALLX + TVDEPTH); el.setAttribute('y2', cy);
+    $('mpTarget').setAttribute('cx', WALLX + TVDEPTH); $('mpTarget').setAttribute('cy', cy);
+
+    $('mpHead').setAttribute('cx', px); $('mpHead').setAttribute('cy', eyeY);
+    $('mpTorso').setAttribute('x', px - 6); $('mpTorso').setAttribute('y', eyeY + 6);
+    $('mpTorso').setAttribute('height', Math.max(6, FLOOR - 22 - (eyeY + 6)));
+    $('mpCouch').setAttribute('x', px - 22); $('mpCouchBack').setAttribute('x', px + 16);
+    $('mpCouchBack').setAttribute('y', eyeY + 8);
+    $('mpCouchBack').setAttribute('height', Math.max(8, FLOOR - 26 - (eyeY + 8)));
+    $('mpLeg').setAttribute('x', px - 24); $('mpLeg').setAttribute('y', FLOOR - 30);
+
+    $('mpDimLine').setAttribute('y1', cy); $('mpDimTop').setAttribute('y1', cy); $('mpDimTop').setAttribute('y2', cy);
+    $('mpDimText').setAttribute('y', Math.min(FLOOR - 6, (cy + FLOOR) / 2 + 3));
+    $('mpDimText').textContent = Math.round(r.center) + ' in';
+
+    var art = y(60);
+    $('mpArtLine').setAttribute('y1', art); $('mpArtLine').setAttribute('y2', art);
+    $('mpArtLabel').setAttribute('y', art - 2);
+
+    var mg = $('mpMantel');
+    if (state.mantelOn) {
+      mg.style.display = '';
+      var mh = state.mantel * S;
+      $('mpMantelBox').setAttribute('y', FLOOR - mh); $('mpMantelBox').setAttribute('height', mh);
+      $('mpMantelShelf').setAttribute('y', FLOOR - mh - 4);
+    } else { mg.style.display = 'none'; }
+
+    $('mpDistText').setAttribute('x', Math.min(290, Math.max(60, (WALLX + px) / 2)));
+    $('mpDistText').textContent = feetIn(state.dist) + ' back';
+  }
+
+  function render() {
+    var r = compute();
+    $('mpSizeOut').textContent = state.size;
+    $('mpDistOut').textContent = feetIn(state.dist);
+    $('mpEyeOut').textContent = state.eye;
+    $('mpMantelOut').textContent = state.mantel;
+    $('mpCenter').textContent = Math.round(r.center);
+    $('mpBottom').textContent = Math.round(r.bottom);
+    $('mpTilt').textContent = (r.tilt < 0.5 ? '0' : r.tilt.toFixed(0)) + '°';
+
+    $('mpFlags').innerHTML = flags(r).map(function (f) {
+      return '<div class="mp-flag is-' + f[0] + '"><i></i><span>' + f[1] + '</span></div>';
+    }).join('');
+
+    yours(r);
+    draw(r);
+
+    $('mpFSize').value = state.size + ' in';
+    $('mpFDist').value = feetIn(state.dist);
+    $('mpFEye').value = state.eye + ' in';
+    $('mpFWall').value = { stud: 'Wood studs', block: 'Concrete block', unknown: 'Not sure yet' }[state.wall];
+    $('mpFMount').value = { fixed: 'Flat', tilt: 'Tilting', full: 'Full motion' }[state.mount];
+    $('mpFCenter').value = Math.round(r.center) + ' in';
+    $('mpFBottom').value = Math.round(r.bottom) + ' in';
+    $('mpFTilt').value = (r.tilt < 0.5 ? '0' : r.tilt.toFixed(0)) + ' degrees';
+    $('mpFMantel').value = state.mantelOn ? state.mantel + ' in' : 'none';
+    $('mpFNotes').value = flags(r).map(function (f) { return f[1]; }).join(' | ');
+  }
+
+  [['mpSize', 'size'], ['mpDist', 'dist'], ['mpEye', 'eye'], ['mpMantelH', 'mantel']].forEach(function (p) {
+    $(p[0]).addEventListener('input', function () { state[p[1]] = +this.value; render(); });
+  });
+  root.querySelectorAll('[data-wall]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      state.wall = b.dataset.wall;
+      root.querySelectorAll('[data-wall]').forEach(function (x) {
+        x.classList.toggle('is-on', x === b); x.setAttribute('aria-checked', x === b ? 'true' : 'false');
+      });
+      render();
+    });
+  });
+  root.querySelectorAll('[data-mount]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      state.mount = b.dataset.mount;
+      root.querySelectorAll('[data-mount]').forEach(function (x) {
+        x.classList.toggle('is-on', x === b); x.setAttribute('aria-checked', x === b ? 'true' : 'false');
+      });
+      render();
+    });
+  });
+  $('mpMantelOn').addEventListener('change', function () {
+    state.mantelOn = this.checked;
+    $('mpMantelWrap').hidden = !this.checked;
+    render();
+  });
+
+  render();
+
+  /* ---- lead capture ---- */
+  function getRecaptchaToken(action) {
+    if (typeof grecaptcha === 'undefined' || typeof grecaptcha.execute !== 'function') return Promise.resolve('');
+    return Promise.race([
+      Promise.resolve().then(function () { return grecaptcha.execute(RECAPTCHA_KEY, { action: action }); }),
+      new Promise(function (_, reject) { setTimeout(function () { reject(new Error('recaptcha timeout')); }, 8000); })
+    ]).catch(function (err) { console.warn('recaptcha unavailable', err); return ''; });
+  }
+  function showFailure(anchor) {
+    var el = document.getElementById('mpError');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'mpError'; el.setAttribute('role', 'alert');
+      el.style.cssText = 'margin-top:14px;padding:13px 15px;background:#fdecea;border:1px solid #f3bab4;border-radius:8px;color:#8a1c13;font-size:.9rem;line-height:1.5';
+      anchor.parentNode.insertBefore(el, anchor.nextSibling);
+    }
+    el.innerHTML = FAIL_HTML; el.style.display = 'block';
+  }
+
+  var form = $('mpForm');
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (form.querySelector('[name="_honey"]').value) return;
+    var email = $('mpEmail');
+    if (!email.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.focus(); return; }
+    var btn = $('mpBtn'), label = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var prev = document.getElementById('mpError'); if (prev) prev.style.display = 'none';
+
+    render();
+    var data = Object.fromEntries(new FormData(form).entries());
+    data.recaptcha_token = await getRecaptchaToken('tv_mount_planner');
+
+    var ok = false, j = {};
+    try {
+      Object.assign(data, getSourceAttribution());
+      var res = await fetch('https://myaieditor.com/api/form-notify', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
+      });
+      j = await res.json().catch(function () { return {}; });
+      ok = res.ok && j.accepted !== false;
+    } catch (err) { console.error('mount planner submit error', err); }
+
+    if (!ok) { btn.disabled = false; btn.textContent = label; showFailure(form); return; }
+    if (j.accepted === true) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'form_submission', form_type: 'tv-mount-planner', form_location: window.location.pathname });
+    }
+    $('mpLead').hidden = true;
+    $('mpDone').hidden = false;
+    $('mpDone').scrollIntoView({ block: 'center', behavior: 'smooth' });
+  });
+})();
+</script>
+
 </body>
 </html>
