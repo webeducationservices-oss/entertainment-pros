@@ -64,6 +64,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .tc-split-media img{width:100%;height:auto;display:block;border-radius:var(--radius);box-shadow:var(--shadow)}
 .tc-split-media figcaption{font-size:.82rem;color:var(--gray);margin-top:10px;line-height:1.5}
 .tc-split .tc-prose{max-width:none;margin:0}
+/* history timeline */
+.tc-eras{list-style:none;margin:8px auto 44px;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:14px;max-width:1120px;position:relative}
+.tc-eras::before{content:"";position:absolute;top:33px;left:7%;right:7%;height:2px;background:#e2d9cf}
+.tc-era{text-align:center;min-width:0}
+.tc-era-icon{width:66px;height:66px;border-radius:50%;background:#fff;border:2px solid #e2d9cf;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--gray-dark);position:relative;z-index:1;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.tc-era-icon svg{width:32px;height:32px}
+.tc-era.is-now .tc-era-icon{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 6px 20px rgba(243,137,41,.35)}
+.tc-era-year{display:block;font-family:var(--font-heading);font-weight:800;font-size:.9rem;color:var(--orange-dark);letter-spacing:.02em}
+.tc-era h3{font-size:.95rem;margin:4px 0 6px;color:var(--black);line-height:1.3}
+.tc-era p{font-size:.82rem;color:var(--gray);line-height:1.55;margin:0}
+.tc-era.is-now h3{color:var(--orange-dark)}
+@media(max-width:900px){
+  .tc-eras{grid-template-columns:minmax(0,1fr);gap:20px;max-width:540px}
+  .tc-eras::before{top:12px;bottom:12px;left:32px;right:auto;width:2px;height:auto}
+  .tc-era{display:grid;grid-template-columns:66px minmax(0,1fr);gap:16px;text-align:left;align-items:center}
+  .tc-era-icon{margin:0}
+}
+.tc-split.top{align-items:start}
+.tc-split .tc-steps{max-width:none;margin:0}
+.tc-section.dark .tc-split-media figcaption{color:#a8a8a8}
+.tc-section.dark .tc-split .section-label{display:inline-block}
+.tc-band{max-width:900px;margin:0 auto 34px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.tc-band img{width:100%;height:auto;display:block}
+.tc-band figcaption{padding:12px 20px 16px;font-size:.88rem;color:var(--gray);text-align:center;line-height:1.55}
 /* chain diagram + parts */
 .tc-chain{max-width:960px;margin:0 auto 40px}
 .tc-chain svg{width:100%;height:auto;display:block}
@@ -513,10 +537,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="section-label">Why This Matters</span>
       <h2 class="section-title" id="tc-why">Leave the Phone in the Other Room</h2>
     </div>
-    <div class="tc-prose">
+    <div class="tc-split">
+      <div class="tc-prose">
       <p>We used to sit down and listen. One side of a record ran about twenty minutes, and for those twenty minutes nobody checked anything. Friends came over and somebody put an album on. Families argued about whose turn it was to pick.</p>
       <p>Somewhere along the way the phone took that time. Music turned into background for scrolling. Movie night became four screens in one room. The evening we meant to spend relaxing turned into an hour of headlines that left us more anxious than when we sat down.</p>
       <p>A listening room is the opposite of that. One good chair, two speakers set up properly, and a reason to leave the phone where it is. It is not anti technology. It is the best technology in the house, pointed at one thing, so that for an hour the only thing you are doing is hearing music the way it was recorded.</p>
+    </div>
+      <figure class="tc-split-media">
+        <img src="/images/martinlogan-electromotion-electrostatic-piano-room.jpg" alt="A slim MartinLogan ElectroMotion electrostatic speaker beside a grand piano in a bright room with no TV" width="640" height="960" loading="lazy">
+        <figcaption>A room built for listening, with nothing in it competing for your attention. Photo courtesy of MartinLogan.</figcaption>
+      </figure>
     </div>
     <p class="tc-pull">The point is not the equipment. The point is the hour you get back.</p>
   </div>
@@ -529,6 +559,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="section-label">How We Got Here</span>
       <h2 class="section-title" id="tc-history">From the Concert Hall to the Earbud, and Back Again</h2>
     </div>
+    <ol class="tc-eras" aria-label="From stereo to streaming and back">
+      <li class="tc-era">
+        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="7" height="16" rx="1.5"/><circle cx="5.5" cy="9" r="1.4"/><circle cx="5.5" cy="15" r="2.2"/><rect x="15" y="4" width="7" height="16" rx="1.5"/><circle cx="18.5" cy="9" r="1.4"/><circle cx="18.5" cy="15" r="2.2"/></svg></span>
+        <div class="tc-era-text"><span class="tc-era-year">1931</span><h3>Stereo is invented</h3><p>A patent for putting a performance in front of you, with two channels.</p></div>
+      </li>
+      <li class="tc-era">
+        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r=".6"/><path d="M12 5.5a6.5 6.5 0 0 1 6.5 6.5"/></svg></span>
+        <div class="tc-era-text"><span class="tc-era-year">1958</span><h3>Stereo records</h3><p>The stereo LP reaches living rooms, and the band spreads out between two speakers.</p></div>
+      </li>
+      <li class="tc-era">
+        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="11" r="2"/><circle cx="16" cy="11" r="2"/><path d="M10 11h4"/><path d="M6.5 19l1.5-3.5h8l1.5 3.5"/></svg></span>
+        <div class="tc-era-text"><span class="tc-era-year">1963</span><h3>The cassette</h3><p>Music fits in a pocket and a car. Convenience starts to win.</p></div>
+      </li>
+      <li class="tc-era">
+        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2.5"/><path d="M12 6.5A5.5 5.5 0 0 0 6.5 12"/><path d="M17.5 12a5.5 5.5 0 0 1-5.5 5.5"/></svg></span>
+        <div class="tc-era-text"><span class="tc-era-year">1982</span><h3>The CD</h3><p>Clean and digital, and it lives in the car and the kitchen.</p></div>
+      </li>
+      <li class="tc-era">
+        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><rect x="8.5" y="4.5" width="7" height="6" rx="1"/><circle cx="12" cy="16" r="3"/><circle cx="12" cy="16" r=".7"/></svg></span>
+        <div class="tc-era-text"><span class="tc-era-year">Late 1990s</span><h3>The MP3</h3><p>A thousand songs in your pocket, squeezed to fit.</p></div>
+      </li>
+      <li class="tc-era">
+        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="9" height="18" rx="2"/><path d="M6.5 18h2"/><circle cx="18" cy="8.5" r="2.8"/><path d="M18 11.3V19"/></svg></span>
+        <div class="tc-era-text"><span class="tc-era-year">2010s</span><h3>Streaming to earbuds</h3><p>Every song ever made, played through a phone speaker or a pair of earbuds.</p></div>
+      </li>
+      <li class="tc-era is-now">
+        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="5" height="11" rx="1"/><circle cx="4.5" cy="10" r="1.3"/><rect x="17" y="3" width="5" height="11" rx="1"/><circle cx="19.5" cy="10" r="1.3"/><path d="M8.5 21v-3.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V21"/><path d="M9.5 15.5V13h5v2.5"/></svg></span>
+        <div class="tc-era-text"><span class="tc-era-year">Today</span><h3>Back to two channels</h3><p>A pair of speakers, a chair, and the phone in the other room.</p></div>
+      </li>
+    </ol>
+
     <div class="tc-prose">
       <p>Stereo was invented to put a performance in front of you. The idea was patented in 1931 and stereo records reached living rooms in 1958: two channels, two speakers, and a band laid out across the room between them.</p>
       <p>Then convenience won, one format at a time. The cassette, the CD, the MP3, and finally streaming through a phone speaker or a pair of earbuds. Every step made music easier to carry. Almost every step also made it easier to ignore.</p>
@@ -628,7 +689,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 class="section-title" id="tc-process">From the First Call to the First Listen</h2>
       <p class="section-subtitle">Every step is a person, from the first conversation to the afternoon we sit in your chair and adjust the speakers by ear.</p>
     </div>
-    <ol class="tc-steps">
+    <div class="tc-split top">
+      <ol class="tc-steps">
       <li><div><h3>A conversation about what you listen to</h3><p>What music, how loud, how often, and what you already own. This shapes everything after it, so it comes first.</p></div></li>
       <li><div><h3>We look at the room</h3><p>Where the seat can go, what is behind the speakers, the floor, the windows, the open doorways. In Pinellas we come to you; farther away we start from photos, measurements and a video call.</p></div></li>
       <li><div><h3>A design on paper</h3><p>Source, amplification, speakers, placement and what stays. This is the point where brands and models come into it, and not before.</p></div></li>
@@ -636,6 +698,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><div><h3>Tuning with you in the chair</h3><p>Speaker position matters to the inch. We move them, listen, measure and move them again with you sitting where you will actually sit.</p></div></li>
       <li><div><h3>A follow up after you have lived with it</h3><p>Rooms change once furniture moves in and ears adjust. We check back and fine tune.</p></div></li>
     </ol>
+      <figure class="tc-split-media">
+        <img src="/images/martinlogan-motion-foundation-floorstanding.jpg" alt="A walnut MartinLogan Motion Foundation floorstanding speaker standing out from a white wall" width="640" height="960" loading="lazy">
+        <figcaption>Every step ends here: the right speaker, in the right spot, for your seat. Photo courtesy of MartinLogan.</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -695,6 +762,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 class="section-title" id="tc-levels">What a Listening Room Takes, Level by Level</h2>
       <p class="section-subtitle">Three honest starting points. Every room lands somewhere different, but this is how the pieces usually come together.</p>
     </div>
+    <figure class="tc-band">
+      <img src="/images/martinlogan-neolith-electrostatic.jpg" alt="Three views of a red MartinLogan Neolith electrostatic speaker showing the see through panel and the woofer section" width="1400" height="1018" loading="lazy">
+      <figcaption>The MartinLogan Neolith, the kind of speaker a dedicated listening room is built around. Photo courtesy of MartinLogan.</figcaption>
+    </figure>
     <div class="tc-levels">
       <div class="tc-level">
         <span class="tc-level-tag">Start Here</span>
@@ -798,10 +869,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== WHO BUILDS IT ===== -->
 <section class="tc-section dark" aria-labelledby="tc-who">
   <div class="container">
-    <div class="tc-header">
-      <span class="section-label">Who Builds It</span>
-      <h2 class="section-title" id="tc-who">Designed by People Who Listen First</h2>
-      <p class="section-subtitle">Entertainment Pros is Chip Tollefson's company. Before Chip spent two decades building home audio systems, he spent sixteen years in the Marine Corps as an avionics specialist on the F/A-18. He still treats a speaker cable like it is going on a jet.</p>
+    <div class="tc-split">
+      <div class="tc-prose">
+        <span class="section-label">Who Builds It</span>
+        <h2 class="section-title" id="tc-who">Designed by People Who Listen First</h2>
+        <p>Entertainment Pros is Chip Tollefson's company. Before Chip spent two decades building home audio systems, he spent sixteen years in the Marine Corps as an avionics specialist on the F/A-18. He still treats a speaker cable like it is going on a jet.</p>
+        <p>That is the difference you are paying for. Anybody can sell you a pair of speakers. We design the room around them, run every wire like it matters, and stay until it sounds the way it should.</p>
+      </div>
+      <figure class="tc-split-media">
+        <img src="/images/martinlogan-masterpiece-series-electrostatic.jpg" alt="A MartinLogan Masterpiece Series electrostatic speaker in front of a dark stone wall" width="640" height="960" loading="lazy">
+        <figcaption>MartinLogan Masterpiece Series. As a Masterpiece dealer we carry the full line. Photo courtesy of MartinLogan.</figcaption>
+      </figure>
     </div>
     <div class="tc-creds">
       <div class="tc-cred"><strong>A MartinLogan Masterpiece dealer</strong><span>The full line of electrostatic speakers from Lawrence, Kansas, set up by people who measure the room first. <a href="/martinlogan-dealer">Why we carry them</a></span></div>
