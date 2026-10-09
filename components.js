@@ -14,6 +14,7 @@ const EP_NAV = [
         ['Audio-Video Planning', '/audio-video-planning-and-installation'],
         ['Home Theater Design', '/home-theater-design-and-installation'],
         ['Surround Sound Systems', '/living-room-surround-sound'],
+        ['Two-Channel Audio', '/two-channel-audio'],
         ['Condo TV & Sound', '/condo-tv-and-sound-solutions'],
       ]},
       { heading: 'TV & Installations', links: [
