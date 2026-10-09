@@ -64,22 +64,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .tc-split-media img{width:100%;height:auto;display:block;border-radius:var(--radius);box-shadow:var(--shadow)}
 .tc-split-media figcaption{font-size:.82rem;color:var(--gray);margin-top:10px;line-height:1.5}
 .tc-split .tc-prose{max-width:none;margin:0}
-/* history timeline */
-.tc-eras{list-style:none;margin:8px auto 44px;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:14px;max-width:1120px;position:relative}
-.tc-eras::before{content:"";position:absolute;top:33px;left:7%;right:7%;height:2px;background:#e2d9cf}
-.tc-era{text-align:center;min-width:0}
-.tc-era-icon{width:66px;height:66px;border-radius:50%;background:#fff;border:2px solid #e2d9cf;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--gray-dark);position:relative;z-index:1;box-shadow:0 4px 14px rgba(0,0,0,.05)}
-.tc-era-icon svg{width:32px;height:32px}
-.tc-era.is-now .tc-era-icon{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 6px 20px rgba(243,137,41,.35)}
+/* history: vertical timeline left, story right; motion only when JS adds .tc-anim */
+.tc-history{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start;max-width:1120px;margin:0 auto}
+.tc-history-copy{grid-column:2;grid-row:1;position:sticky;top:112px}
+.tc-history .tc-header{text-align:left;margin:0 0 24px;max-width:none}
+.tc-history .tc-prose{max-width:none;margin:0}
+.tc-eras{--dot:66px;--gap:30px;grid-column:1;grid-row:1;list-style:none;margin:0;padding:0;display:grid;gap:var(--gap);position:relative}
+.tc-era{position:relative;display:grid;grid-template-columns:var(--dot) minmax(0,1fr);gap:20px;align-items:start;min-width:0}
+.tc-era::before,.tc-era::after{content:"";position:absolute;left:calc(var(--dot) / 2 - 1px);top:calc(var(--dot) / 2);width:2px;height:calc(100% + var(--gap));z-index:0}
+.tc-era::before{background:#e2d9cf}
+.tc-era::after{background:var(--orange);transform-origin:top;transform:scaleY(var(--seg,1))}
+.tc-era:last-child::before,.tc-era:last-child::after{display:none}
+.tc-era-icon{width:var(--dot);height:var(--dot);border-radius:50%;background:#fff;border:2px solid #e2d9cf;display:flex;align-items:center;justify-content:center;color:var(--gray-dark);position:relative;z-index:1;box-shadow:0 4px 14px rgba(0,0,0,.05);transition:border-color .45s ease,color .45s ease,background-color .45s ease,box-shadow .45s ease}
+.tc-era-icon svg{width:calc(var(--dot) * .48);height:calc(var(--dot) * .48)}
+.tc-era-icon::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--orange);opacity:0;pointer-events:none}
+.tc-era-text{padding-top:8px;min-width:0}
 .tc-era-year{display:block;font-family:var(--font-heading);font-weight:800;font-size:.9rem;color:var(--orange-dark);letter-spacing:.02em}
-.tc-era h3{font-size:.95rem;margin:4px 0 6px;color:var(--black);line-height:1.3}
-.tc-era p{font-size:.82rem;color:var(--gray);line-height:1.55;margin:0}
+.tc-era h3{font-size:1.08rem;margin:2px 0 6px;color:var(--black);line-height:1.3}
+.tc-era p{font-size:.92rem;color:var(--gray);line-height:1.6;margin:0;text-wrap:pretty}
 .tc-era.is-now h3{color:var(--orange-dark)}
+.tc-eras:not(.tc-anim) .tc-era-icon,.tc-era.is-lit .tc-era-icon{border-color:var(--orange);color:var(--orange-dark)}
+.tc-eras:not(.tc-anim) .is-now .tc-era-icon,.tc-era.is-now.is-lit .tc-era-icon{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 6px 20px rgba(243,137,41,.35)}
+.tc-anim .tc-era{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.tc-anim .tc-era.is-in{opacity:1;transform:none}
+.tc-anim .tc-era::after{transition:transform .15s linear}
+.tc-eras.tc-pulsed .is-now .tc-era-icon::after{animation:tcPulse 1.8s ease-out 2}
+@keyframes tcPulse{0%{opacity:.75;transform:scale(1)}100%{opacity:0;transform:scale(1.6)}}
 @media(max-width:900px){
-  .tc-eras{grid-template-columns:minmax(0,1fr);gap:20px;max-width:540px}
-  .tc-eras::before{top:12px;bottom:12px;left:32px;right:auto;width:2px;height:auto}
-  .tc-era{display:grid;grid-template-columns:66px minmax(0,1fr);gap:16px;text-align:left;align-items:center}
-  .tc-era-icon{margin:0}
+  .tc-history{grid-template-columns:minmax(0,1fr);gap:0;max-width:600px}
+  .tc-history-copy{display:contents;position:static}
+  .tc-history .tc-header{order:0;text-align:center;margin:0 auto 32px}
+  .tc-eras{order:1;grid-column:auto;grid-row:auto;margin-bottom:40px}
+  .tc-history .tc-prose{order:2}
+}
+@media(max-width:560px){
+  .tc-eras{--dot:54px;--gap:24px}
+  .tc-era{gap:14px}
+  .tc-era-text{padding-top:3px}
+}
+@media(prefers-reduced-motion:reduce){
+  .tc-era,.tc-era::after,.tc-era-icon{transition:none}
+  .tc-era-icon::after{animation:none}
 }
 .tc-split.top{align-items:start}
 .tc-split .tc-steps{max-width:none;margin:0}
@@ -555,45 +580,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== HOW WE GOT HERE ===== -->
 <section class="tc-section alt" aria-labelledby="tc-history">
   <div class="container">
-    <div class="tc-header">
-      <span class="section-label">How We Got Here</span>
-      <h2 class="section-title" id="tc-history">From the Concert Hall to the Earbud, and Back Again</h2>
-    </div>
-    <ol class="tc-eras" aria-label="From stereo to streaming and back">
-      <li class="tc-era">
-        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="7" height="16" rx="1.5"/><circle cx="5.5" cy="9" r="1.4"/><circle cx="5.5" cy="15" r="2.2"/><rect x="15" y="4" width="7" height="16" rx="1.5"/><circle cx="18.5" cy="9" r="1.4"/><circle cx="18.5" cy="15" r="2.2"/></svg></span>
-        <div class="tc-era-text"><span class="tc-era-year">1931</span><h3>Stereo is invented</h3><p>A patent for putting a performance in front of you, with two channels.</p></div>
-      </li>
-      <li class="tc-era">
-        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r=".6"/><path d="M12 5.5a6.5 6.5 0 0 1 6.5 6.5"/></svg></span>
-        <div class="tc-era-text"><span class="tc-era-year">1958</span><h3>Stereo records</h3><p>The stereo LP reaches living rooms, and the band spreads out between two speakers.</p></div>
-      </li>
-      <li class="tc-era">
-        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="11" r="2"/><circle cx="16" cy="11" r="2"/><path d="M10 11h4"/><path d="M6.5 19l1.5-3.5h8l1.5 3.5"/></svg></span>
-        <div class="tc-era-text"><span class="tc-era-year">1963</span><h3>The cassette</h3><p>Music fits in a pocket and a car. Convenience starts to win.</p></div>
-      </li>
-      <li class="tc-era">
-        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2.5"/><path d="M12 6.5A5.5 5.5 0 0 0 6.5 12"/><path d="M17.5 12a5.5 5.5 0 0 1-5.5 5.5"/></svg></span>
-        <div class="tc-era-text"><span class="tc-era-year">1982</span><h3>The CD</h3><p>Clean and digital, and it lives in the car and the kitchen.</p></div>
-      </li>
-      <li class="tc-era">
-        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><rect x="8.5" y="4.5" width="7" height="6" rx="1"/><circle cx="12" cy="16" r="3"/><circle cx="12" cy="16" r=".7"/></svg></span>
-        <div class="tc-era-text"><span class="tc-era-year">Late 1990s</span><h3>The MP3</h3><p>A thousand songs in your pocket, squeezed to fit.</p></div>
-      </li>
-      <li class="tc-era">
-        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="9" height="18" rx="2"/><path d="M6.5 18h2"/><circle cx="18" cy="8.5" r="2.8"/><path d="M18 11.3V19"/></svg></span>
-        <div class="tc-era-text"><span class="tc-era-year">2010s</span><h3>Streaming to earbuds</h3><p>Every song ever made, played through a phone speaker or a pair of earbuds.</p></div>
-      </li>
-      <li class="tc-era is-now">
-        <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="5" height="11" rx="1"/><circle cx="4.5" cy="10" r="1.3"/><rect x="17" y="3" width="5" height="11" rx="1"/><circle cx="19.5" cy="10" r="1.3"/><path d="M8.5 21v-3.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V21"/><path d="M9.5 15.5V13h5v2.5"/></svg></span>
-        <div class="tc-era-text"><span class="tc-era-year">Today</span><h3>Back to two channels</h3><p>A pair of speakers, a chair, and the phone in the other room.</p></div>
-      </li>
-    </ol>
-
-    <div class="tc-prose">
-      <p>Stereo was invented to put a performance in front of you. The idea was patented in 1931 and stereo records reached living rooms in 1958: two channels, two speakers, and a band laid out across the room between them.</p>
-      <p>Then convenience won, one format at a time. The cassette, the CD, the MP3, and finally streaming through a phone speaker or a pair of earbuds. Every step made music easier to carry. Almost every step also made it easier to ignore.</p>
-      <p>Two channel audio is a return to where it started, with forty years of better engineering behind it. Most of the music you love was mixed on a pair of speakers, by people sitting in a chair in front of them, and a good two channel system is simply the most direct way to hear what they heard.</p>
+    <div class="tc-history">
+      <div class="tc-history-copy">
+        <div class="tc-header">
+          <span class="section-label">How We Got Here</span>
+          <h2 class="section-title" id="tc-history">From the Concert Hall to the Earbud, and Back Again</h2>
+        </div>
+        <div class="tc-prose">
+          <p>Stereo was invented to put a performance in front of you. The idea was patented in 1931 and stereo records reached living rooms in 1958: two channels, two speakers, and a band laid out across the room between them.</p>
+          <p>Then convenience won, one format at a time. The cassette, the CD, the MP3, and finally streaming through a phone speaker or a pair of earbuds. Every step made music easier to carry. Almost every step also made it easier to ignore.</p>
+          <p>Two channel audio is a return to where it started, with forty years of better engineering behind it. Most of the music you love was mixed on a pair of speakers, by people sitting in a chair in front of them, and a good two channel system is simply the most direct way to hear what they heard.</p>
+        </div>
+      </div>
+      <ol class="tc-eras" aria-label="From stereo to streaming and back">
+        <li class="tc-era">
+          <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="7" height="16" rx="1.5"/><circle cx="5.5" cy="9" r="1.4"/><circle cx="5.5" cy="15" r="2.2"/><rect x="15" y="4" width="7" height="16" rx="1.5"/><circle cx="18.5" cy="9" r="1.4"/><circle cx="18.5" cy="15" r="2.2"/></svg></span>
+          <div class="tc-era-text"><span class="tc-era-year">1931</span><h3>Stereo is invented</h3><p>A patent for putting a performance in front of you, with two channels.</p></div>
+        </li>
+        <li class="tc-era">
+          <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r=".6"/><path d="M12 5.5a6.5 6.5 0 0 1 6.5 6.5"/></svg></span>
+          <div class="tc-era-text"><span class="tc-era-year">1958</span><h3>Stereo records</h3><p>The stereo LP reaches living rooms, and the band spreads out between two speakers.</p></div>
+        </li>
+        <li class="tc-era">
+          <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="11" r="2"/><circle cx="16" cy="11" r="2"/><path d="M10 11h4"/><path d="M6.5 19l1.5-3.5h8l1.5 3.5"/></svg></span>
+          <div class="tc-era-text"><span class="tc-era-year">1963</span><h3>The cassette</h3><p>Music fits in a pocket and a car. Convenience starts to win.</p></div>
+        </li>
+        <li class="tc-era">
+          <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2.5"/><path d="M12 6.5A5.5 5.5 0 0 0 6.5 12"/><path d="M17.5 12a5.5 5.5 0 0 1-5.5 5.5"/></svg></span>
+          <div class="tc-era-text"><span class="tc-era-year">1982</span><h3>The CD</h3><p>Clean and digital, and it lives in the car and the kitchen.</p></div>
+        </li>
+        <li class="tc-era">
+          <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><rect x="8.5" y="4.5" width="7" height="6" rx="1"/><circle cx="12" cy="16" r="3"/><circle cx="12" cy="16" r=".7"/></svg></span>
+          <div class="tc-era-text"><span class="tc-era-year">Late 1990s</span><h3>The MP3</h3><p>A thousand songs in your pocket, squeezed to fit.</p></div>
+        </li>
+        <li class="tc-era">
+          <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="9" height="18" rx="2"/><path d="M6.5 18h2"/><circle cx="18" cy="8.5" r="2.8"/><path d="M18 11.3V19"/></svg></span>
+          <div class="tc-era-text"><span class="tc-era-year">2010s</span><h3>Streaming to earbuds</h3><p>Every song ever made, played through a phone speaker or a pair of earbuds.</p></div>
+        </li>
+        <li class="tc-era is-now">
+          <span class="tc-era-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="5" height="11" rx="1"/><circle cx="4.5" cy="10" r="1.3"/><rect x="17" y="3" width="5" height="11" rx="1"/><circle cx="19.5" cy="10" r="1.3"/><path d="M8.5 21v-3.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V21"/><path d="M9.5 15.5V13h5v2.5"/></svg></span>
+          <div class="tc-era-text"><span class="tc-era-year">Today</span><h3>Back to two channels</h3><p>A pair of speakers, a chair, and the phone in the other room.</p></div>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
@@ -1196,6 +1224,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var copy=document.querySelector('.tc-history-copy');
+  if(!copy)return;
+  function fit(){
+    if(getComputedStyle(copy).position!=='sticky'){copy.style.top='';return;}
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    copy.style.top=Math.min(112,vh-copy.offsetHeight-24)+'px';
+  }
+  fit();
+  window.addEventListener('resize',fit);
+  window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+(function(){
+  var rail=document.querySelector('.tc-eras');
+  if(!rail||!('IntersectionObserver' in window)||!window.requestAnimationFrame)return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var eras=[].slice.call(rail.querySelectorAll('.tc-era'));
+  var now=rail.querySelector('.is-now');
+  var ticking=false,active=false;
+  rail.classList.add('tc-anim');
+  function update(){
+    ticking=false;
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    var top=rail.getBoundingClientRect().top,line=vh*.62,reveal=vh*.9,stagger=0;
+    var centers=eras.map(function(li){var ic=li.firstElementChild;return top+li.offsetTop+ic.offsetTop+ic.offsetHeight/2;});
+    eras.forEach(function(li,i){
+      if(!li.classList.contains('is-in')&&top+li.offsetTop<reveal){li.style.transitionDelay=(stagger++*90)+'ms';li.classList.add('is-in');}
+      li.classList.toggle('is-lit',centers[i]<=line);
+      if(i<eras.length-1){
+        var f=(line-centers[i])/(centers[i+1]-centers[i]);
+        li.style.setProperty('--seg',Math.max(0,Math.min(1,f)).toFixed(3));
+      }
+    });
+    if(now&&now.classList.contains('is-lit'))rail.classList.add('tc-pulsed');
+  }
+  function onScroll(){if(!ticking){ticking=true;window.requestAnimationFrame(update);}}
+  new IntersectionObserver(function(entries){
+    var on=entries[0].isIntersecting;
+    if(on&&!active){active=true;window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);onScroll();}
+    else if(!on&&active){active=false;window.removeEventListener('scroll',onScroll);window.removeEventListener('resize',onScroll);update();}
+  },{rootMargin:'200px 0px'}).observe(rail);
+  update();
+})();
+</script>
 
 <script>
 document.querySelectorAll('.faq-question').forEach(function(btn){
