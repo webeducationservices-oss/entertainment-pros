@@ -62,6 +62,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .ml-fact b{display:block;font-family:var(--font-heading);font-size:1.9rem;font-weight:800;color:var(--orange-dark);line-height:1.1;margin-bottom:8px;font-variant-numeric:tabular-nums}
 .ml-fact h3{font-size:1.02rem;margin:0 0 6px;color:var(--black)}
 .ml-fact p{font-size:.93rem;color:var(--gray);line-height:1.7;margin:0}
+.ml-shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1080px;margin:0 auto 34px}
+.ml-shots figure{margin:0;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.ml-shots img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block}
+.ml-shots figcaption{padding:12px 16px;font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--black)}
 .ml-lines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:1080px;margin:0 auto}
 .ml-line{background:#fff;border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow);min-width:0;border-left:4px solid var(--orange)}
 .ml-line h3{margin:0 0 8px;font-size:1.08rem;color:var(--black)}
@@ -91,6 +95,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .faq-answer-inner{padding:0 0 20px;font-size:.95rem;color:var(--gray);line-height:1.8}
 .faq-answer-inner a{color:var(--orange-dark);font-weight:700}
 @media(max-width:900px){.ml-facts,.ml-lines,.ml-fit,.ml-local{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.ml-shots{grid-template-columns:repeat(2,minmax(0,1fr))}.ml-shots figure:last-child{grid-column:1/-1}.ml-shots figure:last-child img{aspect-ratio:3/2}}
 @media(prefers-reduced-motion:reduce){.faq-answer{transition:none}}
 
 </style>
@@ -457,6 +462,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="section-label">The Lineup</span>
       <h2 class="section-title" id="ml-lineup">What MartinLogan Makes</h2>
       <p class="section-subtitle">The short version. Which line fits depends on your room, and that is a conversation we have after we have seen it.</p>
+    </div>
+    <div class="ml-shots">
+      <figure><img src="/images/martinlogan-masterpiece-series-electrostatic.jpg" alt="A MartinLogan Masterpiece Series electrostatic speaker in front of a dark stone wall" width="640" height="960" loading="lazy"><figcaption>Masterpiece Series</figcaption></figure>
+      <figure><img src="/images/martinlogan-electromotion-electrostatic-piano-room.jpg" alt="A slim MartinLogan ElectroMotion electrostatic speaker beside a grand piano" width="640" height="960" loading="lazy"><figcaption>ElectroMotion Series</figcaption></figure>
+      <figure><img src="/images/martinlogan-motion-foundation-floorstanding.jpg" alt="A walnut MartinLogan Motion Foundation floorstanding speaker against a white wall" width="640" height="960" loading="lazy"><figcaption>Motion Foundation Series</figcaption></figure>
     </div>
     <div class="ml-lines">
       <div class="ml-line"><h3>Electrostatic hybrids</h3><p>The heart of the brand, up to and including the Masterpiece Series flagships. An electrostatic panel handles the voice and the detail, and a conventional woofer handles the deep bass below it. This is the speaker people mean when they say MartinLogan.</p></div>
