@@ -107,6 +107,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .why-grid{grid-template-columns:1fr}
   .reviews-grid{grid-template-columns:1fr}
 }
+
+/* ===== LINES WE CARRY (dealer credentials) ===== */
+.lines-section{padding:var(--section-pad);background:var(--gray-bg)}
+.lines-header{text-align:center;margin-bottom:40px;max-width:820px;margin-left:auto;margin-right:auto}
+.lines-header .section-subtitle{text-wrap:pretty}
+.lines-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;max-width:960px;margin:0 auto}
+.lines-card{background:#fff;border-radius:var(--radius);padding:34px 30px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;min-width:0}
+.lines-logo{height:58px;width:auto;max-width:220px;object-fit:contain;object-position:left center;align-self:flex-start}
+.lines-card h3{font-size:1.12rem;color:var(--black);margin:0}
+.lines-card p{font-size:.95rem;color:var(--gray);line-height:1.7;margin:0}
+.lines-card .lines-where{font-family:var(--font-heading);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-dark)}
+.lines-note{max-width:820px;margin:34px auto 0;text-align:center}
+.lines-note p{color:var(--gray);font-size:1.02rem;line-height:1.8;text-wrap:pretty;margin:0 0 14px}
+.lines-note a{color:var(--orange-dark);font-weight:700}
+@media(max-width:820px){.lines-grid{grid-template-columns:minmax(0,1fr)}.lines-section{padding:48px 0}}
 </style>
   <!-- myaieditor inline-edit loader (no-op for real visitors) -->
   <script src="/mae-edit-loader.js" async></script>
@@ -328,6 +343,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ===== REVIEWS ===== -->
+<!-- ===== LINES WE CARRY ===== -->
+<section class="lines-section">
+  <div class="container">
+    <div class="lines-header">
+      <span class="section-label">Lines We Carry</span>
+      <h2 class="section-title">A MartinLogan and Tributaries Dealer</h2>
+      <p class="section-subtitle">We do not stock everything, and that is the point. These are lines we chose because we are willing to put our name next to how they sound.</p>
+    </div>
+    <div class="lines-grid">
+      <div class="lines-card">
+        <img class="lines-logo" src="/images/martinlogan.png" alt="MartinLogan logo" width="236" height="144" loading="lazy">
+        <span class="lines-where">Lawrence, Kansas</span>
+        <h3>MartinLogan electrostatic speakers</h3>
+        <p>MartinLogan has been building electrostatic speakers in Lawrence, Kansas since 1983. Instead of pushing air with a cone, an electrostatic panel moves a sheet thinner than a human hair across its whole surface. It is a different kind of sound, and it is the reason people who thought they were done upgrading sit back down.</p>
+        <p>They are also unusually room dependent, which is exactly why they should be set up by somebody who will measure your room before quoting a model.</p>
+      </div>
+      <div class="lines-card">
+        <img class="lines-logo" src="/images/tributaries.png" alt="Tributaries Cable logo" width="320" height="52" loading="lazy">
+        <span class="lines-where">Made in Orlando, Florida</span>
+        <h3>Tributaries cable and connectivity</h3>
+        <p>Tributaries builds HDMI, speaker and power cable in Orlando, two hours up the road. We use them because the certified HDMI holds a signal over the long in wall runs this work actually requires, and because when something needs to be sorted out we are calling Florida, not a support queue.</p>
+        <p>Most of what we install disappears inside a wall. That is the part you should care most about getting right the first time.</p>
+      </div>
+    </div>
+    <div class="lines-note">
+      <p>Being a dealer does not mean we open with a brand. We will not recommend a single model until we understand the room, how you listen and what you already own. The gear conversation comes last, and a person has it with you.</p>
+      <p><a href="/brands">See every brand we work with</a></p>
+    </div>
+  </div>
+</section>
+
 <section class="reviews" id="reviews">
   <div class="container">
     <div class="reviews-header">
